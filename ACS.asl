@@ -84,6 +84,8 @@ startup
     };
     vars.SetTextComponent = SetTextComponent;
     settings.Add("percentage display", false);
+
+
 }
 
 init
@@ -113,8 +115,9 @@ update
     //print("any%splits: " + vars.split);
     //if (current.Character != old.Character || current.Cutscene != old.Cutscene || current.Loading != old.Loading)
    // {
-   // print("Jack;" + " CurrentCharacter:" + current.Character + " OldCharacter:" + old.Character  + " Cutscene:" + current.Cutscene + " Loading:" + current.Loading);    
+   //print("Jack;" + " CurrentCharacter:" + current.Character + " OldCharacter:" + old.Character  + " Cutscene:" + current.Cutscene + " Loading:" + current.Loading);    
 //}
+    //print("Current splits: " + String.Join(", ", vars.split));
 }
 
 start
@@ -187,27 +190,22 @@ onStart
             "Opium Spoils",
             "Live by the Creed, Die by the Creed"
         };
-    }
+    }  
 }
-
 
 /*splits when end mission screen disappears 
 note if you want it to split on after the jack missions please select the ripper_# as those will allow it to split after the mission ends as jack*/
 split
 {   
-    //splits when end screen appears so when you are able to press "A" button or equivlent on keyboard and mouse
-    if(current.Endscreen == 1 && old.Endscreen == 0 && !vars.completedsplits.Contains("Family Reunion"))
+    //splits when end screen appears so when you are able to press "A" button or equivlent on keyboard and mouse for any%
+    if(current.Endscreen == 1 && old.Endscreen == 0)
     {
-    vars.completedsplits.Add(vars.split[0]);
-    vars.split.RemoveAt(0);
     return true;
     }
 
     //Splits for 100% after you accept the final mission end screen and the percentage goes to 100 assuming u got 100%
     if (vars.completedsplits.Contains("Family Reunion") && current.Percentage == 100 && settings["100%_DLC"])
     {
-        vars.completedsplits.Add(vars.split[0]);
-        vars.split.RemoveAt(0);
         return true;
     }
 
@@ -243,14 +241,33 @@ split
                 }  
         } else
         {
-            if (settings["100%_DLC"])
+            if(settings["100%_DLC"] && !vars.completedsplits.Contains("Family Reunion") && vars.completedsplits.Contains("Opium Spoils") && current.Percentage > old.Percentage)
             {
-              if(!vars.completedsplits.Contains("Family Reunion") && vars.completedsplits.Contains("Opium Spoils") && current.Percentage > old.Percentage)
-                {
-                    vars.completedsplits.Add("Family Reunion");
-                    return true;
-                }   
-            }
+                vars.completedsplits.Add("Family Reunion");
+                return true;
+            }   
+        }
+    }
+}
+
+onSplit
+{
+    if (settings["Any%_DLC"])
+    {
+    vars.completedsplits.Add(vars.split[0]);
+    vars.split.RemoveAt(0);
+    }
+    
+    if (settings["100%_DLC"] && !vars.completedsplits.Contains("Family Reunion"))
+    {
+        vars.completedsplits.Add(vars.split[0]);
+        vars.split.RemoveAt(0);
+    }else
+    {
+        if (vars.completedsplits.Contains("Family Reunion") && current.Percentage == 100 && settings["100%_DLC"])
+        {
+        vars.completedsplits.Add(vars.split[0]);
+        vars.split.RemoveAt(0);
         }
     }
 }

@@ -86,7 +86,7 @@ startup
     settings.SetToolTip("Assassin's Creed Liberation Remastered", "Choose this if you are playing Assassin's Creed Liberation Remastered");
     
     //sequence settings for Assassin's Creed III Remastered
-    settings.Add("Sequence 1_AC3", false, "Sequence 1_AC3","Assassin's Creed III Remastered");
+   /*settings.Add("Sequence 1_AC3", false, "Sequence 1_AC3","Assassin's Creed III Remastered");
     settings.Add("Sequence 2_AC3", false, "Sequence 2_AC3","Assassin's Creed III Remastered");
     settings.Add("Sequence 3_AC3", false, "Sequence 3_AC3","Assassin's Creed III Remastered");
     settings.Add("Sequence 4_AC3", false, "Sequence 4_AC3","Assassin's Creed III Remastered");
@@ -101,7 +101,7 @@ startup
     settings.Add("Sequence 11_AC3", false, "Sequence 11_AC3","Assassin's Creed III Remastered");
     settings.Add("Modern day 3", false, "Modern day 3","Assassin's Creed III Remastered");
     settings.Add("Sequence 12_AC3", false, "Sequence 12_AC3","Assassin's Creed III Remastered");
-    settings.Add("Modern day 4", false, "Modern day 4","Assassin's Creed III Remastered");
+    settings.Add("Modern day 4", false, "Modern day 4","Assassin's Creed III Remastered");*/
 
     //sequence settings for Assassin's Creed Liberation Remastered
     settings.Add("Sequence 1_ACL", false, "Sequence 1_ACL","Assassin's Creed Liberation Remastered");
@@ -116,9 +116,7 @@ startup
 
     //Literally a setting to split on every mission
     settings.Add("Mission", true, "Mission", "Game");
-    settings.SetToolTip("Mission", "Choose this if you want to split after a mission is completed will not split for modern day sections only for ac3");
-    settings.Add("Mission_acl", true, "Mission_acl", "Game");
-    settings.SetToolTip("Mission", "Choose this if you want acl to split after a mission is completed");
+    settings.SetToolTip("Mission", "Choose this if you want to split after a mission is completed will not split for modern day sections.");
     // Asks the user if they want to change to game time if the comparison is set to real time on startup.
     if(timer.CurrentTimingMethod == TimingMethod.RealTime)
     {        
@@ -152,6 +150,7 @@ startup
             textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
     };
     vars.SetTextComponent = SetTextComponent;
+    vars.SequencePercentage = 0;
 }
 
 init
@@ -193,110 +192,119 @@ split
     // splits after every mission that gives you percentage note some missions dont have a end mission screen so make sure you have enough splits
     if(settings["Mission"])
     {
-    if(current.MissionComplete == 1 && old.MissionComplete == 0){
+    if(current.percentage > old.percentage){
         return true;
         };
     }
-    if (settings["Mission_acl"])
-    {
-        if (current.percentage > old.percentage)
-        {
-            return true;
-        }
-    }
+
     //all splits down split base off what the ending percentage is, very expiermental as if you miss certain objectives it could not split. Note is only for ac3
     if(settings["Sequence 1_AC3"])
-    {if(current.percentage == 2 && old.percentage == 1 ){
+    {if(current.percentage == 2 && old.percentage == 1){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
-   /* if(settings["Sequence 2_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+  /*if(settings["Sequence 2_AC3"])
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 3_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 4_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 5_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Modern day 1"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 6_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 7_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 8_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Modern day 2"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 9_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 10_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 11_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Modern day 3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
 
     if(settings["Sequence 12_AC3"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
+        vars.SequencePercentage = current.percentage;
         return true;
         }
     }
     //final split should ideally split once you lose control of desmond
     if(settings["Modern day 4"])
-    {if(current.percentage ==  && old.percentage ==  ){
+    {if(current.percentage = vars.SequencePercentage + 2){
         return true;
         }
     } */

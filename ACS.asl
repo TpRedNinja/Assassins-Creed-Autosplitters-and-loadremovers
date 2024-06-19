@@ -222,7 +222,7 @@ split
     //splits after completeing the mission Loose Ends approxmitly after jack says "im looking forward to the family reunion" or when the ding sound plays
     if(settings["Loose Ends"])
     {
-        if(!vars.completedsplits.Contains("Loose Ends") && vars.completedsplits.Contains("Prisoners") && current.Percentage = old.percentage + 6 && current.Loading == 1 )
+        if(!vars.completedsplits.Contains("Loose Ends") && vars.completedsplits.Contains("Prisoners") && current.Percentage == old.percentage + 6 )
         {
             vars.completedsplits.Add("Loose Ends");
             return true;

@@ -42,11 +42,10 @@ startup
     //Settings for Any% and 100% for the dlc
     settings.Add("Any%_DLC", false, "Any%", "ripper");
     settings.Add("100%_DLC", false, "100%", "ripper");
-    //Settings to splits after missions where you play as jack
-    settings.Add("Prologue", false, "Prologue", "ripper");
-    settings.Add("Loose Ends", false, "Loose Ends", "ripper");
-    settings.Add("Family Reunion", false, "Family Reunion", "ripper");
     
+    //percentage display
+    settings.Add("percentage display", false);
+
     //Settings tooltips 
     //Settings tooltips for the base game
     settings.SetToolTip("base", "Click this if you are speedrunning the base game");
@@ -58,12 +57,7 @@ startup
     settings.SetToolTip("ripper", "Click this if you are speedrunning the dlc");
     settings.SetToolTip("Any%_DLC", "Enable this if you are doing a any% speedrun & using my any% splits");
     settings.SetToolTip("100%_DLC", "Enable this if you are doing a 100% speedrun & using the 100% route made by ector");
-    settings.SetToolTip("Prologue", "Enable this if you want to split after the prologue ends");
-    settings.SetToolTip("Loose Ends", "Enable this if you want to split after you complete Loose Ends");
-    settings.SetToolTip("Family Reunion", "Enable this if you want to split after you complete Family Reunion");
 
-    vars.completedsplits = new List<string>();
-    vars.split = new List<string>();
     // set text taken from Poppy Platime C2
     // to display the text associated with this script aka current percentage along with IGT
     Action<string, string> SetTextComponent = (id, text) => {
@@ -82,10 +76,75 @@ startup
         if (textSetting != null)
             textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
     };
-    vars.SetTextComponent = SetTextComponent;
-    settings.Add("percentage display", false);
-
-
+    
+//Initalize variables
+vars.SetTextComponent = SetTextComponent;
+vars.completedsplits = new List<string>();
+   if(settings["Any%_DLC"])
+    {
+        vars.MainMissions = new List<string> {  
+            "The Autumn of Terror", 
+            "Unfortunates", 
+            "The Lady Talks", 
+            "Letters of Intent", 
+            "Prisoners", 
+            "The Mother of All Crimes",  
+        };
+        vars.JackMissions = new List<string> {
+            "Prologue",
+            "Loose Ends",
+            "Family Reunion"
+        };
+        }
+    if(settings["100%_DLC"])
+    {
+        vars.MainMissions = new List<string> {
+            "Prologue",
+            "The Autumn of Terror", 
+            "Unfortunates", 
+            "The Lady Talks", 
+            "Letters of Intent", 
+            "Prisoners",
+            "Loose Ends", 
+            "The Mother of All Crimes",
+            "Family Reunion",
+            "Live by the Creed, Die by the Creed"  
+        };
+        vars.PlusOne = new List<string> {
+            "Chest 1",//during Unfortunates
+            "Buck's Row Brothel",
+            "Chest 2",//during wood shinnings
+            "Woody Shinnings",
+            "Helix Glitch 1",// after The Lady Talks
+            "Robert Donston Stephenson",
+            "Helix Glitch 2",//during letters of Intent
+            "Dear Boss",
+            "Chest 3",//during prisoners
+            "Saucy Jack",
+            "Chest 4",//during the mother of all crimes
+            "From Hell",
+            "Walk of shame",
+            "Helix Glitch 3",//during egyptian spoils
+            "Jack's Lieutenants 1", 
+            "Ludgate Hill Brothel",
+            "David Jack-Emmings",
+            "Chest 5", //during opium spoils
+            "Opium Spoils",
+            "Indian Emerald"
+        };
+        vars.PlusTwo = new List<string> {
+            "Sweryn Klosowski",
+            "Mitre Square Fight Club",
+            "Shameful Abuse",
+            "Gracechurch Street Brothel",
+            "Egyptian Spoils",
+            "Lost Women",
+            "Lost in the City",
+            "Cock Lane Fight Club",
+            "Jack's Lieutenants 2",
+            "John Pizer"
+        };
+    }  
 }
 
 init
@@ -117,7 +176,7 @@ update
    // {
    //print("Jack;" + " CurrentCharacter:" + current.Character + " OldCharacter:" + old.Character  + " Cutscene:" + current.Cutscene + " Loading:" + current.Loading);    
 //}
-    //print("Current splits: " + String.Join(", ", vars.split));
+    print("Current splits: " + String.Join(", ", vars.MainMissions));
 }
 
 start
@@ -144,132 +203,53 @@ start
     }
 }
 
-onStart
-{
-    // Initialize vars.split based on selected settings
-    if (settings["Any%_DLC"])
-    {
-        vars.split = new List<string> {  
-            "The Autumn of Terror", 
-            "Unfortunates", 
-            "The Lady Talks", 
-            "Letters of Intent", 
-            "Prisoners", 
-            "The Mother of All Crimes",  
-        };
-    }
-    else if(settings["100%_DLC"])
-    {
-        vars.split = new List<string> {
-            "The Autumn of Terror",
-            "Unfortunates",
-            "Buck's Row Brothel",
-            "Woody Shinnings",
-            "Sweryn Klosowski",
-            "The Lady Talks",
-            "Robert Donston Stephenson",
-            "Letters of Intent",
-            "Dear Boss",
-            "Prisoners",
-            "Mitre Square Fight Club",
-            "Saucy Jack",
-            "The Mother of All Crimes",
-            "From Hell",
-            "Shameful Abuse",
-            "Walk of shame",
-            "Gracechurch Street Brothel",
-            "Egyptian Spoils",
-            "Jack's Lieutenants 1", 
-            "Lost Women",
-            "Lost in the City",
-            "Ludgate Hill Brothel",
-            "Cock Lane Fight Club",
-            "Jack's Lieutenants 2",
-            "John Pizer",
-            "David Jack-Emmings",
-            "Opium Spoils",
-            "Live by the Creed, Die by the Creed"
-        };
-    }  
-}
-
 /*splits when end mission screen disappears 
 note if you want it to split on after the jack missions please select the ripper_# as those will allow it to split after the mission ends as jack*/
 split
 {   
+
+
+    if(settings["Any%_DLC"])
+        {
     //splits when end screen appears so when you are able to press "A" button or equivlent on keyboard and mouse for any%
-    if(current.Endscreen == 1 && old.Endscreen == 0)
-    {
-    return true;
-    }
-
-    //Splits for 100% after you accept the final mission end screen and the percentage goes to 100 assuming u got 100%
-    if (vars.completedsplits.Contains("Family Reunion") && current.Percentage == 100 && settings["100%_DLC"])
-    {
-        return true;
-    }
-
-    //Splits after you complete the first mission Prologue approxmitly during the black screen after you skip the cutscene with jacob collecting his things in his safehouse
-    if(settings["Prologue"])
-    {
-        if(!vars.completedsplits.Contains("Prologue") && current.Percentage > old.Percentage)
-        {
-            vars.completedsplits.Add("Prologue");
+        if(current.Endscreen == 1 && old.Endscreen == 0)
+            {
+            vars.completedsplits.Add(vars.MainMissions[0]);
+            vars.MainMissions.RemoveAt(0);    
             return true;
-        }
-    }
-
-    //splits after completeing the mission Loose Ends approxmitly after jack says "im looking forward to the family reunion" or when the ding sound plays
-    if(settings["Loose Ends"])
-    {
-        if(!vars.completedsplits.Contains("Loose Ends") && vars.completedsplits.Contains("Prisoners") && current.Percentage == old.percentage + 6 && current.Character == 9 )
-        {
-            vars.completedsplits.Add("Loose Ends");
+                }
+        if (current.percentage = old.percentage + 6 && current.Character != 6)
+                {
+            vars.completedsplits.Add(vars.JackMissions[0]);
+            vars.JackMissions.RemoveAt(0); 
             return true;
             }
-    }
-
-    //splits after completeing the mission Family Reunion approxmitly when the ding sound plays or when the last bit of jacks dialogue is played
-    if(settings["Family Reunion"])
+        }
+    if (settings["100%_DLC"])
     {
-        if (settings["Any%_DLC"])
+        if (current.percentage = old.percentage + 6)
         {
-          if(!vars.completedsplits.Contains("Family Reunion") && vars.completedsplits.Contains("The Mother of all Crimes") && current.Percentage > old.Percentage)
-            {
-                vars.completedsplits.Add("Family Reunion");
-                return true;
-                }  
-        } else
+            vars.completedsplits.Add(vars.MainMissions[0]);
+            vars.MainMissions.RemoveAt(0); 
+            return true;
+        }
+
+        if (current.percentage = old.percentage + 1)
         {
-            if(settings["100%_DLC"] && !vars.completedsplits.Contains("Family Reunion") && vars.completedsplits.Contains("Opium Spoils") && current.Percentage > old.Percentage)
-            {
-                vars.completedsplits.Add("Family Reunion");
-                return true;
-            }   
+            vars.completedsplits.Add(vars.PlusOne[0]);
+            vars.PlusOne.RemoveAt(0); 
+            return true;
+        }
+
+        if (current.percentage = old.percentage + 2)
+        {
+            vars.completedsplits.Add(vars.PlusTwo[0]);
+            vars.PlusTwo.RemoveAt(0); 
+            return true; 
         }
     }
-}
 
-onSplit
-{
-    if (settings["Any%_DLC"])
-    {
-    vars.completedsplits.Add(vars.split[0]);
-    vars.split.RemoveAt(0);
-    }
-    
-    if (settings["100%_DLC"] && !vars.completedsplits.Contains("Family Reunion"))
-    {
-        vars.completedsplits.Add(vars.split[0]);
-        vars.split.RemoveAt(0);
-    }else
-    {
-        if (vars.completedsplits.Contains("Family Reunion") && current.Percentage == 100 && settings["100%_DLC"])
-        {
-        vars.completedsplits.Add(vars.split[0]);
-        vars.split.RemoveAt(0);
-        }
-    }
+
 }
 
 isLoading
@@ -280,53 +260,16 @@ isLoading
 
 onReset
 {
-    //Clear vars.split
-    vars.completedsplits.Clear();
-
-    //Clear vars.split
-    vars.split.Clear();
-
-    //Re-add each split individually to vars.split if it's empty or less then the max & Any% setting is enabled
-    if (vars.split.Count == 0 && settings["Any%_DLC"])
+    //Clears all lists execpt completed splits
+    if (vars.MainMissions.count > 0 && vars.JackMissions.count > 0 && vars.PlusOne.count > 0 && vars.PlusTwo.count > 0)
     {
-        vars.split.Add("The Autumn of Terror");
-        vars.split.Add("Unfortunates");
-        vars.split.Add("The Lady Talks");
-        vars.split.Add("Letters of Intent");
-        vars.split.Add("Prisoners");
-        vars.split.Add("The Mother of All Crimes");
-        vars.split.Add("Live by the Creed, Die by the Creed");
+        vars.MainMissions.Clear();
+        vars.JackMissions.Clear();
+        vars.PlusOne.Clear();
+        vars.PlusTwo.Clear();
     }
-    // Re-add each split individually to vars.split if it's empty or less then the max & 100% ALT setting is enabled
-    if (vars.split.Count == 0 && settings["100%_DLC"])
+    if (vars.completedsplits.count > 0)
     {
-        vars.split.Add("The Autumn of Terror");
-        vars.split.Add("Unfortunates");
-        vars.split.Add("Buck's Row Brothel");
-        vars.split.Add("Woody Shinnings");
-        vars.split.Add("Sweryn Klosowski");
-        vars.split.Add("The Lady Talks");
-        vars.split.Add("Robert Donston Stephenson");
-        vars.split.Add("Letters of Intent");
-        vars.split.Add("Dear Boss");
-        vars.split.Add("Prisoners");
-        vars.split.Add("Mitre Square Fight Club");
-        vars.split.Add("Saucy Jack");
-        vars.split.Add("The Mother of All Crimes");
-        vars.split.Add("From Hell");
-        vars.split.Add("Shameful Abuse");
-        vars.split.Add("Walk of shame");
-        vars.split.Add("Gracechurch Street Brothel");
-        vars.split.Add("Egyptian Spoils");
-        vars.split.Add("Jack's Lieutenants 1");
-        vars.split.Add("Lost Women");
-        vars.split.Add("Lost in the City");
-        vars.split.Add("Ludgate Hill Brothel");
-        vars.split.Add("Cock Lane Fight Club");
-        vars.split.Add("Jack's Lieutenants 2");
-        vars.split.Add("John Pizer");
-        vars.split.Add("David Jack-Emmings");
-        vars.split.Add("Opium Spoils");
-        vars.split.Add("Live by the Creed, Die by the Creed");
+        vars.completedsplits.Clear();
     }
 }

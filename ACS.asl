@@ -105,12 +105,12 @@ init
             "The Autumn of Terror", 
             "Unfortunates", 
             "The Lady Talks", 
-            "Letters of Intent", 
-            "Prisoners", 
+            "Letters of Intent",
             "The Mother of All Crimes",  
         };
         vars.JackMissions = new List<string> {
             "Prologue",
+            "Prisoners",
             "Loose Ends",
             "Family Reunion"
         };

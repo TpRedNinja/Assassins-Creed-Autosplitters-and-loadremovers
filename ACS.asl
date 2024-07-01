@@ -43,8 +43,8 @@ startup
     settings.Add("Any%_DLC", false, "Any%", "ripper");
     settings.Add("100%_DLC", false, "100%", "ripper");
     
-    //percentage display
-    settings.Add("percentage display", false);
+    //Percentage display
+    settings.Add("Percentage display", false);
 
     //Settings tooltips 
     //Settings tooltips for the base game
@@ -59,7 +59,7 @@ startup
     settings.SetToolTip("100%_DLC", "Enable this if you are doing a 100% speedrun & using the 100% route made by ector");
 
     // set text taken from Poppy Platime C2
-    // to display the text associated with this script aka current percentage along with IGT
+    // to display the text associated with this script aka current Percentage along with IGT
     Action<string, string> SetTextComponent = (id, text) => {
         var textSettings = timer.Layout.Components.Where(x => x.GetType().Name == "TextComponent").Select(x => x.GetType().GetProperty("Settings").GetValue(x, null));
         var textSetting = textSettings.FirstOrDefault(x => (x.GetType().GetProperty("Text1").GetValue(x, null) as string) == id);
@@ -99,18 +99,71 @@ init
     
     //print(modules.First().ModuleMemorySize.ToString());
     
+}
+
+update
+{
+    if (settings["Percentage display"])
+    {
+    vars.SetTextComponent("Percentage Completion", "N/A");
+    if (current.Percentage != null)
+    vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
+    }
+    //to debug shit
+    //print("Completed splits: " + String.Join(",", vars.completedsplits));
+    //print("completedsplits: " + vars.completedsplits);
+    //print("any%splits: " + vars.split);
+    //if (current.Character != old.Character || current.Cutscene != old.Cutscene || current.Loading != old.Loading)
+   // {
+   //print("Jack;" + " CurrentCharacter:" + current.Character + " OldCharacter:" + old.Character  + " Cutscene:" + current.Cutscene + " Loading:" + current.Loading);    
+//}
+    print("Current splits: " + String.Join(", ", vars.MainMissions));
+}
+
+start
+{
+
+    //starts when you gain control of jacob from a fresh save
+    if(settings["new_game"])
+    {
+        if(current.Loading == 0 && old.Loading == 0 && current.Jacob == 2 && current.Eviemain == 2)
+        return true;
+    }
+
+    //starts when you gain control of jacob from loading a save past the first cutscene
+    if(settings["loaded_save"])
+    {
+        if(old.Loading == 1 && current.Loading == 0 && current.Jacob == 2 && current.Eviemain == 0 )
+             return true;
+    }
+
+    //starts when starting a level
+    if(settings["levels"])
+    {
+        return old.Cutscene == 0 && (current.Cutscene == 1 || current.Cutscene == 2);
+    }
+
+    if (current.Cutscene == 2 && current.Character == 8)
+    {
+        Thread.Sleep(2000);
+        return true;
+    }
+}
+
+onStart
+{
     if(settings["Any%_DLC"])
     {
         vars.MainMissions = new List<string> {  
             "The Autumn of Terror", 
             "Unfortunates", 
             "The Lady Talks", 
-            "Letters of Intent",
+            "Letters of Intent", 
             "The Mother of All Crimes",  
         };
         vars.JackMissions = new List<string> {
             "Prologue",
-            "Prisoners",
+            "Prisoners", 
             "Loose Ends",
             "Family Reunion"
         };
@@ -166,48 +219,6 @@ init
     }  
 }
 
-update
-{
-    if (settings["percentage display"])
-    {
-    vars.SetTextComponent("Percentage Completion", "N/A");
-    if (current.Percentage != null)
-    vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
-    }
-    //to debug shit
-    //print("Completed splits: " + String.Join(",", vars.completedsplits));
-    //print("completedsplits: " + vars.completedsplits);
-    //print("any%splits: " + vars.split);
-    //if (current.Character != old.Character || current.Cutscene != old.Cutscene || current.Loading != old.Loading)
-   // {
-   //print("Jack;" + " CurrentCharacter:" + current.Character + " OldCharacter:" + old.Character  + " Cutscene:" + current.Cutscene + " Loading:" + current.Loading);    
-//}
-    //print("Current splits: " + String.Join(", ", vars.MainMissions));
-}
-
-start
-{
-
-    //starts when you gain control of jacob from a fresh save
-    if(settings["new_game"])
-    {
-        if(current.Loading == 0 && old.Loading == 0 && current.Jacob == 2 && current.Eviemain == 2)
-        return true;
-    }
-
-    //starts when you gain control of jacob from loading a save past the first cutscene
-    if(settings["loaded_save"])
-    {
-        if(old.Loading == 1 && current.Loading == 0 && current.Jacob == 2 && current.Eviemain == 0 )
-             return true;
-    }
-
-    //starts when starting a level
-    if(settings["levels"])
-    {
-        return old.Cutscene == 0 && (current.Cutscene == 1 || current.Cutscene == 2);
-    }
-}
 
 /*splits when end mission screen disappears 
 note if you want it to split on after the jack missions please select the ripper_# as those will allow it to split after the mission ends as jack*/
@@ -224,7 +235,7 @@ split
             vars.MainMissions.RemoveAt(0);    
             return true;
                 }
-        if (current.percentage = old.percentage + 6)
+        if (current.Percentage == old.Percentage + 6 && current.Character != 6)
                 {
             vars.completedsplits.Add(vars.JackMissions[0]);
             vars.JackMissions.RemoveAt(0); 
@@ -233,21 +244,21 @@ split
         }
     if (settings["100%_DLC"])
     {
-        if (current.percentage = old.percentage + 6)
+        if (current.Percentage == old.Percentage + 6)
         {
             vars.completedsplits.Add(vars.MainMissions[0]);
             vars.MainMissions.RemoveAt(0); 
             return true;
         }
 
-        if (current.percentage = old.percentage + 1)
+        if (current.Percentage == old.Percentage + 1)
         {
             vars.completedsplits.Add(vars.PlusOne[0]);
             vars.PlusOne.RemoveAt(0); 
             return true;
         }
 
-        if (current.percentage = old.percentage + 2)
+        if (current.Percentage == old.Percentage + 2)
         {
             vars.completedsplits.Add(vars.PlusTwo[0]);
             vars.PlusTwo.RemoveAt(0); 
@@ -260,21 +271,21 @@ split
 
 isLoading
 {
-    //pauses during loading screen and unpauses when out of loading screens note black screens do not count as loading
+    //pauses during loading screen and unpauses when out of loading screens note black screens do not Count as loading
     return current.Loading == 1;
 }
 
 onReset
 {
     //Clears all lists execpt completed splits
-    if (vars.MainMissions.count > 0 && vars.JackMissions.count > 0 && vars.PlusOne.count > 0 && vars.PlusTwo.count > 0)
+    if (vars.MainMissions.Count > 0 && vars.JackMissions.Count > 0 && vars.PlusOne.Count > 0 && vars.PlusTwo.Count > 0)
     {
         vars.MainMissions.Clear();
         vars.JackMissions.Clear();
         vars.PlusOne.Clear();
         vars.PlusTwo.Clear();
     }
-    if (vars.completedsplits.count > 0)
+    if (vars.completedsplits.Count > 0)
     {
         vars.completedsplits.Clear();
     }

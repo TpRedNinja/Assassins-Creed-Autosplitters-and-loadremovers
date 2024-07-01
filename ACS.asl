@@ -80,7 +80,26 @@ startup
 //Initalize variables
 vars.SetTextComponent = SetTextComponent;
 vars.completedsplits = new List<string>();
-   if(settings["Any%_DLC"])
+vars.MainMissions = new List<string>();
+vars.JackMissions = new List<string>();
+vars.PlusOne = new List<string>();
+vars.PlusTwo = new List<string>();
+}
+
+init
+{  
+        switch (modules.First().ModuleMemorySize) { //Detects which version of the game is being played
+        default:
+        version = "Ubisoft Connect";
+        break;
+        case (163323904):
+        version = "Steam";
+        break;
+    } 
+    
+    //print(modules.First().ModuleMemorySize.ToString());
+    
+    if(settings["Any%_DLC"])
     {
         vars.MainMissions = new List<string> {  
             "The Autumn of Terror", 
@@ -147,19 +166,6 @@ vars.completedsplits = new List<string>();
     }  
 }
 
-init
-{  
-        switch (modules.First().ModuleMemorySize) { //Detects which version of the game is being played
-        default:
-        version = "Ubisoft Connect";
-        break;
-        case (163323904):
-        version = "Steam";
-        break;
-    } 
-    //print(modules.First().ModuleMemorySize.ToString());
-}
-
 update
 {
     if (settings["percentage display"])
@@ -176,7 +182,7 @@ update
    // {
    //print("Jack;" + " CurrentCharacter:" + current.Character + " OldCharacter:" + old.Character  + " Cutscene:" + current.Cutscene + " Loading:" + current.Loading);    
 //}
-    print("Current splits: " + String.Join(", ", vars.MainMissions));
+    //print("Current splits: " + String.Join(", ", vars.MainMissions));
 }
 
 start
@@ -273,3 +279,39 @@ onReset
         vars.completedsplits.Clear();
     }
 }
+
+
+//£
+/*
+2:25.86
+2:07.47
+5:49.75
+2:13.16
+2:00.20
+2:54.51
+5:33.99
+3:49.60
+5:22.47
+2:46.94
+6:27.91
+3:07.42
+3:10.35
+2:16.67
+7:19.54
+2:38.88
+3:14.85
+3:09.88
+3:25.59
+7:45.75
+2:43.55
+1:50.08
+6:08.98
+1:44.37
+3:36.26
+3:39.43
+3:46.48
+2:04.75
+3:02.83
+4:06.48
+6:53.32
+*/

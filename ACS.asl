@@ -224,7 +224,7 @@ split
             vars.MainMissions.RemoveAt(0);    
             return true;
                 }
-        if (current.percentage = old.percentage + 6 && current.Character != 6)
+        if (current.percentage = old.percentage + 6)
                 {
             vars.completedsplits.Add(vars.JackMissions[0]);
             vars.JackMissions.RemoveAt(0); 

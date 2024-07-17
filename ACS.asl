@@ -35,7 +35,10 @@ startup
     settings.Add("base", true, "Main Game");
     settings.Add("new_game", false, "New Game", "base");
     settings.Add("loaded_save", false, "Loaded Game Save", "base");
+    settings.Add("Any%", false, "Any%", "base");
+    settings.Add("100%", false, "100%", "base");
     settings.Add("levels", false, "Level runs", "base");
+    
 
     //Settings to differeniate between base game and the dlc along with if u want it to split
     settings.Add("ripper", true, "Jack the Ripper");
@@ -49,9 +52,11 @@ startup
     //Settings tooltips 
     //Settings tooltips for the base game
     settings.SetToolTip("base", "Click this if you are speedrunning the base game");
-    settings.SetToolTip("new_game", "Enable this if you are starting a any% or 100% run from a new game with no save attached");
-    settings.SetToolTip("loaded_save", "Enable this if you are starting a any% or 100% run from a save where the first cutscene has fully played through");
-    settings.SetToolTip("levels", "Enable this if you are gonna speedrun individual levels");
+    settings.SetToolTip("new_game", "Enable this if you are starting a any% or 100% run from a new game with no save attached. This is for autostart");
+    settings.SetToolTip("loaded_save", "Enable this if you are starting a any% or 100% run from a save where the first cutscene has fully played through. This is for autostart");
+    settings.SetToolTip("Any%", "Enable this if you are doing a any% speedrun. This is for splitting");
+    settings.SetToolTip("100%", "Enable this if you are doing a 100% speedrun. This is for splitting");
+    settings.SetToolTip("levels", "Enable this if you are gonna speedrun individual levels. This is for autostart");
     
     //Settings tooltips for the DLC
     settings.SetToolTip("ripper", "Click this if you are speedrunning the dlc");
@@ -109,6 +114,10 @@ update
     if (current.Percentage != null)
     vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
     }
+    /*if (current)
+    {
+        
+    }*/
     //to debug shit
     //print("Completed splits: " + String.Join(",", vars.completedsplits));
     //print("completedsplits: " + vars.completedsplits);
@@ -126,14 +135,14 @@ start
     //starts when you gain control of jacob from a fresh save
     if(settings["new_game"])
     {
-        if(current.Loading == 0 && old.Loading == 0 && current.Jacob == 2 && current.Eviemain == 2)
+        if(current.cutscene == 0 && old.cutscene == 1 || 2)
         return true;
     }
 
     //starts when you gain control of jacob from loading a save past the first cutscene
     if(settings["loaded_save"])
     {
-        if(old.Loading == 1 && current.Loading == 0 && current.Jacob == 2 && current.Eviemain == 0 )
+        if(old.Loading == 1 && current.Loading == 0 && current.cutscene == 0)
              return true;
     }
 
@@ -226,6 +235,22 @@ split
 {   
 
 
+    if (settings["Any%"])
+    {
+        if(current.Endscreen == 1 && old.Endscreen == 0)
+            {      
+            return true;
+        }
+    }
+
+    if (settings["100%"])
+    {
+        if(current.Endscreen == 1 && old.Endscreen == 0)
+            {      
+            return true;
+        }
+    }
+
     if(settings["Any%_DLC"])
         {
     //splits when end screen appears so when you are able to press "A" button or equivlent on keyboard and mouse for any%
@@ -293,36 +318,3 @@ onReset
 
 
 //£
-/*
-2:25.86
-2:07.47
-5:49.75
-2:13.16
-2:00.20
-2:54.51
-5:33.99
-3:49.60
-5:22.47
-2:46.94
-6:27.91
-3:07.42
-3:10.35
-2:16.67
-7:19.54
-2:38.88
-3:14.85
-3:09.88
-3:25.59
-7:45.75
-2:43.55
-1:50.08
-6:08.98
-1:44.37
-3:36.26
-3:39.43
-3:46.48
-2:04.75
-3:02.83
-4:06.48
-6:53.32
-*/

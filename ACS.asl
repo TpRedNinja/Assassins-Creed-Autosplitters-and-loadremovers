@@ -521,7 +521,7 @@ isLoading
 onReset
 {
     //Clears all lists execpt completed splits
-    if (vars.MainMissions.Count > 0 || vars.JackMissions.Count > 0 || vars.PlusOne.Count > 0 || vars.PlusTwo.Count > 0 || vars.Any.Count > 0 || vars.Hundo.Count > 0 || )
+    if (vars.MainMissions.Count > 0 || vars.JackMissions.Count > 0 || vars.PlusOne.Count > 0 || vars.PlusTwo.Count > 0 || vars.Any.Count > 0 || vars.Hundo.Count > 0)
     {
         vars.Any.Clear();
         vars.Hundo.Clear();

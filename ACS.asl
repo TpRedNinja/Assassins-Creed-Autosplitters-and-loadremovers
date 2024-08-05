@@ -85,6 +85,8 @@ startup
 //Initalize variables
 vars.SetTextComponent = SetTextComponent;
 vars.completedsplits = new List<string>();
+vars.Any = new List<string>();
+vars.Hundo = new List<string>();
 vars.MainMissions = new List<string>();
 vars.JackMissions = new List<string>();
 vars.PlusOne = new List<string>();
@@ -154,13 +156,206 @@ start
 
     if (current.Cutscene == 2 && current.Character == 8)
     {
-        Thread.Sleep(2000);
+        Thread.Sleep(1500);
         return true;
     }
 }
 
 onStart
 {
+    //any% list    
+    if (settings["Any%"])
+    {
+        vars.Any = new List<string> {
+            "A Spanner In The Works",
+            "A Simple Plan",
+            "Somewhere That's Green",
+            "Homer Dalton",
+            "Harold Drake",
+            "Spitalfields",
+            "Radclyffe Mill",
+            "Simon Chase",
+            "Martin Church",
+            "The Jekyll Brothers",
+            "Freedom Of The Press",
+            "Captain Hargrave II",
+            "George Scrivens",
+            "The Crate Escape",
+            "Playing It By Ear",
+            "Leopold Bacchus",
+            "Mildred Graves",
+            "Cable News",
+            "A Spoonful Of Syrup",
+            "Unnatural Selection",
+            "Echostreet Alley",
+            "The Lambeth Bullies",
+            "Strain & Boil",
+            "On The Orgin Of Syrup",
+            "The Fletchers",
+            "Overdose",
+            "The Lady With The Lamp",
+            "Jesse Butler",
+            "Battersea Bellows",
+            "Tom Eccleston",
+            "Breaking News",
+            "Emmet Sedgwick",
+            "A Room With A View",
+            "Friendly Competition",
+            "Research And Development",
+            "Survival Of The Fittest",
+            "End Of The Line",
+            "One Good Deed",
+            "A Thorne In The Side",
+            "A Case Of Identity",
+            "A Spot Of Tea",
+            "A Bad Penny",
+            "Unbreaking The Bank",
+            "Change Of Plans",
+            "Strange Bedfellows",
+            "Triple Theft",
+            "Fun And Games",
+            "Final Act",
+            "Playing Politics",
+            "The Bodyguard",
+            "Driving Mrs. Disraeli",
+            "Motion To Impeach",
+            "Double Trouble",
+            "Dress to Impress",
+            "Family Politics",
+            "A Night To Remember"
+        };
+    }
+    
+    //100% list
+    if (settings["100%"])
+    {
+        vars.Hundo = new List<string> {
+            "A Spanner In The Works",
+            "A Simple Plan",
+            "Somewhere That's Green",
+            "Homer Dalton",
+            "Harold Drake",
+            "Spitalfields",
+            "Radclyffe Mill",
+            "Simon Chase",
+            "Martin Church",
+            "The Jekyll Brothers",
+            "Red Growler Distillery",
+            "Freedom Of The Press",
+            "Captain Hargrave II",
+            "George Scrivens",
+            "The Crate Escape",
+            "Playing It By Ear",
+            "Leopold Bacchus",
+            "Mildred Graves",
+            "Cable News",
+            "A Spoonful Of Syrup",
+            "Phillip Beckinridge",
+            "Unnatural Selection",
+            "Echostreet Alley",
+            "The Lambeth Bullies",
+            "Strain & Boil",
+            "On The Orgin Of Syrup",
+            "The Fletchers",
+            "Overdose",
+            "The Lady With The Lamp",
+            "Jesse Butler",
+            "Spring-Heeled Jack",
+            "Cat And Mouse",
+            "Dead Letters",
+            "Wade Lynton",
+            "Tom Eccleston",
+            "Myrtle Platt",
+            "Emmet Sedgwick",
+            "The Mint",
+            "Battersea Bellows",
+            "Breaking News",
+            "Black Swan Yard",
+            "A Room With A View",
+            "Harcey Hughes",
+            "Friendly Competition",
+            "Thomas Blackroot",
+            "Outterridge Manufacturing",
+            "Anarchist Intervention",
+            "An Explosive End",
+            "Albie Vassell",
+            "Where There Is A Smoke",
+            "Anna Abramson",
+            "Research And Development",
+            "Survival Of The Fittest",
+            "Southwark Spinning Mill",
+            "End Of The Line",
+            "A Thorne In The Side",
+            "Peter Needham",
+            "Clare Market",
+            "Hell's Bells",
+            "Recollection",
+            "Vox Populi",
+            "One Good Deed",
+            "Hightower Coal",
+            "Maude Foster",
+            "Eveline Dipper",
+            "A Case Of Identity",
+            "A Spot Of Tea",
+            "Spindles and Looms",
+            "The Darkest Hour",
+            "The Apothecary Twins",
+            "Hopton's",
+            "17 Walpol Lane",
+            "Clearence Stock House",
+            "The Magpie",
+            "The Master Spy",
+            "A Bad Penny",
+            "Stalk The Stalker",
+            "Nigel In For The Chop",
+            "Wolfshead Brewing Co.",
+            "Strange Bedfellows",
+            "Lynch's Fine Ornamentation",
+            "50 Berkeley Square",
+            "Milton King",
+            "Triple Theft",
+            "The Berlin Specimen",
+            "Change Of Plans",
+            "Fun And Games",
+            "Argus and Rose Bartlett",
+            "Final Act",
+            "The Terror Of London",
+            "The Slaughterhouse Siblings",
+            "Defamation",
+            "Beatrice Gribble",
+            "An Abominable Mystery",
+            "Gilbert Fowler",
+            "Sylvia Duke",
+            "Louis Blake",
+            "Cruel Caricature",
+            "A Struggle For Existence",
+            "Field Lane",
+            "Unbreaking The Bank",
+            "David O'Donnell",
+            "Rosemary Lane",
+            "Hullo Mr. Gartling",
+            "Harrison Harley",
+            "Deil's Arce",
+            "Playing Politics",
+            "The Bodyguard",
+            "Driving Mrs. Disraeli",
+            "Motion To Impeach",
+            "Double Trouble",
+            "Dress to Impress",
+            "Wallace Bone",
+            "Good Fellow's Brewery",
+            "Family Politics",
+            "A Night To Remember",
+            "Ivan Bunbury",
+            "Blue Anchor Alley",
+            "Operation Dynamite Boat",
+            "Operation Locomotive",
+            "Operation Drive For Lives",
+            "Operation Westminster"
+        };
+    }
+    
+    //list's for any% for jack the ripper
     if(settings["Any%_DLC"])
     {
         vars.MainMissions = new List<string> {  
@@ -177,6 +372,8 @@ onStart
             "Family Reunion"
         };
         }
+    
+    //list's for 100% for jack the ripper
     if(settings["100%_DLC"])
     {
         vars.MainMissions = new List<string> {
@@ -192,24 +389,24 @@ onStart
             "Live by the Creed, Die by the Creed"  
         };
         vars.PlusOne = new List<string> {
-            "Chest 1",//during Unfortunates
+            "Chest 1",//during Unfortunates. Chest in the very back behind kennways manor
             "Buck's Row Brothel",
-            "Chest 2",//during wood shinnings
+            "Chest 2",//during wood shinning. while ur driving Woody to the destinated marker on left side of rode
             "Woody Shinnings",
-            "Helix Glitch 1",// after The Lady Talks
+            "Helix Glitch 1",// after The Lady Talks. On your way to the carriage mission
             "Robert Donston Stephenson",
-            "Helix Glitch 2",//during letters of Intent
+            "Helix Glitch 2",//during letters of Intent. is on roof pipes above where mr.weaverbrooks is
             "Dear Boss",
-            "Chest 3",//during prisoners
+            "Chest 3",//during prisoners. first chest on the first boat
             "Saucy Jack",
-            "Chest 4",//during the mother of all crimes
+            "Chest 4",//during the mother of all crimes. Closest chest to when you start the mission
             "From Hell",
             "Walk of shame",
-            "Helix Glitch 3",//during egyptian spoils
+            "Helix Glitch 3",//during egyptian spoils. u get all the chest at beginning area take carriage then as your driving their is a chest to your left and helix glitch to the right get in any order tbh
             "Jack's Lieutenants 1", 
             "Ludgate Hill Brothel",
             "David Jack-Emmings",
-            "Chest 5", //during opium spoils
+            "Chest 5", //during opium spoils. while driving to end point
             "Opium Spoils",
             "Indian Emerald"
         };
@@ -229,27 +426,46 @@ onStart
 }
 
 
-/*splits when end mission screen disappears 
-note if you want it to split on after the jack missions please select the ripper_# as those will allow it to split after the mission ends as jack*/
+/*splits when end mission screen appears or when percentage changes.*/
 split
 {   
 
 
     if (settings["Any%"])
-    {
-        if(current.Endscreen == 1 && old.Endscreen == 0)
+        {
+    //For all splits except last split
+        if(current.Endscreen == 1 && old.Endscreen == 0 && !vars.completedsplits.Contains(vars.Any[0]) && vars.Any[0] != "A Night To Remember")
             {      
+            vars.completedsplits.Add(vars.Any[0]);
+            vars.Any.RemoveAt(0);
             return true;
+            }
+    //For final split as the rules say after you press accept on mission end screen 
+        if (current.Endscreen == 0 && old.Endscreen == 1 && !vars.completedsplits.Contains(vars.Any[0]))
+            {
+            vars.completedsplits.Add(vars.Any[0]);
+            vars.Any.RemoveAt(0);
+            return true;
+            }
         }
-    }
 
     if (settings["100%"])
-    {
-        if(current.Endscreen == 1 && old.Endscreen == 0)
+        {
+    //For all splits excepet last split
+        if(current.Endscreen == 1 && old.Endscreen == 0 && !vars.completedsplits.Contains("Operation Drive For Lives"))
             {      
+            vars.completedsplits.Add(vars.Hundo[0]);
+            vars.Hundo.RemoveAt(0);
             return true;
+            }
+    //For final split will only split if the percentage equals 100% completed 
+        if (current.Endscreen == 0 && old.Endscreen == 1 && vars.completedsplits.Contains("Operation Drive For Lives") && current.Percentage == 100)
+            {
+            vars.completedsplits.Add(vars.Hundo[0]);
+            vars.Hundo.RemoveAt(0);
+            return true; 
+            }
         }
-    }
 
     if(settings["Any%_DLC"])
         {
@@ -259,37 +475,39 @@ split
             vars.completedsplits.Add(vars.MainMissions[0]);
             vars.MainMissions.RemoveAt(0);    
             return true;
-                }
+            }
+    //splits for jack missions and the mission for jack 2 sense their is either no end screen or their is a end screen but the percentage changes            
         if (current.Percentage == old.Percentage + 6 && current.Character != 6)
-                {
+            {
             vars.completedsplits.Add(vars.JackMissions[0]);
             vars.JackMissions.RemoveAt(0); 
             return true;
             }
         }
     if (settings["100%_DLC"])
-    {
-        if (current.Percentage == old.Percentage + 6)
         {
+    //Splits for all main missions as they all give plus 6 to the overall percentage    
+        if (current.Percentage == old.Percentage + 6)
+            {
             vars.completedsplits.Add(vars.MainMissions[0]);
             vars.MainMissions.RemoveAt(0); 
             return true;
-        }
-
+            }
+    //Splits for Side missions and collectibles that give + 1 to the overal percentage
         if (current.Percentage == old.Percentage + 1)
-        {
+            {
             vars.completedsplits.Add(vars.PlusOne[0]);
             vars.PlusOne.RemoveAt(0); 
             return true;
-        }
-
+            }
+    //Splits for Side missions and collectibles that give + 2 to the overal percentage
         if (current.Percentage == old.Percentage + 2)
-        {
+            {
             vars.completedsplits.Add(vars.PlusTwo[0]);
             vars.PlusTwo.RemoveAt(0); 
             return true; 
+            }
         }
-    }
 
 
 }
@@ -303,13 +521,16 @@ isLoading
 onReset
 {
     //Clears all lists execpt completed splits
-    if (vars.MainMissions.Count > 0 && vars.JackMissions.Count > 0 && vars.PlusOne.Count > 0 && vars.PlusTwo.Count > 0)
+    if (vars.MainMissions.Count > 0 || vars.JackMissions.Count > 0 || vars.PlusOne.Count > 0 || vars.PlusTwo.Count > 0 || vars.Any.Count > 0 || vars.Hundo.Count > 0 || )
     {
+        vars.Any.Clear();
+        vars.Hundo.Clear();
         vars.MainMissions.Clear();
         vars.JackMissions.Clear();
         vars.PlusOne.Clear();
         vars.PlusTwo.Clear();
     }
+    //Clears completedsplits list
     if (vars.completedsplits.Count > 0)
     {
         vars.completedsplits.Clear();
@@ -318,3 +539,36 @@ onReset
 
 
 //£
+/*
+2:25.86
+2:07.47
+5:49.75
+2:13.16
+2:00.20
+2:54.51
+5:33.99
+3:49.60
+5:22.47
+2:46.94
+6:27.91
+3:07.42
+3:10.35
+2:16.67
+7:19.54
+2:38.88
+3:14.85
+3:09.88
+3:25.59
+7:45.75
+2:43.55
+1:50.08
+6:08.98
+1:44.37
+3:36.26
+3:39.43
+3:46.48
+2:04.75
+3:02.83
+4:06.48
+6:53.32
+*/

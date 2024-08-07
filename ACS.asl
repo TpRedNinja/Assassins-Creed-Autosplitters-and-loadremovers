@@ -6,11 +6,10 @@
 //SHA256: dee8d6e4eee0d749ed0f7dac49421231dad93fb05903b906913890ebcc2fa2ae hash id for ubisoft connect version 
 state("ACS", "Ubisoft Connect")
 {
-    int Loading: 0x073443F8, 0x388, 0x8, 0xF8, 0xBD8; //Detects if loading, 0 is not loading 1 is for loading
+    int Loading: 0x073443F8, 0x120, 0x638, 0x118; //Detects if loading, 0 is not loading 1 is for loading
     int Endscreen: 0x0732CD70, 0x50, 0x3A0, 0x98; //Detects end mission sceen, 1 for end screen 0 for literally everything else
     int Cutscene: 0x715EBC0; //Detects cutscene value 0 in loading screen 1 no cutscene 2 for cutscene game and dlc is not a pointer just "ACS.exe" +(inserst address here)
-    int Eviemain: 0x070E0BE8, 0x3C8, 0x980, 0x18, 0x38, 0x84, 0x330, 0x230; //Detects if your playing evie in the main game. 0 if false 2 if true.
-    int Jacob: 0x070E0BE8, 0xD50, 0x18, 0x480, 0x38, 0x84, 0x390, 0x20; //Detects if your jacob. 0 if false 2 if true.
+    int MainMenu: 0x073446E8, 0x358, 0x458, 0xAD8, 0xA0, 0xE8, 0x8, 0x1A8; //Detects if ur on the main menu note its when you able to see your character. 1 for when ur are an 0 whenever u are not.
     int Character: 0x07155D78, 0xB20, 0xA0, 0x560, 0x140; //6 for evie 7 when not in london 8 for jack 9 when not in london.
     int Percentage: 0x07160A98, 0x40, 0x5C; //total completion of jack the ripper note does not work with main game
 }
@@ -22,9 +21,7 @@ state("ACS", "Steam")
     int Loading:0x070D7470, 0x4A0, 0x10, 0x368; //same as og but just in case if first one doesnt work
     int Endscreen: 0x07325DB0, 0x78, 0x3D0, 0x68; //1 for endscreen showing 0 for not
     int Cutscene: 0x7154FE0;  //same as ubi connect
-    int Eviemain: 0x070D9A38, 0xD50, 0x2D0, 0x7C0, 0x38, 0x84, 0x108, 0x20; //same as ubi connect
-    //int Eviebackup: 0x070D9A38, 0xD50, 0x300, 0x4A0, 0x38, 0x84, 0x3E0, 0x20; //same as ubi connect
-    int Jacob: 0x07154AA8, 0x58, 0x6C8, 0x898, 0x78, 0x68, 0x30, 0x230; //same as ubi connect
+    int MainMenu: 0x0733D320, 0x208, 0x50, 0x20, 0x6D8; //same as ubi connect
     int Character: 0x071546C8, 0x18, 0x0, 0x308, 0x158; //same as ubi connect
     int Percentage: 0x07159920, 0x40, 0x5C;//same as ubi connect
 }
@@ -45,6 +42,8 @@ startup
     //Settings for Any% and 100% for the dlc
     settings.Add("Any%_DLC", false, "Any%", "ripper");
     settings.Add("100%_DLC", false, "100%", "ripper");
+    settings.Add("start", false, "Start Fresh", "ripper");
+    settings.Add("15sec_start", false, "15 Second Start", "ripper");
     
     //Percentage display
     settings.Add("Percentage display", false);
@@ -61,7 +60,9 @@ startup
     //Settings tooltips for the DLC
     settings.SetToolTip("ripper", "Click this if you are speedrunning the dlc");
     settings.SetToolTip("Any%_DLC", "Enable this if you are doing a any% speedrun & using my any% splits");
-    settings.SetToolTip("100%_DLC", "Enable this if you are doing a 100% speedrun & using the 100% route made by ector");
+    settings.SetToolTip("100%_DLC", "Enable this if you are doing a 100% speedrun");
+    settings.SetToolTip("start", "Enable this if you are starting from a fresh save" );
+    settings.SetToolTip("15sec_start", "Enable this if you are starting from a save where you have control of jack");
 
     // set text taken from Poppy Platime C2
     // to display the text associated with this script aka current Percentage along with IGT
@@ -82,15 +83,16 @@ startup
             textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
     };
     
-//Initalize variables
-vars.SetTextComponent = SetTextComponent;
-vars.completedsplits = new List<string>();
-vars.Any = new List<string>();
-vars.Hundo = new List<string>();
-vars.MainMissions = new List<string>();
-vars.JackMissions = new List<string>();
-vars.PlusOne = new List<string>();
-vars.PlusTwo = new List<string>();
+    //Initalize variables
+    vars.SetTextComponent = SetTextComponent;
+    vars.completedsplits = new List<string>();
+    vars.Any = new List<string>();
+    vars.Hundo = new List<string>();
+    vars.MainMissions = new List<string>();
+    vars.JackMissions = new List<string>();
+    vars.PlusOne = new List<string>();
+    vars.PlusTwo = new List<string>();
+
 }
 
 init
@@ -103,9 +105,6 @@ init
         version = "Steam";
         break;
     } 
-    
-    //print(modules.First().ModuleMemorySize.ToString());
-    
 }
 
 update
@@ -116,19 +115,6 @@ update
     if (current.Percentage != null)
     vars.SetTextComponent("Percentage Completion", current.Percentage + "%");
     }
-    /*if (current)
-    {
-        
-    }*/
-    //to debug shit
-    //print("Completed splits: " + String.Join(",", vars.completedsplits));
-    //print("completedsplits: " + vars.completedsplits);
-    //print("any%splits: " + vars.split);
-    //if (current.Character != old.Character || current.Cutscene != old.Cutscene || current.Loading != old.Loading)
-   // {
-   //print("Jack;" + " CurrentCharacter:" + current.Character + " OldCharacter:" + old.Character  + " Cutscene:" + current.Cutscene + " Loading:" + current.Loading);    
-//}
-    print("Current splits: " + String.Join(", ", vars.MainMissions));
 }
 
 start
@@ -137,15 +123,19 @@ start
     //starts when you gain control of jacob from a fresh save
     if(settings["new_game"])
     {
-        if(current.cutscene == 0 && old.cutscene == 1 || 2)
-        return true;
+        if(current.Cutscene == 0 && old.Cutscene == 1 || 2){
+            return true;
+        }
+            
     }
 
     //starts when you gain control of jacob from loading a save past the first cutscene
     if(settings["loaded_save"])
     {
-        if(old.Loading == 1 && current.Loading == 0 && current.cutscene == 0)
-             return true;
+        if(old.Loading == 1 && current.Loading == 0 && current.Cutscene == 1){
+            return true;
+        }
+             
     }
 
     //starts when starting a level
@@ -153,11 +143,23 @@ start
     {
         return old.Cutscene == 0 && (current.Cutscene == 1 || current.Cutscene == 2);
     }
-
-    if (current.Cutscene == 2 && current.Character == 8)
+    
+    if (settings["start"])
     {
-        Thread.Sleep(1500);
-        return true;
+        if (current.Cutscene == 2 && current.Character == 8){
+            timer.Run.Offset = TimeSpan.FromSeconds(0);
+            Thread.Sleep(1550);
+            return true;
+        }
+    }
+
+    if (settings["15sec_start"])
+    {
+        if (current.Cutscene == 1 && current.Character == 8){
+            timer.Run.Offset = TimeSpan.FromSeconds(15);
+            Thread.Sleep(500);
+            return true;
+        }
     }
 }
 
@@ -490,32 +492,38 @@ split
         if (current.Percentage == old.Percentage + 6)
             {
             vars.completedsplits.Add(vars.MainMissions[0]);
-            vars.MainMissions.RemoveAt(0); 
+            vars.MainMissions.RemoveAt(0);
             return true;
             }
     //Splits for Side missions and collectibles that give + 1 to the overal percentage
         if (current.Percentage == old.Percentage + 1)
             {
             vars.completedsplits.Add(vars.PlusOne[0]);
-            vars.PlusOne.RemoveAt(0); 
+            vars.PlusOne.RemoveAt(0);
             return true;
             }
     //Splits for Side missions and collectibles that give + 2 to the overal percentage
         if (current.Percentage == old.Percentage + 2)
             {
             vars.completedsplits.Add(vars.PlusTwo[0]);
-            vars.PlusTwo.RemoveAt(0); 
-            return true; 
+            vars.PlusTwo.RemoveAt(0);
+            return true;
             }
         }
-
-
 }
 
 isLoading
 {
     //pauses during loading screen and unpauses when out of loading screens note black screens do not Count as loading
-    return current.Loading == 1;
+    return current.Loading == 1 && current.Cutscene == 0;
+}
+reset
+{
+    //resets if you go to the main menu so try not to do that by accident an isnull equals false. So if u just had a crash note it will take 2 mins before it switches to false for just in case
+    if (current.MainMenu == 1 && old.Percentage > 0 && current.Percentage <= 0)
+    {
+        return true;
+    }
 }
 
 onReset
@@ -539,36 +547,3 @@ onReset
 
 
 //£
-/*
-2:25.86
-2:07.47
-5:49.75
-2:13.16
-2:00.20
-2:54.51
-5:33.99
-3:49.60
-5:22.47
-2:46.94
-6:27.91
-3:07.42
-3:10.35
-2:16.67
-7:19.54
-2:38.88
-3:14.85
-3:09.88
-3:25.59
-7:45.75
-2:43.55
-1:50.08
-6:08.98
-1:44.37
-3:36.26
-3:39.43
-3:46.48
-2:04.75
-3:02.83
-4:06.48
-6:53.32
-*/

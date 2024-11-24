@@ -1,5 +1,5 @@
 
-state("AC4BFSP", "Steam")
+state("AC4BFSP")
 {
     //stuff for loading & starting stuff
     int MainMenu: 0x23485D0; // 1 when in mainmenu and first cutscene and 0 when not in main menu.
@@ -21,7 +21,8 @@ state("AC4BFSP", "Steam")
     int BuriedTreasure: 0x01817920, 0x3AC, 0xBF8; //Tracks total number of BuriedTreasure completed
     int animusfragments: 0x0002E8D0, 0x1A8, 0x0, 0x18; //Tracks total number of animus fragments
     int Chests: 0x0002E8D0, 0x1A8, 0x64, 0x18; //Tracks total number of chests underwater. Note this does include chests at smuggler dens that have you go underwater at first
- 
+    int AssassinContracts: 0x018FF260, 0x38C, 0x778; //Tracks the total number of Assassin Contracts completed
+    int NavalContracts: 0x0154DAA8, 0x28C, 0xFB8; //Tracks the total number of Naval Contracts completed
 }
 
 startup
@@ -275,13 +276,13 @@ split
     if (settings["Contract"])
     {
         //splits for assassination contracts
-        if (current.Contracts == old.Contracts + 1 && (current.Money == old.Money + 1000 || current.Money == old.Money + 1500) && 
+        if (current.AssassinContracts == old.AssassinContracts + 1 && (current.Money == old.Money + 1000 || current.Money == old.Money + 1500) && 
         current.PercentageF == old.PercentageF + 0.61728)
         {
             return true;
         }
 
-        if ((current.Money == old.Money + 1200 || current.Money == old.Money + 1800 || current.Money == old.Money + 2400) && 
+        if (current.NavalContracts == old.NavalContracts + 1 && (current.Money == old.Money + 1200 || current.Money == old.Money + 1800 || current.Money == old.Money + 2400) && 
         current.PercentageF == old.PercentageF + 0.02058)
         {
             return true;

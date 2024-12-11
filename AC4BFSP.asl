@@ -1,10 +1,9 @@
-
 state("AC4BFSP")
 {
     //stuff for loading & starting stuff
-    int MainMenu: 0x23485D0; // 1 when in mainmenu and first cutscene and 0 when not in main menu.
-    int Cutscene: 0x49DAB04; //33 when in main menu, 80 during cutscenes with edward thats not a flash back, 81 when able to play as edward, 94 when in a flash back with edward
-    int loading: 0x04A1A6CC, 0x7DB8; //0 when not loading 1 when u are loading
+    int MainMenu: 0x49D2204; //65540 Main Menu anything else is in save file
+    int Cutscene: 0x49DAB04; //Gonna find something different
+    int loading: 0x04A1A6CC, 0x7D8; //0 when not loading 1 when u are loading
     
     //stuff that affects edward
     int Money: 0x049E3788, 0xA0, 0x90; //Shows your current money when in the animus
@@ -18,11 +17,18 @@ state("AC4BFSP")
     //counters for collectibles
     int Viewpoints: 0x0002E8D0, 0x1A8, 0x28, 0x18; //Tracks total number of viewpoints completed
     int MyanStele: 0x0002E8D0, 0x1A8, 0x3C, 0x18; //Tracks total number of MyanStele completed
-    int BuriedTreasure: 0x01817920, 0x3AC, 0xBF8; //Tracks total number of BuriedTreasure completed
-    int animusfragments: 0x0002E8D0, 0x1A8, 0x0, 0x18; //Tracks total number of animus fragments
-    int Chests: 0x0002E8D0, 0x1A8, 0x64, 0x18; //Tracks total number of chests underwater. Note this does include chests at smuggler dens that have you go underwater at first
-    int AssassinContracts: 0x018FF260, 0x38C, 0x778; //Tracks the total number of Assassin Contracts completed
-    int NavalContracts: 0x0154DAA8, 0x28C, 0xFB8; //Tracks the total number of Naval Contracts completed
+    int BuriedTreasure: 0x0002E8D0, 0x1A8, 0xFA0, 0x18; //Tracks total number of BuriedTreasure collected
+    int animusfragments: 0x0002E8D0, 0x1A8, 0x0, 0x18; //Tracks total number of animus fragments collected
+    int WaterChests: 0x0002E8D0, 0x1A8, 0x64, 0x18; //Tracks total number of chests underwater collected
+    int UnchartedChests: 0x0002E8D0, 0x450, 0xE38, 0x18; //Tracks total number of uncharted chests collected
+    int UnchartedFragments: 0x0002E8D0, 0x400, 0x528, 0x18; //Tracks total number of uncharted animusfragments collected
+    int UnchartedSecrets: 0x0002E8D0, 0x400, 0x370, 0x18; //Tracks total number of uncharted secrets collected 
+    int AssassinContracts: 0x0002E8D0, 0x1A8, 0xD84, 0x18; //Tracks the total number of Assassin Contracts completed
+    int NavalContracts: 0x01118F54, 0x488; //Tracks the total number of Naval Contracts completed
+    int Letters: 0x0002E8D0, 0x450, 0x0, 0x18; //Tracks total number of letters in a bottle collected
+    int Manuscripts: 0x0002E8D0, 0x7C0, 0x0, 0x18; //Tracks total number of Manuscripts collected
+    int MusicSheets: 0x0002E8D0, 0xB08, 0x424, 0x18; //Tracks total number of MusicSheets collected
+    int Forts: 0x002FE2CC, 0xED0;
 }
 
 startup
@@ -55,7 +61,7 @@ startup
     settings.Add("BuriedTreasure", false, "BuriedTreasure", "Splits");
     settings.Add("Shipwrecks", false, "Shipwrecks", "Splits");
     settings.Add("Contracts", false, "Contracts", "Splits");
-    //settings.Add("Forts", false, "Forts", "Splits");
+    settings.Add("Forts", false, "Forts", "Splits");
     settings.Add("Legendary Ships", false, "Legendary Ships", "Splits");
 
     settings.SetToolTip("Splits", "Gives options of where to split");
@@ -66,11 +72,17 @@ startup
     settings.SetToolTip("BuriedTreasure", "Splits after edwards opens the treasure chest");
     settings.SetToolTip("Shipwrecks", "Splits when getting a x amount of chests from the shipwrecks");
     settings.SetToolTip("Contracts", "Splits when gainning money from completeling a contract");
-    //settings.SetToolTip("Forts", "Splits when gainning money from unlocking a fort");
+    settings.SetToolTip("Forts", "Splits when gainning money from unlocking a fort");
     settings.SetToolTip("Legendary Ships", "Splits when looting the 10000 gold from the legendary ships");
 
     //Percentage display
-    settings.Add("Percentage display", false);
+    settings.Add("Percentage Display", false, "Percentage Display");
+    settings.Add("Calculator", false, "Calculator" ,"Percentage Display");
+    settings.Add("Uncharted Display", false);
+    settings.Add("Debug", false);
+    settings.SetToolTip("Debug", "This will display the current value of all counters\n"+ 
+    "use this only to check to see if something is broken.\n" +
+    "Remove most stuff from your layout as this will add a lot of components");
     /*for any future settings i want to add
     settings.Add("", false, "", "Splits");
     settings.SetToolTip("", "Splits when ");
@@ -79,52 +91,103 @@ startup
 
 init
 {
-    vars.MainMenu = true;
-    vars.Modernday = false;
     vars.ViewpointsDone = false;
     vars.MayanDone = false;
     vars.TreasureDone = false;
     vars.FragmentsDone = false;
+    vars.MusicSheetsDone = false;
+    vars.ManuscriptsDone = false;
+    vars.Letters = false;
+    vars.SecretsDone = false;
     vars.CountersDone = false;
     vars.completedsplits = new List<string>();
+    
+    if (current.MainMenu == 65540 && current.loading == 0)
+    {
+        timer.IsGameTimePaused = false;
+    }
+    
 }
 
 update
 {
-    //) && current.MainMenu == true
-    //(current.Cutscene >= 10 || current.Cutscene < 40 )
-    if (current.Cutscene >= 10 || current.Cutscene < 40 && current.MainMenu == 1)
-    {
-        vars.MainMenu = true;
-    } else
-    {
-        vars.MainMenu = false;
-    }
-
-    if (current.Cutscene < 50 && current.Cutscene > 39 && current.MainMenu == 0)
-    {
-        vars.Modernday = true;
-    }else
-    {
-        vars.Modernday = false;
-    }
-
     current.PercentageF = Math.Round(current.PercentageF, 5);
     if (current.oxygen == old.oxygen)
     {
         current.oxygen = Math.Round(current.oxygen, 1);
+    } else
+    {
+        current.oxygen = Math.Round(current.oxygen, 8);
     }
 
-    if (settings["Percentage display"])
+    if (settings["Percentage Display"])
     {
-        vars.SetTextComponent("Percentage Completion", "N/A");
         if (current.PercentageF != null){
-        vars.SetTextComponent("Percentage Completion", current.PercentageF + "%");
-            if (current.PercentageF > old.PercentageF)
+            vars.SetTextComponent("Percentage Completion", current.PercentageF + "%");
+            if (settings["Calculator"])
             {
-                vars.SetTextComponent("Percentage increased by ", current.PercentageF - old.PercentageF + "%");
+                if (current.PercentageF > old.PercentageF)
+                {
+                    vars.SetTextComponent("Percentage increased by ", current.PercentageF - old.PercentageF + "%");
+                }
             }
+        } else
+        {
+            vars.SetTextComponent("Percentage Completion", "N/A");
         }
+    }
+
+    if (settings["Uncharted Display"])
+    {
+        if (current.UnchartedChests != null && current.UnchartedFragments != null && current.UnchartedSecrets != null){
+        vars.SetTextComponent("UnchartedChests Collected", current.UnchartedChests + "/46");
+        vars.SetTextComponent("UnchartedFragments Collected", current.UnchartedFragments + "/30");
+        vars.SetTextComponent("UnchartedSecrets Collected", current.UnchartedSecrets + "/3");   
+        } else
+        {
+            vars.SetTextComponent("UnchartedChests Collected", "N/A");
+            vars.SetTextComponent("UnchartedFragments Collected", "N/A");
+            vars.SetTextComponent("UnchartedSecrtes Collected", "N/A");
+        }
+    }
+
+    if (settings["Debug"])
+    {
+        //vars.SetTextComponent("", current. + "/"); for extras in the future
+        if (current.MainMenu != null && current.loading != null && current.Viewpoints != null && current.MyanStele != null && current.BuriedTreasure != null 
+        && current.animusfragments != null && current.WaterChests != null && current.AssassinContracts != null && current.NavalContracts != null 
+        && current.letters != null && current.Manuscripts != null && current.Shanties != null && current.Forts != null)
+        {
+            vars.SetTextComponent("Current MainMenu Value", current.MainMenu);
+            vars.SetTextComponent("Current Loading", current.loading + "/1");
+            vars.SetTextComponent("Viewpoints Synchornized", current.Viewpoints + "/58");
+            vars.SetTextComponent("MyanStele Collected", current.MyanStele + "/16");
+            vars.SetTextComponent("BuriedTreasure Found", current.BuriedTreasure + "/22");
+            vars.SetTextComponent("Fragments Collected", current.animusfragments + "/200");
+            vars.SetTextComponent("Water Chests looted", current.WaterChests + "/50");
+            vars.SetTextComponent("Assassins Contracts Completed", current.AssassinContracts + "/30");
+            vars.SetTextComponent("Naval Contracts Completed", current.NavalContracts + "/15");
+            vars.SetTextComponent("Letters Collected", current.Letters + "/20");
+            vars.SetTextComponent("Manuscripts Collected", current.Manuscripts + "/20");
+            vars.SetTextComponent("Shanties Collected", current.MusicSheets + "/24");
+            vars.SetTextComponent("Forts captures", current.Forts + "/10");
+        } else
+        {
+            vars.SetTextComponent("Current MainMenu Value", "N/A");
+            vars.SetTextComponent("Current Loading", "N/A");
+            vars.SetTextComponent("Viewpoints Synchornized", "N/A");
+            vars.SetTextComponent("MyanStele Collected", "N/A");
+            vars.SetTextComponent("BuriedTreasure Found", "N/A");
+            vars.SetTextComponent("Fragments Collected", "N/A");
+            vars.SetTextComponent("Water Chests looted", "N/A");
+            vars.SetTextComponent("Assassins Contracts Completed", "N/A");
+            vars.SetTextComponent("Naval Contracts Completed", "N/A");
+            vars.SetTextComponent("Letters Collected", "N/A");
+            vars.SetTextComponent("Manuscripts Collected", "N/A");
+            vars.SetTextComponent("Shanties Collected", "N/A");
+            vars.SetTextComponent("Forts captures", "N/A");
+        }
+
     }
 
     if (current.Viewpoints == 58 && old.Viewpoints == 57)
@@ -147,10 +210,28 @@ update
         vars.FragmentsDone = true;
     }
 
-    if (vars.ViewpointsDone == true && vars.MayanDone == true && vars.TreasureDone == true && vars.FragmentsDone == true)
+    if (current.MusicSheets == 24 && old.MusicSheets == 23)
+    {
+        vars.MusicSheetsDone = true;
+    }
+
+    if (vars.ManuscriptsDone == true && vars.Letters == true)
+    {
+        vars.SecretsDone = true;
+    } else if (current.Manuscripts == 20 && old.Manuscripts == 19)
+    {
+        vars.ManuscriptsDone = true;
+    } else if (current.Letters == 20 && old.Letters == 19)
+    {
+        vars.Letters = true;
+    }
+
+    if (vars.ViewpointsDone == true && vars.MayanDone == true && vars.TreasureDone == true && vars.FragmentsDone == true 
+    && vars.MusicSheetsDone == true && vars.SecretsDone == true)
     {
         vars.CountersDone = true;
     }
+
 
     /*print(modules.First().ModuleMemorySize.ToString());
     if (current.PercentageF != old.PercentageF)
@@ -159,7 +240,7 @@ update
         print("current cutscene:" + current.Percentage);
     }
     */
-
+    
     //print("current cutscene:" + vars.MainMenu);
     //print("current cutscene:" + current.Cutscene);
 }
@@ -167,7 +248,7 @@ update
 start
 {
     //should start after accepting the save file
-    if ((current.Cutscene != 10 || current.Cutscene != 33) && current.MainMenu == 0 && current.Percentage == 0)
+    if (current.MainMenu == 131076 && old.MainMenu == 65540)
     {
         return true;
     }
@@ -176,24 +257,21 @@ start
 split
 {
     //should work for most splits
-    if (current.Percentage > old.Percentage && current.Percentage <= 98 && current.loading == 0)
+    if (current.Percentage > old.Percentage && current.loading == 0 && current.MainMenu == 1311076)
     {
         return true;
-    } else if (current.Percentage == 100 && old.Percentage != 100  && current.Percentage <= 100 && current.loading == 0)
+    } else if (current.PercentageF >= old.PercentageF + 0.66667 && current.PercentageF <= old.PercentageF + 1.66667 && current.loading == 0 && current.MainMenu == 1311076)
     {
         return true;
+    } else
+    {
+        return false;
     }
 
     if(settings["Modern day"])
     {
-        //splits when leaving the animus
-        if (vars.Modernday == true && old.Modernday == false)
-        {
-            return true;
-        }
-
         //splits when entering the animus
-        if (vars.Modernday == false && old.Modernday == true )
+        if (current.Money != null && current.Health != null && current.MainMenu == 1311076)
         {
             return true;
         }
@@ -202,7 +280,9 @@ split
     if(settings["Viewpoints"])
     {
         //splits when syncing a viewpoint
-        if (current.Viewpoints == old.Viewpoints + 1)
+        if (current.Viewpoints == old.Viewpoints + 1 || current.PercentageF == old.PercentageF + 0.03750 || 
+        current.PercentageF == old.PercentageF + 0.03333 || current.PercentageF == old.PercentageF + 0.11250 || 
+        current.PercentageF == old.PercentageF + 0.03214 || current.PercentageF == old.PercentageF + 0.05625)
         {
             return true;
         }
@@ -211,7 +291,8 @@ split
     if(settings["MyanStele"])
     {
         //splits when getting one myan stone
-        if (current.MyanStele == old.MyanStele + 1)
+        if (current.MyanStele == old.MyanStele + 1 || current.PercentageF == old.PercentageF + 0.18578 || 
+        current.PercentageF == old.PercentageF + 0.09289 || current.PercentageF == old.PercentageF + 0.20642)
         {
             return true;
         }
@@ -220,86 +301,83 @@ split
     if(settings["BuriedTreasure"])
     {
         //splits when openning a buried treasure
-        if (current.BuriedTreasure == old.BuriedTreasure + 1 && (current.Money == old.Money + 1500 || current.Money == old.Money + 3000 || 
-        current.Money == old.Money + 4000))
+        if (current.BuriedTreasure == old.BuriedTreasure + 1 || || current.PercentageF == old.PercentageF + 0.20455)
         {
-            return false;
+            return true;
         }
     }
 
     if (settings["Shipwrecks"])
     {
         //splitting for shipwrecks
-        if (current.Chests == 6 && !vars.completedsplits.Contains("san ignacio"))
+        if (current.WaterChests == 6 && !vars.completedsplits.Contains("san ignacio"))
         {
             vars.completedsplits.Add("san ignacio");
             return true;
         }
 
-        if (current.Chests == 13 && !vars.completedsplits.Contains("blue hole"))
+        if (current.WaterChests == 13 && !vars.completedsplits.Contains("blue hole"))
         {
             vars.completedsplits.Add("blue hole");
             return true;
         }
 
-        if (current.Chests == 20 && !vars.completedsplits.Contains("antocha wreck"))
+        if (current.WaterChests == 20 && !vars.completedsplits.Contains("antocha wreck"))
         {
             vars.completedsplits.Add("antocha wreck");
             return true;
         }
 
-        if (current.Chests == 28 && !vars.completedsplits.Contains("Devils eye caverns"))
+        if (current.WaterChests == 28 && !vars.completedsplits.Contains("Devils eye caverns"))
         {
             vars.completedsplits.Add("Devils eye caverns");
             return true;
         }
 
-        if (current.Chests == 35 && !vars.completedsplits.Contains("La concepcion"))
+        if (current.WaterChests == 35 && !vars.completedsplits.Contains("La concepcion"))
         {
             vars.completedsplits.Add("La concepcion");
             return true;
         }
 
-        if (current.Chests == 42 && !vars.completedsplits.Contains("Black trench"))
+        if (current.WaterChests == 42 && !vars.completedsplits.Contains("Black trench"))
         {
             vars.completedsplits.Add("Black trench");
             return true;
         }
 
-        if (current.Chests == 50 && !vars.completedsplits.Contains("Kabah ruins"))
+        if (current.WaterChests == 50 && !vars.completedsplits.Contains("Kabah ruins"))
         {
             vars.completedsplits.Add("Kabah ruins");
             return true;
         }
     }
 
-    if (settings["Contract"])
+    if (settings["Contracts"])
     {
-        //splits for assassination contracts
-        if (current.AssassinContracts == old.AssassinContracts + 1 && (current.Money == old.Money + 1000 || current.Money == old.Money + 1500) && 
-        current.PercentageF == old.PercentageF + 0.61728)
-        {
-            return true;
-        }
-
-        if (current.NavalContracts == old.NavalContracts + 1 && (current.Money == old.Money + 1200 || current.Money == old.Money + 1800 || current.Money == old.Money + 2400) && 
-        current.PercentageF == old.PercentageF + 0.02058)
+        //splits for assassination contracts, alt need to fix naval contracts 
+        if (current.AssassinContracts == old.AssassinContracts + 1 || current.NavalContracts == old.NavalContracts + 1 || 
+        current.PercentageF == old.PercentageF + 0.61728 || current.PercentageF == old.PercentageF + 0.02058)
         {
             return true;
         }
 
     }
 
-    if (settings["Legendary Ships"])
+    if (settings["Forts"])
     {
-        //splits when defeating one of the legendary ships
-        if (current.Money == old.Money + 10000 && current.PercentageF == old.PercentageF + 0.1875)
+        //splits when capturing a fort
+        if (current.PercentageF == old.PercentageF + 0.22500 || current.Forts == old.Forts + 1)
         {
             return true;
         }
+    }
+
+    if (settings["Legendary Ships"])
+    {
 
         //splits when defeating one of the legendary ships
-        if (current.Money == old.Money + 20000 && current.PercentageF > old.PercentageF)
+        if ((current.Money == old.Money + 20000 || current.Money == old.Money + 10000) || current.PercentageF == old.PercentageF + 0.18750)
         {
             return true;
         }
@@ -312,46 +390,23 @@ onReset
     vars.completedsplits.Clear();
 }
 
-/*
-total chests:340?
-total underwater chest: 50
-total chest collected in save 2: 71
-total chest major locations: 116
-total chest secondary locations: 152
-total chest side activities:72
-
-/*stuff that splits on gainning money
-1- percentages wont be enough so money
-2- for doesnt matter percentages will be fine
-4- can use percentages and money for the split conditions
-5- wont use
-300-"Proper Defenses", 2
-350-Templar hunts, 2
-500-Templar hunts, "Mister Walpole, I Presume", 2
-700-Templar hunts, 2
-1000-Assassin contracts(4),Forts(4),chests shipwreck(5), "Unmanned"(2)
-1200-Naval contracts(4)
-1500-Assassin contracts(4),Buried treasure(4),Templar hunt(2)
-1800-Naval contracts (4)
-2400-Naval contracts (4)
-3000-Forts,Buried treasure(3)
-4000-Buried treasure(4)
-5000-Forts(4)
-10000-Legendary ships,buried treasure(3) (4)
-20000-Legendary ships(4)
-
-if (settings["Forts"])
+isLoading
 {
-    //splits when capturing a fort
-    if (current.Money == old.Money + 1000)
+    if (current.loading == 1 && old.loading == 0)
     {
         return true;
-    }
-
-    //splits when capturing a fort
-    if (current.Money == old.Money + 3000)
+    } else if (current.MainMenu == 1 && (old.MainMenu == 0 || old.MainMenu == null))
     {
         return true;
+    } else
+    {
+        return false;
     }
+    
 }
-*/
+
+exit
+{
+    //pauses timer if the game crashes
+	timer.IsGameTimePaused = true;
+}

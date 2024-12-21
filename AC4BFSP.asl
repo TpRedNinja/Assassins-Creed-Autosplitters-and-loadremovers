@@ -1,3 +1,6 @@
+//Assassins Creed IV Black Flag Version: 2.0.0 Autosplitter made by TpRedNinja
+//Thanks for the help from tasz for testing all versions of my autosplitter and getting the percentage values for everything
+
 state("AC4BFSP")
 {
 //--stuff for loading & starting stuff--

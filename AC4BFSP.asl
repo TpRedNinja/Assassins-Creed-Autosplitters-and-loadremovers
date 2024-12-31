@@ -3,97 +3,86 @@
 
 state("AC4BFSP")
 {
-//--stuff for loading & starting stuff--
-    int MainMenu: 0x49D2204; //65540 Main Menu anything else is in save file
-    int Character: 0x23485C0; //1 for modern day 0 for not
-    int location: 0x26C1F80; //for land lock Major locations the number is the same such as Cape & principe everything else changes. 
-    //For secondary locations as of now it stays the same number. To do: write down all numbers for all locations
-    int loading: 0x04A1A6CC, 0x7D8; //0 when not loading 1 when u are loading
-//--stuff that affects edward--
-    int Money: 0x049E3788, 0xA0, 0x90; //Shows your current money when in the animus.
-    int Health: 0x049E3788, 0x34, 0x84; //shows you current health works with upgrades.
-    float oxygen: 0x25E080C; //current oxygen 1 for full and anything lower means the bar is going down. Except for exiting a shipwreck. 
-//--for knowing how far your are and for splitting--
-    int Percentage: 0x049D9774, 0x284; //Shows the total current percentage
-    float PercentageF: 0x049F1EE8, 0x74; //Shows the total current percentage but in a float
-//--General Counters--
-    int Viewpoints: 0x0002E8D0, 0x1A8, 0x28, 0x18; //Tracks total number of viewpoints completed
-    int MyanStele: 0x0002E8D0, 0x1A8, 0x3C, 0x18; //Tracks total number of MyanStele completed
-    int BuriedTreasure: 0x0002E8D0, 0x1A8, 0xFA0, 0x18; //Tracks total number of BuriedTreasure collected
-    int animusfragments: 0x0002E8D0, 0x1A8, 0x0, 0x18; //Tracks total number of animus fragments collected
-    int UnchartedFragments: 0x0002E8D0, 0x400, 0x528, 0x18; //Tracks total number of uncharted animusfragments collected
-    int UnchartedSecrets: 0x0002E8D0, 0x400, 0x370, 0x18; //Tracks total number of uncharted secrets collected 
-    int AssassinContracts: 0x0002E8D0, 0x1A8, 0xD84, 0x18; //Tracks the total number of Assassin Contracts completed
-    int NavalContracts: 0x002FE2CC, 0xD50; //Tracks the total number of Naval Contracts completed
-    int Letters: 0x0002E8D0, 0x450, 0x0, 0x18; //Tracks total number of letters in a bottle collected
-    int Manuscripts: 0x0002E8D0, 0x7C0, 0x0, 0x18; //Tracks total number of Manuscripts collected
-    int MusicSheets: 0x0002E8D0, 0xB08, 0x424, 0x18; //Tracks total number of MusicSheets collected
-    int Forts: 0x002FE2CC, 0xED0; //Tracks total number of Forts captured
-    int Taverns: 0x002FE2CC, 0xFF0; //Tracks total number of Taverns unlocked
-//Misc Chest Counters--
-    int WaterChests: 0x0002E8D0, 0x1A8, 0x64, 0x18; //Tracks total number of chests underwater collected
-    int UnchartedChests: 0x0002E8D0, 0x450, 0xE38, 0x18; //Tracks total number of uncharted chests collected
-//--Dry Tortuga Chest Counters--
-    int Havana: 0x0002E8D0, 0xB08, 0x744, 0x18; //Tracks total number of chest collected at Havana
-    int CapeBatavistia: 0x0002E8D0, 0xB08, 0xA78, 0x18; //Tracks total number of chest collected at Cape Bonavistia
-    int DryTortuga: 0x0002E8D0, 0xB08, 0x9C4, 0x18; //Tracks total number of chest collected at Dry Tortuga Fort
-    int SaltKey: 0x0002E8D0, 0xB08, 0x898, 0x18; //Tracks total number of chest collected at Salt Key Bay
-    int Matanzas: 0x0002E8D0, 0xB08, 0x80C, 0x18; //Tracks total number of chest collected at Matanzas
-    int Flordia: 0x0002E8D0, 0xB08, 0xA8C, 0x18; //Tracks total number of chest collected at Flordia
-//--Eleuthra Chests Counters--
-    int Nassua: 0x0002E8D0, 0xB08, 0x848, 0x18; //Tracks total number of chest collected at Nassua
-    int Eleuthra: 0x0002E8D0, 0xB08, 0x9D8, 0x18; //Tracks total number of chest collected at Eleuthra Fort
-    int Andreas: 0x0002E8D0, 0xB08, 0x7D0, 0x18; //Tracks total number of chest collected at Andreas Island
-    int Cat: 0x0002E8D0, 0xB08, 0x6CC, 0x18; //Tracks total number of chest collected at Cat Island
-    int AbacoIsland: 0x0002E8D0, 0xB08, 0x690, 0x18; //Tracks total number of chest collected at Abaco Island
-//--Gibra Chest Counters--
-    int Hideout: 0x0002E8D0, 0xB08, 0x758, 0x18; //Tracks total number of chest collected at Hideout
-    int Gibra: 0x0002E8D0, 0xB08, 0x9EC, 0x18; //Tracks total number of chest collected at Gibra
-    int Jiguey: 0x0002E8D0, 0xB08, 0x794, 0x18; //Tracks total number of chest collected at Jiguey
-    int SaltLagoon: 0x0002E8D0, 0xB08, 0x8AC, 0x18; //Tracks total number of chest collected at Salt Lagoon
-    int Crooked: 0x0002E8D0, 0xB08, 0x71C, 0x18; //Tracks total number of chest collected at Crooked Island
-    int Mariguana: 0x0002E8D0, 0xB08, 0x7F8, 0x18; //Tracks total number of chest collected at Mariguana
-//--Punta Guarico Chest Counters--
-    int Principe: 0x0002E8D0, 0xB08, 0x884, 0x18; //Tracks total number of chest collected at Principe
-    int Punta: 0x0002E8D0, 0xB08, 0xA14, 0x18; //Tracks total number of chest collected at Punta Guarico
-    int Tortuga: 0x0002E8D0, 0xB08, 0x938, 0x18; //Tracks total number of chest collected at Tortuga
-    int Cumberland: 0x0002E8D0, 0xB08, 0x834, 0x18; //Tracks total number of chest collected at Cumberland Bay
-    int Petite: 0x0002E8D0, 0xB08, 0x7E4, 0x18; //Tracks total number of chest collected at Petite Cavern
-//--Navassa & Conttoyor Chest Counters--
-    int Tulum: 0x0002E8D0, 0xB08, 0x708, 0x18; //Tracks total number of chest collected at Tulum
-    int Conttoyor: 0x0002E8D0, 0xB08, 0x99C, 0x18; //Tracks total number of chest collected at Conttoyor
-    int Navassa: 0x0002E8D0, 0xB08, 0xA00, 0x18; //Tracks total number of chest collected at Navassa
-    int IlleAVache: 0x0002E8D0, 0xB08, 0x76C, 0x18; //Tracks total number of chest collected at Ille A Vache
-//--Charlotte Chest Counters--
-    int Kingston: 0x0002E8D0, 0xB08, 0x7BC, 0x18; //Tracks total number of chest collected at Kingston
-    int Observatory: 0x0002E8D0, 0xB08, 0x870, 0x18; //Tracks total number of chest collected at Observatory
-    int Charlotte: 0x0002E8D0, 0xB08, 0x974, 0x18; //Tracks total number of chest collected at Charlotte
-    int Annatto: 0x0002E8D0, 0xB08, 0x6B8, 0x18; //Tracks total number of chest collected at Annatto Bay
-//--Serranillia Chest Counters--
-    int Isla: 0x0002E8D0, 0xB08, 0x780, 0x18; //Tracks total number of chest collected at Isla
-    int Serranillia: 0x0002E8D0, 0xB08, 0xA28, 0x18; //Tracks total number of chest collected at Serranillia
-    int NewBone: 0x0002E8D0, 0xB08, 0x85C, 0x18; //Tracks total number of chest collected at New Bone
-    int Misteriosa: 0x0002E8D0, 0xB08, 0x820, 0x18; //Tracks total number of chest collected at Misteriosa
-//--Chinchorro--
-    int Chinchorro: 0x0002E8D0, 0xB08, 0x988, 0x18; //Tracks total number of chest collected at Chinchorro
-    int Corozal: 0x0002E8D0, 0xB08, 0x6F4, 0x18; //Tracks total number of chest collected at Corozal
-    int Ambergis: 0x0002E8D0, 0xB08, 0x67C, 0x18; //Tracks total number of chest collected at Ambergis Bay
-    int Santanillas: 0x0002E8D0, 0xB08, 0x8C0, 0x18; //Tracks total number of chest collected at Santanillas
-//--Castillo de Jagua Chest Counters--
-    int Castillo: 0x0002E8D0, 0xB08, 0x960, 0x18; //Tracks total number of chest collected at Castillo
-    int Arrayos: 0x0002E8D0, 0xB08, 0x6A4, 0x18; //Tracks total number of chest collected at Arrayos
-    int Pinos: 0x0002E8D0, 0xB08, 0x7A8, 0x18; //Tracks total number of chest collected at Pinos Isle
-    int Cayman: 0x0002E8D0, 0xB08, 0x6E0, 0x18; //Tracks total number of chest collected at Cayman Sound
-//--Cruz Chest Counters--
-    int Cruz: 0x0002E8D0, 0xB08, 0x9B0, 0x18; //Tracks total number of chest collected at Cruz
-    int SanJuan: 0x0002E8D0, 0xB08, 0x924, 0x18; //Tracks total number of chest collected at San Juan
-    int GrandCayman: 0x0002E8D0, 0xB08, 0x730, 0x18; //Tracks total number of chest collected at Grand Cayman
+    //--stuff for loading & starting stuff--
+        int MainMenu: 0x49D2204; //65540 Main Menu anything else is in save file
+        int Character: 0x23485C0; //1 for modern day 0 for not
+        int location: 0x26C1F80; //for land lock Major locations the number is the same such as Cape & principe everything else changes. 
+        //For secondary locations as of now it stays the same number. To do: write down all numbers for all locations
+        int loading: 0x04A1A6CC, 0x7D8; //0 when not loading 1 when u are loading
+    //--stuff that affects edward--
+        int Money: 0x049E3788, 0xA0, 0x90; //Shows your current money when in the animus.
+        int Health: 0x049E3788, 0x34, 0x84; //shows you current health works with upgrades.
+        float oxygen: 0x25E080C; //current oxygen 1 for full and anything lower means the bar is going down. Except for exiting a shipwreck. 
+    //--for knowing how far your are and for splitting--
+        int Percentage: 0x049D9774, 0x284; //Shows the total current percentage
+        float PercentageF: 0x049F1EE8, 0x74; //Shows the total current percentage but in a float
+    //--General Counters--
+        int Viewpoints: 0x0002E8D0, 0x1A8, 0x28, 0x18; //Tracks total number of viewpoints completed
+        int MyanStele: 0x0002E8D0, 0x1A8, 0x3C, 0x18; //Tracks total number of MyanStele completed
+        int BuriedTreasure: 0x0002E8D0, 0x1A8, 0xFA0, 0x18; //Tracks total number of BuriedTreasure collected
+        int animusfragments: 0x0002E8D0, 0x1A8, 0x0, 0x18; //Tracks total number of animus fragments collected
+        int UnchartedFragments: 0x0002E8D0, 0x400, 0x528, 0x18; //Tracks total number of uncharted animusfragments collected
+        int UnchartedSecrets: 0x0002E8D0, 0x400, 0x370, 0x18; //Tracks total number of uncharted secrets collected 
+        int AssassinContracts: 0x0002E8D0, 0x1A8, 0xD84, 0x18; //Tracks the total number of Assassin Contracts completed
+        int NavalContracts: 0x002FE2CC, 0xD50; //Tracks the total number of Naval Contracts completed
+        int Letters: 0x0002E8D0, 0x450, 0x0, 0x18; //Tracks total number of letters in a bottle collected
+        int Manuscripts: 0x0002E8D0, 0x7C0, 0x0, 0x18; //Tracks total number of Manuscripts collected
+        int MusicSheets: 0x0002E8D0, 0xB08, 0x424, 0x18; //Tracks total number of MusicSheets collected
+        int Forts: 0x002FE2CC, 0xED0; //Tracks total number of Forts captured
+        int Taverns: 0x002FE2CC, 0xFF0; //Tracks total number of Taverns unlocked
+    //Chest Counters--
+        int WaterChests: 0x0002E8D0, 0x1A8, 0x64, 0x18; //Tracks total number of chests underwater collected
+        int UnchartedChests: 0x0002E8D0, 0x450, 0xE38, 0x18; //Tracks total number of uncharted chests collected
+        int Havana: 0x0002E8D0, 0xB08, 0x744, 0x18; //Tracks total number of chest collected at Havana
+        int CapeBatavistia: 0x0002E8D0, 0xB08, 0xA78, 0x18; //Tracks total number of chest collected at Cape Bonavistia
+        int DryTortuga: 0x0002E8D0, 0xB08, 0x9C4, 0x18; //Tracks total number of chest collected at Dry Tortuga Fort
+        int SaltKey: 0x0002E8D0, 0xB08, 0x898, 0x18; //Tracks total number of chest collected at Salt Key Bay
+        int Matanzas: 0x0002E8D0, 0xB08, 0x80C, 0x18; //Tracks total number of chest collected at Matanzas
+        int Flordia: 0x0002E8D0, 0xB08, 0xA8C, 0x18; //Tracks total number of chest collected at Flordia
+        int Nassua: 0x0002E8D0, 0xB08, 0x848, 0x18; //Tracks total number of chest collected at Nassua
+        int Eleuthra: 0x0002E8D0, 0xB08, 0x9D8, 0x18; //Tracks total number of chest collected at Eleuthra Fort
+        int Andreas: 0x0002E8D0, 0xB08, 0x7D0, 0x18; //Tracks total number of chest collected at Andreas Island
+        int Cat: 0x0002E8D0, 0xB08, 0x6CC, 0x18; //Tracks total number of chest collected at Cat Island
+        int AbacoIsland: 0x0002E8D0, 0xB08, 0x690, 0x18; //Tracks total number of chest collected at Abaco Island
+        int Hideout: 0x0002E8D0, 0xB08, 0x758, 0x18; //Tracks total number of chest collected at Hideout
+        int Gibra: 0x0002E8D0, 0xB08, 0x9EC, 0x18; //Tracks total number of chest collected at Gibra
+        int Jiguey: 0x0002E8D0, 0xB08, 0x794, 0x18; //Tracks total number of chest collected at Jiguey
+        int SaltLagoon: 0x0002E8D0, 0xB08, 0x8AC, 0x18; //Tracks total number of chest collected at Salt Lagoon
+        int Crooked: 0x0002E8D0, 0xB08, 0x71C, 0x18; //Tracks total number of chest collected at Crooked Island
+        int Mariguana: 0x0002E8D0, 0xB08, 0x7F8, 0x18; //Tracks total number of chest collected at Mariguana
+        int Principe: 0x0002E8D0, 0xB08, 0x884, 0x18; //Tracks total number of chest collected at Principe
+        int Punta: 0x0002E8D0, 0xB08, 0xA14, 0x18; //Tracks total number of chest collected at Punta Guarico
+        int Tortuga: 0x0002E8D0, 0xB08, 0x938, 0x18; //Tracks total number of chest collected at Tortuga
+        int Cumberland: 0x0002E8D0, 0xB08, 0x834, 0x18; //Tracks total number of chest collected at Cumberland Bay
+        int Petite: 0x0002E8D0, 0xB08, 0x7E4, 0x18; //Tracks total number of chest collected at Petite Cavern
+        int Tulum: 0x0002E8D0, 0xB08, 0x708, 0x18; //Tracks total number of chest collected at Tulum
+        int Conttoyor: 0x0002E8D0, 0xB08, 0x99C, 0x18; //Tracks total number of chest collected at Conttoyor
+        int Navassa: 0x0002E8D0, 0xB08, 0xA00, 0x18; //Tracks total number of chest collected at Navassa
+        int IlleAVache: 0x0002E8D0, 0xB08, 0x76C, 0x18; //Tracks total number of chest collected at Ille A Vache
+        int Kingston: 0x0002E8D0, 0xB08, 0x7BC, 0x18; //Tracks total number of chest collected at Kingston
+        int Observatory: 0x0002E8D0, 0xB08, 0x870, 0x18; //Tracks total number of chest collected at Observatory
+        int Charlotte: 0x0002E8D0, 0xB08, 0x974, 0x18; //Tracks total number of chest collected at Charlotte
+        int Annatto: 0x0002E8D0, 0xB08, 0x6B8, 0x18; //Tracks total number of chest collected at Annatto Bay
+        int Isla: 0x0002E8D0, 0xB08, 0x780, 0x18; //Tracks total number of chest collected at Isla
+        int Serranillia: 0x0002E8D0, 0xB08, 0xA28, 0x18; //Tracks total number of chest collected at Serranillia
+        int NewBone: 0x0002E8D0, 0xB08, 0x85C, 0x18; //Tracks total number of chest collected at New Bone
+        int Misteriosa: 0x0002E8D0, 0xB08, 0x820, 0x18; //Tracks total number of chest collected at Misteriosa
+        int Chinchorro: 0x0002E8D0, 0xB08, 0x988, 0x18; //Tracks total number of chest collected at Chinchorro
+        int Corozal: 0x0002E8D0, 0xB08, 0x6F4, 0x18; //Tracks total number of chest collected at Corozal
+        int Ambergis: 0x0002E8D0, 0xB08, 0x67C, 0x18; //Tracks total number of chest collected at Ambergis Bay
+        int Santanillas: 0x0002E8D0, 0xB08, 0x8C0, 0x18; //Tracks total number of chest collected at Santanillas
+        int Castillo: 0x0002E8D0, 0xB08, 0x960, 0x18; //Tracks total number of chest collected at Castillo
+        int Arrayos: 0x0002E8D0, 0xB08, 0x6A4, 0x18; //Tracks total number of chest collected at Arrayos
+        int Pinos: 0x0002E8D0, 0xB08, 0x7A8, 0x18; //Tracks total number of chest collected at Pinos Isle
+        int Cayman: 0x0002E8D0, 0xB08, 0x6E0, 0x18; //Tracks total number of chest collected at Cayman Sound
+        int Cruz: 0x0002E8D0, 0xB08, 0x9B0, 0x18; //Tracks total number of chest collected at Cruz
+        int SanJuan: 0x0002E8D0, 0xB08, 0x924, 0x18; //Tracks total number of chest collected at San Juan
+        int GrandCayman: 0x0002E8D0, 0xB08, 0x730, 0x18; //Tracks total number of chest collected at Grand Cayman
 }
 
 startup
 {
-    // set text taken from Poppy Platime C2
-    // to display the text associated with this script aka current percentage
+    //set text taken from Poppy Platime C2
     Action<string, string> SetTextComponent = (id, text) => {
         var textSettings = timer.Layout.Components.Where(x => x.GetType().Name == "TextComponent").Select(x => x.GetType().GetProperty("Settings").GetValue(x, null));
         var textSetting = textSettings.FirstOrDefault(x => (x.GetType().GetProperty("Text1").GetValue(x, null) as string) == id);
@@ -112,7 +101,10 @@ startup
     };
     vars.SetTextComponent = SetTextComponent;
 
+    //Settings for splits
     settings.Add("Splits", true, "Splitting Options");
+    settings.Add("100%", false, "100%", "Splits");
+    settings.Add("Everything", false, "Everything", "Splits");
     settings.Add("Viewpoints", false, "Viewpoints", "Splits");
     settings.Add("MyanStele", false, "MyanStele", "Splits");
     settings.Add("BuriedTreasure", false, "BuriedTreasure", "Splits");
@@ -125,6 +117,8 @@ startup
     settings.Add("Legendary Ships", false, "Legendary Ships", "Splits");
 
     settings.SetToolTip("Splits", "Gives options of where to split");
+    settings.SetToolTip("Everything", "Splits on everything. Missions, collectibles, etc. \n" + "This is only recommended for 100% runs & if you have a split for everything");
+    settings.SetToolTip("100%", "Splits after getting all uncharted Collectibles");
     settings.SetToolTip("Viewpoints", "Splits after syncing a viewpoint");
     settings.SetToolTip("MyanStele", "Splits after lotting the myan stele stone ");
     settings.SetToolTip("BuriedTreasure", "Splits after edwards opens the treasure chest");
@@ -156,15 +150,6 @@ startup
 
 init
 {
-    vars.ViewpointsDone = false;
-    vars.MayanDone = false;
-    vars.TreasureDone = false;
-    vars.FragmentsDone = false;
-    vars.MusicSheetsDone = false;
-    vars.ManuscriptsDone = false;
-    vars.Letters = false;
-    vars.SecretsDone = false;
-    vars.CountersDone = false;
     vars.DryTortugaChests = 0;
     vars.EleuthraChests = 0;
     vars.GibraChests = 0;
@@ -182,7 +167,7 @@ init
         timer.IsGameTimePaused = true;
     }
 
-    if (vars.IsStopwatchStop == true )
+    if (vars.IsStopwatchStop == true)
     {
         vars.stopwatch.Start();
         vars.IsStopwatchStop = false; 
@@ -191,10 +176,10 @@ init
 
 update
 {
-    if (current.PercentageF <= 99.99999)
+    if (current.PercentageF < 99.99999)
     {
         current.PercentageF = Math.Round(current.PercentageF, 5);
-    } else
+    } else if (current.PercentageF == 99.99999 || settings["Everything"])
     {
         current.PercentageF = Math.Round(current.PercentageF, 4);
     }
@@ -214,15 +199,7 @@ update
     vars.CastilloChests = current.Castillo + current.Arrayos + current.Pinos + current.Cayman;
     vars.CruzChests = current.Cruz + current.SanJuan + current.GrandCayman;
     vars.TotalChests = vars.MiscChests + vars.DryTortugaChests + vars.EleuthraChests + vars.GibraChests + vars.PuntaGuaricoChests + vars.TwoLocationsChests + vars.CharlotteChests + vars.SerranilliaChests + vars.ChinchorroChests + vars.CastilloChests + vars.CruzChests;
-
-    if (current.oxygen == old.oxygen)
-    {
-        current.oxygen = Math.Round(current.oxygen, 1);
-    } else
-    {
-        current.oxygen = Math.Round(current.oxygen, 8);
-    }
-
+    
     if (settings["Percentage Display"])
     {
         if (current.PercentageF != null){
@@ -306,18 +283,7 @@ update
         }
     }
 
-
-
-    /*print(modules.First().ModuleMemorySize.ToString());
-    if (current.PercentageF != old.PercentageF)
-    {
-        print("current Character:" + current.PercentageF);
-        print("current Character:" + current.Percentage);
-    }
-    */
-    
-    //print("current Character:" + vars.MainMenu);
-    //print("current Character:" + current.Character);
+    //print(modules.First().ModuleMemorySize.ToString());
 }
 
 start
@@ -349,17 +315,29 @@ split
         vars.stopwatch.Restart();
         return true;
     }
-
-    if (current.UnchartedChests == 46 && old.UnchartedChests == 45 && current.UnchartedFragments == 30 && current.UnchartedSecrets == 3)
+    
+    if (settings["Everything"])
     {
-        vars.stopwatch.Restart();
-        return true;
+        if (current.PercentageF > old.PercentageF && current.loading == 0)
+        {
+            vars.stopwatch.Restart();
+            return true;
+        }
+    }
+
+    if (settings["100%"])
+    {
+        if (current.UnchartedChests == 46 && old.UnchartedChests == 45 && current.UnchartedFragments == 30 && current.UnchartedSecrets == 3)
+        {
+            vars.stopwatch.Restart();
+            return true;
+        }
     }
 
     if(settings["Viewpoints"])
     {
         //splits when syncing a viewpoint
-        if (current.Viewpoints == old.Viewpoints + 1 && vars.SplitTime > 2)
+        if (current.Viewpoints == old.Viewpoints + 1 && vars.SplitTime > 2 && current.loading == 0)
         {
             print("Viewpoints Split Version = Counter");
             vars.stopwatch.Restart();
@@ -378,7 +356,7 @@ split
     if(settings["MyanStele"])
     {
         //splits when getting one myan stone
-        if (current.MyanStele == old.MyanStele + 1 && vars.SplitTime > 2)
+        if (current.MyanStele == old.MyanStele + 1 && vars.SplitTime > 2 && current.loading == 0)
         {
             print("MyanStele Split Version = Counter");
             vars.stopwatch.Restart();
@@ -397,7 +375,7 @@ split
     if(settings["BuriedTreasure"])
     {
         //splits when openning a buried treasure
-        if (current.BuriedTreasure == old.BuriedTreasure + 1 && vars.SplitTime > 2)
+        if (current.BuriedTreasure == old.BuriedTreasure + 1 && vars.SplitTime > 2 && current.loading == 0)
         {
             print("BuriedTreasure Split Version = Counter");
             vars.stopwatch.Restart();
@@ -413,7 +391,7 @@ split
     if (settings["Contracts"])
     {
         //splits for assassin contracts
-        if (current.NavalContracts == old.AssassinContracts + 1 && vars.SplitTime > 2)
+        if (current.NavalContracts == old.AssassinContracts + 1 && vars.SplitTime > 2 && current.loading == 0)
         {
             print("Assassin Contracts Split Version = Counter");
             vars.stopwatch.Restart();
@@ -427,7 +405,7 @@ split
         }
 
         //splits for naval contracts
-        if (current.NavalContracts == old.AssassinContracts + 1 && vars.SplitTime > 2)
+        if (current.NavalContracts == old.AssassinContracts + 1 && vars.SplitTime > 2 && current.loading == 0)
         {
             print("Naval Contracts Split Version = Counter");
             vars.stopwatch.Restart();
@@ -445,7 +423,7 @@ split
     if (settings["Forts"])
     {
         //splits when capturing a fort
-        if (current.Forts == old.Forts + 1 && vars.SplitTime > 2)
+        if (current.Forts == old.Forts + 1 && vars.SplitTime > 2 && current.loading == 0)
         {
             print("Forts Split Version = Counter");
             vars.stopwatch.Restart();
@@ -461,7 +439,7 @@ split
     if (settings["Taverns"])
     {
         //splits when ccompleting a tavern
-        if (current.Taverns == old.Taverns + 1 && vars.SplitTime > 2)
+        if (current.Taverns == old.Taverns + 1 && vars.SplitTime > 2 && current.loading == 0)
         {
             print("Taverns Split Version = Counter");
             vars.stopwatch.Restart();

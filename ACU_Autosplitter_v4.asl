@@ -52,6 +52,11 @@ startup
     vars.prologue = 0;  //Determining if the prologue has been started or not. Needed for first split accuracy
     vars.split = 0;     //Tracks which split we are on
     vars.tabbedFlag = 0;      //Flag to detect if the game has been tabbed out at least once
+    // Store all possible currency increases in vars.Money
+    vars.Money = new int[] {100, 150, 250, 300, 350, 400, 450, 500, 750, 1000, 1350, 1500, 2000, 2500, 3000, 4000, 4500, 5000, 6000, 6500, 10000};
+
+    // Create a new list containing the values of vars.Money
+    vars.MoneyIncreased = new List<int>(vars.Money);
     
     //settings for hundo
     settings.Add("100%", false, "100% Splits") // 100% setting
@@ -87,6 +92,13 @@ update
     //print("IsLoading: " + current.isLoading + " Playing intro: " + vars.playingIntro + " Tabbed Out: " + current.tabbedOut);
 }
 
+onStart
+{
+    vars.split ++;
+    vars.prologue = 1;
+    vars.playingIntro = 1;
+}
+
 
 start {
     if(current.startMenu == 0 && old.startMenu == 256) {    //Starts splits on first menu close ie. clicking start on first main manu
@@ -100,117 +112,40 @@ start {
 
 split 
 {
-    //Splits when end of mission is accepted
-    if(current.missionComplete == 0 && old.missionComplete == 1) { 
+    //Splits when end of mission is accepted, also for most side missions such as heist, and coop missions
+    if(current.missionComplete == 0 && old.missionComplete == 1) 
+    { 
         vars.split ++;
         return true;
     }
 
     //Splits after prologue due to currency (or ability points) jumping up to 4294967295 (-1) during the load of the first mission
-    if(current.currency == 0 && old.currency == -1 && vars.prologue == 1 && vars.split == 0) { 
+    if(current.currency == 0 && old.currency == -1 && vars.prologue == 1 && vars.split == 0) 
+    { 
         vars.split ++;
         return true;
     }
 
-    // Chest-related splits, check if Chests setting is enabled
-    if (settings["Chests"]) {
-        if (current.currency == old.currency + 100) {
-        vars.split++;
+    // Chest-related splits, checks if MoneyIncreased the difference between current and old currency
+    if (settings["Chest"] && vars.MoneyIncreased.Contains(current.currency - old.currency)) {
+        vars.split ++;
         return true;
-        }
-        if (current.currency == old.currency + 150) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 250) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 300) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 350) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 400) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 450) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 500) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 750) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 1000) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 1350) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 1500) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 2000) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 2500) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 3000) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 4000) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 4500) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 5000) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 6000) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 6500) {
-        vars.split++;
-        return true;
-        }
-        if (current.currency == old.currency + 10000) {
-        vars.split++;
-        return true;
-        }
     }
 
     // Sync points-related splits, check if Sync Points setting is enabled
-    if (settings["SyncPoints"]) {
-        if (current.syncPoints == old.syncPoints + 1) {
-        vars.split++;
-        return true;
+    if (settings["SyncPoints"]) 
+    {
+        if (current.syncPoints == old.syncPoints + 1) 
+        {
+            vars.split ++;
+            return true;
         }
     }
 }
 
 isLoading {
-    if(current.isLoading == 1 && current.startMenu != 256 && vars.playingIntro == 1){   //Pauses timer when loading. Only starts working after intro cutscene finishes because it is detected as a load for some reason
+    if(current.isLoading == 1 && current.startMenu != 256 && vars.playingIntro == 1) //Pauses timer when loading. Only starts working after intro cutscene finishes because it is detected as a load for some reason
+    {   
         return true;
     }
     else {

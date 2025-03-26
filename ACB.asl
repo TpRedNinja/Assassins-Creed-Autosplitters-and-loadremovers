@@ -1,4 +1,4 @@
-﻿state("ACBSP")
+state("ACBSP")
 {
     int Percentage: 0x025B08A4, 0x278, 0x4, 0xC, 0x7C; //Percentage
     int Money: 0x025C63AC, 0x24, 0x40; //Money
@@ -8,6 +8,7 @@
 init
 {
     vars.AllMainMissions = new HashSet<int>{100, 150, 250, 400, 600, 700, 800, 1000, 1200, 1300, 1400, 1500, 2100, 2200, 2400, 2500, 3000, 5200, 6000, 6300, 6800}; //Money gained from main missions
+    vars.NegativeMoney = 400; //Money your lose
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = 0;
 }
@@ -38,7 +39,8 @@ onStart
 
 split
 {
-    if (current.Percentage > old.Percentage && vars.AllMainMissions.Contains(Math.Abs(current.Money - old.Money)) && vars.SplitTime > 2) //splits when the percentage increases and money increases
+    if (current.Percentage > old.Percentage && (vars.AllMainMissions.Contains(current.Money - old.Money) 
+    || vars.NegativeMoney == current.Money - old.Money) && vars.SplitTime > 2) //splits when the percentage increases and money increases
     {
         vars.stopwatch.Restart();
         return true;

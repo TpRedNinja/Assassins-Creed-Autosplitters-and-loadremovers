@@ -1,4 +1,4 @@
-Autosplitters and load removers:
+Autosplitters and load removers for Assassin's Creed Games:
 
 	-All autosplitters and load removers are integrated into livesplit/going to be.
 	-To activate them edit splits then click activate

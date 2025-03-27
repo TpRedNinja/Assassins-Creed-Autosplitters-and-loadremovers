@@ -27,7 +27,9 @@ Assassin's Creed Liberation Remastered:
 -works on ubi connect and steam
 
 Assassin's Creed Liberation:
-Work in progress will only support steam
+-Autosplit on all if not all missions
+-Loadremover
+-Only for steam but may work on ubisoft connect
 
 Assassin's Creed FreedomCry:
 Work in progress will only support steam. Unless u use AC4BF script then it will work on ubiconnect as well sense.

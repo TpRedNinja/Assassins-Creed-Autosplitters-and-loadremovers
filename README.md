@@ -1,8 +1,9 @@
-Autosplitters and load removers
-All autosplitters and load removers are integrated into livesplit/going to be.
-To activate them edit splits then click activate
-Look at settings for some features by defult all features except (autosplit, autostart, autoreset, and load remover) are turned off.
-To get Load remover compare against Game time on livesplit or add a timer that only displays the gametime. Not all games have a Load remover so keep that in mind
+Autosplitters and load removers:
+
+	-All autosplitters and load removers are integrated into livesplit/going to be.
+	-To activate them edit splits then click activate
+	-Look at settings for some features by defult all features except (autosplit, autostart, autoreset, and load remover) are turned off.
+	-To get Load remover compare against Game time on livesplit or add a timer that only displays the gametime. Not all games have a Load remover so keep that in mind
 
 Assassin's Creed 2:
 

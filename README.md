@@ -89,9 +89,21 @@ Assassin's Creed Mirage(Original loadremover made by Demented Salad):
 	  -Load remover
 	  -support only for ubiconnect
 
-Assassin's Creed Chronicles China/India/Russia:
-	  All work in progress will try and see if i can do a load remover & autosplitter soon
-
 Assassin's Creed Shadows:
-	  -For now only loadremover
-	  -Support for only steam version
+
+	-For now only loadremover
+	-Support for only steam version
+ Assassin's Creed Chronicles China:
+
+ 	-Autosplits on end screen
+  	-Shows IGT if you want it to
+   	-Works on steam may work on ubi connect but no ubi plus
+
+Assassin's Creed Chronicles India:
+
+	-Work in progress but expect the same features as China
+
+ Assassin's Creed Chronicles Russia:
+
+ 	-Work in progress but expect the same features as China and India
+    

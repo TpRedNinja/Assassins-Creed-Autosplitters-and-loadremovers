@@ -1,8 +1,8 @@
 Autosplitters and load removers
 
 Assassin's Creed 2:
-  -Splits on some missions not all
-  -may only work on steam
+	-Splits on some missions not all
+	-may only work on steam
 
 Assassin's Creed Brotherhood:
   -Splits when both percentage and money changes or when one of them changes

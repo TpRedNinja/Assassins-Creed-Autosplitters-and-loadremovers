@@ -101,14 +101,14 @@ Assassin's Creed Shadows:
  Assassin's Creed Chronicles China:
 
  	-Autosplits on end screen
-  	-Shows IGT if you want it to
-   	-Works on steam may work on ubi connect but no ubi plus
+	-Shows IGT if you want it to 
+ 	-Works on steam may work on ubi connect but no ubi plus
 
 Assassin's Creed Chronicles India:
 
-	-Work in progress but expect the same features as China
+	-Autosplits on EndScreen couldnt be asked to get the igt sorry
 
  Assassin's Creed Chronicles Russia:
 
- 	-Work in progress but expect the same features as China and India
+ 	-Autosplits on EndScreen couldnt be asked to get the igt sorry
     

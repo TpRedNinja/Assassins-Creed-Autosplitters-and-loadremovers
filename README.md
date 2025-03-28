@@ -44,8 +44,11 @@ Assassin's Creed Liberation:
 
 Assassin's Creed FreedomCry:
 
-	  Work in progress will only support steam. Unless u use AC4BF script then it will work on ubiconnect as well sense.
-	  This is for the independent game FreedomCry not the dlc apart of AC4BF so...may add dlc support
+	  -Autosplits on percentage change so basically every mission but might not idk
+   	-No load remover
+		-meant for standalone version of freedom cry not the dlc for blackflag.
+		-Meant for steam but could work on ubi connect not plus
+
 
 Assassin's Creed 4 Black Flag:
 

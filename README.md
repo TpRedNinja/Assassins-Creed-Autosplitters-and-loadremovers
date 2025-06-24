@@ -18,50 +18,51 @@
 
 **Assassin's Creed Revelations:**
 
-	  -Load Remover
-	  -Splits the same way as Brotherhood
-	  -may work only on steam
+	-Load Remover
+	-Splits the same way as Brotherhood
+	-may work only on steam
 
 **Assassin's Creed 3 Remastered:**
 
-	  -Autostart
-	  -Loadremover
-	  -Can split on most missions but not all of them
-	  -works on steam and ubi connect
+	-Autostart
+	-Loadremover
+	-Can split on most missions but not all of them
+	-works on steam and ubi connect
 
 **Assassin's Creed Liberation Remastered:**
 
-	  -Splits on most if not all missions
-	  -Autostart
-	  -loadremover
-	  -works on ubi connect and steam
+	-Splits on most if not all missions
+	-Autostart
+	-loadremover
+	-works on ubi connect and steam
 
 **Assassin's Creed Liberation:**
 
-	  -Autosplit on all if not all missions
-	  -Loadremover
-	  -Only for steam but may work on ubisoft connect
+	-Autosplit on all if not all missions
+	-Loadremover
+	-Only for steam but may work on ubisoft connect
 
 **Assassin's Creed FreedomCry:**
 
-	  	-Autosplits on percentage change so basically every mission but might not idk
-   		-No load remover
-		-meant for standalone version of freedom cry not the dlc for blackflag.
-		-Meant for steam but could work on ubi connect not plus
+	-Autosplits on percentage change so basically every mission but might not idk
+   	-No load remover
+	-meant for standalone version of freedom cry not the dlc for blackflag.
+	-Meant for steam but could work on ubi connect not plus
 
 
 **Assassin's Creed 4 Black Flag:**
 
-	  -Autostart
-	  -loadremove
-	  -splits for basically every mission
-	  -support for 100%
-	  -works on steam and ubiconnect
+	-Autostart
+	-loadremove
+	-splits for basically every mission
+	-support for 100%
+	-works on steam and ubiconnect
 
 **Assassin's Creed Rogue:**
 
-	-loadremove
+	-loadremover
 	-splits for basically every mission
+ 	-made for steam may work on ubiconnect
  
 **Assassin's Creed Unity(made by Akilo updated by me):**
 

@@ -30,57 +30,72 @@ startup
     vars.SetTextComponent = SetTextComponent;
 
     settings.Add("Splits", false, "Splitting options");
-    settings.Add("Any%", false, "Any%", "Splitting options");
+    settings.Add("Any%", false, "Any%", "Splits");
     settings.SetToolTip("Any%", "Split when completing any mission that gives a percentage increase.");
-    settings.Add("Modern Day", false, "Modern Day", "Splitting options");
+    settings.Add("Modern Day", false, "Modern Day", "Splits");
     settings.SetToolTip("Modern Day", "Split when exiting the modern day.");
-    settings.Add("100%", true, "100%", "Splitting options");
+    settings.Add("100%", false, "100%", "Splits");
     settings.SetToolTip("100%", "Splits on everything");
 
     settings.Add("Timing", false, "Timing Options");
-    settings.Add("IGT", false, "In-Game Timer", "Timing Options");
+    settings.Add("IGT", false, "In-Game Timer", "Timing");
     settings.SetToolTip("IGT", "Use the in-game timer");
-    settings.Add("Load Remover", false, "Load Remover", "Timing Options");
+    settings.Add("Load Remover", false, "Load Remover", "Timing");
     settings.SetToolTip("Load Remover", "Use the Load Remover");
-    settings.Add("IGT Display", false, "IGT Display", "Timing Options");
-    settings.SetToolTip("IGT Display", "Display the In-Game Timer as a text component on live split. \n Can only be displayed if In-Game Timer is disabled.");
+    settings.Add("IGT Display", false, "IGT Display", "Timing");
+    settings.SetToolTip("IGT Display", "Display the In-Game Timer as a text component on live split.");
 
     
     vars.AddSecondWatch = new Stopwatch();
     vars.AddSecond = null;
-    vars.IGT = 0;
+    vars.TotalIGT = 0f;
     vars.TimeBeforeLoad = null;
+
+    vars.TimeBeforeStarting = new Stopwatch();
+    vars.Starting = 0;
 }
 
 update
 {
-    if (settings["IGT Display"] && !settings["IGT"])
+    if (old.loading && !current.loading && !current.InMenu && !old.InMenu && timer.CurrentPhase == TimerPhase.Stopped)
+    {
+        vars.TimeBeforeStarting.Start();
+    }
+
+    if (settings["IGT Display"])
     {
         var igtTimeSpan = TimeSpan.FromSeconds(current.IGT);
         var igtString = igtTimeSpan.ToString(@"hh\:mm\:ss");
         vars.SetTextComponent("IGT: ", igtString);
     }
-    
 
-    if (current.loading && !old.loading && current.IGT == old.IGT)
+    vars.Starting = (int)vars.TimeBeforeStarting.Elapsed.TotalSeconds;
+
+    vars.SetTextComponent("Starting: ", vars.Starting.ToString());
+}
+
+start
+{
+    if (vars.Starting >= 11 && !current.loading)
     {
-        vars.TimeBeforeLoad = current.IGT;
+        vars.TimeBeforeStarting.Reset();
+        return true;
     }
 }
 
 split
 {
-    if (current.percentage > old.percentage && settings.["Any%"])
+    if (current.percentage > old.percentage && settings["Any%"])
     {
         return true;
     }
 
-    if (!current.InModernDay && old.InModernDay && settings.["Modern Day"])
+    if (!current.InModernDay && old.InModernDay && settings["Modern Day"])
     {
         return true;
     }
 
-    if (current.percentageFloat > old.percentageFloat && settings.["100%"] && !current.loading)
+    if (current.percentageFloat > old.percentageFloat && settings["100%"] && !current.loading)
     {
         return true;
     }
@@ -95,48 +110,46 @@ isLoading
             return true;
         }
     }
+    return true;
 }
 
 gameTime
 {
-    if(settings["IGT"])
+    if (settings["IGT"])
     {
-        if (current.IGT == old.IGT && !current.loading && current.InMenu) //prevent timer from pause on menus
+        // 1. In menu, IGT not changing, not loading
+        if (current.IGT == old.IGT && !current.loading && current.InMenu)
         {
             vars.AddSecondWatch.Start();
             vars.AddSecond = (int)vars.AddSecondWatch.Elapsed.TotalSeconds;
-            if (vars.AddSecond > = 1)
+            if (vars.AddSecond >= 1)
             {
-                vars.IGT ++;
+                vars.TotalIGT += 1;
                 vars.AddSecondWatch.Restart();
             }
-        } else if (current.IGT < vars.TimeBeforeLoad && vars.TimeBeforeLoad - current.IGT >= 1) // when reloading a checkpoint igt goes back to what the number was at the checkpoint
-        {
-            if(vars.AddSecondWatch.IsRunning)
-            {
-                vars.AddSecondWatch.Reset();
-            }
-            vars.IGT = vars.TimeBeforeLoad - current.IGT;
-        } else if (vars.TimeBeforeLoad - current.IGT <= 0) // when reloading a checkpoint igt goes back to what the number was at the checkpoint but it is now greater than the current igt
-        {
-            if(vars.AddSecondWatch.IsRunning)
-            {
-                vars.AddSecondWatch.Reset();
-            }
-            
-            vars.IGT = current.IGT - old.IGT;
-        } else // normal timing
-        {
-            if(vars.AddSecondWatch.IsRunning)
-            {
-                vars.AddSecondWatch.Reset();
-            }
-            
-            vars.IGT = current.IGT - old.IGT; // normal timing
         }
-
-        return TimeSpan.FromSeconds(vars.IGT); // returns the game time in seconds
-    
+        // 2. loading
+        else if (current.loading)
+        {
+            vars.TotalIGT += 0;
+        }
+        else if (current.IGT - old.IGT < 0)
+        {
+            vars.TotalIGT += Math.Abs(current.IGT - old.IGT);
+        }
+        // 4. normal case: IGT is increasing
+        else
+        {
+            vars.TotalIGT += current.IGT - old.IGT;
+        }
+        return TimeSpan.FromMilliseconds(vars.TotalIGT * 1000);
     }
-    
+}
+
+onReset
+{
+    vars.AddSecondWatch.Reset();
+    vars.AddSecond = null;
+    vars.TotalIGT = 0;
+    vars.TimeBeforeLoad = null;
 }

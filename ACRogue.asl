@@ -57,7 +57,7 @@ startup
 
 update
 {
-    if (old.loading && !current.loading && !current.InMenu && !old.InMenu && timer.CurrentPhase == TimerPhase.Stopped)
+    if (old.loading && !current.loading && !current.InMenu && !old.InMenu && timer.CurrentPhase == TimerPhase.NotRunning)
     {
         vars.TimeBeforeStarting.Start();
     }

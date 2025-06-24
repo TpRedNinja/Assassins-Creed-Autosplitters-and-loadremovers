@@ -40,6 +40,8 @@ startup
     settings.Add("IGT Display", false, "IGT Display");
     settings.SetToolTip("IGT Display", "Display the In-Game Timer as a text component on live split.");
 
+    vars.StartingTime = 0;
+    vars.TimerGreaterThanZero = false;
 }
 
 update
@@ -49,6 +51,34 @@ update
         var igtTimeSpan = TimeSpan.FromSeconds(current.IGT);
         var igtString = igtTimeSpan.ToString(@"hh\:mm\:ss");
         vars.SetTextComponent("IGT: ", igtString);
+
+        var string1 = vars.StartingTime.ToString();
+        var string2 = vars.TimerGreaterThanZero.ToString();
+        var diff = Math.Abs(current.IGT - vars.StartingTime);
+        vars.SetTextComponent("Starting Time: ", string1);
+        vars.SetTextComponent("Timer Greater Than Zero: ", string2);
+        vars.SetTextComponent("Difference: ", diff.ToString());
+    }
+
+    if (timer.CurrentPhase == TimerPhase.NotRunning && current.loading && current.IGT > 0)
+    {
+        vars.TimerGreaterThanZero = true;
+        vars.StartingTime = current.IGT;
+    }
+}
+
+start
+{
+    if (current.IGT >= vars.StartingTime + 60 && vars.TimerGreaterThanZero)
+    {
+        print("starting");
+        vars.TimerGreaterThanZero = false;
+        return true;
+    } else if(current.IGT == 60 && !current.InMenu && !current.loading && !vars.TimerGreaterThanZero)
+    {
+        print("starting2");
+        vars.TimerGreaterThanZero = false;
+        return true;
     }
 }
 

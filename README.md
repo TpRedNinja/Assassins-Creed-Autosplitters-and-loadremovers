@@ -60,6 +60,7 @@
 
 **Assassin's Creed Rogue:**
 
+	-Auto Start(NOTE BE SURE TO BE READY TO SPRINT LIKE HELL! TIMER STARTS AFTER THE IGT REACHES 1 MINIUTE)
 	-loadremover
 	-splits for basically every mission
  	-made for steam may work on ubiconnect

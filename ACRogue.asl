@@ -51,13 +51,6 @@ update
         var igtTimeSpan = TimeSpan.FromSeconds(current.IGT);
         var igtString = igtTimeSpan.ToString(@"hh\:mm\:ss");
         vars.SetTextComponent("IGT: ", igtString);
-
-        var string1 = vars.StartingTime.ToString();
-        var string2 = vars.TimerGreaterThanZero.ToString();
-        var diff = Math.Abs(current.IGT - vars.StartingTime);
-        vars.SetTextComponent("Starting Time: ", string1);
-        vars.SetTextComponent("Timer Greater Than Zero: ", string2);
-        vars.SetTextComponent("Difference: ", diff.ToString());
     }
 
     if (timer.CurrentPhase == TimerPhase.NotRunning && current.loading && current.IGT > 0)

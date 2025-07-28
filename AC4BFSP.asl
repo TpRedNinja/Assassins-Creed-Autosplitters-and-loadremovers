@@ -1,4 +1,4 @@
-//Assassins Creed IV Black Flag Version: 2.0.0 Autosplitter made by TpRedNinja
+//Assassins Creed IV Black Flag Autosplitter made by TpRedNinja
 //Thanks for the help from tasz for testing all versions of my autosplitter and getting the percentage values for everything
 
 state("AC4BFSP")
@@ -16,75 +16,6 @@ state("AC4BFSP")
     //--for knowing how far your are and for splitting--
         int Percentage: 0x049D9774, 0x284; //Shows the total current percentage
         float PercentageF: 0x049F1EE8, 0x74; //Shows the total current percentage but in a float
-    //--General Counters--
-        int Viewpoints: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFE4D0, 0x18; //Tracks total number of viewpoints completed
-        int MyanStele: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFE4E4, 0x18; //Tracks total number of MyanStele completed
-        int BuriedTreasure: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFF448, 0x18; //Tracks total number of BuriedTreasure collected
-        int animusfragments: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFE4A8, 0x18; //Tracks total number of animus fragments collected
-        int AssassinContracts: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFF22C, 0x18; //Tracks the total number of Assassin Contracts completed
-        int NavalContracts: 0x026BEAC0, 0x2D0, 0x8BC, 0x1950, 0x18; //Tracks total number of Naval Contracts completed
-        int Letters: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFFB14, 0x18; //Tracks total number of letters in a bottle collected
-        int Manuscripts: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFFCCC, 0x18; //Tracks total number of Manuscripts collected
-        int MusicSheets: 0x026BEAC0, 0x2D0, 0x8BC, 0x424, 0x18; //Tracks total number of MusicSheets collected
-        int Forts: 0x00A0E21C, 0xFFFFFFF0; //Tracks total number of forts captured
-        int TotalTaverns: 0x026BEAC0, 0x2D0, 0x8BC, 0x3188, 0x18; //Tracks total number of Taverns Completed
-        int LGS: 0x00A0E21C, 0x170; //Tracks total number of Legendary Ships defeated
-
-    //--Templar Hunts Counters--
-        int Opia: 0x00A0E21C, 0xFFFFFE8A; //Tracks total number of Opia Templar Hunts completed
-        int Rhona: 0x00A0E21C, 0xFFFFFEDA; //Tracks total number of Rhona Templar Hunts completed
-        int Anto: 0x00A0E21C, 0xFFFFFD50; //Tracks total number of Anto Templar Hunts completed
-        int Upton: 0x00A0E21C, 0xFFFFFE06; //Tracks total number of Vance Templar Hunts completed
-
-    //Chest Counters--
-        int WaterChests: 0x026BEC04, 0x30C, 0x58C, 0x18; //Tracks total number of chests underwater collected
-        int UnchartedChests: 0x026BEAC0, 0x2D0, 0x8BC, 0x94C, 0x18; //Tracks total number of uncharted chests collected
-        int Havana: 0x026BEAC0, 0x2D0, 0x8BC, 0x744, 0x18; // Tracks total number of chests collected at Havana
-        int CapeBatavistia: 0x026BEAC0, 0x2D0, 0x8BC, 0xA78, 0x18; // Tracks total number of chests collected at Cape Bonavistia
-        int DryTortuga: 0x026BEAC0, 0x2D0, 0x8BC, 0x9C4, 0x18; // Tracks total number of chests collected at Dry Tortuga Fort
-        int SaltKey: 0x026BEAC0, 0x2D0, 0x8BC, 0x898, 0x18; // Tracks total number of chests collected at Salt Key Bay
-        int Matanzas: 0x026BEAC0, 0x2D0, 0x8BC, 0x80C, 0x18; // Tracks total number of chests collected at Matanzas
-        int Flordia: 0x026BEAC0, 0x2D0, 0x8BC, 0xA8C, 0x18; // Tracks total number of chests collected at Florida
-        int Nassua: 0x026BEAC0, 0x2D0, 0x8BC, 0x848, 0x18; // Tracks total number of chests collected at Nassau
-        int Eleuthra: 0x026BEAC0, 0x2D0, 0x8BC, 0x9D8, 0x18; // Tracks total number of chests collected at Eleuthra Fort
-        int Andreas: 0x026BEAC0, 0x2D0, 0x8BC, 0x7D0, 0x18; // Tracks total number of chests collected at Andreas Island
-        int Cat: 0x026BEAC0, 0x2D0, 0x8BC, 0x6CC, 0x18; // Tracks total number of chests collected at Cat Island
-        int AbacoIsland: 0x026BEAC0, 0x2D0, 0x8BC, 0x690, 0x18; // Tracks total number of chests collected at Abaco Island
-        int Hideout: 0x026BEAC0, 0x2D0, 0x8BC, 0x870, 0x18; // Tracks total number of chests collected at Long Bay (Hideout)
-        int Gibra: 0x026BEAC0, 0x2D0, 0x8BC, 0x9EC, 0x18; // Tracks total number of chests collected at Gibra
-        int Crooked: 0x026BEAC0, 0x2D0, 0x8BC, 0x71C, 0x18; // Tracks total number of chests collected at Crooked Island
-        int Jiguey: 0x026BEAC0, 0x2D0, 0x8BC, 0x794, 0x18; // Tracks total number of chests collected at Jiguey
-        int Mariguana: 0x026BEAC0, 0x2D0, 0x8BC, 0x7F8, 0x18; // Tracks total number of chests collected at Mariguana
-        int SaltLagoon: 0x026BEAC0, 0x2D0, 0x8BC, 0x8AC, 0x18; // Tracks total number of chests collected at Salt Lagoon
-        int Principe: 0x026BEAC0, 0x2D0, 0x8BC, 0x884, 0x18; // Tracks total number of chests collected at Principe
-        int Punta: 0x026BEAC0, 0x2D0, 0x8BC, 0xA14, 0x18; // Tracks total number of chests collected at Punta Guarico
-        int Tortuga: 0x026BEAC0, 0x2D0, 0x8BC, 0x938, 0x18; // Tracks total number of chests collected at Tortuga
-        int Petite: 0x026BEAC0, 0x2D0, 0x8BC, 0x834, 0x18; // Tracks total number of chests collected at Petite Cavern
-        int Cumberland: 0x026BEAC0, 0x2D0, 0x8BC, 0x7E4, 0x18; // Tracks total number of chests collected at Cumberland Bay
-        int Tulum: 0x026BEAC0, 0x2D0, 0x8BC, 0x708, 0x18; // Tracks total number of chests collected at Tulum
-        int Conttoyor: 0x026BEAC0, 0x2D0, 0x8BC, 0x99C, 0x18; // Tracks total number of chests collected at Conttoyor
-        int Navassa: 0x026BEAC0, 0x2D0, 0x8BC, 0xA00, 0x18; // Tracks total number of chests collected at Navassa
-        int IlleAVache: 0x026BEAC0, 0x2D0, 0x8BC, 0x76C, 0x18; // Tracks total number of chests collected at Ille A Vache
-        int Kingston: 0x026BEAC0, 0x2D0, 0x8BC, 0x7BC, 0x18; // Tracks total number of chests collected at Kingston
-        int Observatory: 0x026BEAC0, 0x2D0, 0x8BC, 0x758, 0x18; // Tracks total number of chests collected at Great Iguana (Observatory)
-        int Charlotte: 0x026BEAC0, 0x2D0, 0x8BC, 0x974, 0x18; // Tracks total number of chests collected at Charlotte
-        int Annatto: 0x026BEAC0, 0x2D0, 0x8BC, 0x6B8, 0x18; // Tracks total number of chests collected at Annatto Bay
-        int Isla: 0x026BEAC0, 0x2D0, 0x8BC, 0x780, 0x18; // Tracks total number of chests collected at Isla
-        int Serranillia: 0x026BEAC0, 0x2D0, 0x8BC, 0xA28, 0x18; // Tracks total number of chests collected at Serranillia
-        int Misteriosa: 0x026BEAC0, 0x2D0, 0x8BC, 0x820, 0x18; // Tracks total number of chests collected at Misteriosa
-        int NewBone: 0x026BEAC0, 0x2D0, 0x8BC, 0x85C, 0x18; // Tracks total number of chests collected at New Bone
-        int Chinchorro: 0x026BEAC0, 0x2D0, 0x8BC, 0x988, 0x18; // Tracks total number of chests collected at Chinchorro
-        int Santanillas: 0x026BEAC0, 0x2D0, 0x8BC, 0x8C0, 0x18; // Tracks total number of chests collected at Santanillas
-        int Corozal: 0x026BEAC0, 0x2D0, 0x8BC, 0x6F4, 0x18; // Tracks total number of chests collected at Corozal
-        int Ambergis: 0x026BEAC0, 0x2D0, 0x8BC, 0x67C, 0x18; // Tracks total number of chests collected at Ambergis Bay
-        int Castillo: 0x026BEAC0, 0x2D0, 0x8BC, 0x960, 0x18; // Tracks total number of chests collected at Castillo
-        int Pinos: 0x026BEAC0, 0x2D0, 0x8BC, 0x7A8, 0x18; // Tracks total number of chests collected at Pinos Isle
-        int Arrayos: 0x026BEAC0, 0x2D0, 0x8BC, 0x6A4, 0x18; // Tracks total number of chests collected at Arrayos
-        int Cayman: 0x026BEAC0, 0x2D0, 0x8BC, 0x6E0, 0x18; // Tracks total number of chests collected at Cayman Sound
-        int Cruz: 0x026BEAC0, 0x2D0, 0x8BC, 0x9B0, 0x18; // Tracks total number of chests collected at Cruz
-        int SanJuan: 0x026BEAC0, 0x2D0, 0x8BC, 0x924, 0x18; // Tracks total number of chests collected at San Juan
-        int GrandCayman: 0x026BEAC0, 0x2D0, 0x8BC, 0x730, 0x18; // Tracks total number of chests collected at Grand Cayman
-
 }
 
 startup
@@ -92,6 +23,7 @@ startup
     //asl help stuff
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
     vars.Helper.StartFileLogger("SplitsVersions.log");
+    vars.Helper.Settings.CreateFromXml("C:/Users/jjdom/OneDrive/Desktop/livesplit/LiveSplit_1.8.29/Components/AC4.Settings.xml");
 
     //set text taken from Poppy Playtime C2
     Action<string, string> SetTextComponent = (id, text) => {
@@ -112,47 +44,6 @@ startup
     };
     vars.SetTextComponent = SetTextComponent;
 
-    //Settings for splits
-    settings.Add("Splits", true, "Splitting Options");
-        settings.Add("Any%", false, "Any%", "Splits");
-        settings.Add("Everything", false, "Everything", "Splits");
-        settings.Add("Viewpoints", false, "Viewpoints", "Splits");
-        settings.Add("MyanStele", false, "MyanStele", "Splits");
-        settings.Add("BuriedTreasure", false, "BuriedTreasure", "Splits");
-        settings.Add("Contracts", false, "Contracts", "Splits");
-        settings.Add("Templar Hunts", false, "Templar Hunts", "Splits");
-        settings.Add("Forts", false, "Forts", "Splits");
-        settings.Add("Taverns", false, "Taverns", "Splits");
-        settings.Add("Modern day", false, "Modern day", "Splits");
-        settings.Add("Shipwrecks", false, "Shipwrecks", "Splits");
-        settings.Add("Legendary Ships", false, "Legendary Ships", "Splits");
-        settings.Add("Collectibles", false, "Collectibles", "Splits");
-            settings.Add("Fragments", false, "Fragments", "Collectibles");
-            settings.Add("Chests", false, "Chests", "Collectibles");
-            settings.Add("Letters", false, "Letters", "Collectibles");
-            settings.Add("Manuscripts", false, "Manuscripts", "Collectibles");
-            settings.Add("Music Sheets", false, "Music Sheets", "Collectibles");
-
-    settings.SetToolTip("Splits", "Gives options of where to split");
-        settings.SetToolTip("Everything", "Splits on everything. Missions, collectibles, etc. \n" + "This is only recommended for 100% runs & if you have a split for everything");
-        settings.SetToolTip("Any%", "Splits after every Mission");
-        settings.SetToolTip("Viewpoints", "Splits after syncing a viewpoint");
-        settings.SetToolTip("MyanStele", "Splits after lotting the myan stele stone ");
-        settings.SetToolTip("BuriedTreasure", "Splits after edwards opens the treasure chest");
-        settings.SetToolTip("Contracts", "Splits when gaining money from completing a contract");
-        settings.SetToolTip("Templar Hunts", "Splits when completing a templar hunt mission");
-        settings.SetToolTip("Forts", "Splits when fort turns green in map");
-        settings.SetToolTip("Taverns", "Splits on defeating all guards in for a tavern");
-        settings.SetToolTip("Modern day", "Splits when entering the animus for the modern day missions");
-        settings.SetToolTip("Shipwrecks", "Splits when getting a x amount of chests from the shipwrecks");
-        settings.SetToolTip("Legendary Ships", "Splits when defeating legendary ships");
-        settings.SetToolTip("Collectibles", "Collectibles splits");
-            settings.SetToolTip("Chests", "Splits when collecting a chest");
-            settings.SetToolTip("Fragments", "Splits when collecting an animus fragment");
-            settings.SetToolTip("Letters", "Splits when collecting a letter in a bottle");
-            settings.SetToolTip("Manuscripts", "Splits when collecting a manuscript");
-            settings.SetToolTip("Music Sheets", "Splits when collecting a music sheet");
-
     //not splitting settings
     settings.Add("Percentage Display", false);
     settings.Add("Collectibles Display", false, "Collectibles Display");
@@ -160,28 +51,142 @@ startup
     settings.Add("Debug", false, "Debug");
     settings.Add("Calculator", false, "Calculator","Debug");
     settings.SetToolTip("Debug", "This will show the current MainMenu value and loading.\n" + "Along with the calculator if u use it");
+    /*for any future settings i want to add
+    settings.Add("", false, "", "Splits");
+    settings.SetToolTip("", "Splits when ");
+    */
     vars.completedsplits = new List<string>();
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = null;
     vars.TotalTimeWatch = new Stopwatch();
     vars.TotalTime = null;
     vars.IsStopwatchStop = false;
+
+    vars.Counters = new Dictionary<string, List<uint>>
+    {
+        {"Viewpoints", new List<uint>{0x2D0, 0x8BC, 0xFFFFE4D0, 0x18}},
+        {"Myan Stele", new List<uint>{0x2D0, 0x8BC, 0xFFFFE4E4, 0x18}},
+        {"Buried Treasure", new List<uint>{0x2D0, 0x8BC, 0xFFFFF448, 0x18}},
+        {"Animus Fragments", new List<uint>{0x2D0, 0x8BC, 0xFFFFE4A8, 0x18}},
+        {"Assassin Contracts", new List<uint>{0x2D0, 0x8BC, 0xFFFFF22C, 0x18}},
+        {"Naval Contracts", new List<uint>{0x2D0, 0x8BC, 0x1950, 0x18}},
+        {"Letters", new List<uint>{0x2D0, 0x8BC, 0xFFFFFB14, 0x18}},
+        {"Manuscripts", new List<uint>{0x2D0, 0x8BC, 0xFFFFFCCC, 0x18}},
+        {"Music Sheets", new List<uint>{0x2D0, 0x8BC, 0x424, 0x18}},
+        {"Taverns", new List<uint>{0x2D0, 0x8BC, 0x3188, 0x18}}
+    };
+
+    vars.SpecialStuff = new Dictionary<string, uint>
+    {
+        {"Forts", 0xFFFFFFF0},
+        {"Legendary Ships", 0x170},
+    };
+
+    vars.TemplarHunts = new Dictionary<string, uint>
+    {
+        {"Opia Hunt", 0xFFFFFE8A},
+        {"Rhona Hunt", 0xFFFFFEDA},
+        {"Anto Hunt", 0xFFFFFD50},
+        {"Upton Hunt", 0xFFFFFE06}
+    };
+
+    vars.Chests = new Dictionary<string, List<int>>
+    {
+        {"Water Chests", new List<int>{0x30C, 0x58C, 0x18}},
+        {"Uncharted Chests", new List<int>{0x2D0, 0x8BC, 0x94C, 0x18}},
+        {"Havana", new List<int>{0x2D0, 0x8BC, 0x744, 0x18}},
+        {"Cape Batavistia", new List<int>{0x2D0, 0x8BC, 0xA78, 0x18}},
+        {"Fort Dry Tortuga", new List<int>{0x2D0, 0x8BC, 0x9C4, 0x18}},
+        {"Salt Key Bay", new List<int>{0x2D0, 0x8BC, 0x898, 0x18}},
+        {"Matanzas", new List<int>{0x2D0, 0x8BC, 0x80C, 0x18}},
+        {"Florida", new List<int>{0x2D0, 0x8BC, 0xA8C, 0x18}},
+        {"Nassau", new List<int>{0x2D0, 0x8BC, 0x848, 0x18}},
+        {"Fort Eleuthra", new List<int>{0x2D0, 0x8BC, 0x9D8, 0x18}},
+        {"Andreas Island", new List<int>{0x2D0, 0x8BC, 0x7D0, 0x18}},
+        {"Cat Island", new List<int>{0x2D0, 0x8BC, 0x6CC, 0x18}},
+        {"Abaco Island", new List<int>{0x2D0, 0x8BC, 0x690, 0x18}},
+        {"Hideout(Great Iguana)", new List<int>{0x2D0, 0x8BC, 0x870, 0x18}},
+        {"Fort Gibra", new List<int>{0x2D0, 0x8BC, 0x9EC, 0x18}},
+        {"Crooked Island", new List<int>{0x2D0, 0x8BC, 0x71C, 0x18}},
+        {"Jiguey", new List<int>{0x2D0, 0x8BC, 0x794, 0x18}},
+        {"Mariguana", new List<int>{0x2D0, 0x8BC, 0x7F8, 0x18}},
+        {"Salt Lagoon", new List<int>{0x2D0, 0x8BC, 0x8AC, 0x18}},
+        {"Principe", new List<int>{0x2D0, 0x8BC, 0x884, 0x18}},
+        {"Punta Guarico", new List<int>{0x2D0, 0x8BC, 0xA14, 0x18}},
+        {"Tortuga", new List<int>{0x2D0, 0x8BC, 0x938, 0x18}},
+        {"Petite Cavern", new List<int>{0x2D0, 0x8BC, 0x834, 0x18}},
+        {"Cumberland Bay", new List<int>{0x2D0, 0x8BC, 0x7E4, 0x18}},
+        {"Tulum", new List<int>{0x2D0, 0x8BC, 0x708, 0x18}},
+        {"Fort Conttoyor", new List<int>{0x2D0, 0x8BC, 0x99C, 0x18}},
+        {"Fort Navassa", new List<int>{0x2D0, 0x8BC, 0xA00, 0x18}},
+        {"Ille A Vache", new List<int>{0x2D0, 0x8BC, 0x76C, 0x18}},
+        {"Kingston", new List<int>{0x2D0, 0x8BC, 0x7BC, 0x18}},
+        {"Long Bay (Observatory)", new List<int>{0x2D0, 0x8BC, 0x758, 0x18}},
+        {"Fort Charlotte", new List<int>{0x2D0, 0x8BC, 0x974, 0x18}},
+        {"Annatto Bay", new List<int>{0x2D0, 0x8BC, 0x6B8, 0x18}},
+        {"Isla Providencia", new List<int>{0x2D0, 0x8BC, 0x780, 0x18}},
+        {"Fort Serranillia", new List<int>{0x2D0, 0x8BC, 0xA28, 0x18}},
+        {"Misteriosa", new List<int>{0x2D0, 0x8BC, 0x820, 0x18}},
+        {"New Bone", new List<int>{0x2D0, 0x8BC, 0x85C, 0x18}},
+        {"Fort Chinchorro", new List<int>{0x2D0, 0x8BC, 0x988, 0x18}},
+        {"Fort Santanillas", new List<int>{0x2D0, 0x8BC, 0x8C0, 0x18}},
+        {"Corozal", new List<int>{0x2D0, 0x8BC, 0x6F4, 0x18}},
+        {"Ambergis Bay", new List<int>{0x2D0, 0x8BC, 0x67C, 0x18}},
+        {"Castillo", new List<int>{0x2D0, 0x8BC, 0x960, 0x18}},
+        {"Pinos Isle", new List<int>{0x2D0, 0x8BC, 0x7A8, 0x18}},
+        {"Arrayos", new List<int>{0x2D0, 0x8BC, 0x6A4, 0x18}},
+        {"Cayman Sound", new List<int>{0x2D0, 0x8BC, 0x6E0, 0x18}},
+        {"Fort Cruz", new List<int>{0x2D0, 0x8BC, 0x9B0, 0x18}},
+        {"San Juan", new List<int>{0x2D0, 0x8BC, 0x924, 0x18}},
+        {"Grand Cayman", new List<int>{0x2D0, 0x8BC, 0x730, 0x18}}
+    };
+
+    foreach (var item in vars.Counters)
+    {
+        if (item.Key == "Assassin Contracts" || item.Key == "Naval Contracts" || item.Key == "Taverns")
+        {
+            break;
+        }
+        settings.Add(item.Key, false, item.Key, "Collectibles");
+    }
 }
 
 init
 {
-    vars.DryTortugaChests = 0;
-    vars.EleuthraChests = 0;
-    vars.GibraChests = 0;
-    vars.PuntaGuaricoChests = 0;
-    vars.TwoLocationsChests = 0;
-    vars.CharlotteChests = 0;
-    vars.SerranilliaChests = 0;
-    vars.ChinchorroChests = 0;
-    vars.CastilloChests = 0;
-    vars.CruzChests = 0;
-    vars.TotalChests = 0;
+    vars.PercentDiff = 0.0f;
     vars.OldTotalChests = 0;
+    int InventoryBase = 0x026BEAC0;
+    int InventoryBase2 = 0x00A0E21C;
+    vars.ChestWatchers = new MemoryWatcherList();
+    vars.CountersWatchers = new MemoryWatcherList();
+    vars.SpecialWatchers = new MemoryWatcherList();
+    vars.TemplarHuntsWatchers = new MemoryWatcherList();
+
+    foreach (var Chest in vars.Chests)
+    {
+        foreach (var Offsets in Chest.Value)
+        {
+            vars.ChestWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase, Offsets)){Name = Chest.Key});
+        }
+    }
+
+    foreach (var Counter in vars.Counters)
+    {
+        foreach (var Offsets in Counter.Value)
+        {
+            vars.CountersWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase, Offsets)){Name = Counter.Key});
+        }
+    }
+
+    foreach (var SpecialThing in vars.SpecialStuff)
+    {
+        vars.SpecialWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase2, SpecialThing.Value)){Name = SpecialThing.Key});
+    }
+
+    foreach (var hunt in vars.TemplarHunts)
+    {
+        vars.TemplarHuntsWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase, hunt.Value)){Name = hunt.Key});
+    }
     
     if (current.MainMenu == 65540 && current.loading == 0)
     {
@@ -197,10 +202,12 @@ init
 
 update
 {
+    vars.PercentDiff = current.PercentageF - old.PercentageF;
+
     if (current.Percentage < 100)
     {
         current.PercentageF = Math.Round(current.PercentageF, 5);
-    } else if (current.Percentage == 100 || settings["Everything"])
+    } else if (settings["Everything"])
     {
         current.PercentageF = Math.Round(current.PercentageF, 2);
     }
@@ -219,20 +226,6 @@ update
         
     }
 
-    //Variables for all the chest Counters
-    vars.MiscChests = current.WaterChests + current.UnchartedChests;
-    vars.DryTortugaChests = current.Havana + current.CapeBatavistia + current.DryTortuga + current.SaltKey + current.Matanzas + current.Flordia;
-    vars.EleuthraChests = current.Nassua + current.Eleuthra + current.Andreas + current.Cat + current.AbacoIsland;
-    vars.GibraChests = current.Hideout + current.Gibra + current.Jiguey + current.SaltLagoon + current.Crooked + current.Mariguana;
-    vars.PuntaGuaricoChests = current.Principe + current.Punta + current.Tortuga + current.Cumberland + current.Petite;
-    vars.TwoLocationsChests = current.Tulum + current.Conttoyor + current.Navassa + current.IlleAVache;
-    vars.CharlotteChests = current.Kingston + current.Observatory + current.Charlotte + current.Annatto;
-    vars.SerranilliaChests = current.Isla + current.Serranillia + current.NewBone + current.Misteriosa;
-    vars.ChinchorroChests = current.Chinchorro + current.Corozal + current.Ambergis + current.Santanillas;
-    vars.CastilloChests = current.Castillo + current.Arrayos + current.Pinos + current.Cayman;
-    vars.CruzChests = current.Cruz + current.SanJuan + current.GrandCayman;
-    vars.TotalChests = vars.MiscChests + vars.DryTortugaChests + vars.EleuthraChests + vars.GibraChests + vars.PuntaGuaricoChests + vars.TwoLocationsChests + vars.CharlotteChests + vars.SerranilliaChests + vars.ChinchorroChests + vars.CastilloChests + vars.CruzChests;
-
     if (settings["Percentage Display"])
     {
         if (current.PercentageF != null){
@@ -243,48 +236,43 @@ update
         }
     }
 
-    if (settings["Debug"])
-    {
-
-        //vars.SetTextComponent("", current. + "/"); for extras in the future
-        if (current.MainMenu != null && current.loading != null)
-        {
-            vars.SetTextComponent("Current MainMenu Value", current.MainMenu + "/65540");
-            vars.SetTextComponent("Current Loading", current.loading + "/1");
-            vars.SetTextComponent("Time from Last Split", vars.SplitTime + "/2");
-            if (settings["Calculator"])
-            {
-                if (current.PercentageF > old.PercentageF)
-                {
-                    vars.SetTextComponent("Percentage increased by ", current.PercentageF - old.PercentageF + "%");
-                }
-            }
-        }
-
-    }
-
     if (settings["Collectibles Display"])
-    {
-        if (current.Viewpoints != null && current.MyanStele != null && current.BuriedTreasure != null && current.animusfragments != null 
-        && current.AssassinContracts != null && current.Letters != null && current.Manuscripts != null 
-        && current.MusicSheets != null)
+    { 
+        vars.CountersWatchers.UpdateAll();
+        vars.SpecialWatchers.UpdateAll();
+        vars.TemplarHuntsWatchers.UpdateAll();
+        vars.ChestWatchers.UpdateAll();
+        foreach (var Watcher in vars.ChestWatchers)
         {
-            
-            vars.SetTextComponent("Viewpoints Synchronized", current.Viewpoints + "/58");
-            vars.SetTextComponent("MyanStele Collected", current.MyanStele + "/16");
-            vars.SetTextComponent("BuriedTreasure Found", current.BuriedTreasure + "/22");
-            vars.SetTextComponent("Fragments Collected", current.animusfragments + "/200");
-            vars.SetTextComponent("Total Chests Collected", vars.TotalChests + "/340");
-            vars.SetTextComponent("Assassins Contracts Completed", current.AssassinContracts + "/30");
-            vars.SetTextComponent("Naval Contracts Completed", current.NavalContracts + "/15");
-            vars.SetTextComponent("Letters Collected", current.Letters + "/20");
-            vars.SetTextComponent("Manuscripts Collected", current.Manuscripts + "/20");
-            vars.SetTextComponent("Shanties Collected", current.MusicSheets + "/24");
-            vars.SetTextComponent("Forts captured", current.Forts + "/10");
-            vars.SetTextComponent("Taverns Unlocked", current.TotalTaverns + "/8");
+            vars.TotalChests += Watcher.Value;
         }
+
+        vars.SetTextComponent("Viewpoints Synchronized", vars.CountersWatchers["Viewpoints"].Current + "/58");
+        vars.SetTextComponent("MyanStele Collected", vars.CountersWatchers["Myan Stele"].Current + "/16");
+        vars.SetTextComponent("BuriedTreasure Found", vars.CountersWatchers["Buried Treasure"].Current + "/22");
+        vars.SetTextComponent("Fragments Collected", vars.CountersWatchers["Animus Fragments"].Current + "/200");
+        vars.SetTextComponent("Total Chests Collected", vars.TotalChests + "/340");
+        vars.SetTextComponent("Assassins Contracts Completed", vars.CountersWatchers["Assassin Contracts"].Current + "/30");
+        vars.SetTextComponent("Naval Contracts Completed", vars.CountersWatchers["Naval Contracts"].Current + "/15");
+        vars.SetTextComponent("Letters Collected", vars.CountersWatchers["Letters"].Current + "/20");
+        vars.SetTextComponent("Manuscripts Collected", vars.CountersWatchers["Manuscripts"].Current + "/20");
+        vars.SetTextComponent("Shanties Collected", vars.CountersWatchers["Music Sheets"].Current + "/24");
+        vars.SetTextComponent("Forts captured", vars.SpecialWatchers["Forts"].Current + "/10");
+        vars.SetTextComponent("Taverns Unlocked", vars.CountersWatchers["Taverns"].Current + "/8");
     }
-    //print(modules.First().ModuleMemorySize.ToString());
+
+    if (settings["Legendary Ships"])
+    {
+        vars.LegendaryShipsWatchers["Legendary Ships"].Update();
+    }
+    if(settings["Templar Hunts"])
+    {
+        vars.TemplarHuntsWatchers.UpdateAll();
+    }
+    if (settings["Collectibles"])
+    {
+        vars.CountersWatchers.UpdateAll();
+    }
 }
 
 start
@@ -307,7 +295,7 @@ split
     //should work for most splits
     if (settings["Any%"])
     {
-        if ((current.PercentageF >= old.PercentageF + 0.66666 && current.PercentageF <= old.PercentageF + 1.66668) && current.loading == 0 && vars.SplitTime > 2)
+        if (vars.PercentDiff >= 0.66666 && vars.PercentDiff <= 1.66668 && current.loading == 0 && vars.SplitTime > 2)
         {
             vars.Log("Any% Split Version = 1 at: "+ vars.TotalTime.ToString("F2"));
             vars.stopwatch.Restart();
@@ -315,134 +303,6 @@ split
         } else if (current.Percentage > old.Percentage && current.loading == 0 && vars.SplitTime > 2)
         {
             vars.Log("Any% Split Version = 2 at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        }
-    }
-    
-    if (settings["Everything"])
-    {
-        if (current.PercentageF > old.PercentageF && current.loading == 0 && vars.SplitTime > 2)
-        {
-            print("Splited");
-            vars.stopwatch.Restart();
-            return true;
-        }
-    }
-
-    if(settings["Viewpoints"])
-    {
-        //splits when syncing a viewpoint
-        if (current.Viewpoints == old.Viewpoints + 1 && vars.SplitTime > 2 && current.loading == 0)
-        {
-            vars.Log("Viewpoints Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        } else if ((current.PercentageF == old.PercentageF + 0.03750 || current.PercentageF == old.PercentageF + 0.03333 || 
-        current.PercentageF == old.PercentageF + 0.11250 || current.PercentageF == old.PercentageF + 0.03214 || 
-        current.PercentageF == old.PercentageF + 0.05625) && current.loading == 0 && vars.SplitTime > 2)
-        {
-            vars.Log("Viewpoints Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        }
-        
-    }
-
-    if(settings["MyanStele"])
-    {
-        //splits when getting one myan stone
-        if (current.MyanStele == old.MyanStele + 1 && vars.SplitTime > 2 && current.loading == 0)
-        {
-            vars.Log("MyanStele Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        } else if (((current.PercentageF >= old.PercentageF + 0.09288 && current.PercentageF <= old.PercentageF + 0.09291) || 
-        (current.PercentageF >= old.PercentageF + 0.18577 && current.PercentageF <= old.PercentageF + 0.18579) || 
-        (current.PercentageF >= old.PercentageF + 0.20641 && current.PercentageF <= old.PercentageF + 0.20643)) && current.loading == 0 
-        && vars.SplitTime > 2)
-        {
-            vars.Log("MyanStele Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        }
-    }
-
-    if(settings["BuriedTreasure"])
-    {
-        //splits when opening a buried treasure
-        if (current.BuriedTreasure == old.BuriedTreasure + 1 && vars.SplitTime > 2 && current.loading == 0)
-        {
-            vars.Log("BuriedTreasure Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        } else if (current.PercentageF == old.PercentageF + 0.20455 && current.loading == 0 && vars.SplitTime > 2)
-        {
-            vars.Log("BuriedTreasure Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        }
-    }
-
-    if (settings["Contracts"])
-    {
-        //splits for assassin contracts
-        if (current.AssassinContracts == old.AssassinContracts + 1 && vars.SplitTime > 2 && current.loading == 0)
-        {
-            vars.Log("Assassin Contracts Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        } else if ((current.PercentageF >= old.PercentageF + 0.61727 && current.PercentageF <= old.PercentageF + 0.61730) 
-        && current.loading == 0 && vars.SplitTime > 2)
-        {
-            vars.Log("Assassin Contracts Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        }
-
-        //splits for naval contracts
-        if (current.NavalContracts == old.NavalContracts + 1 && current.loading == 0 && vars.SplitTime > 4)
-        {
-            vars.Log("Naval Contracts Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        } else if ((current.PercentageF >= old.PercentageF + 0.02056 && current.PercentageF <= old.PercentageF + 0.02060) && current.loading == 0 && vars.SplitTime > 4)
-        {
-            vars.Log("Naval Contracts Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        }
-
-    }
-
-    if (settings["Forts"])
-    {
-        //splits when capturing a fort
-        if (current.Forts == old.Forts + 1 && current.loading == 0 && vars.SplitTime > 2)
-        {
-            vars.Log("Forts Split version = Counter, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        }else if (current.PercentageF == old.PercentageF + 0.22500 && current.loading == 0 && vars.SplitTime > 2)
-        {
-            vars.Log("Forts Split version = %, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        }  
-    }
-
-    if (settings["Taverns"])
-    {
-        //splits when completing a tavern
-        if (current.TotalTaverns == old.TotalTaverns + 1 && current.loading == 0 && vars.SplitTime > 2)
-        {
-            vars.Log("Taverns Split = Counter, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        } else if (((current.PercentageF >= old.PercentageF + 0.20223 && current.PercentageF <= old.PercentageF + 0.20226) || 
-        (current.PercentageF >= old.PercentageF + 0.18538 && current.PercentageF <= old.PercentageF + 0.18541)) && current.loading == 0 && vars.SplitTime > 2)
-        {
-            vars.Log("Taverns Split version = %, at: "+ vars.TotalTime.ToString("F2"));
             vars.stopwatch.Restart();
             return true;
         }
@@ -458,63 +318,176 @@ split
             return true;
         }
     }
+    
+    if (settings["Everything"])
+    {
+        if (current.PercentageF > old.PercentageF && current.loading == 0 && vars.SplitTime > 2)
+        {
+            print("Splited");
+            vars.stopwatch.Restart();
+            return true;
+        }
+    }
 
     if (settings["Shipwrecks"])
     {
-        //splitting for shipwrecks
-        if (current.WaterChests == 6 && old.WaterChests != 6 && !vars.completedsplits.Contains("san Ignacio"))
+        Dictionary<string, int> ShipwreckSplits = new Dictionary<string, int>()
         {
-            vars.completedsplits.Add("san Ignacio");
+            {"san Ignacio", 6},
+            {"blue hole", 13},
+            {"antocha wreck", 20},
+            {"Devils eye caverns", 28},
+            {"La Concepcion", 35},
+            {"Black trench", 42},
+            {"Kabah ruins", 50}
+        };
+        foreach (var Shipwreck in ShipwreckSplits)
+        {
+            if (vars.ChestWatchers["Water Chests"].Current == Shipwreck.Value && vars.ChestWatchers["Water Chests"].Old != Shipwreck.Value 
+            && !vars.completedsplits.Contains(Shipwreck.Key))
+            {
+                vars.completedsplits.Add(Shipwreck.Key);
+                vars.Log("Shipwreck Split: " + Shipwreck.Key + " at: " + vars.TotalTime.ToString("F2"));
+                return true;
+            }
+        }
+    }
+
+    if(settings["Viewpoints"])
+    {
+        List<float> ValidValues = new List<float> { 0.03750f, 0.03333f, 0.11250f, 0.03214f, 0.05625f };
+        //splits when syncing a viewpoint
+        if (vars.CountersWatchers["Viewpoints"].Current == vars.CountersWatchers["Viewpoints"].Old + 1 && vars.SplitTime > 2 
+        && current.loading == 0)
+        {
+            vars.Log("Viewpoints Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
+            return true;
+        } else if (ValidValues.Contains(current.PercentageF - old.PercentageF) && current.loading == 0 && vars.SplitTime > 2)
+        {
+            vars.Log("Viewpoints Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
+            return true;
+        }
+        
+    }
+
+    if(settings["Myan Stele"])
+    {
+        //splits when getting one myan stone
+        if (vars.CountersWatchers["Myan Stele"].Current == vars.CountersWatchers["Myan Stele"].Old + 1 && vars.SplitTime > 2 
+        && current.loading == 0)
+        {
+            vars.Log("MyanStele Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
+            return true;
+        } else if (((vars.PercentDiff >= 0.09288 && vars.PercentDiff <= 0.09291) || (vars.PercentDiff >= 0.18577 && vars.PercentDiff <= 0.18579) || 
+        (vars.PercentDiff >= 0.20641 && vars.PercentDiff <= 0.20643)) && current.loading == 0 && vars.SplitTime > 2)
+        {
+            vars.Log("MyanStele Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
+            return true;
+        }
+    }
+
+    if(settings["Buried Treasure"])
+    {
+        //splits when opening a buried treasure
+        if (vars.CountersWatchers["Buried Treasure"].Current == vars.CountersWatchers["Buried Treasure"].Old + 1 && vars.SplitTime > 2 
+        && current.loading == 0)
+        {
+            vars.Log("BuriedTreasure Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
+            return true;
+        } else if (current.PercentageF == old.PercentageF + 0.20455 && current.loading == 0 && vars.SplitTime > 2)
+        {
+            vars.Log("BuriedTreasure Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
+            return true;
+        }
+    }
+
+    if (settings["Contracts"])
+    {
+        //splits for assassin contracts
+        if (vars.CountersWatchers["Assassin Contracts"].Current == vars.CountersWatchers["Assassin Contracts"].Old + 1 
+        && vars.SplitTime > 2 && current.loading == 0)
+        {
+            vars.Log("Assassin Contracts Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
+            return true;
+        } else if (vars.PercentDiff >= 0.61727 && vars.PercentDiff <= 0.61730 && current.loading == 0 && vars.SplitTime > 2)
+        {
+            vars.Log("Assassin Contracts Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
             return true;
         }
 
-        if (current.WaterChests == 13 && old.WaterChests != 13 && !vars.completedsplits.Contains("blue hole"))
+        //splits for naval contracts
+        if (vars.CountersWatchers["Naval Contracts"].Current == vars.CountersWatchers["Naval Contracts"].Old + 1 && current.loading == 0 
+        && vars.SplitTime > 4)
         {
-            vars.completedsplits.Add("blue hole");
+            vars.Log("Naval Contracts Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
+            return true;
+        } else if (vars.PercentDiff >= 0.02056 && vars.PercentDiff <= 0.02060 && current.loading == 0 && vars.SplitTime > 4)
+        {
+            vars.Log("Naval Contracts Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
             return true;
         }
 
-        if (current.WaterChests == 20 && old.WaterChests != 20 && !vars.completedsplits.Contains("antocha wreck"))
-        {
-            vars.completedsplits.Add("antocha wreck");
-            return true;
-        }
+    }
 
-        if (current.WaterChests == 28 && old.WaterChests != 28 && !vars.completedsplits.Contains("Devils eye caverns"))
+    if (settings["Forts"])
+    {
+        //splits when capturing a fort
+        if (vars.SpecialWatchers["Forts"].Current == vars.SpecialWatchers["Forts"].Old + 1 && current.loading == 0 && vars.SplitTime > 2)
         {
-            vars.completedsplits.Add("Devils eye caverns");
+            vars.Log("Forts Split version = Counter, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
             return true;
-        }
-
-        if (current.WaterChests == 35 && old.WaterChests != 35 && !vars.completedsplits.Contains("La Concepcion"))
+        }else if (current.PercentageF == old.PercentageF + 0.22500 && current.loading == 0 && vars.SplitTime > 2)
         {
-            vars.completedsplits.Add("La Concepcion");
+            vars.Log("Forts Split version = %, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
             return true;
-        }
+        }  
+    }
 
-        if (current.WaterChests == 42 && old.WaterChests != 42 && !vars.completedsplits.Contains("Black trench"))
+    if (settings["Taverns"])
+    {
+        //splits when completing a tavern
+        if (vars.CountersWatchers["Taverns"].Current == vars.CountersWatchers["Taverns"].Old + 1 && current.loading == 0 
+        && vars.SplitTime > 2)
         {
-            vars.completedsplits.Add("Black trench");
+            vars.Log("Taverns Split = Counter, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
             return true;
-        }
-
-        if (current.WaterChests == 50 && old.WaterChests != 50 && !vars.completedsplits.Contains("Kabah ruins"))
+        } else if (((vars.PercentDiff >= 0.20223 && vars.PercentDiff <= 0.20226) || (vars.PercentDiff >= 0.18538 && vars.PercentDiff <= 0.18541)) 
+        && current.loading == 0 && vars.SplitTime > 2)
         {
-            vars.completedsplits.Add("Kabah ruins");
+            vars.Log("Taverns Split version = %, at: "+ vars.TotalTime.ToString("F2"));
+            vars.stopwatch.Restart();
             return true;
         }
     }
 
     if (settings["Templar Hunts"])
     {
-        if ((current.Opia == old.Opia + 1 || current.Rhona == old.Rhona + 1 || current.Anto == old.Anto + 1 || current.Upton == old.Upton + 1) 
-        && current.loading == 0 && old.loading != 1 && vars.SplitTime > 2)
+        foreach (var hunt in vars.TemplarHunts)
         {
-            vars.Log("Templar Hunts Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        } else if ((current.PercentageF >= old.PercentageF + 0.38579 && current.PercentageF <= old.PercentageF + 0.38582) 
-        && current.loading == 0)
+            if (vars.TemplarHuntsWatchers[hunt.Key].Current == vars.TemplarHuntsWatchers[hunt.Key].Old + 1 && 
+            current.loading == 0 && vars.SplitTime > 2)
+            {
+                vars.Log("Templar Hunts Split Version = " + hunt.Key + ", at: "+ vars.TotalTime.ToString("F2"));
+                vars.stopwatch.Restart();
+                return true;
+            }
+        }
+
+        if ((vars.PercentDiff >= old.PercentageF + 0.38579 && vars.PercentDiff <= old.PercentageF + 0.38582) 
+        && current.loading == 0 && vars.SplitTime > 2)
         {
             vars.Log("Templar Hunts Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
             vars.stopwatch.Restart();
@@ -525,7 +498,8 @@ split
     if (settings["Legendary Ships"])
     {
         //splits when defeating one of the legendary ships
-        if (current.LGS == old.LGS + 1 && current.loading == 0 && vars.SplitTime > 2)
+        if (vars.SpecialWatchers["Legendary Ships"].Current == vars.SpecialWatchers["Legendary Ships"].Old + 1 && current.loading == 0 
+        && vars.SplitTime > 2)
         {
             vars.Log("Legendary Ships Split Version = Counter, at: "+ vars.TotalTime.ToString("F2"));
             vars.stopwatch.Restart();
@@ -534,26 +508,6 @@ split
         {
             vars.Log("Legendary Ships Split Version = %, at: "+ vars.TotalTime.ToString("F2"));
             vars.stopwatch.Restart();
-            return true;
-        }
-    }
-
-    if (settings["Collectibles"])
-    {
-        if(current.animusfragments > old.animusfragments && current.loading == 0 && vars.SplitTime > 2 && settings["Fragments"])
-        {
-            return true;
-        } else if (vars.TotalChests > vars.OldTotalChests && current.loading == 0 && vars.SplitTime > 2 && settings["Chests"])
-        {
-            return true;
-        } else if (current.Letters > old.Letters && current.loading == 0 && vars.SplitTime > 2 && settings["Letters"])
-        {
-            return true;
-        } else if(current.MusicSheets > old.MusicSheets && current.loading == 0 && vars.SplitTime > 2 && settings["Music Sheets"])
-        {
-            return true;
-        } else if(current.Manuscripts > old.Manuscripts && current.loading == 0 && vars.SplitTime > 2 && settings["Manuscripts"])
-        {
             return true;
         }
     }
@@ -571,12 +525,14 @@ isLoading
 {
     if (current.loading == 1 || current.MainMenu == 65540)
     {
+        vars.TotalTimeWatch.Stop();
         vars.stopwatch.Stop();
         vars.IsStopwatchStop = true;
         return true;
     } else if (vars.IsStopwatchStop == true)
     {
         vars.stopwatch.Start();
+        vars.TotalTimeWatch.Start();
         vars.IsStopwatchStop = false;
     }
 }

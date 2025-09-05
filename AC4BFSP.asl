@@ -579,6 +579,9 @@ isLoading
         vars.stopwatch.Start();
         vars.TotalTimeWatch.Start();
         vars.IsStopwatchStop = false;
+    } else
+    {
+        return false;
     }
 }
 
@@ -589,3 +592,4 @@ exit
     vars.stopwatch.Stop();
     vars.IsStopwatchStop = true;
 }
+

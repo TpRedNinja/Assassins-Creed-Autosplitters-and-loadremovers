@@ -23,7 +23,7 @@ startup
     //asl help stuff
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
     vars.Helper.StartFileLogger("SplitsVersions.log");
-    vars.Helper.Settings.CreateFromXml("C:/Users/jjdom/OneDrive/Desktop/livesplit/LiveSplit_1.8.29/Components/AC4.Settings.xml");
+    vars.Helper.Settings.CreateFromXml("Components/AC4.Settings.xml");
 
     //set text taken from Poppy Playtime C2
     Action<string, string> SetTextComponent = (id, text) => {
@@ -544,3 +544,4 @@ exit
     vars.stopwatch.Stop();
     vars.IsStopwatchStop = true;
 }
+

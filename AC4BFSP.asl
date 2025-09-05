@@ -352,7 +352,7 @@ split
         }
     }
 
-    if(settings["Modern day"])
+    if(settings["ModernDay"])
     {
         //splits when entering the animus
         if (current.Character == 0 && old.Character == 1 && current.loading == 0 && vars.SplitTime > 2)
@@ -518,7 +518,7 @@ split
         }
     }
 
-    if (settings["Templar Hunts"])
+    if (settings["TemplarHunts"])
     {
         foreach (var hunt in vars.TemplarHunts)
         {
@@ -540,7 +540,7 @@ split
         }
     }
 
-    if (settings["Legendary Ships"])
+    if (settings["LegendaryShips"])
     {
         //splits when defeating one of the legendary ships
         if (vars.SpecialWatchers["Legendary Ships"].Current == vars.SpecialWatchers["Legendary Ships"].Old + 1 && current.loading == 0 
@@ -589,128 +589,3 @@ exit
     vars.stopwatch.Stop();
     vars.IsStopwatchStop = true;
 }
-
-/*
-    -- original splitting code --
-    //splitting for shipwrecks
-        if (current.WaterChests == 6 && old.WaterChests != 6 && !vars.completedsplits.Contains("san Ignacio"))
-        {
-            vars.completedsplits.Add("san Ignacio");
-            return true;
-        }
-
-        if (current.WaterChests == 13 && old.WaterChests != 13 && !vars.completedsplits.Contains("blue hole"))
-        {
-            vars.completedsplits.Add("blue hole");
-            return true;
-        }
-
-        if (current.WaterChests == 20 && old.WaterChests != 20 && !vars.completedsplits.Contains("antocha wreck"))
-        {
-            vars.completedsplits.Add("antocha wreck");
-            return true;
-        }
-
-        if (current.WaterChests == 28 && old.WaterChests != 28 && !vars.completedsplits.Contains("Devils eye caverns"))
-        {
-            vars.completedsplits.Add("Devils eye caverns");
-            return true;
-        }
-
-        if (current.WaterChests == 35 && old.WaterChests != 35 && !vars.completedsplits.Contains("La Concepcion"))
-        {
-            vars.completedsplits.Add("La Concepcion");
-            return true;
-        }
-
-        if (current.WaterChests == 42 && old.WaterChests != 42 && !vars.completedsplits.Contains("Black trench"))
-        {
-            vars.completedsplits.Add("Black trench");
-            return true;
-        }
-
-        if (current.WaterChests == 50 && old.WaterChests != 50 && !vars.completedsplits.Contains("Kabah ruins"))
-        {
-            vars.completedsplits.Add("Kabah ruins");
-            return true;
-        }
-
-    --bools for taverns dont need--
-    int KingstonCrown: 0x026BEAC0, 0x2D0, 0x8BC, 0x319C, 0x18; //Tracks wether the Kingston Tavern is completed 0 for not 1 for completed
-    int SaltKeyBanter: 0x026BEAC0, 0x2D0, 0x8BC, 0x31B0, 0x18; //Tracks wether the Salt Key Tavern is completed 0 for not 1 for completed
-    int TheRandyCayman: 0x026BEAC0, 0x2D0, 0x8BC, 0x31C4, 0x18; //Tracks wether the The Randy Cayman Tavern is completed 0 for not 1 for completed
-    int CrookedIslandCanter: 0x026BEAC0, 0x2D0, 0x8BC, 0x31D8, 0x18; //Tracks wether the Crooked Island Tavern is completed 0 for not 1 for completed
-    int ArroyosArms: 0x026BEAC0, 0x2D0, 0x8BC, 0x31EC, 0x18; //Tracks wether the Arroyos Tavern is completed 0 for not 1 for completed
-    int TheAndreasInn: 0x026BEAC0, 0x2D0, 0x8BC, 0x3200, 0x18; //Tracks wether the The Andreas Inn Tavern is completed 0 for not 1 for completed
-    int VinoAVache: 0x026BEAC0, 0x2D0, 0x8BC, 0x3214, 0x18; //Tracks wether the Vino A Vache Tavern is completed 0 for not 1 for completed
-    int CorozalTavern: 0x026BEAC0, 0x2D0, 0x8BC, 0x3228, 0x18; //Tracks wether the Corozal Tavern is completed 0 for not 1 for completed
-
-    //--General Counters--
-    int Viewpoints: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFE4D0, 0x18; //Tracks total number of viewpoints completed
-    int MyanStele: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFE4E4, 0x18; //Tracks total number of MyanStele completed
-    int BuriedTreasure: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFF448, 0x18; //Tracks total number of BuriedTreasure collected
-    int animusfragments: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFE4A8, 0x18; //Tracks total number of animus fragments collected
-    int AssassinContracts: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFF22C, 0x18; //Tracks the total number of Assassin Contracts completed
-    int NavalContracts: 0x026BEAC0, 0x2D0, 0x8BC, 0x1950, 0x18; //Tracks total number of Naval Contracts completed
-    int Letters: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFFB14, 0x18; //Tracks total number of letters in a bottle collected
-    int Manuscripts: 0x026BEAC0, 0x2D0, 0x8BC, 0xFFFFFCCC, 0x18; //Tracks total number of Manuscripts collected
-    int MusicSheets: 0x026BEAC0, 0x2D0, 0x8BC, 0x424, 0x18; //Tracks total number of MusicSheets collected
-    int Forts: 0x00A0E21C, 0xFFFFFFF0; //Tracks total number of forts captured
-    int TotalTaverns: 0x026BEAC0, 0x2D0, 0x8BC, 0x3188, 0x18; //Tracks total number of Taverns Completed
-    int LGS: 0x00A0E21C, 0x170; //Tracks total number of Legendary Ships defeated
-
-    //--Templar Hunts Counters--
-    int Opia: 0x00A0E21C, 0xFFFFFE8A; //Tracks total number of Opia Templar Hunts completed
-    int Rhona: 0x00A0E21C, 0xFFFFFEDA; //Tracks total number of Rhona Templar Hunts completed
-    int Anto: 0x00A0E21C, 0xFFFFFD50; //Tracks total number of Anto Templar Hunts completed
-    int Upton: 0x00A0E21C, 0xFFFFFE06; //Tracks total number of Vance Templar Hunts completed
-
-    //Chest Counters--
-    int WaterChests: 0x026BEC04, 0x30C, 0x58C, 0x18; //Tracks total number of chests underwater collected
-    int UnchartedChests: 0x026BEAC0, 0x2D0, 0x8BC, 0x94C, 0x18; //Tracks total number of uncharted chests collected
-    int Havana: 0x026BEAC0, 0x2D0, 0x8BC, 0x744, 0x18; // Tracks total number of chests collected at Havana
-    int CapeBatavistia: 0x026BEAC0, 0x2D0, 0x8BC, 0xA78, 0x18; // Tracks total number of chests collected at Cape Bonavistia
-    int DryTortuga: 0x026BEAC0, 0x2D0, 0x8BC, 0x9C4, 0x18; // Tracks total number of chests collected at Dry Tortuga Fort
-    int SaltKey: 0x026BEAC0, 0x2D0, 0x8BC, 0x898, 0x18; // Tracks total number of chests collected at Salt Key Bay
-    int Matanzas: 0x026BEAC0, 0x2D0, 0x8BC, 0x80C, 0x18; // Tracks total number of chests collected at Matanzas
-    int Flordia: 0x026BEAC0, 0x2D0, 0x8BC, 0xA8C, 0x18; // Tracks total number of chests collected at Florida
-    int Nassau: 0x026BEAC0, 0x2D0, 0x8BC, 0x848, 0x18; // Tracks total number of chests collected at Nassau
-    int Eleuthra: 0x026BEAC0, 0x2D0, 0x8BC, 0x9D8, 0x18; // Tracks total number of chests collected at Eleuthra Fort
-    int Andreas: 0x026BEAC0, 0x2D0, 0x8BC, 0x7D0, 0x18; // Tracks total number of chests collected at Andreas Island
-    int Cat: 0x026BEAC0, 0x2D0, 0x8BC, 0x6CC, 0x18; // Tracks total number of chests collected at Cat Island
-    int AbacoIsland: 0x026BEAC0, 0x2D0, 0x8BC, 0x690, 0x18; // Tracks total number of chests collected at Abaco Island
-    int Hideout: 0x026BEAC0, 0x2D0, 0x8BC, 0x870, 0x18; // Tracks total number of chests collected at Long Bay (Hideout)
-    int Gibra: 0x026BEAC0, 0x2D0, 0x8BC, 0x9EC, 0x18; // Tracks total number of chests collected at Gibra
-    int Crooked: 0x026BEAC0, 0x2D0, 0x8BC, 0x71C, 0x18; // Tracks total number of chests collected at Crooked Island
-    int Jiguey: 0x026BEAC0, 0x2D0, 0x8BC, 0x794, 0x18; // Tracks total number of chests collected at Jiguey
-    int Mariguana: 0x026BEAC0, 0x2D0, 0x8BC, 0x7F8, 0x18; // Tracks total number of chests collected at Mariguana
-    int SaltLagoon: 0x026BEAC0, 0x2D0, 0x8BC, 0x8AC, 0x18; // Tracks total number of chests collected at Salt Lagoon
-    int Principe: 0x026BEAC0, 0x2D0, 0x8BC, 0x884, 0x18; // Tracks total number of chests collected at Principe
-    int Punta: 0x026BEAC0, 0x2D0, 0x8BC, 0xA14, 0x18; // Tracks total number of chests collected at Punta Guarico
-    int Tortuga: 0x026BEAC0, 0x2D0, 0x8BC, 0x938, 0x18; // Tracks total number of chests collected at Tortuga
-    int Petite: 0x026BEAC0, 0x2D0, 0x8BC, 0x834, 0x18; // Tracks total number of chests collected at Petite Cavern
-    int Cumberland: 0x026BEAC0, 0x2D0, 0x8BC, 0x7E4, 0x18; // Tracks total number of chests collected at Cumberland Bay
-    int Tulum: 0x026BEAC0, 0x2D0, 0x8BC, 0x708, 0x18; // Tracks total number of chests collected at Tulum
-    int Conttoyor: 0x026BEAC0, 0x2D0, 0x8BC, 0x99C, 0x18; // Tracks total number of chests collected at Conttoyor
-    int Navassa: 0x026BEAC0, 0x2D0, 0x8BC, 0xA00, 0x18; // Tracks total number of chests collected at Navassa
-    int IlleAVache: 0x026BEAC0, 0x2D0, 0x8BC, 0x76C, 0x18; // Tracks total number of chests collected at Ille A Vache
-    int Kingston: 0x026BEAC0, 0x2D0, 0x8BC, 0x7BC, 0x18; // Tracks total number of chests collected at Kingston
-    int Observatory: 0x026BEAC0, 0x2D0, 0x8BC, 0x758, 0x18; // Tracks total number of chests collected at Great Iguana (Observatory)
-    int Charlotte: 0x026BEAC0, 0x2D0, 0x8BC, 0x974, 0x18; // Tracks total number of chests collected at Charlotte
-    int Annatto: 0x026BEAC0, 0x2D0, 0x8BC, 0x6B8, 0x18; // Tracks total number of chests collected at Annatto Bay
-    int Isla: 0x026BEAC0, 0x2D0, 0x8BC, 0x780, 0x18; // Tracks total number of chests collected at Isla
-    int Serranillia: 0x026BEAC0, 0x2D0, 0x8BC, 0xA28, 0x18; // Tracks total number of chests collected at Serranillia
-    int Misteriosa: 0x026BEAC0, 0x2D0, 0x8BC, 0x820, 0x18; // Tracks total number of chests collected at Misteriosa
-    int NewBone: 0x026BEAC0, 0x2D0, 0x8BC, 0x85C, 0x18; // Tracks total number of chests collected at New Bone
-    int Chinchorro: 0x026BEAC0, 0x2D0, 0x8BC, 0x988, 0x18; // Tracks total number of chests collected at Chinchorro
-    int Santanillas: 0x026BEAC0, 0x2D0, 0x8BC, 0x8C0, 0x18; // Tracks total number of chests collected at Santanillas
-    int Corozal: 0x026BEAC0, 0x2D0, 0x8BC, 0x6F4, 0x18; // Tracks total number of chests collected at Corozal
-    int Ambergis: 0x026BEAC0, 0x2D0, 0x8BC, 0x67C, 0x18; // Tracks total number of chests collected at Ambergis Bay
-    int Castillo: 0x026BEAC0, 0x2D0, 0x8BC, 0x960, 0x18; // Tracks total number of chests collected at Castillo
-    int Pinos: 0x026BEAC0, 0x2D0, 0x8BC, 0x7A8, 0x18; // Tracks total number of chests collected at Pinos Isle
-    int Arrayos: 0x026BEAC0, 0x2D0, 0x8BC, 0x6A4, 0x18; // Tracks total number of chests collected at Arrayos
-    int Cayman: 0x026BEAC0, 0x2D0, 0x8BC, 0x6E0, 0x18; // Tracks total number of chests collected at Cayman Sound
-    int Cruz: 0x026BEAC0, 0x2D0, 0x8BC, 0x9B0, 0x18; // Tracks total number of chests collected at Cruz
-    int SanJuan: 0x026BEAC0, 0x2D0, 0x8BC, 0x924, 0x18; // Tracks total number of chests collected at San Juan
-    int GrandCayman: 0x026BEAC0, 0x2D0, 0x8BC, 0x730, 0x18; // Tracks total number of chests collected at Grand Cayman
-*/

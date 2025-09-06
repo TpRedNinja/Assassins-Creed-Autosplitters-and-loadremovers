@@ -1,15 +1,18 @@
 <Settings>
     <Setting Id="Splits" Label="Splitting Options" ToolTip="Gives options of where to split" state= "false">
-        <Setting Id="Any%" Label="Any%" ToolTip="Splits after every mission" state="false"/>
-        <Setting Id="Everything" Label="Everything" ToolTip="Splits on everything. Missions, collectibles, etc.&#xA;This is only recommended for 100% runs &amp; if you have a split for everything" state="false"/>
-        <Setting Id="Contracts" Label="Contracts" ToolTip="Splits when gaining money from completing a contract" state="false"/>
-        <Setting Id="TemplarHunts" Label="Templar Hunts" ToolTip="Splits when completing a templar hunt mission" state="false"/>
-        <Setting Id="Forts" Label="Forts" ToolTip="Splits when a fort turns green on the map" state="false"/>
-        <Setting Id="Taverns" Label="Taverns" ToolTip="Splits on defeating all guards for a tavern" state="false"/>
+        <Setting Id="Any%" Label="Any%" ToolTip="Splits for all main missions not modern day" state="false"/>
         <Setting Id="ModernDay" Label="Modern Day" ToolTip="Splits when entering the animus for the modern day missions" state="false"/>
-        <Setting Id="Shipwrecks" Label="Shipwrecks" ToolTip="Splits when getting a set number of chests from shipwrecks" state="false"/>
-        <Setting Id="LegendaryShips" Label="Legendary Ships" ToolTip="Splits when defeating legendary ships" state="false"/>
-        <Setting Id="Collectibles" Label="Collectibles" ToolTip="Collectibles splits" state="false"/>
+        <Setting Id="Sequences" Label="Sequences" ToolTip="Splits for sequences" state="false"/>
+        <Setting Id="100%" Label="100%" ToolTip="Split options for 100%" state="false">
+            <Setting Id="Everything" Label="Everything" ToolTip="Splits on everything. Missions, collectibles, etc.&#xA;This is only recommended for 100% runs &amp; if you have a split for everything" state="false"/>
+            <Setting Id="Contracts" Label="Contracts" ToolTip="Splits when gaining money from completing a contract" state="false"/>
+            <Setting Id="TemplarHunts" Label="Templar Hunts" ToolTip="Splits when completing a templar hunt mission" state="false"/>
+            <Setting Id="Forts" Label="Forts" ToolTip="Splits when a fort turns green on the map" state="false"/>
+            <Setting Id="Taverns" Label="Taverns" ToolTip="Splits on defeating all guards for a tavern" state="false"/>
+            <Setting Id="Shipwrecks" Label="Shipwrecks" ToolTip="Splits when getting a set number of chests from shipwrecks" state="false"/>
+            <Setting Id="LegendaryShips" Label="Legendary Ships" ToolTip="Splits when defeating legendary ships" state="false"/>
+            <Setting Id="Collectibles" Label="Collectibles" ToolTip="Collectibles splits" state="false"/>
+        </Setting>
        <!--<Setting Id="" Label="" ToolTip="" state=""/>-->
     </Setting>
 </Settings>

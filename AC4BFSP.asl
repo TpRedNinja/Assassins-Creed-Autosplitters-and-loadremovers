@@ -22,7 +22,7 @@ startup
 {
     //asl help stuff
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
-    vars.Helper.Settings.CreateFromXml("Components/AC4.Settings.xml");
+    vars.Helper.Settings.CreateFromXml("C:/Users/jjdom/OneDrive/Desktop/livesplit/LiveSplit_1.8.29/Components/AC4.Settings.xml");
     vars.Helper.StartFileLogger("SplitsVersions.log");
 
     //set text taken from Poppy Playtime C2
@@ -47,10 +47,18 @@ startup
     //not splitting settings
     settings.Add("Percentage Display", false);
     settings.Add("Collectibles Display", false, "Collectibles Display");
-    settings.Add("Uncharted Display", false);
     settings.Add("Debug", false, "Debug");
     settings.Add("Calculator", false, "Calculator","Debug");
     settings.SetToolTip("Debug", "This will show the current MainMenu value and loading.\n" + "Along with the calculator if u use it");
+    for (int i = 1; i <= 13; i++)
+    {
+        var seqKey = "Sequence " + i;
+        settings.Add(seqKey, false, seqKey, "Sequences");
+        settings.Add(seqKey + " - All", false, "All", seqKey);
+        settings.SetToolTip(seqKey + " - All", "Splits after every mission in " + seqKey);
+        settings.Add(seqKey + " - Last", false, "Last", seqKey);
+        settings.SetToolTip(seqKey + " - Last", "Splits after the last mission in " + seqKey);
+    }
     /*for any future settings i want to add
     settings.Add("", false, "", "Splits");
     settings.SetToolTip("", "Splits when ");
@@ -62,37 +70,70 @@ startup
     vars.TotalTime = null;
     vars.IsStopwatchStop = false;
 
-    vars.Counters = new Dictionary<string, List<uint>>
+    vars.Counters = new Dictionary<string, List<int>>
     {
-        {"Viewpoints", new List<uint>{0x2D0, 0x8BC, 0xFFFFE4D0, 0x18}},
-        {"Myan Stele", new List<uint>{0x2D0, 0x8BC, 0xFFFFE4E4, 0x18}},
-        {"Buried Treasure", new List<uint>{0x2D0, 0x8BC, 0xFFFFF448, 0x18}},
-        {"Animus Fragments", new List<uint>{0x2D0, 0x8BC, 0xFFFFE4A8, 0x18}},
-        {"Assassin Contracts", new List<uint>{0x2D0, 0x8BC, 0xFFFFF22C, 0x18}},
-        {"Naval Contracts", new List<uint>{0x2D0, 0x8BC, 0x1950, 0x18}},
-        {"Letters", new List<uint>{0x2D0, 0x8BC, 0xFFFFFB14, 0x18}},
-        {"Manuscripts", new List<uint>{0x2D0, 0x8BC, 0xFFFFFCCC, 0x18}},
-        {"Music Sheets", new List<uint>{0x2D0, 0x8BC, 0x424, 0x18}},
-        {"Taverns", new List<uint>{0x2D0, 0x8BC, 0x3188, 0x18}}
+        {"Viewpoints", new List<int>{0x2D0, 0x8BC, 0x2B98, 0x18}},
+        {"Myan Stele", new List<int>{0x2D0, 0x8BC, -0x1B1C, 0x18}},
+        {"Buried Treasure", new List<int>{0x2D0, 0x8BC, -0xBB8, 0x18}},
+        {"Animus Fragments", new List<int>{0x2D0, 0x8BC, -0x1B58, 0x18}},
+        {"Assassin Contracts", new List<int>{0x2D0, 0x8BC, -0x1E8C, 0x18}},
+        {"Naval Contracts", new List<int>{0x2D0, 0x8BC, 0x1950, 0x18}},
+        {"Letters", new List<int>{0x2D0, 0x8BC, -0x4EC, 0x18}},
+        {"Manuscripts", new List<int>{0x2D0, 0x8BC, -0x334, 0x18}},
+        {"Music Sheets", new List<int>{0x2D0, 0x8BC, 0x424, 0x18}},
+        {"Taverns", new List<int>{0x2D0, 0x8BC, 0x3188, 0x18}}
     };
 
-    vars.SpecialStuff = new Dictionary<string, uint>
+    vars.SpecialStuff = new Dictionary<string, int>
     {
-        {"Forts", 0xFFFFFFF0},
-        {"Legendary Ships", 0x170},
+        {"Forts", 0xA08},
+        {"Legendary Ships", 0xB88},
+        {"Modern Day", 0x1D88}
     };
 
-    vars.TemplarHunts = new Dictionary<string, uint>
+    vars.TemplarHunts = new Dictionary<string, int> // templar hunts add 60 to the offset to get the next one. 16 hunt missions in total but 4 pointers.
     {
-        {"Opia Hunt", 0xFFFFFE8A},
-        {"Rhona Hunt", 0xFFFFFEDA},
-        {"Anto Hunt", 0xFFFFFD50},
-        {"Upton Hunt", 0xFFFFFE06}
+        {"Opia Hunt", 0x6A8},
+        {"Rhona Hunt", 0x708},
+        {"Anto Hunt", 0x768},
+        {"Upton Hunt", 0x7C8}
     };
 
+    vars.MainMissions = new Dictionary<string, int> // Add 60 to each offset to get the next sequence pointer. 13 sequences in total.
+    {
+        {"Sequence 1", 0x1C8}, // 1 mission
+        {"Sequence 2", 0x228}, // 6 missions
+        {"Sequence 3", 0x288}, // 7 missions
+        {"Sequence 4", 0x2E8}, // 4 missions
+        {"Sequence 5", 0x348}, // 3 missions
+        {"Sequence 6", 0x3A8}, // 3 missions
+        {"Sequence 7", 0x408}, // 4 missions
+        {"Sequence 8", 0x468}, // 3 missions
+        {"Sequence 9", 0x4C8}, // 2 missions
+        {"Sequence 10", 0x528}, // 3 missions
+        {"Sequence 11", 0x588}, // 3 missions
+        {"Sequence 12", 0x5E8}, // 4 missions
+        {"Sequence 13", 0x648}, // 2 missions
+    };
+
+    vars.SequenceEndValue = new Dictionary<string, int>
+    {
+        {"Sequence 1", 1},
+        {"Sequence 2", 6},
+        {"Sequence 3", 7},
+        {"Sequence 4", 4},
+        {"Sequence 5", 3},
+        {"Sequence 6", 3},
+        {"Sequence 7", 4},
+        {"Sequence 8", 3},
+        {"Sequence 9", 2},
+        {"Sequence 10", 3},
+        {"Sequence 11", 3},
+        {"Sequence 12", 4},
+        {"Sequence 13", 2},
+    };
     vars.Chests = new Dictionary<string, List<int>>
     {
-        {"Water Chests", new List<int>{0x30C, 0x58C, 0x18}},
         {"Uncharted Chests", new List<int>{0x2D0, 0x8BC, 0x94C, 0x18}},
         {"Havana", new List<int>{0x2D0, 0x8BC, 0x744, 0x18}},
         {"Cape Batavistia", new List<int>{0x2D0, 0x8BC, 0xA78, 0x18}},
@@ -138,7 +179,15 @@ startup
         {"Cayman Sound", new List<int>{0x2D0, 0x8BC, 0x6E0, 0x18}},
         {"Fort Cruz", new List<int>{0x2D0, 0x8BC, 0x9B0, 0x18}},
         {"San Juan", new List<int>{0x2D0, 0x8BC, 0x924, 0x18}},
-        {"Grand Cayman", new List<int>{0x2D0, 0x8BC, 0x730, 0x18}}
+        {"Grand Cayman", new List<int>{0x2D0, 0x8BC, 0x730, 0x18}},
+        {"San Ignacio", new List<int>{0x2D0, 0x8BC, 0xA3C, 0x18}},
+        {"Antocha Wreck", new List<int>{0x2D0, 0x8BC, 0xA50, 0x18}},
+        {"The Black Trench", new List<int>{0x2D0, 0x8BC, 0xA64, 0x18}},
+        {"Kabah Ruins", new List<int>{0x2D0, 0x8BC, 0x8D4, 0x18}},
+        {"Devils Eyes Cavern", new List<int>{0x2D0, 0x8BC, 0x8E8, 0x18}},
+        {"La Concepcion", new List<int>{0x2D0, 0x8BC, 0x8FC, 0x18}},
+        {"The Blue Hole", new List<int>{0x2D0, 0x8BC, 0x910, 0x18}},
+        {"Water Chests", new List<int>{0x30C, 0x58C, 0x18}}
     };
 
     foreach (var item in vars.Counters)
@@ -155,40 +204,50 @@ init
 {
     vars.PercentDiff = 0.0f;
     vars.TotalChests = 0;
-    vars.OldTotalChests = 0;
+    vars.TotalTemplarHunts = 0;
+    vars.TotalMainMissions = 0;
+    vars.TotalModernDayMissionsDone = 0;
     int InventoryBase = 0x026BEAC0;
-    int InventoryBase2 = 0x00A0E21C;
+    int InventoryBase2 = 0x0137D9F8;
+    int WaterBase = 0x026BEC04;
     vars.ChestWatchers = new MemoryWatcherList();
     vars.CountersWatchers = new MemoryWatcherList();
     vars.SpecialWatchers = new MemoryWatcherList();
     vars.TemplarHuntsWatchers = new MemoryWatcherList();
+    vars.MainMissionsWatchers = new MemoryWatcherList();
 
     foreach (var Chest in vars.Chests)
     {
-        foreach (var Offsets in Chest.Value)
+        if (Chest.Key == "Water Chests")
         {
-            vars.ChestWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase, Offsets)){Name = Chest.Key});
+            vars.ChestWatchers.Add(new MemoryWatcher<int>(new DeepPointer(WaterBase, Chest.Value.ToArray())){Name = Chest.Key});
+        } else
+        {
+            vars.ChestWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase, Chest.Value.ToArray())){Name = Chest.Key});
         }
+        
     }
 
     foreach (var Counter in vars.Counters)
     {
-        foreach (var Offsets in Counter.Value)
-        {
-            vars.CountersWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase, (int)Offsets)){Name = Counter.Key});
-        }
+        vars.CountersWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase, Counter.Value.ToArray())){Name = Counter.Key});
     }
 
     foreach (var SpecialThing in vars.SpecialStuff)
     {
-        vars.SpecialWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase2, (int)SpecialThing.Value)){Name = SpecialThing.Key});
+        vars.SpecialWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase2, SpecialThing.Value)){Name = SpecialThing.Key});
     }
 
-    foreach (var hunt in vars.TemplarHunts)
+    foreach (var Hunt in vars.TemplarHunts)
     {
-        vars.TemplarHuntsWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase, (int)hunt.Value)){Name = hunt.Key});
+        vars.TemplarHuntsWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase2, Hunt.Value)){Name = Hunt.Key});
     }
-    
+
+    foreach (var Sequence in vars.MainMissions)
+    {
+        vars.MainMissionsWatchers.Add(new MemoryWatcher<int>(new DeepPointer(InventoryBase2, Sequence.Value)){Name = Sequence.Key});
+    }
+
     if (current.MainMenu == 65540 && current.loading == 0)
     {
         timer.IsGameTimePaused = true;
@@ -227,20 +286,6 @@ update
         
     }
 
-    //Variables for all the chest Counters
-    /*vars.MiscChests = current.WaterChests + current.UnchartedChests;
-    vars.DryTortugaChests = current.Havana + current.CapeBatavistia + current.DryTortuga + current.SaltKey + current.Matanzas + current.Flordia;
-    vars.EleuthraChests = current.Nassua + current.Eleuthra + current.Andreas + current.Cat + current.AbacoIsland;
-    vars.GibraChests = current.Hideout + current.Gibra + current.Jiguey + current.SaltLagoon + current.Crooked + current.Mariguana;
-    vars.PuntaGuaricoChests = current.Principe + current.Punta + current.Tortuga + current.Cumberland + current.Petite;
-    vars.TwoLocationsChests = current.Tulum + current.Conttoyor + current.Navassa + current.IlleAVache;
-    vars.CharlotteChests = current.Kingston + current.Observatory + current.Charlotte + current.Annatto;
-    vars.SerranilliaChests = current.Isla + current.Serranillia + current.NewBone + current.Misteriosa;
-    vars.ChinchorroChests = current.Chinchorro + current.Corozal + current.Ambergis + current.Santanillas;
-    vars.CastilloChests = current.Castillo + current.Arrayos + current.Pinos + current.Cayman;
-    vars.CruzChests = current.Cruz + current.SanJuan + current.GrandCayman;
-    vars.TotalChests = vars.MiscChests + vars.DryTortugaChests + vars.EleuthraChests + vars.GibraChests + vars.PuntaGuaricoChests + vars.TwoLocationsChests + vars.CharlotteChests + vars.SerranilliaChests + vars.ChinchorroChests + vars.CastilloChests + vars.CruzChests;*/
-
     if (settings["Percentage Display"])
     {
         if (current.PercentageF != null){
@@ -273,6 +318,12 @@ update
             }
         }
 
+        // DEBUG: print sequence end values directly (no extra checks)
+        foreach (var seq in vars.MainMissions)
+        {
+            vars.Log("DBG Sequence: " + seq.Key + " | endVal=" + vars.SequenceEndValue[seq.Key]);
+        }
+
     }
 
     if (settings["Collectibles Display"])
@@ -281,13 +332,27 @@ update
         vars.SpecialWatchers.UpdateAll(game);
         vars.TemplarHuntsWatchers.UpdateAll(game);
         vars.ChestWatchers.UpdateAll(game);
+        vars.MainMissionsWatchers.UpdateAll(game);
+        if (current.MainMenu == 65540 && old.MainMenu != 65540)
+        {
+            vars.TotalChests = 0;
+            vars.TotalTemplarHunts = 0;
+            vars.TotalMainMissions = 0;
+        }
+        vars.TotalChests = 0;
         foreach (var Watcher in vars.ChestWatchers)
         {
-            if (Watcher.Current > Watcher.Old)
-            {
-                vars.TotalChests += Watcher.Current;
-            }
-                
+            vars.TotalChests += Watcher.Current;
+        }
+        vars.TotalTemplarHunts = 0;
+        foreach (var Watcher in vars.TemplarHuntsWatchers)
+        {
+            vars.TotalTemplarHunts += Watcher.Current;
+        }
+        vars.TotalMainMissions = 0;
+        foreach (var Watcher in vars.MainMissionsWatchers)
+        {
+            vars.TotalMainMissions += Watcher.Current;
         }
 
         vars.SetTextComponent("Viewpoints Synchronized", vars.CountersWatchers["Viewpoints"].Current + "/58");
@@ -302,6 +367,18 @@ update
         vars.SetTextComponent("Shanties Collected", vars.CountersWatchers["Music Sheets"].Current + "/24");
         vars.SetTextComponent("Forts captured", vars.SpecialWatchers["Forts"].Current + "/10");
         vars.SetTextComponent("Taverns Unlocked", vars.CountersWatchers["Taverns"].Current + "/8");
+        vars.SetTextComponent("Legendary Ships Defeated", vars.SpecialWatchers["Legendary Ships"].Current + "/4");
+        vars.SetTextComponent("Templar Hunts Completed", vars.TotalTemplarHunts + "/16");
+        vars.SetTextComponent("Main Missions Completed", vars.TotalMainMissions + "/45");
+        if (vars.MainMissionsWatchers["Sequence 1"].Current == 1)
+        {
+            vars.SetTextComponent("Modern Day Missions Completed", vars.SpecialWatchers["Modern Day"].Current + 1 + "/5");
+        } else
+        {
+            vars.SetTextComponent("Modern Day Missions Completed", vars.SpecialWatchers["Modern Day"].Current + "/5");
+        }
+        
+        
     }
     //print(modules.First().ModuleMemorySize.ToString());
 
@@ -316,6 +393,18 @@ update
     if (settings["Collectibles"])
     {
         vars.CountersWatchers.UpdateAll(game);
+    }
+    if (settings["Any%"] || settings["Sequences"])
+    {
+        vars.MainMissionsWatchers.UpdateAll(game);
+    }
+    if (settings["ModernDay"])
+    {
+        vars.SpecialWatchers["Modern Day"].Update(game);
+    }
+    if (settings["Shipwrecks"])
+    {
+        vars.ChestWatchers["Water Chests"].Update(game);
     }
 }
 
@@ -339,25 +428,63 @@ split
     //should work for most splits
     if (settings["Any%"])
     {
-        if (vars.PercentDiff >= 0.66666 && vars.PercentDiff <= 1.66668 && current.loading == 0 && vars.SplitTime > 2)
+        // split on any main mission completion (Any% = split on every main mission)
+        foreach (var seq in vars.MainMissions)
         {
-            vars.Log("Any% Split Version = 1 at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
-        } else if (current.Percentage > old.Percentage && current.loading == 0 && vars.SplitTime > 2)
+            var watcher = vars.MainMissionsWatchers[seq.Key];
+            if (watcher.Current == watcher.Old + 1 && current.loading == 0 && vars.SplitTime > 2)
+            {
+                vars.Log("Any% Split - Main mission in " + seq.Key + " at: " + vars.TotalTime.ToString("F2"));
+                vars.stopwatch.Restart();
+                return true;
+            }
+        }
+    }
+
+    // sequence-specific splitting (per-sequence "All" or "Last")
+    foreach (var seq in vars.MainMissions)
+    {
+        var allSetting = seq.Key + " - All";
+        var lastSetting = seq.Key + " - Last";
+        var watcher = vars.MainMissionsWatchers[seq.Key];
+
+        if (settings[allSetting])
         {
-            vars.Log("Any% Split Version = 2 at: "+ vars.TotalTime.ToString("F2"));
-            vars.stopwatch.Restart();
-            return true;
+            // split on every mission in this sequence
+            if (watcher.Current == watcher.Old + 1 && current.loading == 0 && vars.SplitTime > 2)
+            {
+                vars.Log(seq.Key + " - All Split at: " + vars.TotalTime.ToString("F2"));
+                vars.stopwatch.Restart();
+                return true;
+            }
+        }
+
+        if (settings[lastSetting])
+        {
+            // split when the sequence reaches its final mission
+            var endVal = vars.SequenceEndValue[seq.Key];
+            if (watcher.Current == endVal && watcher.Old != endVal && current.loading == 0 && vars.SplitTime > 2)
+            {
+                vars.Log(seq.Key + " - Last Split at: " + vars.TotalTime.ToString("F2"));
+                vars.stopwatch.Restart();
+                return true;
+            }
         }
     }
 
     if(settings["ModernDay"])
     {
         //splits when entering the animus
-        if (current.Character == 0 && old.Character == 1 && current.loading == 0 && vars.SplitTime > 2)
+        if (current.Character == 0 && old.Character == 1 && current.loading == 0 && vars.SplitTime > 2 && vars.TotalModernDayMissionsDone < 1)
         {
             print("Modern day Split");
+            vars.TotalModernDayMissionsDone += 1;
+            vars.stopwatch.Restart();
+            return true;
+        } else if (vars.SpecialWatchers["Modern Day"].Current == vars.SpecialWatchers["Modern Day"].Old + 1 && vars.SplitTime > 2 && vars.TotalModernDayMissionsDone > 1)
+        {
+            print("Modern day Split");
+            vars.TotalModernDayMissionsDone += 1;
             vars.stopwatch.Restart();
             return true;
         }
@@ -387,8 +514,7 @@ split
         };
         foreach (var Shipwreck in ShipwreckSplits)
         {
-            if (vars.ChestWatchers["Water Chests"].Current == Shipwreck.Value && vars.ChestWatchers["Water Chests"].Old != Shipwreck.Value 
-            && !vars.completedsplits.Contains(Shipwreck.Key))
+            if (vars.ChestWatchers["Water Chests"].Current == Shipwreck.Value && vars.ChestWatchers["Water Chests"].Old != Shipwreck.Value && !vars.completedsplits.Contains(Shipwreck.Key))
             {
                 vars.completedsplits.Add(Shipwreck.Key);
                 vars.Log("Shipwreck Split: " + Shipwreck.Key + " at: " + vars.TotalTime.ToString("F2"));
@@ -592,4 +718,3 @@ exit
     vars.stopwatch.Stop();
     vars.IsStopwatchStop = true;
 }
-

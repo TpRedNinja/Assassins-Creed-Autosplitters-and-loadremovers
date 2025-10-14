@@ -31,6 +31,7 @@ state("ACU", "1.5.0")
     int missionComplete: 0x05219860, 0x2C, 0x40, 0x18, 0x10, 0x0, 0x168, 0x8; //1 if the accept mission complete rewards. 0 everywhere else
     int paused : 0x04F55598, 0xCC8;  //Detects pause and menu 1/0
     int startMenu : 0x05217280, 0xBC;  //Also detects pause and menu and title screen 256/0
+    int Percentage : 0x0521A830, 0x80, 0x4C; //Percentage of game completed.
 
     //Below values are not used but should work for 1.5.0
     //string5 versionNumber : 0x7FF4FD5E9AB0;
@@ -52,6 +53,26 @@ startup
     vars.prologue = 0;  //Determining if the prologue has been started or not. Needed for first split accuracy
     vars.split = 0;     //Tracks which split we are on
     vars.tabbedFlag = 0;      //Flag to detect if the game has been tabbed out at least once
+
+    //set text taken from Poppy Playtime C2
+    Action<string, string> SetTextComponent = (id, text) => {
+        var textSettings = timer.Layout.Components.Where(x => x.GetType().Name == "TextComponent").Select(x => x.GetType().GetProperty("Settings").GetValue(x, null));
+        var textSetting = textSettings.FirstOrDefault(x => (x.GetType().GetProperty("Text1").GetValue(x, null) as string) == id);
+        if (textSetting == null)
+        {
+            var textComponentAssembly = Assembly.LoadFrom("Components\\LiveSplit.Text.dll");
+            var textComponent = Activator.CreateInstance(textComponentAssembly.GetType("LiveSplit.UI.Components.TextComponent"), timer);
+            timer.Layout.LayoutComponents.Add(new LiveSplit.UI.Components.LayoutComponent("LiveSplit.Text.dll", textComponent as LiveSplit.UI.Components.IComponent));
+
+            textSetting = textComponent.GetType().GetProperty("Settings", BindingFlags.Instance | BindingFlags.Public).GetValue(textComponent, null);
+            textSetting.GetType().GetProperty("Text1").SetValue(textSetting, id);
+        }
+
+        if (textSetting != null)
+            textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
+    };
+    vars.SetTextComponent = SetTextComponent;
+
     // Store all possible currency increases in vars.Money
     vars.Money = new int[] {100, 150, 250, 300, 350, 400, 450, 500, 750, 1000, 1350, 1500, 2000, 2500, 3000, 4000, 4500, 5000, 6000, 6500, 10000};
 
@@ -59,9 +80,9 @@ startup
     vars.MoneyIncreased = new List<int>(vars.Money);
     
     //settings for hundo
-    settings.Add("100%", false, "100% Splits") // 100% setting
-    settings.Add("Chests", false, "Chests Splits", "100%") // Chests setting under 100% parent
-    settings.Add("SyncPoints", false, "Sync Points Splits", "100%") // Sync Points setting under 100% parent   
+    settings.Add("100%", false, "100% Splits"); // 100% setting
+    settings.Add("Chests", false, "Chests Splits", "100%"); // Chests setting under 100% parent
+    settings.Add("SyncPoints", false, "Sync Points Splits", "100%"); // Sync Points setting under 100% parent   
     //settings.Add("", false, "", "")
 }
                                                               
@@ -88,6 +109,7 @@ update
     if(vars.playingIntro == 1 && current.isLoading == 0 && old.isLoading == 1){ //Needed because sometimes loading into the prologue mission sets currency to -1 which would cause an early split
         vars.prologue = 1;
     }
+    vars.SetTextComponent("Percentage: ", current.Percentage + "%");
     
     //print("IsLoading: " + current.isLoading + " Playing intro: " + vars.playingIntro + " Tabbed Out: " + current.tabbedOut);
 }

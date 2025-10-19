@@ -1,49 +1,50 @@
 //Assassins Creed Unity Autosplitter v4 by AkiloGames
 
-//Splits when the mission complete menu dissappears ***It is possible for the player to be too quick and have the mission menu not show up for long enough to register and therefore not split***
+//Splits when the mission complete menu disappears ***It is possible for the player to be too quick and have the mission menu not show up for long enough to register and therefore not split***
 //Works for 1.4.0 & 1.5.0 Any%
 
 
 state("ACU", "1.4.0") 
 {
     //Only these four values are used to split and remove loads
-    int currency : 0x0524E7E0, 0x58, 0x0, 0x964; //Current currency -1 on loads to new areas
+    int currency : 0x04E4BD18, 0xD8, 0x410, 0xA0, 0x144; //Current currency -1 on loads to new areas
     int isLoading: 0x0512A558, 0x20, 0xD8, 0x8, 0x20, 0x28, 0x18, 0xF40; //0 when normal, 1 when loading
     int missionComplete: 0x05210C30, 0x58, 0x8; //1 if the accept mission complete rewards. 0 everywhere else
     int paused : 0x04F486A8, 0xCC8; //Detects pause and menu 1/0
     int startMenu : 0x03C3F308, 0x0; //Also detects pause and menu 256/0
-    
-    //Below values are not used and were found when I was new so they may not actually work 100% of the time
-    //string5 versionNumber : 0x7FF4FD5E9AB0;
-    int sync : 0x05252500, 0x128, 0xD8, 0x0, 0x4C;
+    //int Percentage : 0x05252500, 0x128, 0xD8, 0x0, 0x4C; //Percentage of game completed.
+    int syncPoints : 0x04E4BD18, 0xD8, 0x410, 0xA8, 0x144; // Ability points - seems to detect first load of -1 like currency does. Changes to -1 when loading from server bridge to paris
+    int creedPoints : 0x04E4BD18, 0xD8, 0x410, 0x90, 0x144; // Total Creed points - also detects first load as -1. not sure if this is useful or not tbh.
     int tabbedOut : 0x39B20C0; //1 is tabbed out, 0 is in game (May be related to game running or not. Unsure as of now)
     float gameTimer : 0x0520BA70, 0x70, 0x108, 0x4C0; //Game Timer, pauses while in menus, does not pause during loads
-    float missionTimer : 0x0524E7B8, 0x150, 0x10, 0x8B8; //SOMETIMES resets to 0 on mission load. Not always and no noticable pattern
-    float missionTimer2 : 0x0524E7B8, 0x120, 0x10, 0x8B8;
-    int xp : 0x051A6860, 0xC8; //Total Creed points 
+
+    //Below values are not used and were found when I was new so they may not actually work 100% of the time
+    //string5 versionNumber : 0x7FF4FD5E9AB0;
+    //float missionTimer : 0x0524E7B8, 0x150, 0x10, 0x8B8; //SOMETIMES resets to 0 on mission load. Not always and no noticeable pattern
+    //float missionTimer2 : 0x0524E7B8, 0x120, 0x10, 0x8B8;
+    //int xp : 0x051A6860, 0xC8; //Total Creed points 
 }
 
 state("ACU", "1.5.0") 
 {
     //Only these four values are used so split and remove loads
-    int currency : 0x0525BD10, 0x2D8, 0x0, 0x10, 0x70, 0x78, 0x0, 0x144; //Current currency
+    int currency : 0x0527D5B0, 0xC58, 0xF60, 0x118, 0x1F8, 0x144; //Current currency
     int isLoading: 0x0522BB28, 0x68, 0x8, 0x28, 0x80, 0x30, 0x38, 0xFD0; //1 when loading 0 when not. Also detects first cutscene
-    int missionComplete: 0x05219860, 0x2C, 0x40, 0x18, 0x10, 0x0, 0x168, 0x8; //1 if the accept mission complete rewards. 0 everywhere else
+    int missionComplete : 0x05219860, 0x2C, 0x40, 0x18, 0x10, 0x0, 0x168, 0x8; //1 if the accept mission complete rewards. 0 everywhere else
     int paused : 0x04F55598, 0xCC8;  //Detects pause and menu 1/0
     int startMenu : 0x05217280, 0xBC;  //Also detects pause and menu and title screen 256/0
     //int Percentage : 0x0525FA30, 0x5C8, 0x28, 0x28, 0x0, 0x4C; //Percentage of game completed.
+    int tabbedOut : 0x39BF0C0; //1 is tabbed out, 0 is in game (May be related to game running or not. Unsure as of now)
+    int syncPoints : 0x0527D5B0, 0xC58, 0xF60, 0x118, 0x200, 0x144; //Ability points - seems to detect first load of -1 like currency does. Changes to -1 when loading from server bridge to paris 
+    int creedPoints : 0x0527D5B0, 0xC58, 0xF60, 0x118, 0x1E8, 0x144; //Also detects first load as -1. not sure if this is useful or not tbh.
+    float gameTimer : 0x0524CFD8, 0x10, 0x18, 0x70, 0x0, 0x840, 0x108, 0x30; //Game Timer, pauses while in menus, does not pause during loads. Acts super weird and im not sure when it resets but it does sometimes
 
     //Below values are not used but should work for 1.5.0
     //string5 versionNumber : 0x7FF4FD5E9AB0;
-    int sync : 0x05196070, 0x40, 0x0, 0x1CC;
-    int tabbedOut : 0x0521AA98, 0x80, 0x38; //1 is tabbed out, 0 is in game (May be related to game running or not. Unsure as of now)
-    float gameTimer : 0x0524CFD8, 0x10, 0x18, 0x70, 0x0, 0x840, 0x108, 0x30; //Game Timer, pauses while in menus, does not pause during loads   Acts super weird and im not sure when it resets but it does sometimes
-    //float missionTimer : 0x0524E7B8, 0x150, 0x10, 0x8B8; //SOMETIMES resets to 0 on mission load. Not always and no noticable pattern
+    //int xp : 0x051B3E50, 0xC8; //Total Creed points 
+    //float missionTimer : 0x0524E7B8, 0x150, 0x10, 0x8B8; //SOMETIMES resets to 0 on mission load. Not always and no noticeable pattern
     //float missionTimer2 : 0x0524E7B8, 0x120, 0x10, 0x8B8;
-    int xp : 0x051B3E50, 0xC8; //Total Creed points 
-    int syncPoints: 0x051B1BF0, 0x380, 0x10, 0x0, 0x18, 0x528, 0x200, 0x144; //Ability points - seems to detect first load of -1 like currency does. Changes to -1 when loading from server bridge to paris 
-    int creedPoints: 0x0525BD10, 0x2F8, 0x0, 0x10, 0x70, 0x78, 0x0, 0x144; //Also detects first load as -1. not sure if this is useful or not tbh.
-    int missionMenu: 0x0522BDE0, 0x38, 0x9E0; //Detects if the mission start or end menues are on the screen. Includes the menu with just the name of the mission but you are too far to accept. 
+    //int missionMenu: 0x0522BDE0, 0x38, 0x9E0; //Detects if the mission start or end menus are on the screen. Includes the menu with just the name of the mission but you are too far to accept. 
 }
 
 startup 
@@ -84,6 +85,8 @@ startup
     settings.Add("Chests", false, "Chests Splits", "100%"); // Chests setting under 100% parent
     settings.Add("SyncPoints", false, "Sync Points Splits", "100%"); // Sync Points setting under 100% parent   
     //settings.Add("", false, "", "")
+    vars.stopwatch = new Stopwatch();
+    vars.SplitTime = null;
 }
                                                               
 init 
@@ -109,7 +112,9 @@ update
     if(vars.playingIntro == 1 && current.isLoading == 0 && old.isLoading == 1){ //Needed because sometimes loading into the prologue mission sets currency to -1 which would cause an early split
         vars.prologue = 1;
     }
-    vars.SetTextComponent("Percentage: ", current.Percentage + "%");
+    //vars.SetTextComponent("Percentage: ", current.Percentage + "%");
+
+    vars.SplitTime = (int)vars.stopwatch.Elapsed.TotalSeconds;
     
     //print("IsLoading: " + current.isLoading + " Playing intro: " + vars.playingIntro + " Tabbed Out: " + current.tabbedOut);
 }
@@ -119,6 +124,7 @@ onStart
     vars.split ++;
     vars.prologue = 1;
     vars.playingIntro = 1;
+    vars.stopwatch.Start();
 }
 
 
@@ -134,35 +140,40 @@ start {
 
 split 
 {
-    //Splits when end of mission is accepted, also for most side missions such as heist, and coop missions
-    if(current.missionComplete == 0 && old.missionComplete == 1) 
-    { 
+    
+    if (current.syncPoints > old.syncPoints && current.isLoading == 0 && vars.SplitTime > 2)
+    {
         vars.split ++;
+        vars.stopwatch.Stop();
         return true;
-    }
-
-    //Splits after prologue due to currency (or ability points) jumping up to 4294967295 (-1) during the load of the first mission
-    if(current.currency == 0 && old.currency == -1 && vars.prologue == 1 && vars.split == 0) 
+    } else if(current.missionComplete == 0 && old.missionComplete == 1 && vars.SplitTime > 2) //Splits when end of mission is accepted, also for most side missions such as heist, and coop missions
     { 
         vars.split ++;
+        vars.stopwatch.Stop();
+        return true;
+    } else if(current.currency == 0 && old.currency == -1 && vars.prologue == 1 && vars.split == 0 && vars.SplitTime > 2) //Splits after prologue due to currency (or ability points) jumping up to 4294967295 (-1) during the load of the first mission
+    { 
+        vars.split ++;
+        vars.stopwatch.Stop();
         return true;
     }
 
     // Chest-related splits, checks if MoneyIncreased the difference between current and old currency
-    if (settings["Chest"] && vars.MoneyIncreased.Contains(current.currency - old.currency)) {
+    if (settings["Chest"] && vars.MoneyIncreased.Contains(current.currency - old.currency) && current.isLoading == 0 && current.currency > old.currency) 
+    {
         vars.split ++;
         return true;
     }
 
     // Sync points-related splits, check if Sync Points setting is enabled
-    if (settings["SyncPoints"]) 
+    /*if (settings["SyncPoints"]) 
     {
-        if (current.syncPoints == old.syncPoints + 1) 
+        if (current.syncPoints > old.syncPoints && current.isLoading == 0) 
         {
             vars.split ++;
             return true;
         }
-    }
+    }*/
 }
 
 isLoading {
@@ -174,5 +185,3 @@ isLoading {
         return false;
     }
 }
-
-

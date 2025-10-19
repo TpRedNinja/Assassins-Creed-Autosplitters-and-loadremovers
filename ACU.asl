@@ -31,7 +31,7 @@ state("ACU", "1.5.0")
     int missionComplete: 0x05219860, 0x2C, 0x40, 0x18, 0x10, 0x0, 0x168, 0x8; //1 if the accept mission complete rewards. 0 everywhere else
     int paused : 0x04F55598, 0xCC8;  //Detects pause and menu 1/0
     int startMenu : 0x05217280, 0xBC;  //Also detects pause and menu and title screen 256/0
-    int Percentage : 0x0525FA30, 0x5C8, 0x28, 0x28, 0x0, 0x4C; //Percentage of game completed.
+    //int Percentage : 0x0525FA30, 0x5C8, 0x28, 0x28, 0x0, 0x4C; //Percentage of game completed.
 
     //Below values are not used but should work for 1.5.0
     //string5 versionNumber : 0x7FF4FD5E9AB0;
@@ -174,4 +174,5 @@ isLoading {
         return false;
     }
 }
+
 

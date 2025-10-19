@@ -159,7 +159,7 @@ split
     }
 
     // Chest-related splits, checks if MoneyIncreased the difference between current and old currency
-    if (settings["Chest"] && vars.MoneyIncreased.Contains(current.currency - old.currency) && current.isLoading == 0 && current.currency > old.currency) 
+    if (settings["Chests"] && vars.MoneyIncreased.Contains(current.currency - old.currency) && current.isLoading == 0 && current.currency > old.currency) 
     {
         vars.split ++;
         return true;

@@ -140,18 +140,14 @@ start {
 
 split 
 {
-    
-    if (current.syncPoints > old.syncPoints && current.isLoading == 0 && vars.SplitTime > 2)
-    {
-        vars.split ++;
-        vars.stopwatch.Restart();;
-        return true;
-    } else if(current.missionComplete == 0 && old.missionComplete == 1 && vars.SplitTime > 2) //Splits when end of mission is accepted, also for most side missions such as heist, and coop missions
+    if(current.missionComplete == 0 && old.missionComplete == 1 && vars.SplitTime > 2) //Splits when end of mission is accepted, also for most side missions such as heist, and coop missions
     { 
         vars.split ++;
         vars.stopwatch.Restart();;
         return true;
-    } else if(current.currency == 0 && old.currency == -1 && vars.prologue == 1 && vars.split == 0 && vars.SplitTime > 2) //Splits after prologue due to currency (or ability points) jumping up to 4294967295 (-1) during the load of the first mission
+    }
+
+	if(current.currency == 0 && old.currency == -1 && vars.prologue == 1 && vars.split == 0 && vars.SplitTime > 2) //Splits after prologue due to currency (or ability points) jumping up to 4294967295 (-1) during the load of the first mission
     { 
         vars.split ++;
         vars.stopwatch.Restart();;
@@ -166,14 +162,14 @@ split
     }
 
     // Sync points-related splits, check if Sync Points setting is enabled
-    /*if (settings["SyncPoints"]) 
+    if (settings["SyncPoints"]) 
     {
         if (current.syncPoints > old.syncPoints && current.isLoading == 0) 
         {
             vars.split ++;
             return true;
         }
-    }*/
+    }
 }
 
 isLoading {
@@ -185,4 +181,5 @@ isLoading {
         return false;
     }
 }
+
 

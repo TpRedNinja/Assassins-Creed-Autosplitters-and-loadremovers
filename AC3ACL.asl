@@ -139,10 +139,10 @@ init
 update
 {
     //print(modules.First().ModuleMemorySize.ToString());
-    if (current.percentage != null)
+    /*if (current.percentage != null)
     {
         vars.SetTextComponent("Percentage Completion", current.percentage + "%");
-    }
+    }*/
 }
 
 start
@@ -179,3 +179,4 @@ isLoading
 {
    return current.IsLoading;
 }
+

@@ -132,9 +132,9 @@ update {    //Used to update flags at the right time
         var gameTimeFormatted = string.Format("{0:D2}:{1:D2}:{2:D2}.{3:D3}", (int)gt.TotalHours, gt.Minutes, gt.Seconds, gt.Milliseconds);
         vars.SetTextComponent("GameTime: ", gameTimeFormatted);
 
-        if (settings["Percentage display"]) {
+        /*if (settings["Percentage display"]) {
             vars.SetTextComponent("Percentage: ", current.sync + "%");
-        }
+        }*/
     }
 }
 
@@ -193,4 +193,5 @@ isLoading {
         return false;
     }
 }
+
 

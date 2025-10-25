@@ -106,7 +106,7 @@ update {    //Used to update flags at the right time
     if (current.tabbedOut == 0 && vars.tabbedFlag == 0) {   //Tabbed out byte only activates once the game has been tabbed out of at least once
         vars.tabbedFlag = 1;
     }
-    if (current.paused == 12 || current.paused == 13) {  //Detects when the first mission select screen appears after the first cutscene to enable load removal
+    if (current.paused == 0 || current.paused == 12 || current.paused == 13) {  //Detects when the first mission select screen appears after the first cutscene to enable load removal
         vars.playingIntro = 1;
     }
     if(vars.playingIntro == 1 && current.isLoading == 0 && old.isLoading == 1){ //Needed because sometimes loading into the prologue mission sets currency to -1 which would cause an early split
@@ -193,5 +193,6 @@ isLoading {
         return false;
     }
 }
+
 
 

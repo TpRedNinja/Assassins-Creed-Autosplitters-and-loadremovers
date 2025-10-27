@@ -193,7 +193,7 @@ onSplit {
 }
 
 isLoading {
-    if((current.isLoading != 0 && current.tabbedOut == 0 && vars.tabbedFlag == 1) || (current.isLoading != 0 && vars.tabbedFlag == 0)){   //Pauses timer when loading.
+    if(current.isLoading != 0){   //Pauses timer when loading.
         return true;
     }
     else {

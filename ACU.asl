@@ -113,7 +113,7 @@ update {    //Used to update flags at the right time
     vars.SplitTime = (int)vars.stopwatch.Elapsed.TotalSeconds;
     //print("Sync: " + current.sync);
     //print("Split: " + vars.split);
-    print("Tabbed Out " + current.tabbedOut + " Tabbed Flag: " + vars.tabbedFlag);
+    //print("Tabbed Out " + current.tabbedOut + " Tabbed Flag: " + vars.tabbedFlag);
     //print("Mission Complete: " + current.missionComplete + " Game Timer: " + current.gameTimer + " Prologue: " + vars.isPrologueDone + " IsLoading: " + current.isLoading + " Paused: " + current.paused + " Playing Intro: " + vars.playingIntro + " Split Time: " + vars.SplitTime);
     //print("IsLoading: " + current.isLoading + " Paused: " + current.paused + " Playing Intro: " + vars.playingIntro);
     if (settings["Debug"]) {
@@ -200,4 +200,5 @@ isLoading {
         return false;
     }
 }
+
 

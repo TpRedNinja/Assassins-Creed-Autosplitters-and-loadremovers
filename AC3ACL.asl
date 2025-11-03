@@ -154,10 +154,10 @@ start
     }
 
     //starts when you have control of desmond hopefully
-    if(vars.game == "AC3" && !current.IsLoading && current.percentage == 0)
+    /*if(vars.game == "AC3" && !current.IsLoading && current.percentage == 0)
     {
         return true;
-    }
+    }*/
 }
 
 split

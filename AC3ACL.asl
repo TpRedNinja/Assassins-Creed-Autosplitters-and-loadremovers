@@ -73,20 +73,6 @@ startup
         settings.SetToolTip("Some Missions", "Choose this if you want to split after some missions are completed. \n" + "will not split for liberation\n" +
         "Missions it will split on: ");
 
-    // Asks the user if they want to change to game time if the comparison is set to real time on startup.
-    if(timer.CurrentTimingMethod == TimingMethod.RealTime)
-    {        
-        var timingMessage = MessageBox.Show(
-            "This Autosplitter has a load removal Time without loads. "+
-            "LiveSplit is currently set to display and compare against Real Time (including loads).\n\n"+
-            "Would you like the timing method to be set to Game Time?",
-            "Assassin's Creed III Remastered/Liberation Remastered | LiveSplit",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Question
-        );
-        if (timingMessage == DialogResult.Yes)
-            timer.CurrentTimingMethod = TimingMethod.GameTime;
-    };
-
     // set text taken from Poppy Platime C2
     // to display the text associated with this script aka current percentage along with IGT
     Action<string, string> SetTextComponent = (id, text) => {
@@ -179,4 +165,5 @@ isLoading
 {
    return current.IsLoading;
 }
+
 

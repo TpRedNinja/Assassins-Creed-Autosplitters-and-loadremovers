@@ -137,15 +137,6 @@ init
     }
 }
 
-update
-{
-    //print(modules.First().ModuleMemorySize.ToString());
-    if (current.percentage != null)
-    {
-        vars.SetTextComponent("Percentage Completion", current.percentage + "%");
-    }
-}
-
 start
 {
     // starts when first skippable cutscene appears should be no delay
@@ -180,3 +171,4 @@ isLoading
 {
    return current.IsLoading;
 }
+

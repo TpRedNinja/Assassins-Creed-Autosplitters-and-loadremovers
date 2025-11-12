@@ -5,9 +5,10 @@
 state("ACIII", "AC3 Steam")
 {
     bool IsLoading: 0x03269D90, 0x468, 0xB0, 0xC8, 0x370; // 0 for not loading and 1 for loading note the cutscene with connor cutting his hair counts as loading
-    int percentage: 0x03269D88, 0xC60, 0xB18, 0x690, 0x4; // displays current percentage complete note does not work with tyranny of king washington as it displays 24 for some reason
+    int percentage: 0x0324C588, 0x330, 0x10, 0x18, 0x15C; // displays current percentage complete note does not work with tyranny of king washington as it displays 24 for some reason
     int IGT: 0x03203510, 0x850, 0x8, 0x3D8, 0x80; // Uses the built in timer for each save file note its in seconds for display but can be used for the timer.
     int MissionComplete: 0x32C2270;
+    bool menu: 0x324CA20; // 1 for in any menu 0 for not in a menu
 }
 //[133480] 53477376 
 state("ACLiberation", "ACL Steam")
@@ -23,21 +24,21 @@ state("ACLiberation", "ACL Steam")
 //[133480] 59396096 
 state("ACIII", "AC3 UbisoftConnect")
 {
-    bool IsLoading: 0x03206FC8, 0x48, 0x2F8, 0x38, 0x30;
-    int percentage: 0x03269CC8, 0xC20, 0xB40, 0x6B8, 0x4;
-    int IGT: 0x03203450, 0x738, 0x2B0, 0x398, 0x80; //stops when in pausemenu during loading it doesnt for some reason.
-    int MissionComplete: 0x32C21B0; //detects the mission end screen but does not detect sequence complete. 0 for false 1 for true
-    int Cutscene: 0x03269CD0, 0x1A8, 0x88, 0x0, 0x928; //0 when first in the main menu but 4 for when no cutscene adn 65540 or something like that during a cutscene
+    bool IsLoading: 0x03206FC8, 0x48, 0x2F8, 0x38, 0x30; // same as steam
+    int percentage: 0x0324C4C8, 0x330, 0x10, 0x18, 0x15C; // same as steam
+    int IGT: 0x03203450, 0x738, 0x2B0, 0x398, 0x80; // same as steam
+    int MissionComplete: 0x32C21B0; //same as steam
+    bool menu: 0x324C960; // same as steam
 }
 
 state("ACLiberation", "ACL UbisoftConnect")
 {
     int percentage: 0x02BC5F00, 0x2D0, 0xEC;
-    int menu: 0x02BC7F50, 0x74C; // same condition as steam 
-    int pausemenu: 0x02C0ED10; // just an address does changing persona's screen as paused
-    int IGT: 0x02C0CF00, 0xE8; // steam was just an address Ubisoft is a full-on pointer
-    bool IsLoading: 0x02C26F98, 0x0, 0x200;
-    int currency: 0x02C26BC0, 0xB0, 0x98;
+    int menu: 0x02BC7F50, 0x74C; // same as steam
+    int pausemenu: 0x02C0ED10; // same as steam
+    int IGT: 0x2C0CFF0; // same as steam
+    bool IsLoading: 0x02C26F98, 0x0, 0x200; // same as steam
+    int currency: 0x02C26BC0, 0xB0, 0x98; // same as steam
 }
 
 startup
@@ -72,6 +73,20 @@ startup
         settings.Add("Some Missions", false, "Some Missions", "Splitting");
         settings.SetToolTip("Some Missions", "Choose this if you want to split after some missions are completed. \n" + "will not split for liberation\n" +
         "Missions it will split on: ");
+
+    // Asks the user if they want to change to game time if the comparison is set to real time on startup.
+    if(timer.CurrentTimingMethod == TimingMethod.RealTime)
+    {        
+        var timingMessage = MessageBox.Show(
+            "This Autosplitter has a load removal Time without loads. "+
+            "LiveSplit is currently set to display and compare against Real Time (including loads).\n\n"+
+            "Would you like the timing method to be set to Game Time?",
+            "Assassin's Creed III Remastered/Liberation Remastered | LiveSplit",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question
+        );
+        if (timingMessage == DialogResult.Yes)
+            timer.CurrentTimingMethod = TimingMethod.GameTime;
+    };
 
     // set text taken from Poppy Platime C2
     // to display the text associated with this script aka current percentage along with IGT
@@ -125,10 +140,10 @@ init
 update
 {
     //print(modules.First().ModuleMemorySize.ToString());
-    /*if (current.percentage != null)
+    if (current.percentage != null)
     {
         vars.SetTextComponent("Percentage Completion", current.percentage + "%");
-    }*/
+    }
 }
 
 start
@@ -140,10 +155,10 @@ start
     }
 
     //starts when you have control of desmond hopefully
-    /*if(vars.game == "AC3" && !current.IsLoading && current.percentage == 0)
+    if(vars.game == "AC3" && !current.IsLoading && current.percentage == 0 && !current.menu)
     {
         return true;
-    }*/
+    }
 }
 
 split
@@ -165,5 +180,3 @@ isLoading
 {
    return current.IsLoading;
 }
-
-

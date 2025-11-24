@@ -1,4 +1,4 @@
-state("ACBSP")
+#state("ACBSP")
 {
     int Percentage: 0x025B08A4, 0x278, 0x4, 0xC, 0x7C; //Percentage
     int Money: 0x025C63AC, 0x24, 0x40; //Money
@@ -54,11 +54,11 @@ split
         return true;
     }
 
-    if (!current.Main_Loading && currnet.Money == null && old.Main_Loading && vars.SplitTime > 2) //splits when leaving the animus
+    if (!current.Main_Loading && current.Money == null && old.Main_Loading && vars.SplitTime > 2) //splits when leaving the animus
     {
         vars.stopwatch.Restart();
         return true;
-    } else if(current.Main_Loading && currnet.Money != null && !old.Main_Loading && vars.SplitTime > 2) //splits when entering the animus
+    } else if(current.Main_Loading && current.Money != null && !old.Main_Loading && vars.SplitTime > 2) //splits when entering the animus
     {
         vars.stopwatch.Restart();
         return true;

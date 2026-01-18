@@ -146,6 +146,13 @@ update
     {
         vars.SetTextComponent("Percentage Completion", current.percentage + "%");
     }
+    if(current.IsLoading == 1)
+    {
+        vars.SetTextComponent("Current Loading: True"); 
+    } else
+    {
+        vars.SetTextComponent("Current Loading: False"); 
+    }
 }
 
 start
@@ -180,5 +187,6 @@ split
 
 isLoading
 {
-   return current.IsLoading;
+   return current.IsLoading == 1;
 }
+

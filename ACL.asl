@@ -18,7 +18,11 @@ isLoading
     if (current.Money == -1)
     {
        return true; 
+    } else
+    {
+        return false;
     }
 }
+
 
 

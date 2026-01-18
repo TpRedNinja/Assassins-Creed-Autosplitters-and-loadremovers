@@ -7,7 +7,7 @@ state("ac3lhd_32")
 
 split
 {
-    if (Percentage > old.Percentage)
+    if (current.Percentage > old.Percentage)
     {
         return true;
     }
@@ -20,4 +20,5 @@ isLoading
        return true; 
     }
 }
+
 

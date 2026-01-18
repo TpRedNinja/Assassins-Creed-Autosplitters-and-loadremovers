@@ -52,7 +52,7 @@ startup
     vars.ACLSteam = new byte[32]{ 0x87, 0x83, 0x6d, 0x17, 0x59, 0xdd, 0x4d, 0xae, 0x57, 0xef, 0xf6, 0x6a, 0xa1, 0x70, 0xc0, 0x7c, 0x4c, 0x5e, 0x6b, 0x81, 0x76, 0x32, 0x37, 0x9e, 0x49, 0x3d, 0x29, 0x29, 0xad, 0xeb, 0xe9, 0x47 };
     // steam hash id(ACIII): SHA256: 450b76dea323089077a8bb8f0a9bafd3b7c02f48a46de48811f2f00b63aa13d1
     vars.AC3Steam = new byte[32]{ 0x45, 0x0b, 0x76, 0xde, 0xa3, 0x23, 0x08, 0x90, 0x77, 0xa8, 0xbb, 0x8f, 0x0a, 0x9b, 0xaf, 0xd3, 0xb7, 0xc0, 0x2f, 0x48, 0xa4, 0x6d, 0xe4, 0x88, 0x11, 0xf2, 0xf0, 0x0b, 0x63, 0xaa, 0x13, 0xd1 };
-
+    vars.ValidIncrements = new HashSet<int>() { 1, 2, 3 };
     // calculates the hash id for the current module credit to the re2r autosplitter & deathHound246 on discord for this code 
     Func<ProcessModuleWow64Safe, byte[]> CalcModuleHash = (module) => 
     {
@@ -68,12 +68,12 @@ startup
 
     //Literally a setting to split on every mission
     settings.Add("Splitting", false, "Splitting");
-        settings.Add("Mission", false, "Mission", "Splitting");
-        settings.SetToolTip("Mission", "Choose this if you want to split after a mission is completed. \n" + "will not split for modern day sections");
-        settings.Add("Some Missions", false, "Some Missions", "Splitting");
-        settings.SetToolTip("Some Missions", "Choose this if you want to split after some missions are completed. \n" + "will not split for liberation\n");
-    settings.Add("PerDisplay", false, "Percentage Display");
-        settings.SetToolTip("PerDisplay", "Displays your current percentage completion on a text component.");
+        settings.Add("Percentage_Split", false, "Percentage_Split", "Splitting");
+        settings.SetToolTip("Percentage_Split", "Choose this if you want to split after a mission is completed. \n" + "will not split for modern day sections");
+        settings.Add("EndScreen_Split(ac3 only)", false, "EndScreen_Split(ac3 only)", "Splitting");
+        settings.SetToolTip("EndScreen_Split(ac3 only)", "Choose this if you want to split after some missions are completed. \n" + "will not split for liberation\n");
+    settings.Add("Debug", false, "Debug Info");
+        settings.SetToolTip("Debug", "Adds text components for 2 debug infos: \n" + "Percentage Completion and Current Loading State");
 
 
     // Asks the user if they want to change to game time if the comparison is set to real time on startup.
@@ -142,7 +142,7 @@ init
 update
 {
     //print(modules.First().ModuleMemorySize.ToString());
-    if (current.percentage != null && settings["PerDisplay"])
+    if (current.percentage != null && settings["Debug"])
     {
         vars.SetTextComponent("Percentage Completion", current.percentage + "%");
         vars.SetTextComponent("Current Loading: ", current.IsLoading.ToString());
@@ -168,13 +168,15 @@ start
 split
 {
     // splits after every mission that gives you percentage note some missions dont have a end mission screen so make sure you have enough splits
-    if(current.percentage > old.percentage && settings["Mission"])
+    if(vars.ValidIncrements.Contains(current.percentage - old.percentage) && settings["Percentage_Split"])
     {
+        //print("percentage split");
         return true;
     }
 
-    if (vars.game == "AC3" && current.MissionComplete == 1 && old.MissionComplete == 0 && settings["Some Missions"])
+    if (vars.game == "AC3" && current.MissionComplete == 1 && old.MissionComplete == 0 && settings["EndScreen_Split(ac3 only)"])
     {
+        //print("endScreen split");
         return true;
     }
 
@@ -184,6 +186,3 @@ isLoading
 {
    return current.IsLoading;
 }
-
-
-

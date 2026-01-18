@@ -145,13 +145,7 @@ update
     if (current.percentage != null && settings["PerDisplay"])
     {
         vars.SetTextComponent("Percentage Completion", current.percentage + "%");
-        if(current.IsLoading)
-        {
-            vars.SetTextComponent("Current Loading: True"); 
-        } else
-        {
-            vars.SetTextComponent("Current Loading: False"); 
-        }
+        vars.SetTextComponent("Current Loading: ", current.IsLoading.ToString());
     }
     
 }
@@ -190,5 +184,6 @@ isLoading
 {
    return current.IsLoading;
 }
+
 
 

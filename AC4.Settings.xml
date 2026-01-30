@@ -1,6 +1,7 @@
 <Settings>
     <Setting Id="Splits" Label="Splitting Options" ToolTip="Gives options of where to split" state= "false">
         <Setting Id="Any%" Label="Any%" ToolTip="Splits for all main missions not modern day" state="false"/>
+				<Setting Id="Aveline" Label="Aveline" ToolTip="Splits for the Aveline dlc" state="false"/>
        <!--<Setting Id="" Label="" ToolTip="" state=""/>-->
     </Setting>
 </Settings>

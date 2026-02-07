@@ -8,7 +8,11 @@ link: https://www.dropbox.com/scl/fi/68n3ibc1jxa88tsscxzdz/ACBF_Getname_DataStru
 	-To activate them edit splits then click activate
 	-Look at settings for some features by defult all features except (autosplit, autostart, autoreset, and load remover) are turned off.
 	-To get Load remover compare against Game time on livesplit or add a timer that only displays the gametime. Not all games have a Load remover so keep that in mind
-
+**Assassin's Creed 1:**
+	
+	-Splist on maxhealth increasing
+	-splits on gaining the last health segment in the tutorial
+	-splits when your maxhealth gets set to 4
 **Assassin's Creed 2:**
 
 	-Splits on some missions not all

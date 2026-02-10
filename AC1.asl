@@ -18,9 +18,10 @@ state("AssassinsCreed_Dx10")
 
 startup
 {
-    settings.Add("HealthIncreaseSplits", false, "HealthIncreaseSplits");
+    settings.Add("Splits", false, "Splits");
+    settings.Add("HealthIncreaseSplits", false, "HealthIncreaseSplits", "Splits");
     settings.SetToolTip("HealthIncreaseSplits", "Splits when you gain a health increase/rank up.\nAlso splits after you enter the Animus and health it set to 4 segments.");
-    settings.Add("Tutorial", false, "Tutorial");
+    settings.Add("Tutorial", false, "Tutorial", "Splits");
     settings.SetToolTip("Tutorial", "Splits after you gain your last health segment back in the tutorial.");
     vars.TutorialDone = false;
 }
@@ -37,10 +38,10 @@ start
 split
 {
     // should split when you gain a rank
-    if (current.MaxHealth == old.MaxHealth + 1 && settings["Health Increase Splits"])
+    if (current.MaxHealth == old.MaxHealth + 1 && settings["HealthIncreaseSplits"])
     {
         return true;
-    } else if (current.MaxHealth == 4 && old.MaxHealth != 4 && settings["Health Increase Splits"]) // splits after you go into the animus 
+    } else if (current.MaxHealth == 4 && old.MaxHealth != 4 && settings["HealthIncreaseSplits"]) // splits after you go into the animus 
     {
         return true;
     }

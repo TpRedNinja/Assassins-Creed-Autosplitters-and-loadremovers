@@ -40,18 +40,19 @@ startup
         settings.Add("MemoryBlock 3", false, "Memory Block 3", "Splits");
         settings.SetToolTip("MemoryBlock 3", "Splits at the start of memory block 3");
         settings.Add("MemoryBlock 4", false, "Memory Block 4", "Splits");
-        settings.SetToolTip("MemoryBlock 4", "Splits at the start of memory block 4");
+        settings.SetToolTip("MemoryBlock 4", "Splits at the start of memory block 4.\nNote: Memory Block 4 is currently a work in progress and will not work currently");
         settings.Add("MemoryBlock 5", false, "Memory Block 5", "Splits");
-        settings.SetToolTip("MemoryBlock 5", "Splits at the start of memory block 5");
+        settings.SetToolTip("MemoryBlock 5", "Splits at the start of memory block 5.\nNote: Memory Block 5 is currently a work in progress and will not work currently");
         settings.Add("MemoryBlock 6", false, "Memory Block 6", "Splits");
-        settings.SetToolTip("MemoryBlock 6", "Splits at the start of memory block 6");
+        settings.SetToolTip("MemoryBlock 6", "Splits at the start of memory block 6.\nNote: Memory Block 6 is currently a work in progress and will not work currently");
         settings.Add("MemoryBlock 7", false, "Memory Block 7", "Splits");
-        settings.SetToolTip("MemoryBlock 7", "Splits at the start of memory block 7");
+        settings.SetToolTip("MemoryBlock 7", "Splits at the start of memory block 7.\nNote: Memory Block 7 is currently a work in progress and will not work currently");
         settings.Add("ModernDaySplits", false, "Modern Day Splits", "Splits");
         settings.SetToolTip("ModernDaySplits", "Splits when Desmond is physically leaving the animus");
         settings.Add("HealthIncreaseSplits", false, "HealthIncreaseSplits", "Splits");
         settings.SetToolTip("HealthIncreaseSplits", "Splits when you gain a health increase/rank up.");
     settings.Add("Memory Block Runs", false, "Memory Block Start Timer");
+    settings.SetToolTip("Memory Block Runs", "Note: Memory Blocks 4-7 are Work In Progress and will not work currently");
         for (int i = 1; i <= 7; i++)
         {
             settings.Add("MemoryBlock" + i, false, "Memory Block " + i, "Memory Block Runs");
@@ -224,6 +225,4 @@ split
     {
         return true;
     }
-    
-    
 }

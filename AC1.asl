@@ -106,7 +106,7 @@ startup
         new float [] {207.08463f, 11.84124f, 107.60572f}, // Turn Traitor in, the position of Altair after you beat up the dude and bring him to the mentor in the castle
         new float [] {-222.54272f, 722.5073f, 89.77293f}, // In the haystack after the mandatory viewpoint
         new float [] {46.38885f, 6.1258f, 4.13928f}, // Assassin's Bureau in Damascus after quit warping (double check)
-        new float [] {42.75412, 7.48691f, 4.12456f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete.
+        new float [] {42.75412f, 7.48691f, 4.12456f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete.
         new float [] {-179.621f, 162.3696f, 17.00000f}, // Garnier Eavesdrop in Acre (double check)
         new float [] {-2.54902f, 39.92605f, 5.14663f}, // Assassin's Bureau in Acre after quit warping (double check)
         new float [] {-2.02865f, 42.15371f, 5.14196f}, // Assassin's Bureau in Acre after informing the Bureau leader or after a assassination mission is complete.

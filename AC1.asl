@@ -240,7 +240,7 @@ start
             return true;
         }
     } 
-    if (vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.AnyPercentPos])) // start after leaving the main menu
+    if (vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.AnyPercentPos]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.AnyPercentPos])) // start after leaving the main menu
     {
         return true;
     }

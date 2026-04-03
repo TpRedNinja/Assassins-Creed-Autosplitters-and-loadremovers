@@ -172,6 +172,7 @@ startup
     vars.TestingPos = vars.AnyPercentPos; // change this index to test different positions in the array
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = 0;
+    vars.IsTutorialDone = false;
 }
 
 update
@@ -256,6 +257,7 @@ split
     // splits when you have loaded into Solomon's temple after the tutorial
     if (settings["Tutorial"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[0]) && vars.IsAtPositionOld(old, vars.SplitPositions[0]))
     {
+        vars.IsTutorialDone = true;
         vars.stopwatch.Restart();
         return true;
     }
@@ -312,14 +314,15 @@ split
         vars.stopwatch.Restart();
         return true;
     }
+
     // Splits when you quit to the animus
-    if (settings["QuitWarpExit"] && current.PlayerID == 9 && old.PlayerID == 1)
+    if (settings["QuitWarpExit"] && current.PlayerID == 9 && old.PlayerID == 1 && vars.IsTutorialDone)
     {
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you enter the animus after quitting to the animus
-    if (settings["QuitWarpEnter"] && current.PlayerID == 1 && old.PlayerID == 9)
+    if (settings["QuitWarpEnter"] && current.PlayerID == 1 && old.PlayerID == 9 && vars.IsTutorialDone)
     {
         vars.stopwatch.Restart();
         return true;
@@ -328,5 +331,6 @@ split
 
 onReset
 {
+    vars.IsTutorialDone = false;
     vars.stopwatch.Reset();
 }

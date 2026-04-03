@@ -70,6 +70,8 @@ startup
         settings.SetToolTip("MemoryBlock7Splits", "Contains splits for memory block 7");
             settings.Add("MemoryBlock 7 Start", false, "Memory Block 7 Start", "MemoryBlock7Splits");
             settings.SetToolTip("MemoryBlock 7 Start", "Splits at the start of memory block 7.");
+        settings.Add("DeathConfessionSplits", false, "Death Confession Splits", "Splits");
+        settings.SetToolTip("DeathConfessionSplits", "Splits for all targets when you are in the death confession room.");
         settings.Add("ExitAnimus", false, "Exiting Animus", "Splits");
         settings.SetToolTip("ExitAnimus", "Splits when Desmond is physically leaving the animus");
         settings.Add("QuitWarpExit", false, "Quit to animus - Exiting", "Splits");
@@ -93,15 +95,30 @@ startup
     vars.Y = 0.0f;
     vars.Z = 0.0f;
     vars.MemoryBlock = 0;
+    // if i need to add more positions here is the copy pasta
+    // new float [] {},
     // array of positions to check if the player is at, can add more if needed just make sure to update the indices in the code
     float [][] splitPositions =
     {
-        new float [] {1.13976f, 30.67389f, 13.25325f}, // At end of Solomon's Temple about to load into Masyaf
+        new float [] {1.13976f, 30.56754f, 13.25423f}, // At end of Solomon's Temple about to load into Masyaf (double check)
         new float [] {-39.1783f, -33.99732f, 34.46896f}, // Load after Solomon's Temple into Masyaf, In Masyaf right after loading in
-        new float [] {7.16956f, -16.99777f, 34.64021f}, // Traitor in Masyaf Eavesdrop
+        new float [] {7.16993f, -16.99199f, 34.64021f}, // Traitor in Masyaf Eavesdrop
         new float [] {207.08463f, 11.84124f, 107.60572f}, // Turn Traitor in, the position of Altair after you beat up the dude and bring him to the mentor in the castle
         new float [] {-222.54272f, 722.5073f, 89.77293f}, // In the haystack after the mandatory viewpoint
-        new float [] {0.0f, 0.0f, 0.0f},
+        new float [] {46.38885f, 6.1258f, 4.13928f}, // Assassin's Bureau in Damascus after quit warping (double check)
+        new float [] {42.75412, 7.48691f, 4.12456f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete.
+        new float [] {-179.621f, 162.3696f, 17.00000f}, // Garnier Eavesdrop in Acre (double check)
+        new float [] {-2.54902f, 39.92605f, 5.14663f}, // Assassin's Bureau in Acre after quit warping (double check)
+        new float [] {-2.02865f, 42.15371f, 5.14196f}, // Assassin's Bureau in Acre after informing the Bureau leader or after a assassination mission is complete.
+        new float [] {-86.82042f, 173.3221f, 27.85501f}, // Made it into the window for Garnier skip (double check)
+        new float [] {91.00118f, 84.52809f, 2.25257f}, // Assassin's Bureau in Jerusalem after quit warping
+        new float [] {91.33311f, 88.22004f, 2.01741f}, // Assassin's Bureau in Jerusalem after informing the Bureau leader or after a assassination mission is complete.
+        new float [] {-68.91216f, 85.63019f, 8.18865f}, // Abu'l Nuqoud Eavesdrop in Damascus
+        new float [] {28.08077f, -179.1255f, 6.00000f}, // Majd Addin Eavesdrop in Jerusalem (double check)
+        new float [] {277.2652f, -39.46133f, 4.14445f}, // Jubair Eavesdrop in Damascus (double check)
+        new float [] {-139.9565f, 110.8973f, 10.00000f}, // Maria Eavesdrop in Jerusalem (double check)
+        new float [] {-11.29227f, -30.75496f, 0.00000f}, // Maria Death confession room
+        new float [] {-11.42463f, -30.58017f, 0.00000f}, // In the Death confession room for all targets but maria
         new float [] {-0.07626f, -0.10379f, 0.00000f},// start of the game
         new float [] {-2.63071f, -4.52977f, 0.00262f} // in the animus but modern day
     };
@@ -121,6 +138,7 @@ startup
     vars.MemoryBlockPositions = MemoryBlockPositions;
     vars.ModernDayPos = (vars.SplitPositions.Length - 1);
     vars.AnyPercentPos = (vars.SplitPositions.Length - 2);
+    vars.DeathConfessionPos = (vars.SplitPositions.Length - 3);
     // checks if the players current xyz is the same as the xyz of one of the items in the array 
     Func<dynamic, float[], bool> IsAtPositionCurrent = 
     (dynamic s, float [] pos) => 
@@ -241,6 +259,7 @@ start
             return true;
         }
     } 
+    // doesn't work.
     if (vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.AnyPercentPos]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.AnyPercentPos])) // start after leaving the main menu
     {
         return true;
@@ -255,7 +274,7 @@ onStart
 split
 {
     // splits when you have loaded into Solomon's temple after the tutorial
-    if (settings["Tutorial"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[0]) && vars.IsAtPositionOld(old, vars.SplitPositions[0]))
+    if (settings["Tutorial"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[0]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[0]))
     {
         vars.IsTutorialDone = true;
         vars.stopwatch.Restart();
@@ -323,6 +342,18 @@ split
     }
     // Splits when you enter the animus after quitting to the animus
     if (settings["QuitWarpEnter"] && current.PlayerID == 1 && old.PlayerID == 9 && vars.IsTutorialDone)
+    {
+        vars.stopwatch.Restart();
+        return true;
+    }
+    // Splits for all targets when you are in the death confession room.
+    if (settings["DeathConfessionSplits"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DeathConfessionPos]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DeathConfessionPos]))
+    {
+        vars.stopwatch.Restart();
+        return true;
+    }
+    // Splits for Maria Death confession
+    if (settings["MariaDeathConfession"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DeathConfessionPos - 1]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DeathConfessionPos - 1]))
     {
         vars.stopwatch.Restart();
         return true;

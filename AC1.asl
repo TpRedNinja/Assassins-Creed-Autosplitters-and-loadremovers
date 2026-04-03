@@ -353,7 +353,7 @@ split
         return true;
     }
     // Splits for Maria Death confession
-    if (settings["MariaDeathConfession"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DeathConfessionPos - 1]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DeathConfessionPos - 1]))
+    if (settings["DeathConfessionSplits"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DeathConfessionPos - 1]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DeathConfessionPos - 1]))
     {
         vars.stopwatch.Restart();
         return true;

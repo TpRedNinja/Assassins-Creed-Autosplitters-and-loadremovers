@@ -283,7 +283,7 @@ startup
     vars.IsTutorialDone = false;
     vars.SolomonTempleSplitDone = false;
     vars.MasyafEavesdropDone = false;
-    vars.
+    //vars.
 
 }
 

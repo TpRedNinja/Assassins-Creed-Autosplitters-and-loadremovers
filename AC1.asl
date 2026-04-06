@@ -122,7 +122,7 @@ startup
         new float [] {7.16993f, -16.99199f, 34.64021f}, // Traitor in Masyaf Eavesdrop
         new float [] {207.08463f, 11.84124f, 107.60572f}, // Turn Traitor in, the position of Altair after you beat up the dude and bring him to the mentor in the castle
         new float [] {-222.54272f, 722.5073f, 89.77293f}, // In the haystack after the mandatory viewpoint
-        new float [] {46.38885f, 6.1258f, 4.13928f}, // Assassin's Bureau in Damascus after quit warping
+        new float [] {46.38885f, 6.1258f, 4.13938f}, // Assassin's Bureau in Damascus after quit warping
         new float [] {42.75412f, 7.48691f, 4.12456f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete.
         new float [] {-179.621f, 162.3696f, 17.00000f}, // Garnier Eavesdrop in Acre
         new float [] {-2.54902f, 39.92605f, 5.14663f}, // Assassin's Bureau in Acre after quit warping
@@ -152,13 +152,11 @@ startup
     };
     float [][] Tolerance =
     {
-        new float [] {0.10501f, 0.10636f, 0.00100f}, // At end of Solomon's Temple about to load into Masyaf tolerance
+        new float [] {0.04000f, 0.10636f, 0.00100f}, // At end of Solomon's Temple about to load into Masyaf tolerance
         new float [] {0.00319f, 0.01306f, 0.00000f}, // Masyaf eavesdrop tolerance
         new float [] {0.00000f, 0.00000f, 0.00020f}, // Assassin's Bureau in Damascus after quit warping tolerance
         new float [] {0.00000f, 0.00000f, 0.00007f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete. tolerance
         new float [] {0.00335f, 0.01873f, 0.00000f}, // Garnier Eavesdrop in Acre tolerance
-        new float [] {0.00000f, 0.00000f, 0.00000f}, // Assassin's Bureau in Acre after quit warping tolerance
-        new float [] {0.00000f, 0.00000f, 0.00000f}, // Assassin's Bureau in Acre after informing the Bureau leader or after a assassination mission is complete.
         new float [] {0.00054f, 0.01068f, 0.00000f}, // Abu'l Nuqoud Eavesdrop in Damascus tolerance
         new float [] {0.00000f, 0.00000f, 0.00000f} // none; for testing purposes.
     };
@@ -218,6 +216,19 @@ startup
         return false;
     };
     vars.IsAtPositionOld = IsAtPositionOld;
+    Func<dynamic, float[], float[], bool> IsAtPositionOldWithTolerance = 
+    (dynamic s, float [] pos, float [] tol) => 
+    {
+        if (Math.Abs(s.XCoord - pos[0]) > tol[0] && Math.Abs(s.YCoord - pos[1]) > tol[1] && Math.Abs(s.ZCoord - pos[2]) > tol[2])
+        {
+            return true;
+        }/* else if (vars.X != pos[0] && vars.Y != pos[1] && vars.Z != pos[2])
+        {
+            return true;
+        }*/
+        return false;
+    };
+    vars.IsAtPositionOldWithTolerance = IsAtPositionOldWithTolerance;
     // difference between positions
     Func<dynamic, float [], bool> IsDiffNot0 =
     (dynamic s, float [] pos) =>
@@ -270,6 +281,10 @@ startup
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = 0;
     vars.IsTutorialDone = false;
+    vars.SolomonTempleSplitDone = false;
+    vars.MasyafEavesdropDone = false;
+    vars.
+
 }
 
 update
@@ -357,7 +372,7 @@ split
         return true;
     }
     // Splits when right before you start to load at the end of Solomon's temple.
-    if (settings["SolomonTemple1"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[0], vars.Tolerance[0]) && vars.IsAtPositionOld(old, vars.SplitPositions[0]))
+    if (settings["SolomonTemple1"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[0], vars.Tolerance[0]) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions[0], vars.Tolerance[0]))
     {
         vars.stopwatch.Restart();
         return true;
@@ -381,7 +396,7 @@ split
         return true;
     }
     // Splits when you sit down on the bench for the eavesdrop in Masyaf
-    if (settings["MasyafEavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[2], vars.Tolerance[1]) && vars.IsAtPositionOld(old, vars.SplitPositions[2]))
+    if (settings["MasyafEavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[2], vars.Tolerance[1]) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions[2], vars.Tolerance[1]))
     {
         vars.stopwatch.Restart();
         return true;
@@ -406,13 +421,13 @@ split
         
     }
     // Splits for Garnier Eavesdrop in Acre
-    if (settings["Garnier Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[7], vars.Tolerance[4]) && vars.IsAtPositionOld(old, vars.SplitPositions[7]))
+    if (settings["Garnier Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[7], vars.Tolerance[4]) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions[7], vars.Tolerance[4]))
     {
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for Abu'l Nuqoud Eavesdrop in Damascus
-    if (settings["Abu'l Nuqoud Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[12], vars.Tolerance[7]) && vars.IsAtPositionOld(old, vars.SplitPositions[12]))
+    if (settings["Abu'l Nuqoud Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[12], vars.Tolerance[7]) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions[12], vars.Tolerance[7]))
     {
         vars.stopwatch.Restart();
         return true;
@@ -478,7 +493,7 @@ split
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Damascus
-    if (settings["DamascusBureauQuit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[vars.DamascusBureauQuit], vars.Tolerance[2]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DamascusBureauQuit]))
+    if (settings["DamascusBureauQuit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DamascusBureauQuit]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DamascusBureauQuit]))
     {
         vars.stopwatch.Restart();
         return true;
@@ -490,7 +505,7 @@ split
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Acre
-    if (settings["AcreBureauQuit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[vars.AcreBureauQuit], vars.Tolerance[2]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.AcreBureauQuit]))
+    if (settings["AcreBureauQuit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.AcreBureauQuit]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.AcreBureauQuit]))
     {
         vars.stopwatch.Restart();
         return true;
@@ -502,7 +517,7 @@ split
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Jerusalem
-    if(settings["JerusalemBureauQuit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[vars.JerusalemBureauQuit], vars.Tolerance[2]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.JerusalemBureauQuit]))
+    if(settings["JerusalemBureauQuit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.JerusalemBureauQuit]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.JerusalemBureauQuit]))
     {
         vars.stopwatch.Restart();
         return true;

@@ -146,7 +146,7 @@ startup
     {
         new float [] {-66.18973f, -58.75932f, -8.38886f}, // start of memory block 1
         new float [] {208.24425f, 11.22722f, 107.64150f}, // start of memory block 2
-        new float [] {207.43881f, 12.49873f, 107.60572f}, // start of memory block 3, 4, 5, & 6
+        new float [] {207.43881f, 12.49873f, 107.60572f}, // start of memory block 3
         new float [] {-38.28265f, -33.71172f, 34.46831f} // start of memory block 7
         
     };
@@ -369,7 +369,7 @@ split
         return true;
     }
     // Splits After getting 'killed' by Al Mualim at the end of Masyaf
-    if (settings["MasyafDone"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.AltairFakeDeathPos]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.AltairFakeDeathPos]))
+    if (settings["MasyafDone"] && vars.IsAtPositionCurrent(old, vars.SplitPositions[vars.AltairFakeDeathPos]) && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.LoadingPos]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.LoadingPos]))
     {
         vars.stopwatch.Restart();
         return true;

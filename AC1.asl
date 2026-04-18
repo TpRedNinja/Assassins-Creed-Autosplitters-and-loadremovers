@@ -46,8 +46,8 @@ startup
             //Memory Block 2 Splits
             settings.Add("MemoryBlock 2 Start", false, "Memory Block 2 Start", "MemoryBlockSplits");
             settings.SetToolTip("MemoryBlock 2 Start", "Splits at the start of memory block 2");
-            settings.Add("MasyafEavesdrop", false, "Traitor Eavesdrop", "MemoryBlockSplits");
-            settings.SetToolTip("MasyafEavesdrop", "Splits when you sit down on the bench for the eavesdrop in Masyaf");
+            settings.Add("TraitorEavesdrop", false, "Traitor Eavesdrop", "MemoryBlockSplits");
+            settings.SetToolTip("TraitorEavesdrop", "Splits when you sit down on the bench for the eavesdrop in Masyaf");
             settings.Add("TurnTraitorIn", false, "Turn Traitor In", "MemoryBlockSplits");
             settings.SetToolTip("TurnTraitorIn", "Splits when you have captured the traitor beat-up dude");
             settings.Add("Haystack", false, "Mandatory Viewpoint", "MemoryBlockSplits");
@@ -97,7 +97,7 @@ startup
             settings.Add("HealthIncreaseSplits", false, "HealthIncreaseSplits", "MiscSplits");
             settings.SetToolTip("HealthIncreaseSplits", "Splits when you gain a health increase/rank up.");
     settings.Add("Memory Block Runs", false, "Memory Block Start Timer");
-    settings.SetToolTip("Memory Block Runs", "Note: Memory Blocks 4-7 are Work In Progress and will not work currently");
+    settings.SetToolTip("Memory Block Runs", "Starts the timer at the start of memory blocks so you can time them separately. Note Memory Blocks 3-6 share the same start position.");
         for (int i = 1; i <= 7; i++)
         {
             settings.Add("MemoryBlock" + i, false, "Memory Block " + i, "Memory Block Runs");
@@ -105,74 +105,43 @@ startup
         }
     settings.Add("DebugPrint", false, "For dev only do not turn on");
     settings.SetToolTip("DebugPrint", "Do not turn this on otherwise livesplit will add stuff to your layout so just keep it turned off");
+    settings.Add("NoToleranceTest", false, "No Tolerance Test");
+    settings.Add("WithToleranceTest", false, "With Tolerance Test");
     settings.Add("XYZ", false, "XYZ");
     settings.SetToolTip("XYZ", "Adds a text component to the layout that shows the players current XYZ coordinates");
     vars.X = 0.0f;
     vars.Y = 0.0f;
     vars.Z = 0.0f;
     vars.MemoryBlock = 0;
-    vars.EavesdropTolerance = 0.00052f; // This is so for eavesdrop at least for Masyaf to give some minor tolerance of where the player is sitting since the coordinates can be slightly different each time but still be close enough to be considered the same position 
-    // if i need to add more positions here is the copy pasta
-    // new float [] {},
-    // array of positions to check if the player is at, can add more if needed just make sure to update the indices in the code
-    float [][] splitPositions =
+    vars.SplitPositions = new Dictionary<string, Tuple<float [], float[]>>
     {
-        new float [] {1.13976f, 30.56754f, 13.25423f}, // At end of Solomon's Temple about to load into Masyaf
-        new float [] {-39.1783f, -33.99732f, 34.46896f}, // Load after Solomon's Temple into Masyaf, In Masyaf right after loading in
-        new float [] {7.16993f, -16.99199f, 34.64021f}, // Traitor in Masyaf Eavesdrop
-        new float [] {207.08463f, 11.84124f, 107.60572f}, // Turn Traitor in, the position of Altair after you beat up the dude and bring him to the mentor in the castle
-        new float [] {-222.54272f, 722.5073f, 89.77293f}, // In the haystack after the mandatory viewpoint
-        new float [] {46.38885f, 6.1258f, 4.13938f}, // Assassin's Bureau in Damascus after quit warping
-        new float [] {42.75412f, 7.48691f, 4.12456f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete.
-        new float [] {-179.621f, 162.3696f, 17.00000f}, // Garnier Eavesdrop in Acre
-        new float [] {-2.54902f, 39.92605f, 5.14663f}, // Assassin's Bureau in Acre after quit warping
-        new float [] {-2.02865f, 42.15371f, 5.14196f}, // Assassin's Bureau in Acre after informing the Bureau leader or after a assassination mission is complete.
-        new float [] {91.00118f, 84.52809f, 2.25257f}, // Assassin's Bureau in Jerusalem after quit warping
-        new float [] {91.33311f, 88.22004f, 2.01741f}, // Assassin's Bureau in Jerusalem after informing the Bureau leader or after a assassination mission is complete.
-        new float [] {-68.91216f, 85.63019f, 8.18865f}, // Abu'l Nuqoud Eavesdrop in Damascus
-        new float [] {28.08077f, -179.1255f, 6.00000f}, // Majd Addin Eavesdrop in Jerusalem (double check)
-        new float [] {277.2652f, -39.46133f, 4.14445f}, // Jubair Eavesdrop in Damascus (double check)
-        new float [] {-139.9565f, 110.8973f, 10.00000f}, // Maria Eavesdrop in Jerusalem (double check)
-        new float [] {202.6202f, -3.95567f, 99.26974f}, // Altair fake death
-        new float [] {-0.07626f, -0.10379f, 0.00000f}, // Loading screen if you dont move
-        new float [] {-11.29227f, -30.75496f, 0.00000f}, // Maria Death confession room
-        new float [] {-11.42463f, -30.58017f, 0.00000f}, // In the Death confession room for all targets but maria
-        new float [] {-0.07626f, -0.10379f, 0.00000f},// start of the game
-        new float [] {-2.63071f, -4.52977f, 0.00262f} // in the animus but modern day
+        {"Tutorial", Tuple.Create(new float [] {-66.18973f, -58.75932f, -8.38886f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Solomon Temple 1", Tuple.Create(new float [] {1.13976f, 30.56754f, 13.25423f}, new float [] {0.02517f, 0.10636f, 0.00100f})},
+        {"Solomon Temple 2", Tuple.Create(new float [] {-39.1783f, -33.99732f, 34.46896f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Masyaf Done", Tuple.Create(new float [] {202.62020f, -3.95567f, 99.26974f}, new float [] {0.00003f, 0.00000f, 0.04160f})},
+        {"MemoryBlock 2 Start", Tuple.Create(new float [] {208.24425f, 11.22722f, 107.64150f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Traitor Eavesdrop", Tuple.Create(new float [] {7.16993f, -16.99199f, 34.64021f}, new float [] {0.00319f, 0.01306f, 0.00000f})},
+        {"Turn Traitor In", Tuple.Create(new float [] {207.08463f, 11.84124f, 107.60572f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Haystack", Tuple.Create(new float [] {-222.54272f, 722.5073f, 89.77293f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Damascus Bureau Quit", Tuple.Create(new float [] {46.38885f, 6.1258f, 4.13938f}, new float [] {0.00000f, 0.00000f, 0.00020f})},
+        {"Damascus Bureau", Tuple.Create(new float [] {42.75412f, 7.48691f, 4.12456f}, new float [] {0.00000f, 0.00000f, 0.00007f})},
+        {"MemoryBlock 3-6 Start", Tuple.Create(new float [] {207.43881f, 12.49873f, 107.60572f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Garnier Eavesdrop", Tuple.Create(new float [] {-179.621f, 162.3696f, 17.00000f}, new float [] {0.00346f, 0.01912f, 0.00000f})},
+        {"Acre Bureau Quit", Tuple.Create(new float [] {-2.54902f, 39.92605f, 5.14663f}, new float [] {0.00002f, 0.00002f, 0.00002f})},
+        {"Acre Bureau", Tuple.Create(new float [] {-2.03045f, 42.15536f, 5.14195f}, new float [] {0.00190f, 0.00166f, 0.00002f})},
+        {"Jerusalem Bureau Quit", Tuple.Create(new float [] {91.00118f, 84.52809f, 2.25257f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Jerusalem Bureau", Tuple.Create(new float [] {91.33311f, 88.22004f, 2.01741f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Abu'l Nuqoud Eavesdrop", Tuple.Create(new float [] {-68.91216f, 85.63019f, 8.18865f}, new float [] {0.00054f, 0.01068f, 0.00000f})},
+        {"Majd Addin Eavesdrop", Tuple.Create(new float [] {28.08077f, -179.1255f, 6.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Jubair Eavesdrop", Tuple.Create(new float [] {277.2652f, -39.46133f, 4.14445f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Maria Eavesdrop", Tuple.Create(new float [] {-139.9565f, 110.8973f, 10.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"MemoryBlock 7 Start", Tuple.Create(new float [] {-38.28265f, -33.71172f, 34.46831f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Death Confession Room for Maria", Tuple.Create(new float [] {-11.29227f, -30.75496f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Death Confession Room", Tuple.Create(new float [] {-11.42463f, -30.58017f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Loading Position", Tuple.Create(new float [] {-0.07626f, -0.10379f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Start of game", Tuple.Create(new float [] {-0.07626f, -0.10379f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"Modern Day Position", Tuple.Create(new float [] {-2.63071f, -4.52977f, 0.00262f}, new float [] {0.00000f, 0.00000f, 0.00000f})}
     };
-    vars.SplitPositions = splitPositions;
-    // arrays of start positions
-    float [][] MemoryBlockPositions =
-    {
-        new float [] {-66.18973f, -58.75932f, -8.38886f}, // start of memory block 1
-        new float [] {208.24425f, 11.22722f, 107.64150f}, // start of memory block 2
-        new float [] {207.43881f, 12.49873f, 107.60572f}, // start of memory block 3
-        new float [] {-38.28265f, -33.71172f, 34.46831f} // start of memory block 7
-        
-    };
-    float [][] Tolerance =
-    {
-        new float [] {0.04000f, 0.10636f, 0.00100f}, // At end of Solomon's Temple about to load into Masyaf tolerance
-        new float [] {0.00319f, 0.01306f, 0.00000f}, // Masyaf eavesdrop tolerance
-        new float [] {0.00000f, 0.00000f, 0.00020f}, // Assassin's Bureau in Damascus after quit warping tolerance
-        new float [] {0.00000f, 0.00000f, 0.00007f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete. tolerance
-        new float [] {0.00335f, 0.01873f, 0.00000f}, // Garnier Eavesdrop in Acre tolerance
-        new float [] {0.00054f, 0.01068f, 0.00000f}, // Abu'l Nuqoud Eavesdrop in Damascus tolerance
-        new float [] {0.00000f, 0.00000f, 0.00000f} // none; for testing purposes.
-    };
-    vars.Tolerance = Tolerance;
-    vars.MemoryBlockPositions = MemoryBlockPositions;
-    vars.ModernDayPos = (vars.SplitPositions.Length - 1);
-    vars.AnyPercentPos = (vars.SplitPositions.Length - 2);
-    vars.DeathConfessionPos = (vars.SplitPositions.Length - 3);
-    vars.LoadingPos = (vars.SplitPositions.Length - 5);
-    vars.AltairFakeDeathPos = (vars.SplitPositions.Length - 6);
-    vars.DamascusBureauQuit = 5;
-    vars.DamascusBureau = 6;
-    vars.AcreBureauQuit = 8;
-    vars.AcreBureau = 9;
-    vars.JerusalemBureauQuit = 10;
-    vars.JerusalemBureau = 11;
     
     // checks if the players current xyz is the same as the xyz of one of the items in the array 
     Func<dynamic, float[], bool> IsAtPositionCurrent = 
@@ -206,7 +175,7 @@ startup
     Func<dynamic, float[], bool> IsAtPositionOld = 
     (dynamic s, float [] pos) => 
     {
-        if (s.XCoord != pos[0] && s.YCoord != pos[1] && s.ZCoord != pos[2])
+        if (s.XCoord != pos[0] || s.YCoord != pos[1] || s.ZCoord != pos[2])
         {
             return true;
         }/* else if (vars.X != pos[0] && vars.Y != pos[1] && vars.Z != pos[2])
@@ -219,7 +188,7 @@ startup
     Func<dynamic, float[], float[], bool> IsAtPositionOldWithTolerance = 
     (dynamic s, float [] pos, float [] tol) => 
     {
-        if (Math.Abs(s.XCoord - pos[0]) > tol[0] && Math.Abs(s.YCoord - pos[1]) > tol[1] && Math.Abs(s.ZCoord - pos[2]) > tol[2])
+        if (Math.Abs(s.XCoord - pos[0]) > tol[0] || Math.Abs(s.YCoord - pos[1]) > tol[1] || Math.Abs(s.ZCoord - pos[2]) > tol[2])
         {
             return true;
         }/* else if (vars.X != pos[0] && vars.Y != pos[1] && vars.Z != pos[2])
@@ -275,16 +244,12 @@ startup
         return false;
     };
     vars.IsDiffNot0WithTolerance = IsDiffNot0WithTolerance;
-    vars.TestingPos = 9; // change this index to test different positions in the array
-    vars.TestingPos2 = 2; // change this index to test different positions in the array
-    vars.ToleranceTestingPos = 6; // change this index to test different tolerances in the array
+    vars.TestingPos = "Jerusalem Bureau"; // change this to one of the dictionary keys to test different positions in the array
+    vars.TestingPos2 = "MemoryBlock 3-6 Start"; // change this index to test different positions in the array
+    vars.ToleranceTestingPos = 2; // change this index to test different tolerances in the array
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = 0;
     vars.IsTutorialDone = false;
-    vars.SolomonTempleSplitDone = false;
-    vars.MasyafEavesdropDone = false;
-    //vars.
-
 }
 
 update
@@ -300,16 +265,27 @@ update
     if (settings["DebugPrint"])
     {
         vars.SetTextComponent("XYZ", "( " + current.XCoord + ", " + current.YCoord + ", " + current.ZCoord + " )");
-        vars.SetTextComponent("IsAtPositionCurrentSplits: ", vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.TestingPos]) + "");
-        vars.SetTextComponent("IsAtPositionOldSplits: ", vars.IsAtPositionOld(old, vars.SplitPositions[vars.TestingPos]) + "");
-        vars.SetTextComponent("IsAtPositionCurrentStarts: ", vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[vars.TestingPos2]) + "");
-        vars.SetTextComponent("IsAtPositionOldStarts: ", vars.IsAtPositionOld(old, vars.MemoryBlockPositions[vars.TestingPos2]) + "");
+        vars.SetTextComponent("IsAtPositionCurrentSplits: ", vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.TestingPos].Item1) + "");
+        vars.SetTextComponent("IsAtPositionOldSplits: ", vars.IsAtPositionOld(old, vars.SplitPositions[vars.TestingPos].Item1) + "");
+        vars.SetTextComponent("IsAtPositionCurrentStarts: ", vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.TestingPos2].Item1) + "");
+        vars.SetTextComponent("IsAtPositionOldStarts: ", vars.IsAtPositionOld(old, vars.SplitPositions[vars.TestingPos2].Item1) + "");
         vars.SetTextComponent("SplitTime: ", vars.SplitTime + "/5");
         //print("IsAtPosition " + vars.TestingPos + ": " + vars.IsAtPosition(current, vars.StartPositions[vars.TestingPos]));
         //print("difference " + (vars.X - vars.StartPositions[vars.TestingPos][0]));
         //print("Current Z: " + current.ZCoord);
+    }
 
-        if (vars.IsDiffNot0WithTolerance(current, vars.SplitPositions[vars.TestingPos], vars.Tolerance[vars.ToleranceTestingPos]))
+    if (settings["NoToleranceTest"])
+    {
+        if (vars.IsDiffNot0(current, vars.SplitPositions[vars.TestingPos].Item1))
+        {
+            print("Difference for position " + vars.TestingPos + " is not 0");
+        }
+    }
+
+    if (settings["WithToleranceTest"])
+    {
+        if (vars.IsDiffNot0WithTolerance(current, vars.SplitPositions[vars.TestingPos].Item1, vars.SplitPositions[vars.TestingPos].Item2))
         {
             print("Difference for position " + vars.TestingPos + " is not 0");
         }
@@ -325,33 +301,21 @@ start
 {
     if (settings["Memory Block Runs"])
     {
-        if (settings["MemoryBlock1"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[0]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[0]))
+        if(settings["MemoryBlock1"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Tutorial"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Tutorial"].Item1))
         {
-            print("Started for Memory Block 1 at position");
+            print("Started for Memory Block 1");
             return true;
-        } else if (settings["MemoryBlock2"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[1]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[1]))
+        } else if(settings["MemoryBlock2"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["MemoryBlock 2 Start"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["MemoryBlock 2 Start"].Item1))
         {
-            print("Started for Memory Block 2 at position");
+            print("Started for Memory Block 2");
             return true;
-        } else if (settings["MemoryBlock3"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[2]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[2]))
+        } else if(settings["MemoryBlock3-6"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["MemoryBlock 3-6 Start"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["MemoryBlock 3-6 Start"].Item1))
         {
-            print("Started for Memory Block 3 at position");
+            print("Started for Memory Block 3-6");
             return true;
-        } else if (settings["MemoryBlock4"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[3]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[3]))
+        } else if(settings["MemoryBlock7"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["MemoryBlock 7 Start"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["MemoryBlock 7 Start"].Item1))
         {
-            print("Started for Memory Block 4 at position");
-            return true;
-        } else if (settings["MemoryBlock5"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[4]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[4]))
-        {
-            print("Started for Memory Block 5 at position");
-            return true;
-        } else if (settings["MemoryBlock6"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[5]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[5]))
-        {
-            print("Started for Memory Block 6 at position");
-            return true;
-        } else if (settings["MemoryBlock7"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[6]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[6]))
-        {
-            print("Started for Memory Block 7 at position");
+            print("Started for Memory Block 7");
             return true;
         }
     }
@@ -365,166 +329,212 @@ onStart
 split
 {
     // splits when you have loaded into Solomon's temple after the tutorial
-    if (settings["Tutorial"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[0]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[0]))
+    if (settings["Tutorial"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Tutorial"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Tutorial"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Tutorial split triggered.");
         vars.IsTutorialDone = true;
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when right before you start to load at the end of Solomon's temple.
-    if (settings["SolomonTemple1"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[0], vars.Tolerance[0]) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions[0], vars.Tolerance[0]))
+    if (settings["SolomonTemple1"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Solomon Temple 1"].Item1, vars.SplitPositions["Solomon Temple 1"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Solomon Temple 1"].Item1, vars.SplitPositions["Solomon Temple 1"].Item2))
     {
+        if (settings["DebugPrint"])
+            print("Solomon's temple split1 triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you load into Masyaf after Solomon's temple
-    if (settings["SolomonTemple2"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[1]) && vars.IsAtPositionOld(old, vars.SplitPositions[1]))
+    if (settings["SolomonTemple2"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Solomon Temple 2"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Solomon Temple 2"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Solomon's temple split2 triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits After getting 'killed' by Al Mualim at the end of Masyaf
-    if (settings["MasyafDone"] && vars.IsAtPositionCurrent(old, vars.SplitPositions[vars.AltairFakeDeathPos]) && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.LoadingPos]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.LoadingPos]))
+    if (settings["MasyafDone"] && vars.IsAtPositionCurrentWithTolerance(old, vars.SplitPositions["Masyaf Done"].Item1, vars.SplitPositions["Masyaf Done"].Item2) && vars.IsAtPositionCurrent(current, vars.SplitPositions["LoadingPos"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["LoadingPos"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Masyaf done split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits at the start of memory blocks 2
-    if (settings["MemoryBlock 2 Start"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[1]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[1]))
+    if (settings["MemoryBlock 2 Start"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["MemoryBlock 2 Start"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["MemoryBlock 2 Start"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Memory block 2 start split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you sit down on the bench for the eavesdrop in Masyaf
-    if (settings["MasyafEavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[2], vars.Tolerance[1]) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions[2], vars.Tolerance[1]))
+    if (settings["TraitorEavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Traitor Eavesdrop"].Item1, vars.SplitPositions["Traitor Eavesdrop"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Traitor Eavesdrop"].Item1, vars.SplitPositions["Traitor Eavesdrop"].Item2))
     {
+            if (settings["DebugPrint"])
+                print("Masyaf eavesdrop split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you have captured the traitor beat-up dude
-    if (settings["TurnTraitorIn"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[3]) && vars.IsAtPositionOld(old, vars.SplitPositions[3]))
+    if (settings["TurnTraitorIn"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Turn Traitor In"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Turn Traitor In"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Turn traitor in split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you are in the haystack after doing the leap of faith
-    if (settings["Haystack"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[4]) && vars.IsAtPositionOld(old, vars.SplitPositions[4]))
+    if (settings["Haystack"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Haystack"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Haystack"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Haystack split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits at the start of memory blocks 3-6. Also splits whenever you return to Masyaf after killing a target thats not the last one in the memory block.
-    if (settings["MemoryBlock 3-6 Start"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[2]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[2]))
+    if (settings["MemoryBlock 3-6 Start"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["MemoryBlock 3-6 Start"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["MemoryBlock 3-6 Start"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Memory block 3-6 start split triggered.");
         vars.stopwatch.Restart();
         return true;
-        
     }
     // Splits for Garnier Eavesdrop in Acre
-    if (settings["Garnier Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[7], vars.Tolerance[4]) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions[7], vars.Tolerance[4]))
+    if (settings["Garnier Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Garnier Eavesdrop"].Item1, vars.SplitPositions["Garnier Eavesdrop"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Garnier Eavesdrop"].Item1, vars.SplitPositions["Garnier Eavesdrop"].Item2))
     {
+        if (settings["DebugPrint"])
+            print("Garnier eavesdrop split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for Abu'l Nuqoud Eavesdrop in Damascus
-    if (settings["Abu'l Nuqoud Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions[12], vars.Tolerance[7]) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions[12], vars.Tolerance[7]))
+    if (settings["Abu'l Nuqoud Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Abu'l Nuqoud Eavesdrop"].Item1, vars.SplitPositions["Abu'l Nuqoud Eavesdrop"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Abu'l Nuqoud Eavesdrop"].Item1, vars.SplitPositions["Abu'l Nuqoud Eavesdrop"].Item2))
     {
+        if (settings["DebugPrint"])
+            print("Abu'l Nuqoud eavesdrop split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for Majd Addin Eavesdrop in Jerusalem
-    if (settings["Majd Addin Eavesdrop"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[13]) && vars.IsAtPositionOld(old, vars.SplitPositions[13]))
+    if (settings["Majd Addin Eavesdrop"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Majd Addin Eavesdrop"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Majd Addin Eavesdrop"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Majd Addin eavesdrop split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for Jubair Eavesdrop in Damascus
-    if (settings["Jubair Eavesdrop"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[14]) && vars.IsAtPositionOld(old, vars.SplitPositions[14]))
+    if (settings["Jubair Eavesdrop"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Jubair Eavesdrop"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Jubair Eavesdrop"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Jubair eavesdrop split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for Maria Eavesdrop in Jerusalem
-    if (settings["Maria Eavesdrop"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[15]) && vars.IsAtPositionOld(old, vars.SplitPositions[15]))
+    if (settings["Maria Eavesdrop"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Maria Eavesdrop"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Maria Eavesdrop"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Maria eavesdrop split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits at the start of memory block 7.
-    if (settings["MemoryBlock 7 Start"] && vars.IsAtPositionCurrent(current, vars.MemoryBlockPositions[3]) && vars.IsAtPositionOld(old, vars.MemoryBlockPositions[3]))
+    if (settings["MemoryBlock 7 Start"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["MemoryBlock 7 Start"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["MemoryBlock 7 Start"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Memory block 7 start split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you gain a rank
     if (settings["HealthIncreaseSplits"] && current.MaxHealth == old.MaxHealth + 1)
     {
+        if (settings["DebugPrint"])
+            print("Health increase split triggered. Current health: " + current.MaxHealth);
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when Desmond is physically leaving the animus
-    if (settings["ExitAnimus"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.ModernDayPos]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.ModernDayPos]))
+    if (settings["ExitAnimus"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Modern Day Position"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Modern Day Position"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Exit animus split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you quit to the animus
     if (settings["QuitWarpExit"] && current.PlayerID == 9 && old.PlayerID == 1 && vars.IsTutorialDone)
-    {
+    {        
+        if (settings["DebugPrint"])
+            print("Quit to animus split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you enter the animus after quitting to the animus
     if (settings["QuitWarpEnter"] && current.PlayerID == 1 && old.PlayerID == 9 && vars.IsTutorialDone)
     {
+        if (settings["DebugPrint"])
+            print("Enter animus split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for all targets when you are in the death confession room.
-    if (settings["DeathConfessionSplits"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DeathConfessionPos]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DeathConfessionPos]))
+    if (settings["DeathConfessionSplits"] && (vars.IsAtPositionCurrent(current, vars.SplitPositions["Death Confession Room"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Death Confession Room"].Item1))
+    || (vars.IsAtPositionCurrent(current, vars.SplitPositions["Death Confession Room for Maria"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Death Confession Room for Maria"].Item1)))
     {
-        vars.stopwatch.Restart();
-        return true;
-    }
-    // Splits for Maria Death confession
-    if (settings["DeathConfessionSplits"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DeathConfessionPos - 1]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DeathConfessionPos - 1]))
-    {
+        if (settings["DebugPrint"])
+            print("Death confession split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Damascus
-    if (settings["DamascusBureauQuit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DamascusBureauQuit]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DamascusBureauQuit]))
+    if (settings["DamascusBureauQuit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Damascus Bureau Quit"].Item1, vars.SplitPositions["Damascus Bureau Quit"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Damascus Bureau Quit"].Item1, vars.SplitPositions["Damascus Bureau Quit"].Item2))
     {
+        if (settings["DebugPrint"])
+            print("Damascus bureau quit split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for the assassin's bureau in Damascus after you inform the bureau leader or kill your target.
-    if (settings["DamascusBureau"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.DamascusBureau]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.DamascusBureau]))
+    if (settings["DamascusBureau"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Damascus Bureau"].Item1, vars.SplitPositions["Damascus Bureau"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Damascus Bureau"].Item1, vars.SplitPositions["Damascus Bureau"].Item2))
     {
+        if (settings["DebugPrint"])
+            print("Damascus bureau split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Acre
-    if (settings["AcreBureauQuit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.AcreBureauQuit]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.AcreBureauQuit]))
+    if (settings["AcreBureauQuit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Acre Bureau Quit"].Item1, vars.SplitPositions["Acre Bureau Quit"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Acre Bureau Quit"].Item1, vars.SplitPositions["Acre Bureau Quit"].Item2))
     {
+        if (settings["DebugPrint"])
+            print("Acre bureau quit split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for the assassin's bureau in Acre after you inform the bureau leader or kill your target.
-    if (settings["AcreBureau"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.AcreBureau]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.AcreBureau]))
+    if (settings["AcreBureau"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Acre Bureau"].Item1, vars.SplitPositions["Acre Bureau"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Acre Bureau"].Item1, vars.SplitPositions["Acre Bureau"].Item2))
     {
+        if (settings["DebugPrint"])
+            print("Acre bureau split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Jerusalem
-    if(settings["JerusalemBureauQuit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.JerusalemBureauQuit]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.JerusalemBureauQuit]))
+    if(settings["JerusalemBureauQuit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Jerusalem Bureau Quit"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Jerusalem Bureau Quit"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Jerusalem bureau quit split triggered.");
         vars.stopwatch.Restart();
         return true;
     }
     // Splits for the assassin's bureau in Jerusalem after you inform the bureau leader or kill your target.
-    if(settings["JerusalemBureau"] && vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.JerusalemBureau]) && vars.IsAtPositionOld(old, vars.SplitPositions[vars.JerusalemBureau]))
+    if(settings["JerusalemBureau"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Jerusalem Bureau"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Jerusalem Bureau"].Item1))
     {
+        if (settings["DebugPrint"])
+            print("Jerusalem bureau split triggered.");
         vars.stopwatch.Restart();
         return true;
     }

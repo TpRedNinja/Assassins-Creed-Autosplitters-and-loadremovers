@@ -3,12 +3,10 @@ state("AssassinsCreed_Dx10")
 {
     int Health: 0x025C1470, 0x14; // current health
     int MaxHealth: 0x025C1470, 0x18; // What the current max health you can heal to
-    int MainMenu: 0x1491F60; // 0 = in game, -1 = main menu
     float XCoord: 0x025C1554, 0x0, 0x90, 0x10, 0x1C, 0x70, 0x40; // Player X Coordinates
     float YCoord: 0x025C1554, 0x0, 0x90, 0x10, 0x1C, 0x70, 0x44; // Player Y Coordinates
     float ZCoord: 0x025C1554, 0x0, 0x90, 0x10, 0x1C, 0x70, 0x48; // Player Z Coordinates
     byte PlayerID: 0x025C1554, 0x0, 0x90, 0x10, 0x1C, 0x70, 0xA8; // Player ID 9 for Desmond, 1 for Altair
-    int thing: 0x25A2E6C;
 }
 
 startup
@@ -39,17 +37,17 @@ startup
             settings.SetToolTip("Tutorial", "splits when you have loaded into Solomon's temple after the tutorial\nThis is the start of Memory Block 1 so if you want to split their choose this one");
             settings.Add("SolomonTemple1", false, "Solomon Temple Split1", "MemoryBlockSplits");
             settings.SetToolTip("SolomonTemple1", "Splits when you are about to load at the end of Solomon's temple.");
-            settings.Add("SolomonTemple2", false, "Solomon Temple Split2", "MemoryBlockSplits");
-            settings.SetToolTip("SolomonTemple2", "Splits when you load into Masyaf after Solomon's temple");
-            settings.Add("MasyafDone", false, "Masyaf Done", "MemoryBlockSplits");
-            settings.SetToolTip("MasyafDone", "Splits when you enter the load after Altair gets 'killed' by Al Mualim");
+            settings.Add("Solomon Temple 2", false, "Solomon Temple Split 2", "MemoryBlockSplits");
+            settings.SetToolTip("Solomon Temple 2", "Splits when you load into Masyaf after Solomon's temple");
+            settings.Add("Masyaf Done", false, "Masyaf Done", "MemoryBlockSplits");
+            settings.SetToolTip("Masyaf Done", "Splits when you enter the load after Altair gets 'killed' by Al Mualim");
             //Memory Block 2 Splits
             settings.Add("MemoryBlock 2 Start", false, "Memory Block 2 Start", "MemoryBlockSplits");
             settings.SetToolTip("MemoryBlock 2 Start", "Splits at the start of memory block 2");
-            settings.Add("TraitorEavesdrop", false, "Traitor Eavesdrop", "MemoryBlockSplits");
-            settings.SetToolTip("TraitorEavesdrop", "Splits when you sit down on the bench for the eavesdrop in Masyaf");
-            settings.Add("TurnTraitorIn", false, "Turn Traitor In", "MemoryBlockSplits");
-            settings.SetToolTip("TurnTraitorIn", "Splits when you have captured the traitor beat-up dude");
+            settings.Add("Traitor Eavesdrop", false, "Traitor Eavesdrop", "MemoryBlockSplits");
+            settings.SetToolTip("Traitor Eavesdrop", "Splits when you sit down on the bench for the eavesdrop in Masyaf");
+            settings.Add("Turn Traitor In", false, "Turn Traitor In", "MemoryBlockSplits");
+            settings.SetToolTip("Turn Traitor In", "Splits when you have captured the traitor beat-up dude");
             settings.Add("Haystack", false, "Mandatory Viewpoint", "MemoryBlockSplits");
             settings.SetToolTip("Haystack", "Splits when you are in the haystack after doing the leap of faith");
             // Memory Block 3-6 Splits
@@ -71,18 +69,18 @@ startup
         // Bureau Splits
         settings.Add("BureauSplits", false, "Bureau Splits", "Splits");
         settings.SetToolTip("BureauSplits", "This contains splits for the assassin's bureaus in each city whenever you quit warp to them or after you inform the bureau leader or kill your target.");
-            settings.Add("DamascusBureauQuit", false, "Damascus Bureau(Quit)", "BureauSplits");
-            settings.SetToolTip("DamascusBureauQuit", "Splits for the Assassin's Bureau in Damascus whenever you quit warp to it");
-            settings.Add("DamascusBureau", false, "Damascus Bureau", "BureauSplits");
-            settings.SetToolTip("DamascusBureau", "Splits for the Assassin's Bureau in Damascus after you inform the bureau leader or kill your target.");
-            settings.Add("AcreBureauQuit", false, "Acre Bureau(Quit)", "BureauSplits");
-            settings.SetToolTip("AcreBureauQuit", "Splits for the Assassin's Bureau in Acre whenever you quit warp to it");
-            settings.Add("AcreBureau", false, "Acre Bureau", "BureauSplits");
-            settings.SetToolTip("AcreBureau", "Splits for the Assassin's Bureau in Acre after you inform the bureau leader or kill your target.");
-            settings.Add("JerusalemBureauQuit", false, "Jerusalem Bureau(Quit)", "BureauSplits");
-            settings.SetToolTip("JerusalemBureauQuit", "Splits for the Assassin's Bureau in Jerusalem whenever you quit warp to it");
-            settings.Add("JerusalemBureau", false, "Jerusalem Bureau", "BureauSplits");
-            settings.SetToolTip("JerusalemBureau", "Splits for the Assassin's Bureau in Jerusalem after you inform the bureau leader or kill your target.");
+            settings.Add("Damascus Bureau Quit", false, "Damascus Bureau(Quit)", "BureauSplits");
+            settings.SetToolTip("Damascus Bureau Quit", "Splits for the Assassin's Bureau in Damascus whenever you quit warp to it");
+            settings.Add("Damascus Bureau", false, "Damascus Bureau", "BureauSplits");
+            settings.SetToolTip("Damascus Bureau", "Splits for the Assassin's Bureau in Damascus after you inform the bureau leader or kill your target.");
+            settings.Add("Acre Bureau Quit", false, "Acre Bureau(Quit)", "BureauSplits");
+            settings.SetToolTip("Acre Bureau Quit", "Splits for the Assassin's Bureau in Acre whenever you quit warp to it");
+            settings.Add("Acre Bureau", false, "Acre Bureau", "BureauSplits");
+            settings.SetToolTip("Acre Bureau", "Splits for the Assassin's Bureau in Acre after you inform the bureau leader or kill your target.");
+            settings.Add("Jerusalem Bureau Quit", false, "Jerusalem Bureau(Quit)", "BureauSplits");
+            settings.SetToolTip("Jerusalem Bureau Quit", "Splits for the Assassin's Bureau in Jerusalem whenever you quit warp to it");
+            settings.Add("Jerusalem Bureau", false, "Jerusalem Bureau", "BureauSplits");
+            settings.SetToolTip("Jerusalem Bureau", "Splits for the Assassin's Bureau in Jerusalem after you inform the bureau leader or kill your target.");
         // Misc splits
         settings.Add("MiscSplits", false, "Misc Splits", "Splits");
         settings.SetToolTip("MiscSplits", "This contains splits that aren't necessarily tied to a specific memory block but are still important splits for the run");
@@ -103,8 +101,10 @@ startup
             settings.Add("MemoryBlock" + i, false, "Memory Block " + i, "Memory Block Runs");
             settings.SetToolTip("MemoryBlock" + i, "Starts the timer for the start of memory block " + i);
         }
-    settings.Add("DebugPrint", false, "For dev only do not turn on");
-    settings.SetToolTip("DebugPrint", "Do not turn this on otherwise livesplit will add stuff to your layout so just keep it turned off");
+    settings.Add("Dev Shit", false, "Dev Shit");
+    settings.SetToolTip("Dev Shit", "Do not turn this on otherwise livesplit will add stuff to your layout so just keep it turned off");
+    settings.Add("DebugPrint", false, "Debug Shit");
+    settings.SetToolTip("DebugPrint", "Do not turn this on otherwise print statements which may slow down your livesplit");
     settings.Add("NoToleranceTest", false, "No Tolerance Test");
     settings.Add("WithToleranceTest", false, "With Tolerance Test");
     settings.Add("XYZ", false, "XYZ");
@@ -118,7 +118,7 @@ startup
         {"Tutorial", Tuple.Create(new float [] {-66.18973f, -58.75932f, -8.38886f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
         {"Solomon Temple 1", Tuple.Create(new float [] {1.13976f, 30.56754f, 13.25423f}, new float [] {0.02517f, 0.10636f, 0.00100f})},
         {"Solomon Temple 2", Tuple.Create(new float [] {-39.1783f, -33.99732f, 34.46896f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
-        {"Masyaf Done", Tuple.Create(new float [] {202.62020f, -3.95567f, 99.26974f}, new float [] {0.00003f, 0.00000f, 0.04160f})},
+        {"Masyaf Done", Tuple.Create(new float [] {202.6202f, -3.95567f, 99.26974f}, new float [] {0.00003f, 0.00000f, 0.04160f})},
         {"MemoryBlock 2 Start", Tuple.Create(new float [] {208.24425f, 11.22722f, 107.64150f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
         {"Traitor Eavesdrop", Tuple.Create(new float [] {7.16993f, -16.99199f, 34.64021f}, new float [] {0.00319f, 0.01306f, 0.00000f})},
         {"Turn Traitor In", Tuple.Create(new float [] {207.08463f, 11.84124f, 107.60572f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
@@ -138,10 +138,17 @@ startup
         {"MemoryBlock 7 Start", Tuple.Create(new float [] {-38.28265f, -33.71172f, 34.46831f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
         {"Death Confession Room for Maria", Tuple.Create(new float [] {-11.29227f, -30.75496f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
         {"Death Confession Room", Tuple.Create(new float [] {-11.42463f, -30.58017f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
-        {"Loading Position", Tuple.Create(new float [] {-0.07626f, -0.10379f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
+        {"LoadingPos", Tuple.Create(new float [] {-0.07626f, -0.10379f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
         {"Start of game", Tuple.Create(new float [] {-0.07626f, -0.10379f, 0.00000f}, new float [] {0.00000f, 0.00000f, 0.00000f})},
         {"Modern Day Position", Tuple.Create(new float [] {-2.63071f, -4.52977f, 0.00262f}, new float [] {0.00000f, 0.00000f, 0.00000f})}
     };
+    
+    /*vars.SplitConditionsNoTolerance = new List<Tuple<string,string>>{
+        Tuple.Create("Tutorial", "Tutorial split triggered."),
+        Tuple.Create("Solomon Temple 2", "Solomon Temple 2"),
+
+    };*/
+    vars.SplitConditionsWithTolerance = new List<Tuple<string,string>>();
     
     // checks if the players current xyz is the same as the xyz of one of the items in the array 
     Func<dynamic, float[], bool> IsAtPositionCurrent = 
@@ -250,6 +257,7 @@ startup
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = 0;
     vars.IsTutorialDone = false;
+    
 }
 
 update
@@ -262,7 +270,7 @@ update
     vars.Y = (float)Math.Round(current.YCoord, 5);
     vars.Z = (float)Math.Round(current.ZCoord, 5);*/
 
-    if (settings["DebugPrint"])
+    if (settings["Dev Shit"])
     {
         vars.SetTextComponent("XYZ", "( " + current.XCoord + ", " + current.YCoord + ", " + current.ZCoord + " )");
         vars.SetTextComponent("IsAtPositionCurrentSplits: ", vars.IsAtPositionCurrent(current, vars.SplitPositions[vars.TestingPos].Item1) + "");
@@ -346,7 +354,7 @@ split
         return true;
     }
     // Splits when you load into Masyaf after Solomon's temple
-    if (settings["SolomonTemple2"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Solomon Temple 2"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Solomon Temple 2"].Item1))
+    if (settings["Solomon Temple 2"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Solomon Temple 2"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Solomon Temple 2"].Item1))
     {
         if (settings["DebugPrint"])
             print("Solomon's temple split2 triggered.");
@@ -354,7 +362,7 @@ split
         return true;
     }
     // Splits After getting 'killed' by Al Mualim at the end of Masyaf
-    if (settings["MasyafDone"] && vars.IsAtPositionCurrentWithTolerance(old, vars.SplitPositions["Masyaf Done"].Item1, vars.SplitPositions["Masyaf Done"].Item2) && vars.IsAtPositionCurrent(current, vars.SplitPositions["LoadingPos"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["LoadingPos"].Item1))
+    if (settings["Masyaf Done"] && vars.IsAtPositionCurrentWithTolerance(old, vars.SplitPositions["Masyaf Done"].Item1, vars.SplitPositions["Masyaf Done"].Item2) && vars.IsAtPositionCurrent(current, vars.SplitPositions["LoadingPos"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["LoadingPos"].Item1))
     {
         if (settings["DebugPrint"])
             print("Masyaf done split triggered.");
@@ -370,7 +378,7 @@ split
         return true;
     }
     // Splits when you sit down on the bench for the eavesdrop in Masyaf
-    if (settings["TraitorEavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Traitor Eavesdrop"].Item1, vars.SplitPositions["Traitor Eavesdrop"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Traitor Eavesdrop"].Item1, vars.SplitPositions["Traitor Eavesdrop"].Item2))
+    if (settings["Traitor Eavesdrop"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Traitor Eavesdrop"].Item1, vars.SplitPositions["Traitor Eavesdrop"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Traitor Eavesdrop"].Item1, vars.SplitPositions["Traitor Eavesdrop"].Item2))
     {
             if (settings["DebugPrint"])
                 print("Masyaf eavesdrop split triggered.");
@@ -378,7 +386,7 @@ split
         return true;
     }
     // Splits when you have captured the traitor beat-up dude
-    if (settings["TurnTraitorIn"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Turn Traitor In"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Turn Traitor In"].Item1))
+    if (settings["Turn Traitor In"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Turn Traitor In"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Turn Traitor In"].Item1))
     {
         if (settings["DebugPrint"])
             print("Turn traitor in split triggered.");
@@ -491,7 +499,7 @@ split
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Damascus
-    if (settings["DamascusBureauQuit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Damascus Bureau Quit"].Item1, vars.SplitPositions["Damascus Bureau Quit"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Damascus Bureau Quit"].Item1, vars.SplitPositions["Damascus Bureau Quit"].Item2))
+    if (settings["Damascus Bureau Quit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Damascus Bureau Quit"].Item1, vars.SplitPositions["Damascus Bureau Quit"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Damascus Bureau Quit"].Item1, vars.SplitPositions["Damascus Bureau Quit"].Item2))
     {
         if (settings["DebugPrint"])
             print("Damascus bureau quit split triggered.");
@@ -499,7 +507,7 @@ split
         return true;
     }
     // Splits for the assassin's bureau in Damascus after you inform the bureau leader or kill your target.
-    if (settings["DamascusBureau"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Damascus Bureau"].Item1, vars.SplitPositions["Damascus Bureau"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Damascus Bureau"].Item1, vars.SplitPositions["Damascus Bureau"].Item2))
+    if (settings["Damascus Bureau"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Damascus Bureau"].Item1, vars.SplitPositions["Damascus Bureau"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Damascus Bureau"].Item1, vars.SplitPositions["Damascus Bureau"].Item2))
     {
         if (settings["DebugPrint"])
             print("Damascus bureau split triggered.");
@@ -507,7 +515,7 @@ split
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Acre
-    if (settings["AcreBureauQuit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Acre Bureau Quit"].Item1, vars.SplitPositions["Acre Bureau Quit"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Acre Bureau Quit"].Item1, vars.SplitPositions["Acre Bureau Quit"].Item2))
+    if (settings["Acre Bureau Quit"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Acre Bureau Quit"].Item1, vars.SplitPositions["Acre Bureau Quit"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Acre Bureau Quit"].Item1, vars.SplitPositions["Acre Bureau Quit"].Item2))
     {
         if (settings["DebugPrint"])
             print("Acre bureau quit split triggered.");
@@ -515,7 +523,7 @@ split
         return true;
     }
     // Splits for the assassin's bureau in Acre after you inform the bureau leader or kill your target.
-    if (settings["AcreBureau"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Acre Bureau"].Item1, vars.SplitPositions["Acre Bureau"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Acre Bureau"].Item1, vars.SplitPositions["Acre Bureau"].Item2))
+    if (settings["Acre Bureau"] && vars.IsAtPositionCurrentWithTolerance(current, vars.SplitPositions["Acre Bureau"].Item1, vars.SplitPositions["Acre Bureau"].Item2) && vars.IsAtPositionOldWithTolerance(old, vars.SplitPositions["Acre Bureau"].Item1, vars.SplitPositions["Acre Bureau"].Item2))
     {
         if (settings["DebugPrint"])
             print("Acre bureau split triggered.");
@@ -523,7 +531,7 @@ split
         return true;
     }
     // Splits when you quit warp to the assassin's bureau in Jerusalem
-    if(settings["JerusalemBureauQuit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Jerusalem Bureau Quit"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Jerusalem Bureau Quit"].Item1))
+    if(settings["Jerusalem Bureau Quit"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Jerusalem Bureau Quit"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Jerusalem Bureau Quit"].Item1))
     {
         if (settings["DebugPrint"])
             print("Jerusalem bureau quit split triggered.");
@@ -531,7 +539,7 @@ split
         return true;
     }
     // Splits for the assassin's bureau in Jerusalem after you inform the bureau leader or kill your target.
-    if(settings["JerusalemBureau"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Jerusalem Bureau"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Jerusalem Bureau"].Item1))
+    if(settings["Jerusalem Bureau"] && vars.IsAtPositionCurrent(current, vars.SplitPositions["Jerusalem Bureau"].Item1) && vars.IsAtPositionOld(old, vars.SplitPositions["Jerusalem Bureau"].Item1))
     {
         if (settings["DebugPrint"])
             print("Jerusalem bureau split triggered.");
@@ -540,8 +548,69 @@ split
     }
 }
 
+isLoading
+{
+    return vars.IsAtPositionCurrent(current, vars.SplitPositions["LoadingPos"].Item1);
+}
+
 onReset
 {
     vars.IsTutorialDone = false;
     vars.stopwatch.Reset();
 }
+
+/* 
+in case i want to go back to the arrays
+if i need to add more positions here is the copy pasta
+new float [] {},
+array of positions to check if the player is at, can add more if needed just make sure to update the indices in the code
+float [][] splitPositions =
+{
+    new float [] {1.13976f, 30.56754f, 13.25423f}, // At end of Solomon's Temple about to load into Masyaf
+    new float [] {-39.1783f, -33.99732f, 34.46896f}, // Load after Solomon's Temple into Masyaf, In Masyaf right after loading in
+    new float [] {7.16993f, -16.99199f, 34.64021f}, // Traitor in Masyaf Eavesdrop
+    new float [] {207.08463f, 11.84124f, 107.60572f}, // Turn Traitor in, the position of Altair after you beat up the dude and bring him to the mentor in the castle
+    new float [] {-222.54272f, 722.5073f, 89.77293f}, // In the haystack after the mandatory viewpoint
+    new float [] {46.38885f, 6.1258f, 4.13938f}, // Assassin's Bureau in Damascus after quit warping
+    new float [] {42.75412f, 7.48691f, 4.12456f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete.
+    new float [] {-179.621f, 162.3696f, 17.00000f}, // Garnier Eavesdrop in Acre
+    new float [] {-2.54902f, 39.92605f, 5.14663f}, // Assassin's Bureau in Acre after quit warping
+    new float [] {-2.02865f, 42.15371f, 5.14196f}, // Assassin's Bureau in Acre after informing the Bureau leader or after a assassination mission is complete.
+    new float [] {91.00118f, 84.52809f, 2.25257f}, // Assassin's Bureau in Jerusalem after quit warping
+    new float [] {91.33311f, 88.22004f, 2.01741f}, // Assassin's Bureau in Jerusalem after informing the Bureau leader or after a assassination mission is complete.
+    new float [] {-68.91216f, 85.63019f, 8.18865f}, // Abu'l Nuqoud Eavesdrop in Damascus
+    new float [] {28.08077f, -179.1255f, 6.00000f}, // Majd Addin Eavesdrop in Jerusalem (double check)
+    new float [] {277.2652f, -39.46133f, 4.14445f}, // Jubair Eavesdrop in Damascus (double check)
+    new float [] {-139.9565f, 110.8973f, 10.00000f}, // Maria Eavesdrop in Jerusalem (double check)
+    new float [] {202.62020f, -3.95567f, 99.26974f}, // Altair fake death
+    new float [] {-0.07626f, -0.10379f, 0.00000f}, // Loading screen if you dont move
+    new float [] {-11.29227f, -30.75496f, 0.00000f}, // Maria Death confession room
+    new float [] {-11.42463f, -30.58017f, 0.00000f}, // In the Death confession room for all targets but maria
+    new float [] {-0.07626f, -0.10379f, 0.00000f},// start of the game
+    new float [] {-2.63071f, -4.52977f, 0.00262f} // in the animus but modern day
+};
+arrays of start positions
+float [][] MemoryBlockPositions =
+{
+    new float [] {-66.18973f, -58.75932f, -8.38886f}, // start of memory block 1
+    new float [] {208.24425f, 11.22722f, 107.64150f}, // start of memory block 2
+    new float [] {207.43881f, 12.49873f, 107.60572f}, // start of memory block 3 - 6
+    new float [] {-38.28265f, -33.71172f, 34.46831f} // start of memory block 7
+    
+};
+float [][] Tolerance =
+{
+    new float [] {0.10501f, 0.10636f, 0.00100f}, // At end of Solomon's Temple about to load into Masyaf tolerance
+    new float [] {0.00003f, 0.00000f, 0.04160f}, // Altair fake death tolerance
+    new float [] {0.00319f, 0.01306f, 0.00000f}, // Masyaf eavesdrop tolerance
+    new float [] {0.00000f, 0.00000f, 0.00020f}, // Assassin's Bureau in Damascus after quit warping tolerance
+    new float [] {0.00000f, 0.00000f, 0.00007f}, // Assassin's Bureau in Damascus after informing the Bureau leader or after a assassination mission is complete. tolerance
+    new float [] {0.00335f, 0.01873f, 0.00000f}, // Garnier Eavesdrop in Acre tolerance
+    new float [] {0.00054f, 0.01068f, 0.00000f}, // Abu'l Nuqoud Eavesdrop in Damascus tolerance
+    new float [] {0.00000f, 0.00000f, 0.00000f} // none; for testing purposes.
+};
+
+Solomon temple split 1 difference in XY from whats recorded and during a run
+X: 1.13976-1.16492
+Y: 30.56754-30.67389
+*/

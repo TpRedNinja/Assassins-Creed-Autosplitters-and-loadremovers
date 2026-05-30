@@ -1,4 +1,4 @@
-#state("ACBSP")
+state("ACBSP")
 {
     int Percentage: 0x025B08A4, 0x278, 0x4, 0xC, 0x7C; //Percentage
     int Money: 0x025C63AC, 0x24, 0x40; //Money
@@ -67,7 +67,7 @@ split
 
 isLoading
 {
-    if (current.Menu_Loading && current.Money == 0)
+    if (current.Main_Loading && current.Money == 0)
     {
         return true;
     } else

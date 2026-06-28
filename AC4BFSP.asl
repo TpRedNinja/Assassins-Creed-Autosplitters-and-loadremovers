@@ -160,7 +160,7 @@ split
     if (settings["Any%"])
     {
         // split on any main mission completion (Any% = split on every main mission)
-        if ((current.Percentage == old.Percentage + 1 || (current.PercentageF > old.PercentageF && current.Percentage == old.Percentage && current.PercentageF - old.PercentageF >= 0.6)) 
+        if ((current.Percentage == old.Percentage + 1 || (current.PercentageF > old.PercentageF && current.PercentageF - old.PercentageF >= 0.6)) 
         && current.loading == 0 && vars.SplitTime > 2)
         {
             vars.stopwatch.Restart();

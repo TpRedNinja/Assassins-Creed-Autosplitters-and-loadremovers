@@ -63,7 +63,7 @@ split
         print("Split 4");
         vars.stopwatch.Restart();
         return true;
-    } else if(current.Main_Loading && current.Money != null && !old.Main_Loading && vars.SplitTime > 2) //splits when entering the animus
+    } else if(current.Main_Loading && current.Money != null && current.Main_Loading && !old.Main_Loading && vars.SplitTime > 2) //splits when entering the animus
     {
         print("Split 5");
         vars.stopwatch.Restart();

@@ -7,7 +7,8 @@ state("ACBSP")
 
 init
 {
-    vars.AllMainMissions = new HashSet<int>{100, 150, 250, 400, 600, 700, 800, 1000, 1200, 1300, 1400, 1500, 2100, 2200, 2400, 2500, 3000, 5200, 6000, 6300, 6800}; //Money gained from main missions
+    vars.AllMainMissions = new HashSet<int>{100, 150, 250, 400, 600, 700, 800, 1000, 1200, 1300, 1400, 1500, 2100, 2200, 2400, 2500, 3000, 
+    5200, 6000, 6300, 6800}; //Money gained from main missions
     vars.NegativeMoney = 400; //Money your lose
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = 0;
@@ -42,24 +43,29 @@ split
     if (current.Percentage > old.Percentage && (vars.AllMainMissions.Contains(current.Money - old.Money) 
     || vars.NegativeMoney == current.Money - old.Money) && vars.SplitTime > 2) //splits when the percentage increases and money increases
     {
+        print("Split 1");
         vars.stopwatch.Restart();
         return true;
     } else if(vars.AllMainMissions.Contains(Math.Abs(current.Money - old.Money)) && vars.SplitTime > 2) // if first condition fails it checks if only the money has increased
     {
+        print("Split 2");
         vars.stopwatch.Restart();
         return true;
     } else if(current.Percentage > old.Percentage && vars.SplitTime > 2) // if the stuff before this fails it checks if only the percentage has increased
     {
+        print("Split 3");
         vars.stopwatch.Restart();
         return true;
     }
 
     if (!current.Main_Loading && current.Money == null && old.Main_Loading && vars.SplitTime > 2) //splits when leaving the animus
     {
+        print("Split 4");
         vars.stopwatch.Restart();
         return true;
     } else if(current.Main_Loading && current.Money != null && !old.Main_Loading && vars.SplitTime > 2) //splits when entering the animus
     {
+        print("Split 5");
         vars.stopwatch.Restart();
         return true;
     }
@@ -67,7 +73,7 @@ split
 
 isLoading
 {
-    if (current.Main_Loading && current.Money == 0)
+    if (current.Menu_Loading && current.Money == 0)
     {
         return true;
     } else

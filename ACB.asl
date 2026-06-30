@@ -43,29 +43,14 @@ split
     if (current.Percentage > old.Percentage && (vars.AllMainMissions.Contains(current.Money - old.Money) 
     || vars.NegativeMoney == current.Money - old.Money) && vars.SplitTime > 2) //splits when the percentage increases and money increases
     {
-        print("Split 1");
         vars.stopwatch.Restart();
         return true;
     } else if(vars.AllMainMissions.Contains(Math.Abs(current.Money - old.Money)) && vars.SplitTime > 2) // if first condition fails it checks if only the money has increased
     {
-        print("Split 2");
         vars.stopwatch.Restart();
         return true;
     } else if(current.Percentage > old.Percentage && vars.SplitTime > 2) // if the stuff before this fails it checks if only the percentage has increased
     {
-        print("Split 3");
-        vars.stopwatch.Restart();
-        return true;
-    }
-
-    if (!current.Main_Loading && current.Money == null && old.Main_Loading && vars.SplitTime > 2) //splits when leaving the animus
-    {
-        print("Split 4");
-        vars.stopwatch.Restart();
-        return true;
-    } else if(current.Main_Loading && current.Money != null && current.Main_Loading && !old.Main_Loading && vars.SplitTime > 2) //splits when entering the animus
-    {
-        print("Split 5");
         vars.stopwatch.Restart();
         return true;
     }

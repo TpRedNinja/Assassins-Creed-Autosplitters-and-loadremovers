@@ -73,7 +73,7 @@ split
 
 isLoading
 {
-    if (current.Menu_Loading && current.Money == 0)
+    if (current.Main_Loading && current.Money == 0)
     {
         return true;
     } else

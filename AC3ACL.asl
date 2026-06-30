@@ -6,7 +6,8 @@ state("ACIII", "AC3 Steam")
 {
     bool IsLoading: 0x03269D90, 0x468, 0xB0, 0xC8, 0x370; // 0 for not loading and 1 for loading note the cutscene with Conner cutting his hair counts as loading
     int percentage: 0x0324C588, 0x330, 0x10, 0x18, 0x15C; // displays current percentage complete note does not work with tyranny of king Washington as it displays 24 for some reason
-    int IGT: 0x03203510, 0x850, 0x8, 0x3D8, 0x80; // Uses the built in timer for each save file note its in seconds for display but can be used for the timer.
+    int MemoriesFullySync: 0x03203510, 0xC18, 0x88; //tracks how many memories are fully sync'd.
+    int IGT: 0x03203510, 0xC18, 0x80; // Uses the built in timer for each save file note its in seconds for display but can be used for the timer.
     int MissionComplete: 0x32C2270;
     bool menu: 0x324CA20; // 1 for in any menu 0 for not in a menu
 }
@@ -26,7 +27,8 @@ state("ACIII", "AC3 UbisoftConnect")
 {
     bool IsLoading: 0x03206FC8, 0x48, 0x2F8, 0x38, 0x30; // same as steam
     int percentage: 0x0324C4C8, 0x330, 0x10, 0x18, 0x15C; // same as steam
-    int IGT: 0x03203450, 0x738, 0x2B0, 0x398, 0x80; // same as steam
+    int IGT: 0x03203450, 0xC18, 0x80; // same as steam
+    int MemoriesFullySync: 0x03203450, 0xC18, 0x88; // same as steam
     int MissionComplete: 0x32C21B0; //same as steam
     bool menu: 0x324C960; // same as steam
 }
@@ -52,7 +54,6 @@ startup
     vars.ACLSteam = new byte[32]{ 0x87, 0x83, 0x6d, 0x17, 0x59, 0xdd, 0x4d, 0xae, 0x57, 0xef, 0xf6, 0x6a, 0xa1, 0x70, 0xc0, 0x7c, 0x4c, 0x5e, 0x6b, 0x81, 0x76, 0x32, 0x37, 0x9e, 0x49, 0x3d, 0x29, 0x29, 0xad, 0xeb, 0xe9, 0x47 };
     // steam hash id(ACIII): SHA256: 450b76dea323089077a8bb8f0a9bafd3b7c02f48a46de48811f2f00b63aa13d1
     vars.AC3Steam = new byte[32]{ 0x45, 0x0b, 0x76, 0xde, 0xa3, 0x23, 0x08, 0x90, 0x77, 0xa8, 0xbb, 0x8f, 0x0a, 0x9b, 0xaf, 0xd3, 0xb7, 0xc0, 0x2f, 0x48, 0xa4, 0x6d, 0xe4, 0x88, 0x11, 0xf2, 0xf0, 0x0b, 0x63, 0xaa, 0x13, 0xd1 };
-    vars.ValidIncrements = new HashSet<int>() { 1, 2, 3 };
     // calculates the hash id for the current module credit to the re2r autosplitter & deathHound246 on discord for this code 
     Func<ProcessModuleWow64Safe, byte[]> CalcModuleHash = (module) => 
     {
@@ -68,27 +69,12 @@ startup
 
     //Literally a setting to split on every mission
     settings.Add("Splitting", false, "Splitting");
-        settings.Add("Percentage_Split", false, "Percentage_Split", "Splitting");
-        settings.SetToolTip("Percentage_Split", "Choose this if you want to split after a mission is completed. \n" + "will not split for modern day sections");
-        settings.Add("EndScreen_Split(ac3 only)", false, "EndScreen_Split(ac3 only)", "Splitting");
-        settings.SetToolTip("EndScreen_Split(ac3 only)", "Choose this if you want to split after some missions are completed. \n" + "will not split for liberation\n");
+        settings.Add("Liberation Only", false, "Liberation Only", "Splitting");
+        settings.SetToolTip("Liberation Only", "Choose this if you want to split after a mission is completed. \n" + "will not split for modern day sections");
+        settings.Add("AC3 Only", false, "AC3 Only", "Splitting");
+        settings.SetToolTip("AC3 Only", "Choose this if you want to split after some missions are completed. \n" + "will not split for liberation\n");
     settings.Add("Debug", false, "Debug Info");
         settings.SetToolTip("Debug", "Adds text components for 2 debug infos: \n" + "Percentage Completion and Current Loading State");
-
-
-    // Asks the user if they want to change to game time if the comparison is set to real time on startup.
-   /* if(timer.CurrentTimingMethod == TimingMethod.RealTime)
-    {        
-        var timingMessage = MessageBox.Show(
-            "This Autosplitter has a load removal Time without loads. "+
-            "LiveSplit is currently set to display and compare against Real Time (including loads).\n\n"+
-            "Would you like the timing method to be set to Game Time?",
-            "Assassin's Creed III Remastered/Liberation Remastered | LiveSplit",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Question
-        );
-        if (timingMessage == DialogResult.Yes)
-            timer.CurrentTimingMethod = TimingMethod.GameTime;
-    };*/
 
     // set text taken from Poppy Playtime C2
     // to display the text associated with this script aka current percentage along with IGT
@@ -110,6 +96,9 @@ startup
     };
     vars.SetTextComponent = SetTextComponent;
     vars.game = "None";
+    vars.version = "Unknown";
+    vars.stopwatch = new Stopwatch();
+    vars.SplitTime = null;
 }
 
 init
@@ -119,22 +108,27 @@ init
     if (Enumerable.SequenceEqual(checksum, vars.ACLSteam))
     {
         version = "ACL Steam";
+        vars.version = version;
         vars.game = "ACL";
     } else if(Enumerable.SequenceEqual(checksum, vars.ACLUbisoftConnect))
     { 
         version = "ACL UbisoftConnect";
+        vars.version = version;
         vars.game = "ACL";
     } else if (Enumerable.SequenceEqual(checksum, vars.AC3Steam))
     {
         version = "AC3 Steam";
+        vars.version = version;
         vars.game = "AC3";
     } else if(Enumerable.SequenceEqual(checksum, vars.AC3UbisoftConnect))
     { 
         version = "AC3 UbisoftConnect";
+        vars.version = version;
         vars.game = "AC3";
     } else
     {
         version = "Unknown";
+        vars.version = version;
         vars.game = "None";
     }
 }
@@ -146,7 +140,11 @@ update
     {
         vars.SetTextComponent("Percentage Completion", current.percentage + "%");
         vars.SetTextComponent("Current Loading: ", current.IsLoading.ToString());
+        vars.SetTextComponent("Current IGT: ", current.IGT.ToString());
+        vars.SetTextComponent("Split Time: ", vars.SplitTime.ToString());
     }
+
+    vars.SplitTime = (int)vars.stopwatch.Elapsed.TotalSeconds;
     
 }
 
@@ -159,24 +157,29 @@ start
     }
 
     //starts when you have control of Desmond hopefully
-    if(vars.game == "AC3" && !current.IsLoading && current.percentage == 0 && !current.menu)
+    if(vars.game == "AC3" && !current.IsLoading && current.percentage == 0 && current.IGT > old.IGT)
     {
         return true;
     }
 }
 
+onStart
+{
+    vars.stopwatch.Restart();
+}
+
 split
 {
-    // splits after every mission that gives you percentage note some missions dont have a end mission screen so make sure you have enough splits
-    if(vars.ValidIncrements.Contains(current.percentage - old.percentage) && settings["Percentage_Split"])
+    // splits after every mission that gives you percentage note some mission dont give any percentage
+    if(current.percentage > old.percentage && settings["Liberation Only"])
     {
-        //print("percentage split");
         return true;
     }
-
-    if (vars.game == "AC3" && current.MissionComplete == 1 && old.MissionComplete == 0 && settings["EndScreen_Split(ac3 only)"])
+    // should hopefully split for every mission
+    if ((current.MissionComplete == 1 && old.MissionComplete == 0 || current.MemoriesFullySync > old.MemoriesFullySync || current.percentage > old.percentage) 
+    && settings["AC3 Only"] && vars.SplitTime > 2)
     {
-        //print("endScreen split");
+        vars.stopwatch.Restart();
         return true;
     }
 

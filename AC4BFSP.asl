@@ -25,7 +25,35 @@ startup
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
     vars.Helper.Settings.CreateFromXml("Components/AC4.Settings.xml");
 
-	// variables
+    //set text taken from Poppy Playtime C2
+    Action<string, string> SetTextComponent = (id, text) => {
+        var textSettings = timer.Layout.Components.Where(x => x.GetType().Name == "TextComponent").Select(x => x.GetType().GetProperty("Settings").GetValue(x, null));
+        var textSetting = textSettings.FirstOrDefault(x => (x.GetType().GetProperty("Text1").GetValue(x, null) as string) == id);
+        if (textSetting == null)
+        {
+            var textComponentAssembly = Assembly.LoadFrom("Components\\LiveSplit.Text.dll");
+            var textComponent = Activator.CreateInstance(textComponentAssembly.GetType("LiveSplit.UI.Components.TextComponent"), timer);
+            timer.Layout.LayoutComponents.Add(new LiveSplit.UI.Components.LayoutComponent("LiveSplit.Text.dll", textComponent as LiveSplit.UI.Components.IComponent));
+
+            textSetting = textComponent.GetType().GetProperty("Settings", BindingFlags.Instance | BindingFlags.Public).GetValue(textComponent, null);
+            textSetting.GetType().GetProperty("Text1").SetValue(textSetting, id);
+        }
+
+        if (textSetting != null)
+            textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
+    };
+    vars.SetTextComponent = SetTextComponent;
+
+    //not splitting settings
+    settings.Add("Percentage Display", false);
+    settings.Add("Collectibles Display", false, "Collectibles Display");
+    settings.Add("Debug", false, "Debug");
+    settings.Add("Calculator", false, "Calculator","Debug");
+    settings.SetToolTip("Debug", "This will show the current MainMenu value and loading.\n" + "Along with the calculator if u use it");
+    /*for any future settings i want to add
+    settings.Add("", false, "", "Splits");
+    settings.SetToolTip("", "Splits when ");
+    */
     vars.completedsplits = new List<string>();
     vars.Stopwatch = new Stopwatch();
     vars.SplitTime = null;
@@ -125,7 +153,13 @@ update
     vars.Helper.Update();
 	vars.Helper.MapPointers();
     vars.MainMissionWatchers.UpdateAll(game);
+    vars.TestWatchers.UpdateAll(game);
+    vars.PercentDiff = current.PercentageF - old.PercentageF;
 
+    if (current.Percentage < 100)
+    {
+        current.PercentageF = Math.Round(current.PercentageF, 5);
+    }
     vars.SplitTime = (int)vars.Stopwatch.Elapsed.TotalSeconds;
     vars.TotalTime = (float)vars.TotalTimeWatch.Elapsed.TotalSeconds;
 
@@ -138,6 +172,51 @@ update
         vars.TotalTimeWatch.Start();
         vars.Stopwatch.Start();
     }
+
+    if (settings["Percentage Display"])
+    {
+        if (current.PercentageF != null){
+            vars.SetTextComponent("Percentage Completion", current.PercentageF + "%");
+        } else
+        {
+            vars.SetTextComponent("Percentage Completion", null + "%");
+        }
+    }
+
+    if (settings["Debug"])
+    {
+        string formattedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:000}",
+        vars.TotalTimeWatch.Elapsed.Hours, vars.TotalTimeWatch.Elapsed.Minutes,
+        vars.TotalTimeWatch.Elapsed.Seconds, vars.TotalTimeWatch.Elapsed.Milliseconds);
+
+        //vars.SetTextComponent("", current. + "/"); for extras in the future
+        if (current.MainMenu != null && current.loading != null)
+        {
+            vars.SetTextComponent("Current MainMenu Value", current.MainMenu + "/65540");
+            vars.SetTextComponent("Current Loading", current.loading + "/1");
+            vars.SetTextComponent("Time from Last Split", vars.SplitTime + "/2");
+            vars.SetTextComponent("Total Run Time", formattedTime);
+            vars.SetTextComponent("Splits Completed", vars.Splits + "/2");
+            vars.SetTextComponent("Current Sequence", current.Sequence + "/13");
+            vars.SetTextComponent("Modern Day Done: ", vars.TestWatchers["Modern Day"].Current + "/4");
+            if (settings["Calculator"])
+            {
+                if (current.PercentageF > old.PercentageF)
+                {
+                    vars.SetTextComponent("Percentage increased by ", current.PercentageF - old.PercentageF + "%");
+                }
+            }
+        }
+
+    }
+    
+    /*foreach (var Sequence in vars.MainMissions)
+    {
+        var watcher = vars.MainMissionWatchers[Sequence.Key];
+        print(Sequence.Key + ": " + watcher.Current);
+    }*/
+    
+    //print(modules.First().ModuleMemorySize.ToString());
 }
 
 start
@@ -195,7 +274,7 @@ onReset
     vars.Stopwatch.Reset();
     vars.TotalTimeWatch.Stop();
     vars.TotalTimeWatch.Reset();
-    vars.splits = 0;
+    vars.Splits = 0;
 }
 
 isLoading

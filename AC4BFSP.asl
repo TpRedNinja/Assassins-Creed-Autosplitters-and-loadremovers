@@ -23,7 +23,7 @@ startup
 {
     if (refreshRate != 165)
         refreshRate = 165;
-    vars.version = 3.0;
+    vars.version = 2.0;
     if (vars.version == 2.0)
     {
         var timingMessage = MessageBox.Show(

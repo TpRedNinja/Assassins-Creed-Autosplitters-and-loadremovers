@@ -21,6 +21,19 @@ state("AC4BFSP")
 
 startup
 {
+    if (refreshRate != 165)
+        refreshRate = 165;
+    vars.version = 2.0;
+    if (vars.version == 2.0)
+    {
+        var timingMessage = MessageBox.Show(
+            "autosplitter version 2.0 if this is not the right version then contact TpRedNinja on discord to ask if its the right version. \n\n" +
+            "If you are using the wrong version then the autosplitter may not work properly and may cause issues with your run. \n\n" +
+            "Note if this is your first time seeing this message then you are on the right version.",
+            "Assassin's Creed IV Black Flag | LiveSplit",
+            MessageBoxButtons.OK, MessageBoxIcon.Information
+        );
+    }
     //asl help stuff
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
     vars.Helper.Settings.CreateFromXml("Components/AC4.Settings.xml");
@@ -107,17 +120,17 @@ init
     {
         {"Sequence 1", "Abstergo"},
         {"Sequence 2", "Sequence 2 Memory 6"},
-        {"Sequence 3", "Sequence 3 Memory 7"},
+        {"Sequence 3", "A Small Favour"},
         {"Sequence 4", "Sequence 4 Memory 4"},
         {"Sequence 5", "Sequence 5 Memory 3"},
-        {"Sequence 6", "Sequence 6 Memory 3"},
+        {"Sequence 6", "Corporate Pressure"},
         {"Sequence 7", "Sequence 7 Memory 4"},
         {"Sequence 8", "Sequence 8 Memory 3"},
         {"Sequence 9", "Sequence 9 Memory 2"},
         {"Sequence 10", "Sequence 10 Memory 3"},
-        {"Sequence 11", "Sequence 11 Memory 3"},
+        {"Sequence 11", "The Bunker"},
         {"Sequence 12", "Sequence 12 Memory 4"},
-        {"Sequence 13", "Sequence 13 Memory 2"},
+        {"Sequence 13", "A Face From the Past"},
     };
     vars.completedsplits = new List<string>();
     vars.Splits = 0;
@@ -210,11 +223,12 @@ update
 
     }
     
-    /*foreach (var Sequence in vars.MainMissions)
+    foreach (var Sequence in vars.MainMissions)
     {
         var watcher = vars.MainMissionWatchers[Sequence.Key];
-        print(Sequence.Key + ": " + watcher.Current);
-    }*/
+        if (watcher.Current != watcher.Old)
+            print(Sequence.Key + ": " + watcher.Current);
+    }
     
     //print(modules.First().ModuleMemorySize.ToString());
 }
@@ -245,8 +259,16 @@ split
             var completionToken = vars.SequenceCompletionTokens[Sequence.Key];
             string splitName = Sequence.Key + " Memory " + watcher.Current;
             
-            if (vars.ModernDaySplitTargets.Contains(vars.Splits+1))
-                splitName = "Modern Day " + (vars.Splits+1);
+            if (vars.ModernDaySplitTargets.Contains(vars.Splits+1) && vars.Splits == 1)
+                splitName = "Abstergo";
+            else if (vars.ModernDaySplitTargets.Contains(vars.Splits+1) && vars.Splits == 16)
+                splitName = "A Small Favour";
+            else if (vars.ModernDaySplitTargets.Contains(vars.Splits+1) && vars.Splits == 27)
+                splitName = "Corporate Pressure";
+            else if (vars.ModernDaySplitTargets.Contains(vars.Splits+1) && vars.Splits == 40)
+                splitName = "The Bunker";
+            else if (vars.ModernDaySplitTargets.Contains(vars.Splits+1) && vars.Splits == 48)
+                splitName = "A Face From the Past";
 
             if (vars.completedsplits.Contains(completionToken))
                 continue; // Skip if this split has already been completed
@@ -274,7 +296,7 @@ onReset
     vars.Stopwatch.Reset();
     vars.TotalTimeWatch.Stop();
     vars.TotalTimeWatch.Reset();
-    vars.Splits = 0;
+    vars.splits = 0;
 }
 
 isLoading

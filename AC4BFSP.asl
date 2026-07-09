@@ -23,11 +23,11 @@ startup
 {
     if (refreshRate != 165)
         refreshRate = 165;
-    vars.version = 2.0;
-    if (vars.version == 2.0)
+    vars.version = "2.0.1";
+    if (vars.version == "2.0.1")
     {
         var timingMessage = MessageBox.Show(
-            "autosplitter version 2.0 if this is not the right version then contact TpRedNinja on discord to ask if its the right version. \n\n" +
+            "autosplitter version 2.0.1 if this is not the right version then contact TpRedNinja on discord to ask if its the right version. \n\n" +
             "If you are using the wrong version then the autosplitter may not work properly and may cause issues with your run. \n\n" +
             "Note if this is your first time seeing this message then you are on the right version.",
             "Assassin's Creed IV Black Flag | LiveSplit",
@@ -275,6 +275,7 @@ split
             
             if (watcher.Current > watcher.Old && vars.SplitTime > 2  && (current.loading == 0 || vars.ModernDaySplitTargets.Contains(vars.Splits + 1)) && !vars.completedsplits.Contains(splitName)) // split on all missions assuming no load and isnt already completed
             {
+				vars.Splits++;
                 vars.completedsplits.Add(splitName);
                 return true;
             }
@@ -285,7 +286,6 @@ split
 
 onSplit
 {
-    vars.Splits++;
     vars.Stopwatch.Restart();
 }
 

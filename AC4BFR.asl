@@ -1,11 +1,11 @@
 state("ACBlackFlag")
 {
-    int loading: 0x0AEBD878, 0x2F0; // 0 for when not loading, 1 for when loading
+    int loading: 0x0AF005B8, 0x2F0; // 0 for when not loading, 1 for when loading
 }
 
 startup
 {
-    vars.version = "1.0.0";
+    vars.version = "1.0.1";
 
     //set text taken from Poppy Playtime C2
     Action<string, string> SetTextComponent = (id, text) => {

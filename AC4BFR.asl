@@ -6,16 +6,6 @@ state("ACBlackFlag")
 startup
 {
     vars.version = "1.0.0";
-    if (vars.version == "1.0.0")
-    {
-        var timingMessage = MessageBox.Show(
-            "Load remover version 1.0.0 if this is not the right version then contact TpRedNinja on discord to ask if its the right version. \n\n" +
-            "If you are using the wrong version then the load remover may not work properly and may cause issues with your run. \n\n" +
-            "Note if this is your first time seeing this message then you are on the right version.",
-            "Assassin's Creed Black Flag Resync | LiveSplit",
-            MessageBoxButtons.OK, MessageBoxIcon.Information
-        );
-    }
 
     //set text taken from Poppy Playtime C2
     Action<string, string> SetTextComponent = (id, text) => {
@@ -43,6 +33,8 @@ update
 {
     if(settings["Debug"])
         vars.SetTextComponent("Loading: ", current.loading.ToString() + "/1");
+    
+    vars.SetTextComponent("Version: ", vars.version);
 }
 
 isLoading

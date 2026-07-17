@@ -5,36 +5,64 @@ state("ACBlackFlag")
 
 startup
 {
-    vars.version = "1.0.1";
-
-    //set text taken from Poppy Playtime C2
-    Action<string, string> SetTextComponent = (id, text) => {
-        var textSettings = timer.Layout.Components.Where(x => x.GetType().Name == "TextComponent").Select(x => x.GetType().GetProperty("Settings").GetValue(x, null));
-        var textSetting = textSettings.FirstOrDefault(x => (x.GetType().GetProperty("Text1").GetValue(x, null) as string) == id);
-        if (textSetting == null)
+    vars.aslVersion = "1.0.2"; // version variable
+    
+    //set text by SetTextComponent("Left / Only Text", "Right Text", 0/1 for normal/centered);
+    var lcCache = new Dictionary<string, LiveSplit.UI.Components.ILayoutComponent>();
+    vars.SetTextComponent = (Action<string, string, object>)((key, text1, text2) =>
+    {
+        LiveSplit.UI.Components.ILayoutComponent lc;
+        if (!lcCache.TryGetValue(key, out lc))
         {
-            var textComponentAssembly = Assembly.LoadFrom("Components\\LiveSplit.Text.dll");
-            var textComponent = Activator.CreateInstance(textComponentAssembly.GetType("LiveSplit.UI.Components.TextComponent"), timer);
-            timer.Layout.LayoutComponents.Add(new LiveSplit.UI.Components.LayoutComponent("LiveSplit.Text.dll", textComponent as LiveSplit.UI.Components.IComponent));
+            lc = timer.Layout.LayoutComponents.Cast<dynamic>()
+                .FirstOrDefault(llc => Path.GetFileName(llc.Path) == "LiveSplit.Text.dll" && llc.Component.Settings.Text1 == text1)
+                ?? LiveSplit.UI.Components.ComponentManager.LoadLayoutComponent("LiveSplit.Text.dll", timer);
 
-            textSetting = textComponent.GetType().GetProperty("Settings", BindingFlags.Instance | BindingFlags.Public).GetValue(textComponent, null);
-            textSetting.GetType().GetProperty("Text1").SetValue(textSetting, id);
+            lcCache.Add(key, lc);
         }
 
-        if (textSetting != null)
-            textSetting.GetType().GetProperty("Text2").SetValue(textSetting, text);
-    };
-    vars.SetTextComponent = SetTextComponent;
+        if (!timer.Layout.LayoutComponents.Contains(lc))
+            timer.Layout.LayoutComponents.Add(lc);
+
+        dynamic tc = lc.Component;
+        tc.Settings.Text1 = text1;
+        tc.Settings.Text2 = text2.ToString();
+    });
+
+    //Clears the text components where Text1 matches the id.
+    vars.RemoveTextComponent = (Action<string>)(key =>
+    {
+        LiveSplit.UI.Components.ILayoutComponent lc;
+        if (lcCache.TryGetValue(key, out lc))
+        {
+            timer.Layout.LayoutComponents.Remove(lc);
+            lcCache.Remove(key);
+        }
+    });
+
+    //Clears all text components added by this script.
+    vars.RemoveAllTextComponents = (Action)(() =>
+    {
+        foreach (var lc in lcCache.Values)
+            timer.Layout.LayoutComponents.Remove(lc);
+
+        lcCache.Clear();
+    });
 
     settings.Add("Debug", false, "Debug");
+    vars.SetTextComponent("Version", "Autosplitter Version " + vars.aslVersion,  "");
 }
 
 update
 {
-    if(settings["Debug"])
-        vars.SetTextComponent("Loading: ", current.loading.ToString() + "/1");
-    
-    vars.SetTextComponent("Version: ", vars.version);
+    if(settings["Debug"]) {
+        vars.SetTextComponent("Loading", "Loading:", current.loading + "/1");
+    }
+    else{
+        vars.RemoveTextComponent("Loading");
+    };
+        
+
 }
 
 isLoading

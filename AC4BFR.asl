@@ -1,12 +1,12 @@
 state("ACBlackFlag")
 {
-    int loading: 0x0AF005B8, 0x2F0; // 0 for when not loading, 1 for when loading
+    int loading: 0xAF24AB8, 0x2F0; // 0 for when not loading, 1 for when loading
 }
 
 startup
 {
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
-    vars.aslVersion = "1.0.6"; // version variable
+    vars.aslVersion = "1.0.7"; // version variable
     //set text by SetTextComponent("Left / Only Text", "Right Text", 0/1 for normal/centered);
     var lcCache = new Dictionary<string, LiveSplit.UI.Components.ILayoutComponent>();
     vars.SetTextComponent = (Action<string, string, object>)((key, text1, text2) =>
@@ -157,7 +157,7 @@ startup
 init
 {
     vars.MainMissionWatchers = new MemoryWatcherList();
-    int QuestBase = 0xBF92790;
+    int QuestBase = 0xBFB7670;
 
     foreach (var mission in vars.MainMissions)
     {

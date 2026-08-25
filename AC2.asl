@@ -42,7 +42,7 @@ split
     // for splits such as chests and side missions and mission that dont increase the percentage by 1 in general
     for (int i = 0; i < vars.PickPocketMoney.Count; i++)
     {
-        if(current.Money > old.Money && current.percentage == old.percentage && current.Money != old.Money + vars.PickPocketMoney[i] && current.Money > old.Money)
+        if(current.Money > old.Money && current.percentage == old.percentage && current.Money != old.Money + vars.PickPocketMoney[i])
         {
             return true;
         }

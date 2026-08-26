@@ -8,6 +8,15 @@ state("AssassinsCreedIIGame", "Pirate")
 {
     int percentage : 0x01E14D1C, 0x2D0;
     int money : 0x1E3C588, 0x24, 0x34;
+    float IGT : 0x1E4A2E4, 0x30;
+}
+
+startup
+{
+    vars.stopwatch = new Stopwatch();
+    vars.SplitTime = null;
+    vars.IsStopwatchStop = false;
+    vars.version = "";
 }
 
 init
@@ -23,29 +32,77 @@ init
         case (35053568):
             print("Game Version: Pirate");
             version = "Pirate";
+            vars.version = version;
             break;
         case (35192832):
             print("Game Version: Legit");
             version = "Legit";
+            vars.version = version;
             break;
     }
+    vars.GameTime = 0;
+    vars.waitTune = 5;
+    if (vars.IsStopwatchStop == true)
+    {
+        vars.stopwatch.Start();
+        vars.IsStopwatchStop = false; 
+    }
+}
+
+update
+{
+    /*vars.GameTime += (int)(Math.Abs(old.IGT - current.IGT));
+    string formattedGameTime = TimeSpan.FromSeconds(vars.GameTime).ToString(@"hh\:mm\:ss\.fff");*/
+    //timer.Run.Metadata.SetCustomVariable("game time", current.IGT);
+    vars.SplitTime = (int)vars.stopwatch.Elapsed.TotalSeconds;
+    if (timer.CurrentPhase == TimerPhase.Paused)
+    {
+        vars.stopwatch.Stop();
+    } else if (timer.CurrentPhase == TimerPhase.Running)
+    {
+        vars.stopwatch.Start();
+    }
+}
+
+onStart
+{
+    vars.stopwatch.Start();
 }
 
 split
 {
     // for normal splits
-    if (current.percentage > old.percentage)
+    if (current.percentage > old.percentage && vars.SplitTime >= vars.waitTune)
     {
+        print("Split Time: " + vars.SplitTime.ToString() + "Split 1");
+        vars.stopwatch.Restart();
         return true;
     }
 
     // for splits such as chests and side missions and mission that dont increase the percentage by 1 in general
     for (int i = 0; i < vars.PickPocketMoney.Count; i++)
     {
-        if(current.Money > old.Money && current.percentage == old.percentage && current.Money != old.Money + vars.PickPocketMoney[i])
+        if(current.money > old.money && current.percentage == old.percentage && !vars.PickPocketMoney.Contains(current.money-old.money) && vars.SplitTime >= vars.waitTune)
         {
+            print("Split Time: " + vars.SplitTime.ToString() + "Split 2");
+            vars.stopwatch.Restart();
             return true;
         }
     }
     
+}
+
+isLoading 
+{
+    return true;
+}
+
+gameTime
+{
+    if(vars.version == "Pirate")
+    {
+        /*vars.GameTime += (int)(Math.Abs(old.IGT - current.IGT));
+        return TimeSpan.FromSeconds(vars.GameTime);*/
+        return TimeSpan.FromSeconds(current.IGT);
+    }
 }

@@ -1,6 +1,6 @@
 /* Auto Splitter for Assassin's Creed II
 * Made by: @TpRedNinja
-* Auto Splitter Version: 2.0.0 
+* Auto Splitter Version: 2.0.1 
 */
 state("AssassinsCreedIIGame", "Legit")
 {
@@ -26,7 +26,7 @@ state("AssassinsCreedIIGame", "Pirate")
 
 startup
 {
-    vars.AutoSplitterVersion = "2.0.0"; // version variable
+    vars.AutoSplitterVersion = "2.0.1"; // version variable
     timer.Run.Metadata.SetCustomVariable("Auto Splitter Version", vars.AutoSplitterVersion);
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = null;
@@ -147,6 +147,9 @@ startup
                     case "Animus 2.0":
                         settings.SetToolTip(missionName, "This will split after interacting with " + missionName + ".");
                         break;
+                    case "Alt end":
+                        settings.SetToolTip(missionName, "This will split after once you board the ship and the cutscene ends.");
+                        break;
                     case "Warehouse":
                     case "Altair":
                         settings.SetToolTip(missionName, "This will split after completing " + missionName + "segment of the modern day.");
@@ -190,6 +193,13 @@ init
         vars.IsStopwatchStop = false; 
     }
     vars.CompletedMissions = new List<uint>();
+    vars.missionValueIsValid = false;
+    vars.enoughTimeHasPassed = false;
+    vars.missionIsNew = false;
+    vars.missionIsConfigured = false;
+    vars.missionSplitIsEnabled = false;
+    vars.gameIsReady = false;
+    vars.SplitTime = 0;
 }
 
 update
@@ -212,6 +222,14 @@ update
     {
         timer.Run.Metadata.SetCustomVariable("Mission", vars.Missions[current.lastCompletedMission].Item1);
     }
+
+    vars.missionValueIsValid = current.lastCompletedMission != old.lastCompletedMission
+    || current.lastCompletedMission == old.lastCompletedMission;
+    vars.enoughTimeHasPassed = vars.SplitTime >= vars.waitTime;
+    vars.missionIsNew = !vars.CompletedMissions.Contains(current.lastCompletedMission);
+    vars.missionIsConfigured = vars.Missions.ContainsKey(current.lastCompletedMission);
+    vars.missionSplitIsEnabled = vars.missionIsConfigured && settings[vars.Missions[current.lastCompletedMission].Item1];
+    vars.gameIsReady = current.currentMission == 0x0 && current.loading == 1;
 }
 
 onStart
@@ -223,8 +241,7 @@ split
 {
     // for normal splits
     // only split if the mission is completed and the mission is in the list of missions to split on
-    if (current.lastCompletedMission != old.lastCompletedMission && vars.SplitTime >= vars.waitTime && !vars.CompletedMissions.Contains(current.lastCompletedMission)
-    && vars.Missions.ContainsKey(current.lastCompletedMission) && settings[vars.Missions[current.lastCompletedMission].Item1] && current.currentMission == 0x0 && current.loading == 1)
+    if (vars.missionValueIsValid && vars.enoughTimeHasPassed && vars.missionIsNew && vars.missionSplitIsEnabled && vars.gameIsReady)
     {
         print("splits on mission: " + vars.Missions[current.lastCompletedMission].Item1);
         vars.CompletedMissions.Add(current.lastCompletedMission); // prevents double splits
@@ -258,12 +275,23 @@ split
     }
 
     // no longer needed but keeping just in case
-    /*if (current.percentage > old.percentage && vars.SplitTime >= vars.waitTime && current.loading != 0)
+    /*
+    if (current.percentage > old.percentage && vars.SplitTime >= vars.waitTime && current.loading != 0)
     {
         print("Split Time: " + vars.SplitTime.ToString() + "Split 1");
         vars.stopwatch.Restart();
         return true;
-    }*/
+    }
+    if ((current.lastCompletedMission != old.lastCompletedMission || current.lastCompletedMission == old.lastCompletedMission) && vars.SplitTime >= vars.waitTime && !vars.CompletedMissions.Contains(current.lastCompletedMission)
+    && vars.Missions.ContainsKey(current.lastCompletedMission) && settings[vars.Missions[current.lastCompletedMission].Item1] && current.currentMission == 0x0 && current.loading == 1)
+    {
+        print("splits on mission: " + vars.Missions[current.lastCompletedMission].Item1);
+        vars.CompletedMissions.Add(current.lastCompletedMission); // prevents double splits
+        vars.stopwatch.Restart(); //prevents double splits
+        return true;
+    }
+    
+    */
     
 }
 

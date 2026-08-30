@@ -1,6 +1,6 @@
 /* Auto Splitter for Assassin's Creed II
 * Made by: @TpRedNinja
-* Auto Splitter Version: 2.0.1 
+* Auto Splitter Version: 2.0.2 
 */
 state("AssassinsCreedIIGame", "Legit")
 {
@@ -26,7 +26,7 @@ state("AssassinsCreedIIGame", "Pirate")
 
 startup
 {
-    vars.AutoSplitterVersion = "2.0.1"; // version variable
+    vars.AutoSplitterVersion = "2.0.2"; // version variable
     timer.Run.Metadata.SetCustomVariable("Auto Splitter Version", vars.AutoSplitterVersion);
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = null;
@@ -199,7 +199,7 @@ init
     vars.missionIsConfigured = false;
     vars.missionSplitIsEnabled = false;
     vars.gameIsReady = false;
-    vars.SplitTime = 0;
+    vars.SplitTime = null;
 }
 
 update
@@ -282,6 +282,7 @@ split
         vars.stopwatch.Restart();
         return true;
     }
+    // old in case the new doesnt work
     if ((current.lastCompletedMission != old.lastCompletedMission || current.lastCompletedMission == old.lastCompletedMission) && vars.SplitTime >= vars.waitTime && !vars.CompletedMissions.Contains(current.lastCompletedMission)
     && vars.Missions.ContainsKey(current.lastCompletedMission) && settings[vars.Missions[current.lastCompletedMission].Item1] && current.currentMission == 0x0 && current.loading == 1)
     {

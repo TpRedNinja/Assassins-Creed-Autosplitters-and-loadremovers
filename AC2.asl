@@ -1,22 +1,166 @@
+/* Auto Splitter for Assassin's Creed II
+* Made by: @TpRedNinja
+* Auto Splitter Version: 2.0.0 
+*/
 state("AssassinsCreedIIGame", "Legit")
 {
     int percentage : 0x01E3DBE4, 0x2D0;
     int money : 0x1E134B4, 0x24, 0x34;
+    uint lastCompletedMission : 0x01E110E4, 0x0, 0x28;
+    int CodexPages : 0x01E134BC, 0xF0, 0x0;
+    int Feathers : 0x01E134BC, 0xF0, 0x4;
+    int loading : 0x1C8C448; // 0 for loading & main menu 1 every where fucking else
+    uint currentMission : 0x01E3DBE4, 0x158, 0x0, 0x2C, 0xC;
 }
 
 state("AssassinsCreedIIGame", "Pirate")
 {
     int percentage : 0x01E14D1C, 0x2D0;
     int money : 0x1E3C588, 0x24, 0x34;
-    float IGT : 0x1E4A2E4, 0x30;
+    uint lastCompletedMission : 0x01E1297C, 0x0, 0x28;
+    int CodexPages : 0x1E3C590, 0xF0, 0x0;
+    int Feathers : 0x1E3C590, 0xF0, 0x4;
+    int loading : 0x1C8ACF8; // 0 for loading and main menu 1 every where fucking else
+    uint currentMission : 0x01E14D1C, 0x94, 0xC0, 0x0, 0x2C, 0xC;
 }
 
 startup
 {
+    vars.AutoSplitterVersion = "2.0.0"; // version variable
+    timer.Run.Metadata.SetCustomVariable("Auto Splitter Version", vars.AutoSplitterVersion);
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = null;
     vars.IsStopwatchStop = false;
-    vars.version = "";
+    vars.Sequence = new Dictionary<float, string>
+    {
+        {0.5f, "Present Day 1"}, {1f, "Sequence 1: Ignorance Is Bliss"}, {2f, "Sequence 2: Escape Plans"},
+        {3f, "Sequence 3: Requiescat in Pace"}, {4f, "Sequence 4: The Pazzi Conspiracy"}, {5f, "Sequence 5: Loose Ends"},
+        {6f, "Sequence 6: Rocky Road"}, {6.5f, "Present Day 2"}, {7f, "Sequence 7: The Merchant of Venice"},
+        {8f, "Sequence 8: Necessity, Mother of Invention"}, {9f, "Sequence 9: Carnevale"}, {10f, "Sequence 10: Force Majeure"},
+        {11f, "Sequence 11: Alter Egos"}, {12f, "Sequence 12: Battle of Florli"}, {13f, "Sequence 13: Bonfire of the Vanities"},
+        {14f, "Sequence 14: Veni, Vidi, Vici"}, {14.5f, "Present Day 3"}
+    };
+    vars.Missions = new Dictionary<uint, Tuple<string, float>>
+    {
+        //present day 1
+        {0x6697F883, Tuple.Create("Escaping Abstergo", 0.5f)}, {0x9C1E07D6, Tuple.Create("Animus 2.0", 0.5f)},
+        // Sequence 1 Ignorance Is Bliss
+        {0x385B98EB, Tuple.Create("Boys Will Be Boys", 1f)}, {0x3904C2E5, Tuple.Create("You Should See the Other Guy", 1f)}, 
+        {0x3904EBE9, Tuple.Create("Sibling Rivalary", 1f)}, {0x3904EBEC, Tuple.Create("Nightcap", 1f)}, 
+        {0x3904EBEF, Tuple.Create("Paperboy", 1f)}, {0x3904EBF2, Tuple.Create("Beat a Cheat", 1f)}, 
+        {0x3904EBF5, Tuple.Create("Petruccio's Secret", 1f)}, {0x3904EC40, Tuple.Create("Friend of the Family", 1f)}, 
+        {0x3904EC44, Tuple.Create("Special Delivery", 1f)}, {0x3904EC47, Tuple.Create("JailBird", 1f)}, 
+        {0x3904EC4A, Tuple.Create("Family Heirloom", 1f)}, {0x3904EC4D, Tuple.Create("Last Man Standing", 1f)},
+        // Sequence 2 Escape Plans
+        {0x397E179F, Tuple.Create("Fitting In", 2f)}, {0x39E0A28D, Tuple.Create("Ace Up My Sleeve", 2f)}, 
+        {0x39E0A28A, Tuple.Create("Judge, Jury, Executioner", 2f)}, {0x39E0A287, Tuple.Create("Laying Low", 2f)}, 
+        {0x39E0A284, Tuple.Create("Arrivederci", 2f)},
+        // Sequence 3 Requiescat in Pace
+        {0x53E662CA, Tuple.Create("RoadSide Assistance", 3f)}, {0x53E662E4, Tuple.Create("Casa Dolce Casa", 3f)}, 
+        {0x53E662E7, Tuple.Create("Practice Makes Perfect", 3f)}, {0x53E662EA, Tuple.Create("What Goes Around", 3f)}, 
+        {0x53E662ED, Tuple.Create("A Change of Plans", 3f)},
+        // Sequence 4 The Pazzi Conspiracy
+        {0x38EA7247, Tuple.Create("Practice What You Preach", 4f)}, {0x38EA724A, Tuple.Create("Fox Hunt", 4f)}, 
+        {0x38EA724D, Tuple.Create("See You There", 4f)}, {0x4549D89D, Tuple.Create("Novella's Secret", 4f)}, 
+        {0x38EA7253, Tuple.Create("Wolves in Sheep's Clothing", 4f)}, {0x38EA7256, Tuple.Create("Farewell Francesco", 4f)},
+        // Sequence 5 Loose Ends
+        {0x44F3E3CF, Tuple.Create("Lorenzo's Reward", 5f)}, {0x900AFDA9, Tuple.Create("A Blade with Bite", 5f)}, 
+        {0x44F3E3D2, Tuple.Create("Evasive Maneuvers", 5f)}, {0x44F3E3D5, Tuple.Create("Town Crier", 5f)}, 
+        {0x44F3E3D8, Tuple.Create("Come Out and Play", 5f)}, {0x044F3E3DB, Tuple.Create("The Cowl Does Not Make the Monk", 5f)},
+        {0x44F3E3DE, Tuple.Create("Behind Closed Doors", 5f)}, {0x44F3E3E1, Tuple.Create("With Friends Like These", 5f)},
+        // Sequence 6 Rocky Road
+        {0x45112AA2, Tuple.Create("Road Trip", 6f)}, {0x53AC7948, Tuple.Create("Romagna Holiday", 6f)}, 
+        {0x45112AA8, Tuple.Create("Tutti a Bordo", 6f)}, {0x8A3E691C, Tuple.Create("Alt end", 6f)},
+        // Present Day 2
+        {0xB5E0167E, Tuple.Create("Interlude?", 6.5f)}, {0x56FC8626, Tuple.Create("Warehouse", 6.5f)}, 
+        {0x6799E8DE, Tuple.Create("Altair", 6.5f)},
+        // Sequence 7 The Merchant of Venice
+        {0x0E553CCF, Tuple.Create("Benvenuto", 7f)}, {0x1594A6F1, Tuple.Create("That's Gonna Leave a Mark", 7f)}, 
+        {0x1CA10BB1, Tuple.Create("Building Blocks", 7f)}, {0xFBED01F, Tuple.Create("Breakout", 7f)},
+        {0x16C116C9, Tuple.Create("Clothes Make the Man", 7f)}, {0x15DF90C1, Tuple.Create("Cleaning House", 7f)},
+        {0x15B3D7A0, Tuple.Create("Monkey See, Monkey Do", 7f)}, {0x161B79EE, Tuple.Create("By Leaps and Bounds", 7f)}, 
+        {0xDB13BF3, Tuple.Create("Everything Must Go", 7f)},
+        // Sequence 8 Necessity, Mother of Invention
+        {0x44C119BD, Tuple.Create("Birds of a Feather", 8f)}, {0x44C119C6, Tuple.Create("If at first you don't succeed", 8f)}, 
+        {0x44C119C3, Tuple.Create("Nothing ventured, nothing gained", 8f)}, {0x44C119C0, Tuple.Create("Well begun is half done", 8f)}, 
+        {0x44C119C9, Tuple.Create("Infrequent flier", 8f)},
+        // Sequence 9 Carnevale
+        {0x635BC901, Tuple.Create("Knowledge is power", 9f)}, {0x635BC904, Tuple.Create("Damsels in distress", 9f)}, 
+        {0x635BC907, Tuple.Create("Nun the wiser", 9f)}, {0x635BC90A, Tuple.Create("And they're off", 9f)},
+        {0x635BC913, Tuple.Create("CTF-Capture the Flag", 9f)},  {0x635BC910, Tuple.Create("Ribbon round-up", 9f)}, 
+        {0x635BC90D, Tuple.Create("Cheaters never prosper", 9f)}, {0x635BC916, Tuple.Create("Having a blast", 9f)},
+        // Sequence 10 Force Majeure
+        {0x635BC9A6, Tuple.Create("An unpleasant turn of events", 10f)}, {0x635BC9A9, Tuple.Create("Caged fighter", 10f)}, 
+        {0x635BC9AC, Tuple.Create("Leave no man behind", 10f)}, {0x635BC9AF, Tuple.Create("Assume the position", 10f)},
+        {0x635BC9B2, Tuple.Create("Two birds, one blade", 10f)},  
+        // Sequence 11 Alter Egos
+        {0x63904392, Tuple.Create("All things come to he who waits", 11f)}, {0x63904398, Tuple.Create("Play along", 11f)},
+        // Sequence 12 Battle of Florli
+        {0x9AF3C2C1, Tuple.Create("A warm welcome", 12f)}, {0x9AF3C2C4, Tuple.Create("Bodyguard", 12f)},
+        {0x9AF3C2C7, Tuple.Create("Holding the fort", 12f)}, {0x9AF3C2CA, Tuple.Create("Godfather", 12f)},
+        {0x9AF3C2CD, Tuple.Create("Checcomate", 12f)}, {0xABB3E6A6, Tuple.Create("Far from the tree", 12f)},
+        // Sequence 13 Bonfire of the Vanities
+        {0x0D4A26D0, Tuple.Create("Florentine fiasco", 13f)}, {0x0D4A2712, Tuple.Create("Still life", 13f)}, // missions 1 & 2
+        {0x0D4A274F, Tuple.Create("Climbing the ranks", 13f)}, {0x0D4A2785, Tuple.Create("Upward mobility", 13f)}, // missions 3 & 4
+        {0x0D4A27BE, Tuple.Create("Last rites", 13f)}, {0x0D4A27E8, Tuple.Create("Port authority", 13f)}, //missions 5 & 6
+        {0x0D4A280F, Tuple.Create("Surgical strike", 13f)}, {0x0D4A2851, Tuple.Create("Hitting the hay", 13f)}, // Missions 7 & 8
+        {0x0D4A2889, Tuple.Create("Arch nemesis", 13f)}, {0x0D4A28CF, Tuple.Create("Doomsday", 13f)}, // missions 9 & 10
+        {0x0D4A291C, Tuple.Create("Power to the people", 13f)}, {0x0D4A2942, Tuple.Create("Mob Justice", 13f)}, // missions 11 & 12
+        // Sequence 14 Veni, Vidi, Vici
+        {0x2532C038, Tuple.Create("X marks the spot", 14f)}, {0xD2365A19, Tuple.Create("In bocca al lupo", 14f)}, 
+        {0x54D6A2BE, Tuple.Create("Minerva Cutscene", 14f)},
+        // Present Day 3
+        {0x40F4541F, Tuple.Create("Leaving the Assassin hideout", 14.5f)}, 
+        // extras: Tuple.Create(0x0, "", 0f),
+    };
+    settings.Add("Splits", false, "Any% Splits");
+    settings.SetToolTip("Splits", "Contains all missions you can split on for Any%.");
+    settings.Add("100%", false, "100%/DNA% Splits");
+    settings.Add("Money", false, "Money Splits", "100%");
+    settings.SetToolTip("Money", "This will split after getting money from chests");
+    settings.Add("CodexPages", false, "Codex Pages Splits", "100%");
+    settings.SetToolTip("CodexPages", "This will split after collecting codex pages");
+    settings.Add("Feathers", false, "Feather Splits", "100%");
+    settings.SetToolTip("Feathers", "This will split after collecting a feather");
+    for(float i = 0.5f; i <= 14.5f; i += 0.5f)
+    {
+        if(!vars.Sequence.ContainsKey(i))
+        {
+            continue;
+        }
+        string sequenceName = vars.Sequence[i];
+        settings.Add(sequenceName, false, sequenceName, "Splits");
+        settings.SetToolTip(sequenceName, "Contains all splits for " + sequenceName + ".");
+        foreach (var mission in vars.Missions)
+        {
+            var sequence = mission.Value.Item2;
+            string missionName = mission.Value.Item1;
+            if (sequence == i)
+            {
+                if (missionName == "Interlude?"){continue;}
+                settings.Add(missionName, false, missionName, sequenceName);
+                switch (missionName)
+                {
+                    case "Escaping Abstergo":
+                        settings.SetToolTip(missionName, "This will split after " + missionName + ".");
+                        break;
+                    case "Animus 2.0":
+                        settings.SetToolTip(missionName, "This will split after interacting with " + missionName + ".");
+                        break;
+                    case "Warehouse":
+                    case "Altair":
+                        settings.SetToolTip(missionName, "This will split after completing " + missionName + "segment of the modern day.");
+                        break;
+                    case "Minerva Cutscene":
+                        settings.SetToolTip(missionName, "This will split after sitting through the " + missionName + ".");
+                        break;
+                    default:
+                        settings.SetToolTip(missionName, "This will split after completing '" + missionName + "'.");
+                        break;
+                }
+            }
+        }
+    }
 }
 
 init
@@ -32,35 +176,41 @@ init
         case (35053568):
             print("Game Version: Pirate");
             version = "Pirate";
-            vars.version = version;
             break;
         case (35192832):
             print("Game Version: Legit");
             version = "Legit";
-            vars.version = version;
             break;
     }
     vars.GameTime = 0;
-    vars.waitTune = 5;
-    if (vars.IsStopwatchStop == true)
+    vars.waitTime = 5;
+    if (vars.IsStopwatchStop == true && timer.CurrentPhase == TimerPhase.Running)
     {
         vars.stopwatch.Start();
         vars.IsStopwatchStop = false; 
     }
+    vars.CompletedMissions = new List<uint>();
 }
 
 update
 {
-    /*vars.GameTime += (int)(Math.Abs(old.IGT - current.IGT));
-    string formattedGameTime = TimeSpan.FromSeconds(vars.GameTime).ToString(@"hh\:mm\:ss\.fff");*/
-    //timer.Run.Metadata.SetCustomVariable("game time", current.IGT);
     vars.SplitTime = (int)vars.stopwatch.Elapsed.TotalSeconds;
-    if (timer.CurrentPhase == TimerPhase.Paused)
+    current.timerPhase = timer.CurrentPhase;
+    if (current.timerPhase.ToString() == "Paused")
     {
         vars.stopwatch.Stop();
-    } else if (timer.CurrentPhase == TimerPhase.Running)
+    } else if (current.timerPhase.ToString() == "Running")
     {
         vars.stopwatch.Start();
+    }
+
+    if (vars.Missions.ContainsKey(current.currentMission))
+    {
+        timer.Run.Metadata.SetCustomVariable("CurrentMission", vars.Missions[current.currentMission].Item1);
+    }
+    if (vars.Missions.ContainsKey(current.lastCompletedMission))
+    {
+        timer.Run.Metadata.SetCustomVariable("Mission", vars.Missions[current.lastCompletedMission].Item1);
     }
 }
 
@@ -72,37 +222,58 @@ onStart
 split
 {
     // for normal splits
-    if (current.percentage > old.percentage && vars.SplitTime >= vars.waitTune)
+    // only split if the mission is completed and the mission is in the list of missions to split on
+    if (current.lastCompletedMission != old.lastCompletedMission && vars.SplitTime >= vars.waitTime && !vars.CompletedMissions.Contains(current.lastCompletedMission)
+    && vars.Missions.ContainsKey(current.lastCompletedMission) && settings[vars.Missions[current.lastCompletedMission].Item1] && current.currentMission == 0x0 && current.loading == 1)
+    {
+        print("splits on mission: " + vars.Missions[current.lastCompletedMission].Item1);
+        vars.CompletedMissions.Add(current.lastCompletedMission); // prevents double splits
+        vars.stopwatch.Restart(); //prevents double splits
+        return true;
+    }
+    
+    // 100%/DNA% splits
+    // for splits such as chests and side missions and mission that dont increase the percentage by 1 in general
+    for (int i = 0; i < vars.PickPocketMoney.Count; i++)
+    {
+        if(current.money > old.money && current.percentage == old.percentage && !vars.PickPocketMoney.Contains(Math.Abs(current.money-old.money)) 
+        && settings["Money"] && vars.SplitTime >= vars.waitTime && (old.money != 0 || current.money != null) && current.loading == 1)
+        {
+            print("splits on money");
+            vars.stopwatch.Restart(); //prevents double splits
+            return true;
+        }
+    }
+    if (settings["CodexPages"] && current.CodePages > old.CodePages && vars.SplitTime >= vars.waitTime && current.loading == 1)
+    {
+        print("splits on codex pages");
+        vars.stopwatch.Restart(); //prevents double splits
+        return true;
+    }
+    if (settings["Feathers"] && current.Feathers > old.Feathers && vars.SplitTime >= vars.waitTime && current.loading == 1)
+    {
+        print("splits on feathers");
+        vars.stopwatch.Restart(); //prevents double splits
+        return true;
+    }
+
+    // no longer needed but keeping just in case
+    /*if (current.percentage > old.percentage && vars.SplitTime >= vars.waitTime && current.loading != 0)
     {
         print("Split Time: " + vars.SplitTime.ToString() + "Split 1");
         vars.stopwatch.Restart();
         return true;
-    }
-
-    // for splits such as chests and side missions and mission that dont increase the percentage by 1 in general
-    for (int i = 0; i < vars.PickPocketMoney.Count; i++)
-    {
-        if(current.money > old.money && current.percentage == old.percentage && !vars.PickPocketMoney.Contains(current.money-old.money) && vars.SplitTime >= vars.waitTune)
-        {
-            print("Split Time: " + vars.SplitTime.ToString() + "Split 2");
-            vars.stopwatch.Restart();
-            return true;
-        }
-    }
+    }*/
     
 }
 
 isLoading 
 {
-    return true;
+    return current.loading == 0;
 }
 
-gameTime
+onReset
 {
-    if(vars.version == "Pirate")
-    {
-        /*vars.GameTime += (int)(Math.Abs(old.IGT - current.IGT));
-        return TimeSpan.FromSeconds(vars.GameTime);*/
-        return TimeSpan.FromSeconds(current.IGT);
-    }
+    vars.CompletedMissions.Clear();
+    vars.stopwatch.Reset();
 }

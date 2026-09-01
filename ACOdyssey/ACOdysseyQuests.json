@@ -1,0 +1,894 @@
+{
+  "Main Game": {
+    "Main Story": {
+      "Meta-Quest": [[1437553592598,[1563130304618],"Odyssey","Odyssey"]],
+      "Prologue: This is Sparta!": [[1435323561268,[],"E00_Q100 - Battle of the 300","Battle of 300"]],
+      "Episode 1: An Odyssey in the Making": {
+        "Chapters": [
+          [1661007085058,[1410850692356],"E01_Q003 - Epic Get Your Money Back","Another Day, Another Drachma"],
+          [1530519176849,[1411126604928],"E01_Q001 - Epic Cyclops","A Debt To Pay"]
+        ],
+        "Main Quests": [
+          [1410596949352,[],"E01_Q100_Something Begins","So It Begins"],
+          [1410850692356,[],"E01_Q110_Debt Collector","Debt Collector"],
+          [1448755192530,[],"E01_Q112_Got Your Eye On Me","An Eye for an Eye"],
+          [1449696091079,[],"E01_Q113_Fancy Guests","Fancy Guests"],
+          [1410597131236,[],"E01_Q120_Eye Of The Serpent","Penelope's Shroud"],
+          [1411126604928,[],"E01_Q130_The Big Break","The Big Break"]
+        ],
+        "Side Quests": [
+          [1415581120828,[],"E01_Q111_Lumbering Along","Lumbering Along"],
+          [1640511321258,[],"E01_Q115 - Talos the Stone-Fist","A Fight with Talos"]
+        ]
+      },
+      "Episode 2: Past Mistakes": {
+        "Chapters": [[1530519200081,[1413844032741],"E01_Q002 - Epic Find the Wolf","The Wolf Hunt"]],
+        "Main Quests": [
+          [1470691159045,[],"BARN_Q110_GatherResources","Learning the Ropes"],
+          [1631741125805,[],"BARN_Q210 - Recruit Crew Member","Equal Employment Opportunity Program"],
+          [1411798947754,[],"E02_Q100_GetToMegaris","A Journey into War"],
+          [1652584508214,[],"E02_Q113 - Region Leader","The Athenian Leader"],
+          [1413843728394,[],"E02_Q140_TheBigBattle","The Final Push"],
+          [1413844032741,[],"E02_Q150_ConfrontNikolaos","The Wolf of Sparta"]
+        ],
+        "Side Quests": [
+          [1411799332491,[],"E02_Q110_KillMercenaries","Hunting Hyrkanos"],
+          [1652584523172,[],"E02_Q114 - Nation Treasure","The Athenian Treasure Trove"],
+          [1652584544112,[],"E02_Q115 - Supply Crates","Crumble and Burn"],
+          [1652584659020,[],"E02_Q116 - Athenians","One Man Army"],
+          [1411730541336,[],"E02_Q120_MissingMap","The Missing Map"],
+          [1413426314884,[],"E02_Q130_PortionControl","Portion Control"]
+        ]
+      },
+      "Episode 3: Evil Unearthed": {
+        "Chapters": [
+          [1530518540874,[1412407205627],"E02_Q002 - Epic Kill your Father","The Wolf and the Snake"],
+          [1527274209543,[1464653316557],"E03_Q001 - Consult the Oracle","Of Visions and Visionaries"],
+          [1527274238318,[1400788238679],"E03_Q003 - Infiltrate Cult Meeting","Beware the Snakes"]
+        ],
+        "Main Quests": [
+          [1643401489107,[],"E03_Q099 - Barnabas to Phocis","Onwards to Phokis"],
+          [1412407205627,[],"E03_Q100_NikolaosFate","The Wolf's Fate"],
+          [1525086156768,[],"E03_Q110 - Hunt Elpenor","Snake in the Grass"],
+          [1464565432634,[],"E03_Q111_ConsultingWithAGhost","Consulting a Ghost"],
+          [1464653316557,[],"E03_Q121 - TheTruthWillOut","The Truth Will Out"],
+          [1400788238679,[],"E03_Q130_DarkSymposium","The Serpent's Lair"]
+        ]
+      },
+      "Episode 4: The Bright Minds": {
+        "Chapters": [
+          [1674911502432,[1544764167663],"E04_Q001 - Herodotos Priority","An Old Enemy and a New Ally"],
+          [1505260471533,[1274756218514],"E04_Q110 - Gain Pericles Trust","The Road to the Symposium"]
+        ],
+        "Main Quests": [
+          [1544764167663,[],"E04_Q090_The Forge","Memories Awoken"],
+          [1527259683235,[],"PDAY_Q200-LaylaLoft","London Hideout (Layla)"],
+          [1413804936154,[],"E04_Q100_Arrived in Athens","Welcome to Athens"],
+          [1402825675038,[],"E04_Q200 - Escape From Athens","Escape from Athens"],
+          [1400340475124,[],"E04_Q301 - Ostracized","Ostracized"],
+          [1615681309742,[],"E04_Q315 - A Venomous Encounter","A Venomous Encounter"],
+          [1274756218514,[],"E04_Q400_Symposium","Perikles's Symposium"],
+          [1646802917868,[],"E04_Q410 - Drinking competition","Drink Up"],
+          [1647537594431,[],"E04_Q420 - Oil and Love","Oil and Love"]
+        ]
+      },
+      "Episode 5: From the Ashes": {
+        "Chapters": [
+          [1566735481512,[1247549599660],"E05_Q001 - Ladies of the Night","Land of the Lawless"],
+          [1597873096264,[1177100187433],"E05_Q040_ArgolisChapter","A Prescription for Discovery"],
+          [1236452616547,[1567847857256],"E05_Q300_XeniaMetaQuest","Pirate Hospitality"]
+        ],
+        "Main Quests": [
+          [1330657963559,[],"E05_Q050_Primum_Non_Nocere","First Do No Harm"],
+          [1330658137739,[],"E05_Q080_OldDogNewTricks","The Doctor Will See You Now"],
+          [1602578999662,[],"E05_Q082_PriestsofAsklepios","The Priests of Asklepios"],
+          [1177100042982,[],"E05_Q110_ThePriestAndTheAltar","A Heart for a Head"],
+          [1638102605370,[],"E05_Q115 - The Priest and the Altar Part 2","Speak No Evil"],
+          [1177100187433,[],"E05_Q120_ConfrontingChrysis","Ashes to Ashes"],
+          [1019430536134,[],"E05_Q200_ToFindAGirl","To Find a Girl"],
+          [1019430755940,[],"E05_Q210_ToFindAGirl_Part2","To Help a Girl"],
+          [1275052301412,[],"E05_Q232_FollowThatBoat","Follow That Boat"],
+          [1570301704594,[],"E05_Q260 - Port of Lawlessness","Port of Lawlessness"],
+          [1247549599660,[],"E05_Q250_MongerDown","Monger Down"],
+          [1567847857256,[],"E05_Q305 - Xenia the Pirate","Island of Misfortune"]
+        ],
+        "Side Quests": [
+          [1582019249558,[],"E05_Q081-ALongTimeAgo","A Herald of Murder"],
+          [1573435797526,[],"E05_Q111_RedHerring","Enough Is Enough"],
+          [1573435859673,[],"E05_Q112_TombstoneLore","Written in Stone"]
+        ]
+      },
+      "Episode 6: Democracy Falls": {
+        "Chapters": [[1531791540814,[1424184067427],"E06_Q001 - Epic Quest","Rising from the Ashes"]],
+        "Main Quests": [
+          [1415026699528,[],"E06_Q100_HardTimes","Abandoned By the Gods"],
+          [1452107054017,[],"E06_Q350 - And the streets run red","And the Streets Run Red"],
+          [1424184067427,[],"E06_Q400 - Everything Dies In The End","Athens's Last Hope"]
+        ],
+        "Side Quests": [[1422386295861,[],"E06_Q300 - Hippocrates Request","A Growing Sickness"]]
+      },
+      "Episode 7: Legend in the Making": {
+        "Chapters": [
+          [1674911518774,[1444569908444],"E07_Q005 - The Reunion","The Reunion"],
+          [1550217967203,[1424607585259],"E07_Q004 - Secure Naxos","Paradise Lost"],
+          [
+            1516351195750,
+            [1512472010876],
+            "E07_Q002 - Epic Meet Myrinne in Sparta",
+            "Home Is Where My Mother Is"
+          ],
+          [1515062273005,[1513553916403,1513766108342],"E07_Q001 - Gain Citizenship","A Place to Call Home"],
+          [1515419274470,[1544443558432],"E07_Q605 - Win the Olympics","The Olympian"],
+          [1547342037470,[1414558239238],"E07_Q201 - Epic Kill Lagos","The Cult and the Archon"],
+          [
+            1513462453071,
+            [1513524513879,1514540102417,1514985203550,1563441613233,1563442518856],
+            "E07_Q550 - Securing Boeotia",
+            "Paint It Red"
+          ],
+          [1516474957160,[1513553916403],"E07_Q003 - The Cultist King","The Cultist King"]
+        ],
+        "Main Quests": [
+          [1412289726714,[],"E07_Q100 - A Mother's Prayers","A Mother's Prayers"],
+          [1444569908444,[],"E07_Q111 - Catching Up","Catching Up"],
+          [1470817398052,[],"E07_Q131 - Rescue OP","Quarry Quandary"],
+          [1424606977282,[],"E07_Q140 - Death and Disorder","Death and Disorder"],
+          [1414358567323,[],"E07_Q110 - You Shall Not Pass","The Paros Blockade"],
+          [1424607585259,[],"E07_Q150 - Unified Front","Unified Front"],
+          [1501112184336,[],"E07_Q400 - Home Sweet Home","Home Sweet Home"],
+          [1512472010876,[],"E07_Q421 - The Kings of Sparta","Kings of Sparta"],
+          [1409290394087,[],"E07_Q200 - To kill or not to kill","To Kill or Not to Kill"],
+          [1414558239238,[],"E07_Q240 - Judge Jury Executioner","Judge, Jury, Executioner"],
+          [1513524513879,[],"E07_Q500 - When Heroes fall","The Conqueror"],
+          [1514540102417,[],"E07_Q510 - Perseus","The Last Fight of Aristaios"],
+          [1514985203550,[],"E07_Q520 - Orion","The Last Hunt of Nesaia"],
+          [1563441613233,[],"E07_Q525 - Find and Kill Damara","The Fall of Deianeira"],
+          [1563442518856,[],"E07_Q535 - Find and Kill Drakon","The End of Drakon"],
+          [1513534919174,[],"E07_Q600-DeliveringaChampion","Delivering a Champion"],
+          [1619782269961,[],"E07_Q611_TheLongGame","The Long Game"],
+          [1509638589014,[],"E07_Q620 - Pankration","The Contender"],
+          [1544443558432,[],"E07_Q625 - Pankration Part 2","Pankration"],
+          [1515538421538,[],"E07_Q700 - A Bloody Feast","A Bloody Feast"],
+          [1513553916403,[],"E07_Q900_BattleOfPylos","The Battle of Pylos"]
+        ],
+        "Side Quests": [
+          [1414358891025,[],"E07_Q120 - P For Propaganda","The Writing's on the Wall"],
+          [1561904892407,[],"E07_Q125 - Lower Paros Ressources","Going Down"],
+          [1514727310559,[],"E07_Q410 - Path to Redemption","One Bad Spartan Spoils the Bunch"],
+          [1489668882833,[],"E07_Q420 - Bully the bullies","Bully the Bullies"],
+          [1513766108342,[],"E07_Q422 - A Legendary Hunt","A Legendary Hunt"],
+          [1452969145722,[],"E07_Q211 - Silo to My Little Friend","Fourth-Degree Burns"],
+          [1414360429739,[],"E07_Q221 - Where there is smoke","Breaking Bread"],
+          [1461946282405,[],"E07_Q231 - White Lies Blackmail","White Lies and Blackmail"],
+          [1463763128955,[],"E07_Q241 - Gluten free","Gluten Free"],
+          [1515151148014,[],"BOEO_Q110 - Brother Vengeance","Sibling Revenge"],
+          [1515400057318,[],"BOEO_Q200 - Brewing Love","Brewing Love"],
+          [1516548725249,[],"BOEO_Q210 - The Stolen Steed","The Stolen Steed"]
+        ]
+      },
+      "Episode 8: Taking Back Athens": {
+        "Chapters": [
+          [1674911577546,[1528299211130],"E08_Q001 - Uprising","Uprising"],
+          [1531791986156,[1531602459424],"E08_Q001 - Epic Quest","Public Opinion"],
+          [1677738010061,[1514828668279],"E08_Q002 - Chapter BoA","Battle of Amphipolis"]
+        ],
+        "Main Quests": [
+          [1531592839454,[],"E08_Q100 - Prison Break","Doing Time"],
+          [1528299211130,[],"E08_Q200 - Meet at Pericles Mansion","The Resistance"],
+          [1528309371893,[],"E08_Q400 - An Actors Life For Me","An Actor's Life for Me"],
+          [1532112322652,[],"E08_Q410 - A-musing Tale","A-Musing Tale"],
+          [1530241636984,[],"E08_Q300 - Unearthing the Truth","Unearthing the Truth"],
+          [1531602459424,[],"E08_Q500 - Here we go again","The Knights"],
+          [1514828668279,[],"E08_Q900 - Battle of Amphipolis","We Will Rise"]
+        ]
+      },
+      "Episode 9 & Epilogue: Odyssey's End": {
+        "Chapters": [[1563130304618,[1643758212023],"E09_Q001 Epic Return Home","Homecoming"]],
+        "Main Quests": [
+          [1509535003153,[],"E09_Q100 - Where it all began","Where It All Began"],
+          [1643758212023,[],"E10_Q100 - Dinner in Sparta","Dinner in Sparta"]
+        ],
+        "Side Quests": [[1640891698348,[],"E10_Q200 - We Remember","We Remember"]]
+      }
+    },
+    "Between Two Worlds (Atlantis)": {
+      "Meta-Quest": [[1548363550927,[1529078678643],"META_SealAtlantis","Between Two Worlds"]],
+      "Chapters": [
+        [1638103214508,[1529078678643],"PYTH_Q205 - Atlantis Chapter","The Gates of Atlantis"],
+        [1683406695216,[1534939957382],"EMPE_Q000","Tunnel Vision"],
+        [1663882534240,[1526515633838],"MEDU_Q000","Shadows of Serpents"],
+        [1643847998051,[1531135014669],"MINO_Q000","A Place of Twists and Turns"],
+        [1668727731278,[1531446249661],"SPHY_Q100 - Sphynx Chapter","The Last Riddle"]
+      ],
+      "Main Quests": [
+        [1528802619130,[],"PYTH_Q100 - Family Legacy","A Family's Legacy"],
+        [1666617536062,[],"PDAY_Q250 - LeavingLoft","Leaving Hideout (Layla)"],
+        [1527259696020,[],"PDAY_Q300-Atlantis","Underwater Dive (Layla)"],
+        [1532729151529,[],"PYTH_Q200_BringTheKeys","The Gates of Atlantis"],
+        [1531910465513,[],"PYTH_Q900_KeyToTheSphinx","Lore of the Sphinx"],
+        [1531446249661,[],"PYTH_Q910_SphynxBossFight","Awaken the Myth"],
+        [1514774060573,[],"EMPE_Q100","A God Among Men"],
+        [1422050220770,[],"EMPE_Q110","Left to Dye"],
+        [1534939957382,[],"EMPE_Q120","Stairway to Olympos"],
+        [1506978575033,[],"MEDU_Q100","Romancing the Stone Garden"],
+        [1526764359467,[],"MEDU_Q110","Love's Long Shadow"],
+        [1651844496884,[],"MEDU_Q115","Keys to Happiness?"],
+        [1529491951614,[],"MEDU_Q120","Hard to Artemis"],
+        [1526515633838,[],"MEDU_Q130","Writhing Dead"],
+        [1643848083246,[],"MINO_Q050","Myths and Minotaurs"],
+        [1524320865008,[],"MINO_Q100","Of Minotaurs and Men"],
+        [1645319656014,[],"MINO_Q105","Seeking Answers"],
+        [1527932552325,[],"MINO_Q120","Full Circle"],
+        [1531134917682,[],"MINO_Q130","Recollections"],
+        [1531135014669,[],"MINO_Q140","He Waits"],
+        [1529078678643,[],"PYTH_Q210_Revelation","Ancient Revelations"],
+        [1527259707399,[],"PDAY_Q400-OpenSesame","Seal Atlantis (Layla)"],
+        [1645056632825,[],"E10_Q400 - Atlantis Destroyed","Atlantis Destroyed"]
+      ]
+    },
+    "The Cult of Kosmos": {
+      "Meta-Quest": [[1385264412525,[1677495285469],"META_Q200_EliminateTheOrder","Hunt the Cult of Kosmos"]],
+      "Clusters": [
+        [1677495285469,[1645491713886],"ORDE_Q901 - Kill Clusters Epic","From the Shadows"],
+        [1677495285709,[],"ORDE_Q910 - Kill Hero of the Cult Cluster","The Heroes of the Cult"],
+        [1677495285733,[],"ORDE_Q920 - Kill Gods of Aegea Sea Cluster","The Gods of the Aegean Sea"],
+        [
+          1677495285973,
+          [],
+          "ORDE_Q930 - Kill Worshippers of the Bloodline Cluster",
+          "The Worshippers of the Bloodline"
+        ],
+        [1677495286213,[],"ORDE_Q940 - Kill Peloponnesian League Cluster","The Peloponnesian League"],
+        [1677495286453,[],"ORDE_Q950 - Kill Delian League Cluster","The Delian League"],
+        [1677495286693,[],"ORDE_Q960 - Kill Silver Vein Cluster","The Silver Vein"],
+        [1677495286933,[],"ORDE_Q970 - Kill Eyes of Kosmos Cluster","The Eyes of Kosmos"]
+      ],
+      "Main Quests": {
+        "Aspasia": [[1645491713886,[],"E10_Q300 - A Fresh Start","A Fresh Start"]],
+        "Diona": [
+          [1412199097358,[],"ERIT_Q100","I, Diona"],
+          [1514439231823,[],"KYTH_Q001","Place in the Kosmos"],
+          [1398558101259,[],"KYTH_Q200","All Bonds Will Break"],
+          [1413243652754,[],"KYTH_Q300","Atoll Order"],
+          [1413243666169,[],"KYTH_Q400","Pick Your Poison"],
+          [1518244165819,[],"KYTH_Q600","The Handmaiden's Story"],
+          [1653437141604,[],"KYTH_Q002","In a Rush"],
+          [1412934650727,[],"ERIT_Q110","By the Fates"]
+        ],
+        "Drakios": [
+          [1609790227466,[],"DRAK_Q100","Call to Arms (Melos)"],
+          [1609790587056,[],"DRAK_Q110","The Great Contender"],
+          [1628281612994,[],"DRAK_Q120","Legend No More"]
+        ],
+        "Podarkes": [
+          [1632750642991,[],"DELO_Q100 - Delos Arrival","Trouble in Paradise"],
+          [1632750658609,[],"DELO_Q200 - Kill Leader","Hades, Meet Podarkes"]
+        ],
+        "Swordfish": [[1527720178222,[],"MINO_Q110","Blood in the Water"]],
+        "The Master (Sokrates quests)": [
+          [1640891967449,[],"SOCK_Q100 - Citizenship Lust","Citizenship Test"],
+          [1642634271645,[],"SOCK_Q200 - Rock Meets Hard Place","Witness Him"],
+          [1644016278496,[],"SOCK_Q300 - Fox in the Hen House","Free Speech"],
+          [1642634626383,[],"SOCK_Q400 - The Mane Event","On a High Horse"],
+          [1644016948749,[],"SOCK_Q500 - Unchained","A Life's Worth"]
+        ]
+      },
+      "Side Quests": {
+        "Chrysis (if alive after Ashes to Ashes)": [[1250023142663,[],"ARGO_Q700_DeathToChrysis","Death Comes for Us All"]]
+      }
+    },
+    "Side Quests": {
+      "Achievements": [
+        [1667026322181,[],"SOAC_Q100 - Cave","Cave Crusader"],
+        [1667472992179,[],"SOAC_Q200 - Fort","Fortress Fallout"],
+        [1668583632343,[],"SOAC_Q300 - Camps","Besieging Bandits"],
+        [1668583632470,[],"SOAC_Q400 - LeaderHouse","Lacerated Leaders"]
+      ],
+      "Regional": {
+        "Abantis Islands (Euboea, Skyros)": [[1442448907659,[],"EUBO_Q600","Once a Slave"]],
+        "Andros": [
+          [
+            1659622874617,
+            [1659622909257],
+            "ANDR_Q401 - Leonidas Spear Chapter",
+            "The Spear of Leonidas (chapter)"
+          ],
+          [1659622874663,[],"ANDR_Q412 - Spear Level 2","Upgrade the Spear Lv. 2"],
+          [1659622908901,[],"ANDR_Q413 - Spear Level 3","Upgrade the Spear Lv. 3"],
+          [1659622909027,[],"ANDR_Q414 - Spear Level 4","Upgrade the Spear Lv. 4"],
+          [1659622909257,[],"ANDR_Q415 - Spear Level 5","Upgrade the Spear Lv. 5"],
+          [1701471069796,[],"LIVE_CYCL_Q200_Steropes","The Lightning Bringer"]
+        ],
+        "Elis (Olympic truce)": [
+          [1633422561409,[],"OLYM_Q100_TourGuide","Barnabas Abroad"],
+          [1633422561531,[],"OLYM_Q200_Kallipateira","Kallipateira"],
+          [1633422561653,[],"OLYM_Q300_Truce","The Drachmae of Romance"],
+          [1633422561775,[],"OLYM_Q400_Thief","Gutter Runner"],
+          [1633422561897,[],"OLYM_Q500_GameEvents","Throwing the Bet"]
+        ],
+        "Kephallonia Islands": [
+          [1414315756209,[],"CEPH_Q100_In the Footsteps Of Gods","In the Footsteps of Gods"],
+          [1417647556381,[],"CEPH_Q200_Hungry Gods","Hungry Gods"],
+          [1435184286501,[],"CEPH_Q210 - Merciful Gods","Merciful Gods"],
+          [1416378445460,[],"CEPH_Q500_Nothing Personal","Shark the Vagrant"],
+          [1414315202640,[],"CEPH_Q700_A Ship Came Sailing","A Ship Came Sailing"],
+          [1426035350047,[],"CEPH_Q800_A Small Odyssey","A Small Odyssey"],
+          [1652893910889,[],"CEPH_Q900","Mercenary Work"]
+        ],
+        "Kythera Island": [
+          [1569986636960,[],"KYTH_Q100","Purple Pain"],
+          [1569733937849,[],"KYTH_Q120","Idiot Hunt"],
+          [1572194360961,[],"KYTH_Q140","Takes Drachmae to Make Drachmae"]
+        ],
+        "Lakonia": [
+          [1646324946002,[],"SPAR_Q100_Training Days","Training Days"],
+          [1647216909077,[],"SPAR_Q110_Brothers in Arms","Brothers in Arms"],
+          [1648194637666,[],"SPAR_Q300_Farming Woes","A Godless Blight"],
+          [1648247251689,[],"SPAR_Q400_Not Mother's Daughter","Not My Mother's Daughter"],
+          [1647798122379,[],"SPAR_Q500_Story Time","A Treasury of Legends"],
+          [1648247236976,[],"SPAR_Q600_The Basket","Sacred Favors"],
+          [1647797342154,[],"SPAR_Q700_End of the Day","End of the Day"]
+        ],
+        "Messara": [
+          [1570087406211,[],"MESE_Q100","Flowers for the Dead"],
+          [1529693384719,[],"MESE_Q200","Catch and Release"],
+          [1535223820253,[],"MESE_Q300","Gortyn Out of Hand"],
+          [1536483937197,[],"MESE_Q400","The Lost Arkalochori Axe"],
+          [1570095002170,[],"MESE_Q500","Bare It All"],
+          [1571889994153,[],"MESE_Q600","Fang for Your Buck"],
+          [1571003154438,[],"MESE_Q700","Revenge Served Cold"],
+          [1619305984973,[],"MESE_Q800","It's Complicated"],
+          [1620495091511,[],"MESE_Q900","Say That Again!"],
+          [1621068930555,[],"MESE_Q950","Civil Unrest"]
+        ],
+        "Pephka": [
+          [1426835408624,[],"PEPH_Q300","The Grand Minotour"],
+          [1425958224419,[],"PEPH_Q600","Bravely Ran Away"]
+        ],
+        "Petrified Islands (Chios, Lesbos)": [
+          [1543628437392,[],"LESB_Q001","A Slithery Plea"],
+          [1529492237360,[],"LESB_Q100","Heavy is the Spear"],
+          [1553249390343,[],"LESB_Q200","Shroud of the Bear"],
+          [1567249333317,[],"LESB_Q250","Revenge of the Wolf"],
+          [1553403597969,[],"LESB_Q300","Clothes Make the Daughter"],
+          [1571913292995,[],"LESB_Q350","The Elixir"],
+          [1573954806276,[],"LESB_Q450","Caged and Enraged"],
+          [1574170797122,[],"LESB_Q500","Son of a Fisherman"],
+          [1572089333101,[],"LESB_Q550","Waiting for Galarnos"],
+          [1572089281494,[],"LESB_Q600","Chip on Your Shoulder"],
+          [1574392454925,[],"LESB_Q700","Hostage Situation"],
+          [1571112927710,[],"LESB_Q900","Qamra, Medicine Woman"]
+        ],
+        "Pirate Islands (Keos, Lestris, Sephiros)": [
+          [1236452950221,[],"KEOS_Q110_Build a Fleet","Recruitment Drive"],
+          [1253073027674,[],"KEOS_Q120_LostIron","Red in the Wreckage"],
+          [1274756028391,[],"KEOS_Q125_Shipwrecked","Lost and Found"],
+          [1245261239330,[],"KEOS_Q200 - I am not a Thief I am a Treasure Hunter Part 1","We're Not Thieves"],
+          [
+            1596744816623,
+            [],
+            "KEOS_Q210 - I am not a Thief I am a Treasure Hunter Part 2",
+            "We're Treasure Hunters"
+          ],
+          [1588839296651,[],"KEOS_Q300 - Acquiring the Nation Chest","A Chest Full of Drachmae"],
+          [1652660895317,[],"KEOS_Q500","Heart of Stone"],
+          [1653552156282,[],"KEOS_Q600","Making Friends"]
+        ],
+        "Phokis": [
+          [1414982151941,[],"PHOC_Q200_CaptainCrewless","Crewless"],
+          [1415444998099,[],"PHOC_Q600_A hunting party of one","Age is Just a Number"],
+          [1446318691860,[],"PHOC_Q950 - A Head for a Hand","Photios's Pre-Tirement"]
+        ],
+        "Silver Islands (Delos, Mykonos)": [
+          [1633655810553,[],"DELO_Q300 - Investigation","\"M\" for Murder"],
+          [1633655318133,[],"DELO_Q400_BigBattle","Call to Arms (Mykonos)"],
+          [1633249004672,[],"DELO_Q500 - A Night to Remember","A Night to Remember"],
+          [1633249005469,[],"DELO_Q600 - About a Bear","Grin and Bear It"],
+          [1633655810851,[],"DELO_Q700 - Free Soldiers","The Sokratic Method"]
+        ],
+        "Volcanic Islands (Anaphi, Nisyros, Thera)": [[1701471126592,[],"LIVE_CYCL_Q300_Arges","The Bright One"]]
+      },
+      "NPC quest givers": {
+        "Agapios": [
+          [1615320238225,[],"AGAP_Q100","Death and Taxes"],
+          [1645444114935,[],"EUBO_Q002","Freedom Isn't Free"],
+          [1651342147190,[],"EUBO_Q750","Dagger to the Heart"],
+          [1638284688093,[],"AGAP_Q110","Sharp Tongue"],
+          [1431109806203,[],"AGAP_Q120","Blood and Water"],
+          [1612265294834,[],"AGAP_Q130","The Taxman Cometh"],
+          [1662656238464,[],"AGAP_Q135","Wasn't Born the Kingfisher"],
+          [1620382109628,[],"AGAP_Q140","The Kingfisher and the Robin"]
+        ],
+        "Alkibiades": [
+          [1251231466145,[],"ALCI_Q100_DickInABox","Handle with Care"],
+          [1648261115512,[],"ALCI_Q200 - Dirty Deeds","Designated Rider"],
+          [1648261458038,[],"ALCI_Q300 - Done Dirt Cheap","Rock Hard"],
+          [1648261538763,[],"ALCI_Q400 - Odd Cargo","Across the Border"],
+          [1648261813306,[],"ALCI_Q500 - Happily ever after","Happily Ever After?"]
+        ],
+        "Artaxerxes": [[1664155110145,[],"ARTA_Q100 - Tour Guide","Prince of Persia"]],
+        "Barnabas": [
+          [1463696302122,[],"BARN_Q120 - UpgradeHull","Hull, Yeah!"],
+          [1470386190414,[],"BARN_Q140 - Recrtuiment of Specialist","A Pirate's Life"]
+        ],
+        "Daughters of Artemis": [
+          [1541586915852,[],"ARTE_Q100_DaughtersOfArtemis","The Daughters of Artemis"],
+          [1544158276650,[],"ARTE_Q400_EpicLegendaryAnimals","The Goddesses’ Hunt"],
+          [1561557444644,[],"ARTE_Q405_CallistoBear","Kallisto the Bear"],
+          [1561557655504,[],"ARTE_Q410_NemeanLion","The Nemean Lion"],
+          [1561557680450,[],"ARTE_Q415_ErymanthianBoar","The Erymanthian Boar"],
+          [1561557692963,[],"ARTE_Q420_LycaonWolf","The Lykaon Wolf"],
+          [1561557717911,[],"ARTE_Q425_HindofCerymeia","The Hind of Keryneia"],
+          [1561557718175,[],"ARTE_Q430_CretanBull","The Kretan Bull"],
+          [1561557730599,[],"ARTE_Q435_CrocottasHyena","The Krokottas Hyena"],
+          [1547324259565,[],"ARTE_Q500_BecomeTheLeader","Artemis's Request"]
+        ],
+        "Demosthenes": [
+          [1653125579001,[],"DTHE_Q100_Demosthenes","Creating Opportunity"],
+          [1653125579127,[],"DTHE_Q200_Demosthenes","The Wise Warrior"],
+          [1653125579149,[],"DTHE_Q300_Demosthenes","In the Midst of Chaos"],
+          [1653125579186,[],"DTHE_Q400_Demosthenes","Swift as Wind"],
+          [1653125579208,[],"DTHE_Q500_Demosthenes","Last Request"],
+          [1657286529634,[],"DTHE_Q600_BigBattle","The Final Battle"]
+        ],
+        "Eppie": [
+          [1646402115471,[],"EPPI_Q100_Eppie","A Life's Dedication"],
+          [1645567156152,[],"EPPI_Q200_Eppie","Language of the Ancients"],
+          [1645567156275,[],"EPPI_Q300_Eppie","Chasing Phantoms"],
+          [1645567156398,[],"EPPI_Q400_Eppie","Keep the Faith"],
+          [1665172580789,[],"EPPI_Q410_Eppie","Origins of a Ritual"],
+          [1665172595473,[],"EPPI_Q420_Eppie","The Tribute"]
+        ],
+        "Heitor": [
+          [1412443806487,[],"HEIT_Q100 - Heitor's sword","A Friend in Need..."],
+          [1427035137244,[],"HEIT_Q110 - Mercenary Mercy","Heitor's Gonna Hate"]
+        ],
+        "Hippokrates": [
+          [1647298960967,[],"HIPP_Q600 - Assisted suicide part 1","Inheritance Insurance"],
+          [1647928992080,[],"HIPP_Q610 - Assisted suicide part 2","Too Much of a Good Thing"],
+          [1647193869331,[],"HIPP_Q620_Slaver_Conundrum","The Hunting Party"],
+          [1647690404855,[],"HIPP_Q630_Discrimination_Part_2","Let My Patients Go"]
+        ],
+        "Kleio": [[1589276173727,[],"CLIO_Q100_DeliveryService","Escort Service"]],
+        "Kleon": [
+          [1493732229544,[],"KLEO_Q100 - A Drink Before the War","For the People"],
+          [1629326281152,[],"KLEO_Q200 - The Delivery","He Who Stops"],
+          [1629326540132,[],"KLEO_Q250 - Mytilene's journey","The Liberator"]
+        ],
+        "Kyra": [
+          [1632750689909,[],"KYRA_Q100 - Supply Crate","Kyra with a Cause"],
+          [1632750404799,[],"KYRA_Q200 - Nation Chest","Bleeding Hearts and Stolen Money"],
+          [1633249103945,[],"KYRA_Q300 - What We Dream Of","Goddess of the Hunt"]
+        ],
+        "Leiandros": [
+          [1435827247464,[],"LEIA_Q100","Minotour De Force"],
+          [1465921199657,[],"PEPH_Q101","The Pre-Trial of Strength"],
+          [1467974164922,[],"PEPH_Q102","The Pre-Trial of Accuracy"],
+          [1467974691432,[],"PEPH_Q103","The Pre-Trial of Endurance"],
+          [1665141775853,[],"LEIA_Q101","Cashing In On the Cow"],
+          [1439662705614,[],"LEIA_Q110","What Lies Below the Surface"],
+          [1440594428046,[],"LEIA_Q120","No More Bull"]
+        ],
+        "Lykaon": [
+          [1644896368543,[],"LYKA_100_Lykaon","Helping a Healer"],
+          [1644896368667,[],"LYKA_200_Lykaon","Sins of the Past"],
+          [1644896368893,[],"LYKA_300_Lykaon","The Unkindest Cut"]
+        ],
+        "Lysander": [
+          [1653848252713,[],"LYSA_Q100_Lysander","Ambition"],
+          [1653848328418,[],"LYSA_Q200_Lysander","Only Fools Want War"],
+          [1653848328518,[],"LYSA_Q300_Lysander","Rise Through the Ranks"],
+          [1653848328611,[],"LYSA_Q400_Lysander","The Cost of War"],
+          [1656897464161,[],"LYSA_Q500_Lysander","Know Your Enemy"],
+          [1661075372756,[],"LYSA_Q600_Lysander","Nemesis"]
+        ],
+        "Markos": [
+          [1646632639114,[],"MARK_Q100 - Liberate Markos","A Business Opportunity"],
+          [1651220572347,[],"MARK_Q110_Dead Or Alive","Dead or Alive"],
+          [1651220587092,[],"MARK_Q120_Con Of Kos","The Con of Cons"],
+          [1646633359147,[],"MARK_Q200 - Wine Delivery","Old Friends, Old Problems"],
+          [1647794660429,[],"MARK_Q300 - Farms in Flames","Farm in Flames"],
+          [1648682803232,[],"MARK_Q400 - Markos' Fate","Markos's Fate"]
+        ],
+        "Mikkos": [
+          [1655789310442,[],"MIKK_Q100","Tough Love"],
+          [1655788566343,[],"MIKK_Q101","Have You Seen My Mikkos?"],
+          [1655303963751,[],"MIKK_Q110","School of Hard Knocks"],
+          [1655303757756,[],"MIKK_Q120","Doctor's Pet"],
+          [1655436300224,[],"MIKK_Q130","Indulging Just a Little"],
+          [1658309559872,[],"MIKK_Q140","Retribution"]
+        ],
+        "Odessa": [
+          [1653616040585,[],"ODES_Q200_Medium_Odyssey","A Family Ordeal"],
+          [1653616787182,[],"ODES_Q300_Large_Odyssey","The True Story"]
+        ],
+        "Phidias": [
+          [1595116697382,[],"PHID_Q100_UnresolvedMystery","The Message, the Stick, and the Artist"],
+          [1595549434182,[],"PHID_Q200_TheEngravedMessages","Art Leading Life"],
+          [1595549620973,[],"PHID_Q205_KytheriaStatue","The Kytheran Statue"],
+          [1597907453783,[],"PHID_Q210_SamosStatue","The Samian Statue"],
+          [1597907453805,[],"PHID_Q215_ThasosStatue","The Thasian Statue"],
+          [1655632195735,[],"PHID_Q299_PhidiasIsDead","Pieces of the Puzzle"],
+          [1595549045042,[],"PHID_Q300_TheSecretRoom","Journey's End"]
+        ],
+        "Phoibe": [[1412472639118,[],"PHOI_Q100_Blood Fever","The Blood Fever"]],
+        "Roxana": [
+          [1549139169801,[],"ROXA_Q200","Sparring with Roxana"],
+          [1552496544899,[],"ROXA_Q300","Archery Practice"],
+          [1553313160787,[],"ROXA_Q400","Foot Race"]
+        ],
+        "Skoura": [
+          [1442362820194,[],"SKOU_Q100","They Just Want Cruelty"],
+          [1442363370724,[],"SKOU_Q120","Heroes of the Arena"]
+        ],
+        "Supideo": [
+          [1656722918696,[],"OEDP_Q100 - Family values","Family Values"],
+          [1656723020913,[],"OEDP_Q200 - Confiscated","Confiscated"]
+        ],
+        "Thaletas": [
+          [1633332606232,[],"THAL_Q100 - Naval Battle","The Thaletas Way"],
+          [1633333260685,[],"THAL_Q200 - Kill Soldiers","Paint the Sand Red"],
+          [1634335935409,[],"THAL_Q300  - Romance Quest","Hearts of War"]
+        ],
+        "Xenia": [
+          [1644809265872,[],"XENA_Q100_Xenia","Birds of a Feather"],
+          [1667187944867,[],"XENA_Q110_XeniaLocation01_Feather","Rumored Feather Location"],
+          [1667188000750,[],"XENA_Q120_ExtraTreasure02","Rumored Feather Location 2"],
+          [1667188000772,[],"XENA_Q130_ExtraTreasure03","Rumored Feather Location 3"],
+          [1644809453846,[],"XENA_Q200_Xenia","Sacred Vows"],
+          [1667188299213,[],"XENA_Q210_XeniaLocation01_Bracelet","Rumored Bracelet Location"],
+          [1667188299235,[],"XENA_Q220_ExtraTreasure02","Rumored Bracelet Location 2"],
+          [1667188299257,[],"XENA_Q230_ExtraTreasure03","Rumored Bracelet Location 3"],
+          [1644809593098,[],"XENA_Q300_Cake","She Who Controls the Seas"],
+          [1669505259368,[],"XENA_Q310_XeniaLocation_Shell","Rumored Conch Shell Location"],
+          [1669505259497,[],"XENA_Q320_ExtraTreasure01","Rumored Conch Shell Location 2"],
+          [1669505259626,[],"XENA_Q330_ExtraTreasure02","Rumored Conch Shell Location 3"],
+          [1644809617172,[],"XENA_Q400_Bet","Throw the Dice"],
+          [1669505525148,[],"XENA_Q410_PansFlute","Pan's Flute"],
+          [1669505525684,[],"XENA_Q420_ApollosLyre","Apollo's Lyre"],
+          [1644809741832,[],"XENA_Q500_SaveCrew","Priceless Treasure"]
+        ]
+      }
+    }
+  },
+  "DLC": {
+    "Secrets of Greece": [
+      [1665005612702,[],"DEMO_Q100 - The tinkerer","The Dunce Conundrum"],
+      [1669147880657,[],"DEMO_Q120 - A tragedy in rhymes","Another Kind of Poetry"]
+    ],
+    "Lost Tales of Greece": {
+      "A Brother's Seduction": [
+        [1733731407190,[],"THEO_SP_Q100 - Prodigal Son Return","Prodigal Son's Return"],
+        [1733747172518,[],"THEO_SP_Q200","Honoring the Dead"],
+        [1733731876640,[],"THEO_SP_Q210 - Armor of Honor","Dressing up for Charon"],
+        [1733747091208,[],"THEO_SP_Q220","Bloody Libation"],
+        [1733747235641,[],"THEO_SP_Q310","Wounds of Days Gone By"],
+        [1740658260326,[],"THEO_SP_Q320","Career Orientation"],
+        [1736459740743,[],"THEO_SP_Q400","Moving On"]
+      ],
+      "A Divine Intervention": [
+        [1688857003759,[],"ATHE_SP_Q100_Athena","Test of Judgment"],
+        [1690371906745,[],"ATHE_SP_Q200_Athena","Test of Character"],
+        [1691106287926,[],"ATHE_SP_Q300_Athena","Test of Faith"],
+        [1707995179075,[],"ATHE_SP_Q350_Athena","Test of Adaptability"],
+        [1691106358213,[],"ATHE_SP_Q400_Athena","Test of Courage"]
+      ],
+      "A Friend Worth Dying For": [
+        [1740674178189,[],"BARN_SP_Q100 - Lotus Eaters","Odyssey Into the Past"],
+        [1721693048997,[],"BARN_SP_Q200","Wine for the Swine"],
+        [1740674178249,[],"BARN_SP_Q210 - Cyclops","To Be Nobody"],
+        [1741715807055,[],"BARN_SP_Q220 - Sirens","Beware the Siren Call"],
+        [1740674178309,[],"BARN_SP_Q300 - Suitors","Daddy's Home"],
+        [1740674178339,[],"BARN_SP_Q400 - Recruit Daughter","Demeter's Fire"]
+      ],
+      "A Poet's Legacy": [
+        [1688120623993,[],"PRAX_SP_Q100","Praxilla's Admirer"],
+        [1688120626449,[],"PRAX_SP_Q200","Lyre Lyre"],
+        [1701174627803,[],"PRAX_SP_Q250","Repairing the Lyre"],
+        [1688120626582,[],"PRAX_SP_Q300","Praxilla's Legacy"]
+      ],
+      "Every Story Has an Ending": [
+        [1749297834288,[],"SP_206_Q100 - Letter from Home","Letter from Home"],
+        [1749298063733,[],"SP_206_Q200 - Regrets","Regrets"],
+        [1744135545677,[],"SP_206_Q300 - Followers of Truth","Followers of Truth"],
+        [1749298302260,[],"SP_206_Q400 - Family Values","Family Values"],
+        [1773399088311,[],"SP_206_Q500 - Defense of Samos","Defense of Samos"],
+        [1782361987699,[],"SP_206_Q600 - Moving Forward","Moving Forward"]
+      ],
+      "Old Flames Burn Brighter": [
+        [1748398918023,[],"DLC_SP204_ANAI_Q100 - Old spark","Where We Left Off"],
+        [1747673197388,[],"DLC_SP204_ANAI_Q200 - Runaway","Runaway"],
+        [1754005238323,[],"DLC_SP204_ANAI_Q300 - Unplanned parenthood","Unplanned Parenthood"],
+        [1756198323712,[],"DLC_SP204_ANAI_Q400 - Date Night","A Night in Tegea"]
+      ],
+      "One Really, Really Bad Day": [
+        [1769979041007,[],"SP205_Q001_Epic","One Really, Really Bad Day (chapter)"],
+        [1753469003574,[],"SP_205_Q100_UndoingTheDoppelganger","Righting a Wrong"],
+        [1753469003712,[],"SP_205_Q200_HelpTheTown","A Town in Need, Indeed"],
+        [1753469003742,[],"SP_205_Q300_AHorseOfCourse","A Horse, of Course"],
+        [1753469003880,[],"SP_205_Q310_ApolloOnFire","Ajax on Fire"],
+        [1753469004018,[],"SP_205_Q320_TheBlindBlacksmith","The Blind Blacksmith"],
+        [1753469004156,[],"SP_205_Q400_TownDefense","Here Be Pirates"],
+        [1758904658633,[],"SP_205_Q500_ConfrontingTheImpostor","There Can Be Only One"]
+      ],
+      "Sokrates' Trial": [
+        [1783988502461,[],"SOCK_SP_Q101","A Sokratic Mess"],
+        [1763693500823,[],"SOCK_SP_Q200","Finding One's Voice"],
+        [1763693500898,[],"SOCK_SP_Q300","Deposition Opposition"],
+        [1763693505439,[],"SOCK_SP_Q400","Persuasion Check"],
+        [1763693520180,[],"SOCK_SP_Q500","You're Such a Sokratease"]
+      ],
+      "The Daughters of Lalaia": [
+        [1692113668882,[],"VILL_SP_Q100","A Gathering Storm"],
+        [1693877811252,[],"VILL_SP_Q210","Sharp Lessons"],
+        [1696579789499,[],"VILL_SP_Q220","Learning the Land"],
+        [1698522290839,[],"VILL_SP_Q230","Daughters of Artemis and Daughters of Aphrodite"],
+        [1694887974880,[],"VILL_SP_Q240","The Ore of Aphrodite"],
+        [1694888239776,[],"VILL_SP_Q300","The Best Defense"],
+        [1694888504445,[],"VILL_SP_Q400","Blood for Aphrodite"]
+      ],
+      "The Image of Faith": [
+        [1692497052717,[],"FAIT_SP_Q100_Tools","The Measure of a Man"],
+        [1692497053834,[],"FAIT_SP_Q200_Wolves","Down From On High"],
+        [1692497054536,[],"FAIT_SP_Q300_DeerHunt","The Wild Hunt"],
+        [1692497054830,[],"FAIT_SP_Q400_Burn","Bad Weed"],
+        [1692497055070,[],"FAIT_SP_Q500_Chickens","Chicken or Egg"],
+        [1692497055340,[],"FAIT_SP_Q600_Priestesses","A Matter of Faith"]
+      ],
+      "The Show Must Go On": [
+        [1693687045764,[],"FEST_Q100 - Setting the Stage","Setting the Stage"],
+        [1747842707804,[],"FEST_Q110 - The Special Wine","A Sophisticated Tipple"],
+        [1747842806546,[],"FEST_Q120 - The Common Wine","Everyman's Drink"],
+        [1696068280517,[],"FEST_Q200 - The Hedonistic Method","The Hedonistic Method"],
+        [1696230408723,[],"FEST_Q300 - Evening the Odds","Evening the Odds"],
+        [1696230940754,[],"FEST_Q400 - The Curse of Fame","The Curse of Fame"],
+        [1696617189016,[],"FEST_Q500 - Showtime","Showtime"]
+      ]
+    },
+    "Legacy of the First Blade": {
+      "Episode 1: Hunted": {
+        "Meta-Quest": [[1723252334514,[1723252334544],"ODY_DLC1_1","Legacy (Ep. 1)"]],
+        "Chapters": [[1723252334544,[1689011864244],"BL11_Q001 - Episode 1 Chapter","Hunted"]],
+        "Main Quests": [
+          [1685322666594,[],"BL11_Q100","The Horsemen Cometh"],
+          [1689011700625,[],"BL11_Q200","Shadow of a Legend"],
+          [1700989243074,[],"BL11_Q250","More Questions than Answers"],
+          [1688900648450,[],"BL11_Q301","Starting the Hunt"],
+          [1688901026924,[1688901056771],"BL11_Q302","Hunting the Huntsman"],
+          [1688900551283,[],"BL11_Q310","Revealing the Recruiter"],
+          [1688901056443,[],"BL11_Q320","Mysterious Malady"],
+          [1688900524559,[],"BL11_Q330","Whimpers Through the Fog"],
+          [1688901056771,[],"BL11_Q340","Piecing the Puzzle"],
+          [1689011864244,[],"BL11_Q400","Protector of Persia"]
+        ],
+        "Side Quests": [
+          [1709779334971,[],"BL11_Q520","A Curious Request"],
+          [1730757695095,[],"BL11_Q521","Gaia the Fist"],
+          [1730757745785,[],"BL11_Q522","Agis of the North"],
+          [1730757761940,[],"BL11_Q523","Theos the Stargazer"],
+          [1730757820913,[1730757695095,1730757745785,1730757761940],"BL11_Q524","Taking Out the Competition"],
+          [1730757820943,[],"BL11_Q525","A Good Toast"],
+          [1710728523494,[],"BL11_Q540","Dead Man Rises"],
+          [1720163998475,[],"BL11_Q550","The City that Cried Wolf"],
+          [1723921627734,[],"BL11_Q560","Hide-and-Seek"],
+          [1723253709194,[],"BL11_Q570","Finders Keepers"],
+          [1723921628832,[],"BL11_Q580","Thank You, Maláka!"],
+          [1723921629797,[],"BL11_Q590","Again, Maláka?!"]
+        ]
+      },
+      "Episode 2: Shadow Heritage": {
+        "Meta-Quest": [[1739824644499,[1739824629511],"ODY_DLC1_2","Legacy (Ep. 2)"]],
+        "Chapters": [[1739824629511,[1701341627157],"BL12_Q001","Shadow Heritage"]],
+        "Main Quests": [
+          [1739973975718,[],"TBC_PERS_DLC_1_2","The Stirring Darkness (Ep. 1 -> 2)"],
+          [1697776136680,[],"BL12_Q050","Stranger Tides"],
+          [1758209497211,[],"BL12_Q055","Into the Storm"],
+          [1698173191988,[1701341625442],"BL12_Q100","Chasing the Storm"],
+          [1698173192126,[],"BL12_Q200","Persian Puppetry"],
+          [1701341602045,[],"BL12_Q220","Theatrics and Espionage"],
+          [1698173259373,[],"BL12_Q300","Prodigal"],
+          [1701341623589,[],"BL12_Q310","Safe Passage"],
+          [1701341625442,[],"BL12_Q110","Calm Before the Storm"],
+          [1698173292217,[],"BL12_Q400","Leviathan's Maw"],
+          [1701341627157,[],"BL12_Q500","Home"]
+        ],
+        "Side Quests": [
+          [1705346429070,[],"BL12_Q120","On the Grapevine"],
+          [1705346429249,[],"BL12_Q130","Tides of War"],
+          [1705346429429,[1767164207915,1767164208053,1767164208191],"BL12_Q140","Knives in the Dark"],
+          [1767164207615,[],"BL12_Q141","Atos the Beast Caller"],
+          [1767164207777,[],"BL12_Q142","Hirpes the Burning Fury"],
+          [1767164207915,[],"BL12_Q143","Greasy Proktos"],
+          [1767164208053,[],"BL12_Q144","Kephalon the Thinker"],
+          [1767164208191,[],"BL12_Q145","Aias the Cleaner"],
+          [1746923238677,[],"BL12_Q160","Thank You, Misthios"]
+        ]
+      },
+      "Episode 3: Bloodline": {
+        "Meta-Quest": [[1739860433082,[1739860251376],"ODY_DLC1_3","Legacy (Ep. 3)"]],
+        "Chapters": [[1739860251376,[1697268818153],"BL13_Q001 - Episode 3 Chapter","Bloodline"]],
+        "Main Quests": [
+          [1739974006880,[],"TBC_PERS_DLC_1_3","The Stirring Darkness (Ep. 2 -> 3)"],
+          [1697268802300,[],"BL13_Q100","One Happy Family"],
+          [1697268802330,[],"BL13_Q200 - A Flight in Fire","A Flight in Fire"],
+          [1697268802360,[],"BL13_Q300 - Answers from Ashes","Answers from Ashes"],
+          [1697268817406,[1807533355039],"BL13_Q302","Two Knives Against the Dark"],
+          [1697268818311,[],"BL13_Q303 - The Spartan Dog","The Spartan Dog"],
+          [1695821168664,[],"BL13_Q315","The Ordering of the Kosmos"],
+          [1718749199230,[],"BL13_Q325 - Rebellion Children","Command and Control"],
+          [1807533355039,[],"BL13_Q340 - Epic Cash In","The Trap Is Set"],
+          [1697268817436,[],"BL13_Q330","The Last Magi"],
+          [1779893351376,[],"BL13_Q350","Smoke and Fury"],
+          [1697268818153,[],"BL13_Q400 - Tyrants Upon the Hill","Legacy of the First Blade"]
+        ],
+        "Side Quests": [
+          [1720606330837,[],"BL13_Q305 - As You Wish","Give Our Respects"],
+          [1721270526210,[],"BL13_Q210 - No More Wine","No More Wine"],
+          [1743352670714,[],"BL13_Q360 - The Favour","The Favor"],
+          [1743352791043,[],"BL13_Q900 - Remnant of The Ancients","Legacy of the Ancients"]
+        ]
+      },
+      "Order of the Ancients": {
+        "Meta-Quest": [[1723252421763,[1723252421817],"META_PersianOrder","The Ancients"]],
+        "Clusters": [
+          [
+            1723252421817,
+            [1716630677499,1734585986820,1713708742428],
+            "PERS_Q101 - Kill Clusters Epic",
+            "Shadow from the East"
+          ],
+          [1713708742428,[],"BL11_Q530","The Order of Hunters"],
+          [1734585986820,[],"BL12_Q150","Order of the Storm"],
+          [1716630677499,[],"BL13_Q390 - Order of Dominion","The Order of Dominion"]
+        ]
+      }
+    },
+    "The Fate of Atlantis": {
+      "Prologue: The Heir of Memories": {
+        "Meta-Quest": [[1856138216436,[1740196880379],"SP_202_StoryPackChapter","The Fate of Atlantis"]],
+        "Main Quests": [
+          [1783287779763,[],"SP_202_100 - Meet Alithea","The Heir of Memories"],
+          [1788495126690,[],"SP_202_Q100_Discover the Door","Longing to Be Opened"],
+          [1740196880373,[],"SP_202_Q200 - Investigation","Finding Theras"],
+          [1740196880375,[],"SP_202_Q300","Three Symbols Entombed"],
+          [1783780672604,[],"SP_202_Q310 - Agamemnon","Agamemnon's Symbol"],
+          [1790541466386,[],"SP_202_Q311 - PD Agamemnon","The Heir and Agamemnon"],
+          [1783780672606,[],"SP_202_Q320 - Eteokles","Eteokles's Symbol"],
+          [1790541467134,[],"SP_202_Q322 - PD Eteokles","The Heir and Eteokles"],
+          [1783780672608,[],"SP_202_Q330 - Orion","Orion's Symbol"],
+          [1790542002760,[],"SP_202_Q333 - PD Orion","The Heir and Orion"],
+          [1740196880377,[],"SP_202_Q400 - Phidias Murder","Inside the Mad Mind"],
+          [1740196880379,[],"SP_202_Q500 - Open Door","The Great Seal to Atlantis"]
+        ]
+      },
+      "Episode 1: Fields of Elysium": {
+        "Meta-Quest": [[1851406896039,[1839346335437],"ODYS_DLC2_1","Aletheia's Elysium"]],
+        "Chapters": [
+          [1829036459894,[1811286455617],"FOA1_Q001 - Meeting your Makers","Meet Your Makers"],
+          [1828040407147,[1811342596351],"FOA1_Q002 - Trouble in Paradise","Dominance is Bliss"],
+          [1839346335437,[1815880372677],"FOA1_Q003 - Releasing Elysium","Releasing Elysium"]
+        ],
+        "Main Quests": [
+          [1819211416199,[],"ELYS_Q100","The Isu Beckon"],
+          [1850955731224,[],"PDAY_Q510","Enter Throne Room (Layla)"],
+          [1852075706174,[],"ELYS_Q110","Trials of the Keeper"],
+          [1819212067170,[],"ELYS_Q200","Welcome to Elysium"],
+          [1851406807189,[],"ELYS_Q250 - Steles","A Growing Perception"],
+          [1811342595280,[],"ADON_Q100","A Lover and A Fighter"],
+          [1811461578344,[],"PHON_Q100 - Dark Horse","Dark Horse"],
+          [1813488621606,[],"HECA_Q100 - The enemy of my enemy","Sudden and New"],
+          [1811286455617,[],"HERM_Q100 - A Tour of Elysium","The Keeper and Key Maker"],
+          [1813488656558,[],"HECA_Q200 - Spreading the Good Word","Good News"],
+          [1813488760626,[],"HECA_Q300 - Wipping the Slate Clean","Have Another Drink"],
+          [1813488760765,[],"HECA_Q400 - Persefans","Popular"],
+          [1811286470389,[],"HERM_Q200 - Saving Kyros of Zarax","The Keeper and Kyros"],
+          [1811286470549,[],"HERM_Q300 - Stealing Back an Experiment","The Keeper and the Flame"],
+          [1811286470664,[],"HERM_Q400 - Killing Time","The Keeper, a Killer"],
+          [1811342596073,[],"ADON_Q200","Dead Kings and Pretty Things"],
+          [1811342596212,[],"ADON_Q300","Persephone's Little Birds"],
+          [1815880275597,[],"PHON_Q200 - Leonidas's Fate","A Life for a Life"],
+          [1811342596351,[],"ADON_Q400","The Beacons Are Lit"],
+          [1815880335908,[],"PHON_Q300 - Eavesdrop","No Good Deed"],
+          [1827172293705,[],"ADON_Q275 - Give Em Hell","Give 'Em Hades"],
+          [1815880372677,[],"PHON_Q400 - Storming the Gates","The Rebellion's Uprising"],
+          [1852075872780,[],"PDAY_Q610","Throne Room Abstergo Fight (Layla)"]
+        ],
+        "Side Quests": [[1827172278506,[],"ADON_Q250 - Liberation","Free Their Minds, the Rest Will Follow"]]
+      },
+      "Episode 2: Torment of Hades": {
+        "Meta-Quest": [[1856817465604,[1854714819591],"ODYS_DLC2_2","Way Down Below"]],
+        "Chapters": [
+          [1856817420008,[1869730369823,1854946719329],"FOA2_Q001","Welcome to the Underworld"],
+          [
+            1856817449962,
+            [1845384082212,1841480620910,1846337343510,1847005121508],
+            "FOA2_Q002",
+            "Lost and Found"
+          ],
+          [1856817465522,[1854714819591],"FOA2_Q003","Destiny Collector"],
+          [1883576072355,[1846369661382],"FOA2_Q004","Trials of the Keeper"]
+        ],
+        "Main Quests": [
+          [1846369661382,[],"HADE_Q100 - Enter the Underworld","The Second Calling"],
+          [1853150528397,[],"PDAY_Q700","Victoria in Throne Room (Layla)"],
+          [1845954466859,[],"HADE_Q200 - Cerberus Fight","Guardian of the Gates"],
+          [1869730369823,[],"HADE_Q150 - The Next Lesson","The Next Lesson"],
+          [1846369864733,[],"HADE_Q300 - Meet Charon","Pay the Ferryman"],
+          [1854283716659,[],"ELPE_Q250","Beyond the Veil"],
+          [1846369898553,[],"ELPE_Q100 - A New Lease on Death","A New Lease on Death"],
+          [1847004922518,[],"ELPE_Q200","Arms of Atonement"],
+          [1854946719329,[],"HADE_Q350","The Underworld's Fallen Guardians"],
+          [1854714819591,[],"HADE_Q400 - Hades fight","Labors of the Keeper"],
+          [1853150544142,[],"PDAY_Q800","R.I.P. Victoria (Layla)"]
+        ],
+        "Side Quests": [
+          [1841840700086,[],"BRAS_Q100","I Don't Belong Here"],
+          [1841840904447,[],"BRAS_Q200","The Weight of Sparta"],
+          [1845384082212,[],"BRAS_Q300","Fallen from Grace"],
+          [1845769111771,[],"BRAS_Q400","Kill Me Once, Shame on You"],
+          [1841480484222,[],"CHAR_Q100 - Death Before Dishonor","Death Before Dishonor"],
+          [1841480573809,[],"CHAR_Q200 - A Cursed Sickness","A Cursed Sickness"],
+          [1841480604800,[],"CHAR_Q300 - Home Is Where You Make It","Home is Where You Make It"],
+          [1841480620910,[],"CHAR_Q400 - Deathlight Robbery","Death-Light Robbery"],
+          [1847005121508,[],"ELPE_Q300","The Snake Sheds His Skin"],
+          [1846337342421,[],"PHOE_Q100","Lost, but Not Forgotten"],
+          [1846337343228,[],"PHOE_Q200","A Young Warrior's Ghosts"],
+          [1846337343369,[],"PHOE_Q300","Undoing What's Been Done"],
+          [1846337343510,[],"PHOE_Q400","The Warrior, the Eagle Bearer"]
+        ]
+      },
+      "Episode 3: Judgment of Atlantis": {
+        "Meta-Quest": [[1895265783515,[1873437076886],"ODYS_DLC2_3","A Lost World"]],
+        "Chapters": [
+          [1884008728807,[1869441600557],"FAO3_Q001 - The Keeper's Final Trial","The Keeper's Final Trial"],
+          [
+            1873436997011,
+            [1878520242171,1865431115132],
+            "FAO3_Q002 - The Dikastes of Atlantis",
+            "The Dikastes of Atlantis"
+          ],
+          [1873437076886,[1868575091548],"FAO3_Q003 - Secrets Buried Deep","Below the Surface"],
+          [1874181001513,[1872071145018],"FAO3_Q004 - The Keeper","The Keeper"]
+        ],
+        "Main Quests": [
+          [1869441600557,[],"POSE_Q100 - The Keeper's Fate","The Last Call"],
+          [1873400433483,[],"PDAY_Q900 - The Last Trial","Enter Atlantis (Layla)"],
+          [1867333440616,[],"POSE_Q150 - Above the waves","Welcome Home"],
+          [1878520242171,[],"STEL_Q100 - Steles","A Complete Education"],
+          [1865938742382,[],"ATLA_Q100 - Burden of Leadership","Burden of Leadership"],
+          [1865938835342,[],"ATLA_Q200 - The Famished Fights","Crowd Pleaser"],
+          [1865938835484,[],"ATLA_Q300 - Rebel Scum","Rebel Scum"],
+          [1865938835626,[],"ATLA_Q400 - The Atlantean Patient","The Atlantean Patient"],
+          [1866280807735,[],"WERE_Q100 - Werewolf","In Dreams"],
+          [1866745796308,[],"BEAM_Q100 - Turn on the lights","Lighten Up"],
+          [1866746013525,[],"BEAM_Q200 - Catch me if you can","The Birds and the Bees"],
+          [1866746266283,[],"LOVE_Q100 - This is Mine","Most Adamantly"],
+          [1866746266396,[],"LOVE_Q200 - Syringe in the Eye","Blood Gets In Your Eyes"],
+          [1865430553932,[],"PROG_Q100","Good From Far, Far From Good"],
+          [1865431114960,[],"PROG_Q125","Through the Cracks"],
+          [1865431114990,[],"PROG_Q150","Sixth Sense of Sympathy"],
+          [1865431115132,[],"PROG_Q200","Deadly Little Secrets"],
+          [1868575091548,[],"POSE_Q200","The Fate of Atlantis"],
+          [1872071145018,[],"POSE_Q300","The Fate of the Keeper"],
+          [1872071195113,[],"PDAY_Q950","Otso Berg Fight (Layla)"]
+        ],
+        "Side Quests": [
+          [1899738420776,[],"ARMO_Q100 - A Gift for the Keeper","Rightfully Yours"],
+          [1873864001704,[],"FORG_Q100 - Forging your weapon","Fire Amid the Water"],
+          [1873863867950,[],"KNOW_Q100 - Knowledge opens doors","Wisdom of the Ancients"]
+        ]
+      }
+    },
+    "Korfu Island": {
+      "Chapters": [[2085056216875,[],"CORF_Q050_VacationChapter","Those Who Are Treasured"]],
+      "Main Quests": [
+        [2075308982877,[],"CORF_Q100","No Rest For the Misthios"],
+        [2100302686880,[],"CORF_Q150_A Kind of Treasure Hunt","A Kind of Treasure Hunt"],
+        [2079253777403,[],"CORF_Q200_NotAllTreasuresShouldBeFound","Not All Treasure Should Be Found"],
+        [2082913130569,[],"CORF_Q300","A Message Delivered"],
+        [2085823763448,[],"CORF_Q400","Power Corrupts All"],
+        [2085823970753,[],"CORF_Q500","A New Horizon"]
+      ]
+    }
+  }
+}

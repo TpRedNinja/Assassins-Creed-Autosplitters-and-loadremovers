@@ -880,7 +880,7 @@
       }
     },
     "Korfu Island": {
-      "Chapters": [[2085056216875,[],"CORF_Q050_VacationChapter","Those Who Are Treasured"]],
+      "Chapters": [[2085056216875,[2085823970753],"CORF_Q050_VacationChapter","Those Who Are Treasured"]],
       "Main Quests": [
         [2075308982877,[],"CORF_Q100","No Rest For the Misthios"],
         [2100302686880,[],"CORF_Q150_A Kind of Treasure Hunt","A Kind of Treasure Hunt"],

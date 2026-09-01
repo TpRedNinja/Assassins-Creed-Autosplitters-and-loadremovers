@@ -11,6 +11,7 @@
 // - Forgemaster for his invaluable AC Viewer tool without which this autosplitter couldn't have been made: https://github.com/forge-master/ACViewer/wiki
 // - linuslin0 for creating ACSaveTool: https://github.com/linuslin0/ACST 
 // - Speedrun Tool Development Discord server, in particular ero and apple1417 for helping with the ASL language (invite link at: https://github.com/LiveSplit/LiveSplit.AutoSplitters#additional-resources)
+// - Pcol for helping with quest types and relevant lore info
 
 state("ACOdyssey")
 {

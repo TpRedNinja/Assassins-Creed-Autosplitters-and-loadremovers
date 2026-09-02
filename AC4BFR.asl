@@ -1,54 +1,14 @@
 state("ACBlackFlag")
 {
-    int loading: 0xAF24AB8, 0x2F0; // 0 for when not loading, 1 for when loading
+    int loading: 0x0AFB5F88, 0x2F0; // 0 for when not loading, 1 for when loading difference between the base address is 24500
 }
 
 startup
 {
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
-    vars.aslVersion = "1.0.7"; // version variable
-    //set text by SetTextComponent("Left / Only Text", "Right Text", 0/1 for normal/centered);
-    var lcCache = new Dictionary<string, LiveSplit.UI.Components.ILayoutComponent>();
-    vars.SetTextComponent = (Action<string, string, object>)((key, text1, text2) =>
-    {
-        LiveSplit.UI.Components.ILayoutComponent lc;
-        if (!lcCache.TryGetValue(key, out lc))
-        {
-            lc = timer.Layout.LayoutComponents.Cast<dynamic>()
-                .FirstOrDefault(llc => Path.GetFileName(llc.Path) == "LiveSplit.Text.dll" && llc.Component.Settings.Text1 == text1)
-                ?? LiveSplit.UI.Components.ComponentManager.LoadLayoutComponent("LiveSplit.Text.dll", timer);
+    vars.aslVersion = "1.0.8"; // version variable
 
-            lcCache.Add(key, lc);
-        }
-
-        if (!timer.Layout.LayoutComponents.Contains(lc))
-            timer.Layout.LayoutComponents.Add(lc);
-
-        dynamic tc = lc.Component;
-        tc.Settings.Text1 = text1;
-        tc.Settings.Text2 = text2.ToString();
-    });
-
-    //Clears the text components where Text1 matches the id.
-    vars.RemoveTextComponent = (Action<string>)(key =>
-    {
-        LiveSplit.UI.Components.ILayoutComponent lc;
-        if (lcCache.TryGetValue(key, out lc))
-        {
-            timer.Layout.LayoutComponents.Remove(lc);
-            lcCache.Remove(key);
-        }
-    });
-
-    //Clears all text components added by this script.
-    vars.RemoveAllTextComponents = (Action)(() =>
-    {
-        foreach (var lc in lcCache.Values)
-            timer.Layout.LayoutComponents.Remove(lc);
-
-        lcCache.Clear();
-    });
-
+    // settings
     settings.Add("Debug", false, "Debug");
     settings.Add("Any%", true, "Any%");
     settings.SetToolTip("Any%", "Splits for all the main missions in the game");
@@ -73,7 +33,7 @@ startup
         settings.SetToolTip("Royal Misfortune_15", "Splits when you start the mission");
         settings.Add("Tainted Blood_25", false, "Tainted Blood extra", "extra splits");
         settings.SetToolTip("Tainted Blood_25", "Splits when you start the mission");
-    vars.SetTextComponent("Version", "Autosplitter Version " + vars.aslVersion,  "");
+    timer.Run.Metadata.SetCustomVariable("Version", vars.aslVersion);
 
     vars.completedsplits = new List<string>();
     vars.TotalTimeWatch = new Stopwatch();
@@ -157,7 +117,7 @@ startup
 init
 {
     vars.MainMissionWatchers = new MemoryWatcherList();
-    int QuestBase = 0xBFB7670;
+    int QuestBase = 0xC0498A0; // quest base difference 92230
 
     foreach (var mission in vars.MainMissions)
     {
@@ -191,10 +151,7 @@ update
         vars.MainMissionWatchers.UpdateAll(game);
     }
     if(settings["Debug"]) {
-        vars.SetTextComponent("Loading", "Loading:", current.loading + "/1");
-    }
-    else{
-        vars.RemoveTextComponent("Loading");
+        timer.Run.Metadata.SetCustomVariable("Loading", current.loading.ToString() + "/1");
     }
 
     if (timer.CurrentPhase == TimerPhase.Paused || timer.IsGameTimePaused == true)
@@ -250,9 +207,4 @@ isLoading
         vars.TotalTimeWatch.Start();
         return false;
     }
-}
-
-shutdown
-{
-    vars.RemoveAllTextComponents();
 }

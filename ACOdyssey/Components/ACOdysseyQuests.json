@@ -42,7 +42,7 @@
       },
       "Episode 3: Evil Unearthed": {
         "Chapters": [
-          [1530518540874,[1412407205627],"E02_Q002 - Epic Kill your Father","The Wolf and the Snake"],
+          [1530518540874,[1525086156768],"E02_Q002 - Epic Kill your Father","The Wolf and the Snake"],
           [1527274209543,[1464653316557],"E03_Q001 - Consult the Oracle","Of Visions and Visionaries"],
           [1527274238318,[1400788238679],"E03_Q003 - Infiltrate Cult Meeting","Beware the Snakes"]
         ],
@@ -81,7 +81,7 @@
         "Main Quests": [
           [1330657963559,[],"E05_Q050_Primum_Non_Nocere","First Do No Harm"],
           [1330658137739,[],"E05_Q080_OldDogNewTricks","The Doctor Will See You Now"],
-          [1602578999662,[],"E05_Q082_PriestsofAsklepios","The Priests of Asklepios"],
+          [1602578999662,[1177100042982],"E05_Q082_PriestsofAsklepios","The Priests of Asklepios"],
           [1177100042982,[],"E05_Q110_ThePriestAndTheAltar","A Heart for a Head"],
           [1638102605370,[],"E05_Q115 - The Priest and the Altar Part 2","Speak No Evil"],
           [1177100187433,[],"E05_Q120_ConfrontingChrysis","Ashes to Ashes"],
@@ -120,12 +120,7 @@
           [1515062273005,[1513553916403,1513766108342],"E07_Q001 - Gain Citizenship","A Place to Call Home"],
           [1515419274470,[1544443558432],"E07_Q605 - Win the Olympics","The Olympian"],
           [1547342037470,[1414558239238],"E07_Q201 - Epic Kill Lagos","The Cult and the Archon"],
-          [
-            1513462453071,
-            [1513524513879,1514540102417,1514985203550,1563441613233,1563442518856],
-            "E07_Q550 - Securing Boeotia",
-            "Paint It Red"
-          ],
+          [1513462453071,[1513524513879],"E07_Q550 - Securing Boeotia","Paint It Red"],
           [1516474957160,[1513553916403],"E07_Q003 - The Cultist King","The Cultist King"]
         ],
         "Main Quests": [

@@ -158,12 +158,14 @@ init
         if (vars.questRepository.TryGetValue(questID, out quest))
         {
             var questName = quest[0];
+            //print("quest: " + questName);
 
             if (vars.completedQuests.Contains(questName))
                 return false;
 
             if (settings[questName])
             {
+                //print("split on quest: " + questName);
                 vars.completedQuests.Add(questName);
                 return true;
             }
@@ -189,26 +191,34 @@ init
             if (!vars.childQuests.TryGetValue(questID, out children))
                 return false;
             
+            //print("[" + questName + "]" + " checking children");
             foreach (var child in children)
             {
                 List<string> childQuest = null;
                 if (vars.questRepository.TryGetValue(child, out childQuest))
                 {
                     var childQuestName = childQuest[0];
+                    //print("[" + questName + "]" + " child: " + childQuestName);
                     var splitOnChildQuest = settings[childQuestName];
                     if (vars.completedQuests.Contains(childQuestName))
                         continue;
                     if (!splitOnChildQuest)
                     {
+                        print("[" + questName + "]" + " did not split on '" + childQuestName + "' but will check its children");
                         // We still have to follow the chain of the current child quest's
                         // child quests or we could miss a quest that we need to split on.
                         if (!shouldSplit(child))
+                        {
+                            //print("[" + questName + "]" + " child quest '" + childQuestName + "' did not have any children to split on");
                             continue;
+                        }
+                        //print("[" + questName + "]" + " split on a subchild of '" + childQuestName + "'");
                         vars.completedQuests.Add(questName);
                         return true;
                     }
                     else
                     {
+                        //print("[" + questName + "]" + " split on child quest: " + childQuestName);
                         vars.completedQuests.Add(childQuestName);
                         vars.completedQuests.Add(questName);
                         return true;

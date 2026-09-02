@@ -113,8 +113,7 @@ link: https://www.dropbox.com/scl/fi/68n3ibc1jxa88tsscxzdz/ACBF_Getname_DataStru
 
 **Assassin's Creed Shadows:**
 
-	-For now only loadremover
-	-Support for only steam version
+	-currently broken plan to fix eventually
 
 **Assassin's Creed Black Flag Resync:**
 

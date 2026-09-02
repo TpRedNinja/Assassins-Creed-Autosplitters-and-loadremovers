@@ -97,7 +97,10 @@ link: https://www.dropbox.com/scl/fi/68n3ibc1jxa88tsscxzdz/ACBF_Getname_DataStru
 
 **Assassin's Creed Odyessey(Original load remover made by Cyn):**
 
-	  Work in progress but will only have ubi connect support
+	  -loadremover
+	  -autosplitter for all quests of the users choosing
+	  -autostart for ng and ng+
+	  -dlc support
 
 **Assassin's Creed Valahalla:**
 
@@ -112,6 +115,13 @@ link: https://www.dropbox.com/scl/fi/68n3ibc1jxa88tsscxzdz/ACBF_Getname_DataStru
 
 	-For now only loadremover
 	-Support for only steam version
+
+**Assassin's Creed Black Flag Resync:**
+
+	-Loadremover
+	-full functionning autosplitter for any% steam
+	-autostart
+
 ** Assassin's Creed Chronicles China:**
 
  	-Autosplits on end screen

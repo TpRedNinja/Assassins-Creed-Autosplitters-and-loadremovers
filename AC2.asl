@@ -1,16 +1,22 @@
 /* Auto Splitter for Assassin's Creed II
 * Made by: @TpRedNinja
-* Auto Splitter Version: 2.0.2 
+* Auto Splitter Version: 2.0.3 
 */
 state("AssassinsCreedIIGame", "Legit")
 {
-    int percentage : 0x01E3DBE4, 0x2D0;
-    int money : 0x1E134B4, 0x24, 0x34;
-    uint lastCompletedMission : 0x01E110E4, 0x0, 0x28;
-    int CodexPages : 0x01E134BC, 0xF0, 0x0;
-    int Feathers : 0x01E134BC, 0xF0, 0x4;
-    int loading : 0x1C8C448; // 0 for loading & main menu 1 every where fucking else
-    uint currentMission : 0x01E3DBE4, 0x158, 0x0, 0x2C, 0xC;
+    int percentage : 0x01E3DBE4, 0x2D0; // stats menu current percentage
+    int money : 0x1E134B4, 0x24, 0x34; // current money u have
+    uint lastCompletedMission : 0x01E110E4, 0x0, 0x28; // hexid for the last completed mission
+    int CodexPages : 0x01E134BC, 0xF0, 0x0; // how many codex pages u have collected in total
+    int Feathers : 0x01E134BC, 0xF0, 0x4; // how many feathers u have collected in total
+    int loading : 0x01E16320, 0x38C, 0x694; // 6 and 7 for loading 5 for not loadimng 4 in mainmenu
+    uint currentMission : 0x01E3DBE4, 0x158, 0x0, 0x2C, 0xC; // hexid for the current mission u are on
+    int currentMissionStatus : 0x01E3DBE4, 0x158, 0x0, 0x2C, 0x0, 0x18; // current mission status
+    int AbstergoStatus : 0x005E77BC, 0xC, 0x14, 0x318; // current mission status for Escaping Abstergo
+    int AnimusStatus : 0x01E12004, 0x8, 0x1C8, 0x10, 0x18; // current mission status for animus 2.0
+    int WarehouseStatus : 0x01E110DC, 0x1C, 0x164, 0x21C, 0x18; // current mission status for warehouse
+    int AltairStatus : 0x01E110DC, 0x1C, 0x164, 0x220, 0x18; // current mission status for altair
+    uint mostRecentMission : 0x1E13314; // hexid for the most recent mission u are on
 }
 
 state("AssassinsCreedIIGame", "Pirate")
@@ -20,13 +26,15 @@ state("AssassinsCreedIIGame", "Pirate")
     uint lastCompletedMission : 0x01E1297C, 0x0, 0x28;
     int CodexPages : 0x1E3C590, 0xF0, 0x0;
     int Feathers : 0x1E3C590, 0xF0, 0x4;
-    int loading : 0x1C8ACF8; // 0 for loading and main menu 1 every where fucking else
+    int loading : 0x01E3F3F0, 0x38C, 0x694; // 6 and 7 for loading 5 for not loadimng 4 in mainmenu
     uint currentMission : 0x01E14D1C, 0x94, 0xC0, 0x0, 0x2C, 0xC;
+    int currentMissionStatus : 0x01E14D1C, 0x94, 0xC0, 0x0, 0x2C, 0x0, 0x18;
+    uint mostRecentMission : 0x1E14B64;
 }
 
 startup
 {
-    vars.AutoSplitterVersion = "2.0.2"; // version variable
+    vars.AutoSplitterVersion = "2.0.3"; // version variable
     timer.Run.Metadata.SetCustomVariable("Auto Splitter Version", vars.AutoSplitterVersion);
     vars.stopwatch = new Stopwatch();
     vars.SplitTime = null;
@@ -115,14 +123,18 @@ startup
     };
     settings.Add("Splits", false, "Any% Splits");
     settings.SetToolTip("Splits", "Contains all missions you can split on for Any%.");
-    settings.Add("100%", false, "100%/DNA% Splits");
-    settings.Add("Money", false, "Money Splits", "100%");
+    settings.Add("Alt", false, "Alternate Splits");
+    settings.SetToolTip("Alt", "Contains alternate splits.\nSuch as Money, Codex Pages, Feathers, and percentage increase.");
+    settings.Add("Money", false, "Money Splits", "Alt");
     settings.SetToolTip("Money", "This will split after getting money from chests");
-    settings.Add("CodexPages", false, "Codex Pages Splits", "100%");
+    settings.Add("CodexPages", false, "Codex Pages Splits", "Alt");
     settings.SetToolTip("CodexPages", "This will split after collecting codex pages");
-    settings.Add("Feathers", false, "Feather Splits", "100%");
+    settings.Add("Feathers", false, "Feather Splits", "Alt");
     settings.SetToolTip("Feathers", "This will split after collecting a feather");
-    for(float i = 0.5f; i <= 14.5f; i += 0.5f)
+    settings.Add("Percentage", false, "Percentage Splits", "Alt");
+    settings.SetToolTip("Percentage", "This will split after the in game percentage increases\n
+    Note: will not split on all missions use with money splits if u want to split on all missions");
+    /*for(float i = 0.5f; i <= 14.5f; i += 0.5f)
     {
         if(!vars.Sequence.ContainsKey(i))
         {
@@ -163,7 +175,7 @@ startup
                 }
             }
         }
-    }
+    }*/
 }
 
 init
@@ -223,13 +235,21 @@ update
         timer.Run.Metadata.SetCustomVariable("Mission", vars.Missions[current.lastCompletedMission].Item1);
     }
 
-    vars.missionValueIsValid = current.lastCompletedMission != old.lastCompletedMission
-    || current.lastCompletedMission == old.lastCompletedMission;
-    vars.enoughTimeHasPassed = vars.SplitTime >= vars.waitTime;
+    // main logic for mission splits
+    vars.missionStatusIsValid = current.currentMissionStatus == 6 && (old.currentMissionStatus == 0 || old.currentMissionStatus == 5);
+    //vars.missionValueIsValid = (current.lastCompletedMission == old.lastCompletedMission && vars.missionStatusIsValid) || 
+    //(current.lastCompletedMission != old.lastCompletedMission && vars.missionStatusIsValid);
+    vars.enoughTimeHasPassed = vars.splitTime >= vars.waitTime;
     vars.missionIsNew = !vars.CompletedMissions.Contains(current.lastCompletedMission);
     vars.missionIsConfigured = vars.Missions.ContainsKey(current.lastCompletedMission);
     vars.missionSplitIsEnabled = vars.missionIsConfigured && settings[vars.Missions[current.lastCompletedMission].Item1];
-    vars.gameIsReady = current.currentMission == 0x0 && current.loading == 1;
+    vars.gameIsReady = current.loading != 6 && current.loading != 7 && current.loading != 4;
+    //vars.ModernDayIsCompleted = current.AbstergoStatus == 6 || current.AnimusStatus == 6 || current.WarehouseStatus == 6 || current.AltairStatus == 6;
+    vars.isModernDay = vars.ModernDayMissions.Contains(current.lastCompletedMission);
+    
+    // money splits
+    vars.moneyIncreasedIsValid = current.money > old.money && current.percentage == old.percentage && !vars.PickPocketMoney.Contains(current.money-old.money);
+    vars.moneyIsGameReady = (old.money != 0 || current.money != null);
 }
 
 onStart
@@ -241,49 +261,49 @@ split
 {
     // for normal splits
     // only split if the mission is completed and the mission is in the list of missions to split on
-    if (vars.missionValueIsValid && vars.enoughTimeHasPassed && vars.missionIsNew && vars.missionSplitIsEnabled && vars.gameIsReady)
+    /*if (vars.missionValueIsValid && vars.enoughTimeHasPassed && vars.missionIsNew && vars.missionSplitIsEnabled && vars.gameIsReady)
     {
         print("splits on mission: " + vars.Missions[current.lastCompletedMission].Item1);
         vars.CompletedMissions.Add(current.lastCompletedMission); // prevents double splits
         vars.stopwatch.Restart(); //prevents double splits
         return true;
-    }
+    }*/
     
-    // 100%/DNA% splits
-    // for splits such as chests and side missions and mission that dont increase the percentage by 1 in general
+    // Alternate splits
+    // for splits such as chests and side missions and mission that dont increase the percentage
     for (int i = 0; i < vars.PickPocketMoney.Count; i++)
     {
-        if(current.money > old.money && current.percentage == old.percentage && !vars.PickPocketMoney.Contains(Math.Abs(current.money-old.money)) 
-        && settings["Money"] && vars.SplitTime >= vars.waitTime && (old.money != 0 || current.money != null) && current.loading == 1)
+        if(settings["Money"] && vars.moneyIncreasedIsValid && vars.enoughTimeHasPassed && vars.moneyIsGameReady && vars.gameIsReady)
         {
-            print("splits on money");
+            print("split on money");
             vars.stopwatch.Restart(); //prevents double splits
             return true;
         }
     }
-    if (settings["CodexPages"] && current.CodePages > old.CodePages && vars.SplitTime >= vars.waitTime && current.loading == 1)
+    if (settings["CodexPages"] && current.CodePages > old.CodePages && vars.enoughTimeHasPassed && vars.gameIsReady)
     {
-        print("splits on codex pages");
+        print("split on codex pages");
         vars.stopwatch.Restart(); //prevents double splits
         return true;
     }
-    if (settings["Feathers"] && current.Feathers > old.Feathers && vars.SplitTime >= vars.waitTime && current.loading == 1)
+    if (settings["Feathers"] && current.Feathers > old.Feathers && vars.enoughTimeHasPassed && vars.gameIsReady)
     {
-        print("splits on feathers");
+        print("split on feathers");
         vars.stopwatch.Restart(); //prevents double splits
+        return true;
+    }
+    if (settings["Percentage"] && current.percentage > old.percentage && vars.enoughTimeHasPassed && vars.gameIsReady)
+    {
+        print("split on percentage");
+        vars.stopwatch.Restart();
         return true;
     }
 
     // no longer needed but keeping just in case
     /*
-    if (current.percentage > old.percentage && vars.SplitTime >= vars.waitTime && current.loading != 0)
-    {
-        print("Split Time: " + vars.SplitTime.ToString() + "Split 1");
-        vars.stopwatch.Restart();
-        return true;
-    }
+    
     // old in case the new doesnt work
-    if ((current.lastCompletedMission != old.lastCompletedMission || current.lastCompletedMission == old.lastCompletedMission) && vars.SplitTime >= vars.waitTime && !vars.CompletedMissions.Contains(current.lastCompletedMission)
+    if ((current.lastCompletedMission != old.lastCompletedMission || current.lastCompletedMission == old.lastCompletedMission) && vars.splitTime >= vars.waitTime && !vars.CompletedMissions.Contains(current.lastCompletedMission)
     && vars.Missions.ContainsKey(current.lastCompletedMission) && settings[vars.Missions[current.lastCompletedMission].Item1] && current.currentMission == 0x0 && current.loading == 1)
     {
         print("splits on mission: " + vars.Missions[current.lastCompletedMission].Item1);
@@ -298,7 +318,7 @@ split
 
 isLoading 
 {
-    return current.loading == 0;
+    return current.loading == 6 || current.loading == 7 || current.loading == 4;
 }
 
 onReset

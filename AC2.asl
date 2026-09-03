@@ -132,8 +132,8 @@ startup
     settings.Add("Feathers", false, "Feather Splits", "Alt");
     settings.SetToolTip("Feathers", "This will split after collecting a feather");
     settings.Add("Percentage", false, "Percentage Splits", "Alt");
-    settings.SetToolTip("Percentage", "This will split after the in game percentage increases\n
-    Note: will not split on all missions use with money splits if u want to split on all missions");
+    settings.SetToolTip("Percentage", "This will split after the in game percentage increases\n" +
+    "Note: will not split on all missions use with money splits if u want to split on all missions");
     /*for(float i = 0.5f; i <= 14.5f; i += 0.5f)
     {
         if(!vars.Sequence.ContainsKey(i))

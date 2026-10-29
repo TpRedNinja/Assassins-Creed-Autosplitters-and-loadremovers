@@ -1,12 +1,11 @@
 state("ACBlackFlag")
 {
-    int loading: 0x0AFB5F88, 0x2F0; // 0 for when not loading, 1 for when loading difference between the base address is 24500
 }
 
 startup
 {
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
-    vars.aslVersion = "1.0.8"; // version variable
+    vars.aslVersion = "1.0.9"; // version variable
 
     // settings
     settings.Add("Debug", false, "Debug");
@@ -117,7 +116,41 @@ startup
 init
 {
     vars.MainMissionWatchers = new MemoryWatcherList();
-    int QuestBase = 0xC0498A0; // quest base difference 92230
+    // finds a static address by scanning the code of the main module, so it survives game updates.
+    // pattern = the AOB, dispOffset = where the 4 displacement bytes (the first ?? run of the RIP relative instruction) start inside the pattern,
+    // tail = bytes of that same instruction after the displacement (0 for a plain mov reg,[rip+disp]).
+    // Returns the static as an offset from the module base (what DeepPointer wants), or 0 when the pattern was not found.
+    var mod = modules.First();
+    Func<string, int, int, int> scanStatic = (pattern, dispOffset, tail) =>
+    {
+        var target = new SigScanTarget(dispOffset, pattern);
+        long lo = (long)mod.BaseAddress;
+        long hi = lo + mod.ModuleMemorySize;
+        foreach (var page in game.MemoryPages(true))
+        {
+            long pb = (long)page.BaseAddress;
+            if (pb < lo || pb >= hi) continue;                    // only the main module
+            if ((int)page.State != 0x1000) continue;              // MEM_COMMIT
+            if (((int)page.Protect & 0xF0) == 0) continue;        // executable pages only (the code)
+            var scanner = new SignatureScanner(game, page.BaseAddress, (int)page.RegionSize);
+            IntPtr hit = scanner.Scan(target);
+            if (hit == IntPtr.Zero) continue;
+            // RIP relative: the address is relative to the end of the instruction
+            return (int)((long)hit + 4 + tail + game.ReadValue<int>(hit) - lo);
+        }
+        return 0;
+    };
+
+    // quest manager static: mov rdx,[rip+disp] (48 8B 15 disp32), the displacement starts at byte 3
+    int QuestBase = scanStatic("48 8B 15 ?? ?? ?? ?? 48 85 D2 0F 84 ?? ?? ?? ?? 8B 82 ?? ?? ?? ?? A9 00 00 F0 7F 0F 85 ?? ?? ?? ?? B8 01 00 00 00 F0 0F C1 82 ?? ?? ?? ?? FF C0 A9 00 00 F0 7F 0F 85 ?? ?? ?? ?? 48 83 7A ?? 00 0F 84 ?? ?? ?? ?? 48 8B 09", 3, 0);
+    if (QuestBase == 0) throw new Exception("AC4BFR: quest manager AOB not found yet");   // LiveSplit retries init until the game has it in memory
+    print("AC4BFR: quest base found at exe+" + QuestBase.ToString("X"));
+
+    // loading: [static] + 0x2F0 = 0 when not loading, 1 when loading (found with a pointer scan, the static is read by mov rbx,[rip+disp] = 48 8B 1D, the displacement starts at byte 20 of the pattern)
+    int LoadBase = scanStatic("44 8B 3D ?? ?? ?? ?? 45 89 FE 41 81 E6 00 00 00 40 48 8B 1D ?? ?? ?? ?? 41 C1 E7 06 41 81 E7 C0 FF 0F 00 4E 8D 04 3B 48 89 C1 48 89 DA E8 ?? ?? ?? ??", 20, 0);
+    if (LoadBase == 0) throw new Exception("AC4BFR: loading AOB not found yet");
+    print("AC4BFR: loading base found at exe+" + LoadBase.ToString("X"));
+    vars.Loading = new MemoryWatcher<int>(new DeepPointer(LoadBase, 0x2F0));
 
     foreach (var mission in vars.MainMissions)
     {
@@ -147,11 +180,12 @@ update
     vars.TotalTimeWatch.Elapsed.Seconds, vars.TotalTimeWatch.Elapsed.Milliseconds);
     vars.Helper.Update();
 	vars.Helper.MapPointers();
+    vars.Loading.Update(game);
     if (settings["Any%"]) { 
         vars.MainMissionWatchers.UpdateAll(game);
     }
     if(settings["Debug"]) {
-        timer.Run.Metadata.SetCustomVariable("Loading", current.loading.ToString() + "/1");
+        timer.Run.Metadata.SetCustomVariable("Loading", vars.Loading.Current.ToString() + "/1");
     }
 
     if (timer.CurrentPhase == TimerPhase.Paused || timer.IsGameTimePaused == true)
@@ -165,7 +199,7 @@ update
 
 start
 {
-    if (current.loading == 0 && old.loading == 1)
+    if (vars.Loading.Current == 0 && vars.Loading.Old == 1)
     {
         vars.TotalTimeWatch.Start();
         return true;
@@ -199,7 +233,7 @@ onReset
 
 isLoading
 {
-    if (current.loading == 1)
+    if (vars.Loading.Current == 1)
     {
         vars.TotalTimeWatch.Stop();
         return true;

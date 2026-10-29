@@ -1,0 +1,3981 @@
+{
+  "Tutorial": {
+    "Flashback": [
+      "22.2",
+      2927099002,
+      "M01_Flashback",
+      "Flashback",
+      "0.1.0",
+      "Splits when you start loading out of the glitchy flashback scene at the start of the game."
+    ],
+    "Monolog": [
+      "22.3",
+      2385071363,
+      "M02_AnimusIntro",
+      "Monolog",
+      "0.2.0",
+      "Splits when you are starting the load to the animus tutorial."
+    ],
+    "Animus Tutorial": {
+      "Puppeteering Tutorial": [
+        "22.1.12",
+        3837031450,
+        "M03_S02_Puppeteering_Concept",
+        "Puppeteering Tutorial",
+        "0.2.1",
+        "Splits after finishing the puppeteering tutorial."
+      ],
+      "Head Tutorial": [
+        "22.1.7",
+        152750855,
+        "M03_S03_1stPerson",
+        "Head Tutorial",
+        "0.2.2",
+        "Splits after finishing the head tutorial."
+      ],
+      "Gentle Push Tutorial": [
+        "22.1.13",
+        152750995,
+        "M03_S04_Gentle_Push",
+        "Gentle Push Tutorial",
+        "0.2.3",
+        "Splits after finishing the gentle push tutorial."
+      ],
+      "High/Low Profile Tutorial": [
+        "22.1.11",
+        165386406,
+        "M03_S05_High/Low_Profile",
+        "High/Low Profile Tutorial",
+        "0.2.4",
+        "Splits after finishing the high/low profile tutorial."
+      ],
+      "Grab/Throw Tutorial": [
+        "22.1.10",
+        165386730,
+        "M03_S06_Grab_And_Throw",
+        "Grab/Throw Tutorial",
+        "0.2.5",
+        "Splits after finishing the grab/throw tutorial."
+      ],
+      "Sprint Tutorial": [
+        "22.1.2",
+        165387106,
+        "M03_S07_Sprint",
+        "Sprint Tutorial",
+        "0.2.6",
+        "Splits after finishing the sprint tutorial."
+      ],
+      "Social Status Tutorial": [
+        "22.1.5",
+        165393601,
+        "M03_S15_Social_Status_Blended",
+        "Social Status Tutorial",
+        "0.2.7",
+        "Splits after finishing the social status tutorial."
+      ],
+      "Hiding spot tutorial": [
+        "22.1.15",
+        319828395,
+        "M03_S16_Social_Status_Anonymous",
+        "Hiding spot tutorial",
+        "0.2.8",
+        "Splits after finishing the hiding spot tutorial."
+      ],
+      "Slow walk tutorial": [
+        "22.1.16",
+        319830643,
+        "M03_S17_Blend",
+        "Slow walk tutorial",
+        "0.2.9",
+        "Splits after finishing the slow walk tutorial."
+      ],
+      "Eagle Vision tutorial": [
+        "22.1.18",
+        319830724,
+        "M03_S19_Eagle_Vision",
+        "Eagle Vision tutorial",
+        "0.2.10",
+        "Splits after finishing the eagle vision tutorial."
+      ]
+    },
+    "(list completed)": [
+      "22",
+      3448809545,
+      "Game Start",
+      "Tutorial Complete",
+      "0.3.0",
+      "Splits after finishing the tutorial."
+    ]
+  },
+  "Memory Block 1": {
+    "Solomon Temple": {
+      "My Way is Better": [
+        "5.0.6",
+        1016827336,
+        "Main - Before Brefing",
+        "My Way is Better",
+        "1.1.0",
+        "Splits after the monolog of the 3 assassins where Altair says 'My way is better.'."
+      ],
+      "kill guard": [
+        "5.0.10",
+        2931000743,
+        "Assassination Tutorial",
+        "kill guard",
+        "1.1.1",
+        "Splits after killing the guard you are forced to kill before ark room."
+      ],
+      "ark cutscene": [
+        "5.0.0.0",
+        2931000744,
+        "Assassins see Ark and Robert",
+        "ark cutscene",
+        "1.1.2",
+        "Splits after the ark room cutscene."
+      ],
+      "Robert fail Assassination": [
+        "5.0.0",
+        2931000745,
+        "Altair fails Robert Assassination",
+        "Robert fail Assassination",
+        "1.1.3",
+        "Splits after failing the assassination of Robert."
+      ],
+      "(list completed)": [
+        "5.0",
+        1005212782,
+        "M02_SolomonTemple",
+        "Solomon's Temple",
+        "1.1.4",
+        "Splits after finishing Solomon's Temple."
+      ]
+    },
+    "MasyafUnderAttack": {
+      "pre Masyaf attack": {
+        "Solomon's Temple Alt": [
+          "5.1.0.6",
+          1074881165,
+          "Contain Player out of Fortress",
+          "Solomon's Temple Alt",
+          "1.2.0",
+          "Splits when you load into Masyaf."
+        ],
+        "Rauf": [
+          "5.1.0.0",
+          1040056261,
+          "01_EnterMasyaf",
+          "Rauf",
+          "1.2.1",
+          "Splits after talking to Rauf in Masyaf."
+        ],
+        "Abbas": [
+          "5.1.0.9",
+          1304473665,
+          "02_Abbas",
+          "Abbas",
+          "1.2.2",
+          "Splits after talking to Abbas in Masyaf."
+        ],
+        "(list completed)": [
+          "5.1.0",
+          1040056258,
+          "M05_HorseTutorial",
+          "Talk to Al-Mualim",
+          "1.2.3",
+          "Splits after talking to Al-Mualim in Masyaf."
+        ]
+      },
+      "Masyaf attack": {
+        "Rauf Masyaf Attack": [
+          "5.1.1.10",
+          1181353001,
+          "01_RaufPanic",
+          "Rauf Masyaf Attack",
+          "1.3.0",
+          "Splits after talking to Rauf during the Masyaf attack."
+        ],
+        "Retreat": [
+          "5.1.1.5",
+          1180844313,
+          "02_AssassinsRetreat",
+          "Retreat",
+          "1.3.1",
+          "Splits after you get to the retreat point during the Masyaf attack."
+        ],
+        "Climb Tower": [
+          "5.1.1.19",
+          1498504117,
+          "04_LOF_ClimbTower",
+          "Climb Tower",
+          "1.3.2",
+          "Splits after you climb the tower during the Masyaf attack."
+        ],
+        "Log Trap": [
+          "5.1.1.8",
+          1045371076,
+          "06_LogTrap",
+          "Log Trap",
+          "1.3.3",
+          "Splits after activating the log trap."
+        ]
+      }
+    },
+    "(list completed)": [
+      "5",
+      1100876471,
+      "Memory Block 1",
+      "Memory Block 1 Completed",
+      "1.4.0",
+      "Splits after finishing memory block 1."
+    ]
+  },
+  "Modern Day 1": {
+    "speech": [
+      "0.2.0",
+      3083308881,
+      "M08_S01_NightSpeech",
+      "speech",
+      "2.1.0",
+      "Splits after reaching the eavesdrop area."
+    ],
+    "eavesdrop": [
+      "0.2.1",
+      3083308894,
+      "M08_S02_Eavesdropping",
+      "eavesdrop",
+      "2.1.1",
+      "Splits after finishing the eavesdrop area."
+    ],
+    "Day 1 evening": [
+      "0.2",
+      3349011213,
+      "M08_Evening",
+      "Day 1 evening",
+      "2.1.2",
+      "Splits after finishing the evening of day 1."
+    ],
+    "Day 1 night": [
+      "0.1",
+      3083308813,
+      "M08_Night",
+      "Day 1 night",
+      "2.2.0",
+      "Splits once you interact with the bed."
+    ],
+    "morning speech": [
+      "0.0.0",
+      3083311196,
+      "M08_S05_MorningSpeech",
+      "morning speech",
+      "2.3.0",
+      "Splits after finishing the morning speech by Vidic."
+    ],
+    "(list completed)": [
+      "0",
+      3083308811,
+      "M08_Day1",
+      "Modern Day 1 Completed",
+      "2.4.0",
+      "Splits once you click continue while in the animus screen."
+    ]
+  },
+  "Memory Block 2": {
+    "Masyaf Traitor": {
+      "Al-Mualim Debrief 1": [
+        "2.1.3",
+        2797450946,
+        "01_Sinan_Breifing",
+        "Al-Mualim Debrief 1",
+        "3.1.0",
+        "Splits after the debrief with Al-Mualim for Masyaf traitor investigation."
+      ],
+      "Informant Masyaf": [
+        "2.1.6",
+        1519634205,
+        "02_InvestigationAdvice",
+        "Informant Masyaf",
+        "3.1.1",
+        "Splits after talking to the informant in Masyaf."
+      ],
+      "Eavesdrop Masyaf": [
+        "2.1.0",
+        2797450943,
+        "03_EavesdroppingMission",
+        "Eavesdrop Masyaf",
+        "3.1.2",
+        "Splits after finishing the eavesdrop in Masyaf."
+      ],
+      "Pickpocket Masyaf": [
+        "2.1.2",
+        2797450945,
+        "04_PickpocketMission",
+        "Pickpocket Masyaf",
+        "3.1.3",
+        "Splits after finishing the pickpocket mission in Masyaf."
+      ],
+      "(list completed)": [
+        "2.1",
+        2797450938,
+        "MB02_Masyaf_Investigation",
+        "Masyaf Traitor",
+        "3.1.4",
+        "Splits after finishing the interrogation mission in Masyaf and you spawn in the castle."
+      ],
+      "Al-Mualim Debrief 2": [
+        "2.4",
+        3137256715,
+        "Al-Mualim 1",
+        "Al-Mualim Debrief 2",
+        "3.1.5",
+        "Splits after the debrief with Al-Mualim for Tamir's investigation."
+      ],
+      "Kingdom Viewpoint": [
+        "2.6",
+        3268124141,
+        "Kingdom_Tutorials",
+        "Kingdom Viewpoint",
+        "3.1.6",
+        "Splits after syncing the mandatory viewpoint in the kingdom."
+      ]
+    },
+    "Tamir Splits": {
+      "Damascus Outskirts": {
+        "Damascus Intro": [
+          "2.0.5",
+          1330022021,
+          "Damascus intro Master shot",
+          "Damascus Intro",
+          "3.2.0",
+          "Splits after the intro cutscene in Damascus."
+        ],
+        "Scholar Rescue": [
+          "2.0.7",
+          3217499545,
+          "Free Mission DamasOutskirts",
+          "Scholar Rescue",
+          "3.2.1",
+          "Splits after saving the scholar in the outskirts of Damascus."
+        ]
+      },
+      "Tamir Any% Investigation": {
+        "Pickpocket Tamir 1": [
+          "2.0.2.1",
+          3301065875,
+          "Mandatory 1: Pickpocket 1 - (M1_Pp1)",
+          "Pickpocket Tamir 1",
+          "3.3.0",
+          "Splits after finishing the first pickpocket mission in Damascus. Part of the any% route.",
+          "3.3.0"
+        ],
+        "Pickpocket Tamir 2": [
+          "2.0.2.4",
+          830873567,
+          "Optional 3: Pickpocket 2 - (Op3_Pp2)",
+          "Pickpocket Tamir 2",
+          "3.3.1",
+          "Splits after finishing the second pickpocket mission in Damascus. Part of the any% route.",
+          "3.3.0"
+        ]
+      },
+      "Tamir 100% Investigation": {
+        "Interrogation Tamir": [
+          "2.0.2.3",
+          3287768859,
+          "Mandatory 3:  Interrogation 1 - (M3_Int1)",
+          "Interrogation Tamir",
+          "3.3.2",
+          "Splits after finishing the interrogation mission in Damascus. For 100% completion.",
+          "3.3.0",
+          true
+        ],
+        "Informant Race Tamir": [
+          "2.0.2.7",
+          2855464721,
+          "MB02_M13_Tamir_Freerun_FR1",
+          "Informant Race Tamir",
+          "3.3.3",
+          "Splits after finishing the informant race mission in Damascus. For 100% completion.",
+          "3.3.0",
+          true
+        ],
+        "Eavesdrop Tamir": [
+          "2.0.2.5",
+          830873566,
+          "Optional 1: Eavesdropping 2 - (Op1_Ed2)",
+          "Eavesdrop Tamir",
+          "3.3.4",
+          "Splits after finishing the eavesdrop mission in Damascus. For 100% completion.",
+          "3.3.0",
+          true
+        ],
+        "Informant Escort Tamir": [
+          "2.0.2.8",
+          2909688964,
+          "MB02_M13_Tamir_Escort_ES1",
+          "Informant Escort Tamir",
+          "3.3.5",
+          "Splits after finishing the informant escort mission in Damascus. For 100% completion.",
+          "3.3.0",
+          true
+        ]
+      },
+      "Tamir Assassination": {
+        "Talk to Bureau Damascus": [
+          "2.0.1.1",
+          830872751,
+          "Bureau_PreMM 5",
+          "Talk to Bureau Damascus",
+          "3.4.0",
+          "Splits after talking to the Bureau leader in Damascus."
+        ],
+        "Tamir Assassination": [
+          "2.0.1.0.1",
+          872515326,
+          "MM_Tamir",
+          "Tamir Assassination",
+          "3.4.1",
+          "Splits after doing the death confession of Tamir. This splits later than the regular death confession split."
+        ],
+        "Return to Bureau": [
+          "2.0.1.0.0",
+          830872754,
+          "Bureau_PostMM 5",
+          "Return to Bureau",
+          "3.4.2",
+          "Splits after letting the Bureau know about the assassination."
+        ]
+      }
+    },
+    "(list completed)": [
+      "2",
+      2308058387,
+      "Memory Block 2",
+      "Memory Block 2 Completed",
+      "3.5.0",
+      "Splits after finishing memory block 2."
+    ]
+  },
+  "Modern Day 2": {
+    "Peace in all things": [
+      "24.1.0",
+      2043788689,
+      "M15_S03_MorningSpeech",
+      "Peace in all things",
+      "4.1.0",
+      "Splits when Lucy enters the room."
+    ],
+    "(list completed)": [
+      "24",
+      2043775268,
+      "M15_Day2",
+      "Modern Day 2",
+      "4.2.0",
+      "Splits after finishing modern day 2."
+    ]
+  },
+  "Memory Block 3": {
+    "Memory Block 3 Briefing": [
+      "23.5",
+      2590315478,
+      "Al Mualim - MB03 briefing",
+      "Memory Block 3 Briefing",
+      "5.1.0",
+      "Splits after finishing the briefing with Al-Mualim."
+    ],
+    "Garnier Splits": {
+      "Acre Intro": [
+        "23.0.3",
+        1330022082,
+        "Acre Intro Mastershot",
+        "Acre Intro",
+        "5.2.0",
+        "Splits after finishing the Acre intro cutscene.",
+        null,
+        false,
+        {
+          "order": "MB3",
+          "target": "garnier",
+          "slots": [
+            "5.2.0",
+            "5.6.0"
+          ]
+        }
+      ],
+      "Garnier Any% Investigation": {
+        "Garnier Eavesdrop": [
+          "23.0.1.5",
+          691976047,
+          "Eavesdropping_OP2_ED2",
+          "Garnier Eavesdrop",
+          "5.3.0",
+          "Splits after finishing the Acre eavesdrop mission. Required for any%.",
+          "5.3.0",
+          false,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.3.0",
+              "5.7.0"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ],
+        "Garnier Pickpocket": [
+          "23.0.1.2",
+          670458652,
+          "Pickpocket_M3_PP1",
+          "Garnier Pickpocket",
+          "5.3.1",
+          "Splits after finishing the Acre pickpocket mission. Required for any%.",
+          "5.3.0",
+          false,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.3.1",
+              "5.7.1"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ]
+      },
+      "Garnier 100% Investigation": {
+        "Garnier Archer Informant": [
+          "23.0.1.8",
+          2840340991,
+          "MB03_M20_Garnier_Archers_ASK1",
+          "Garnier Archer Informant",
+          "5.3.2",
+          "Splits after finishing the Acre archer informant mission. Required for 100%.",
+          "5.3.0",
+          true,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.3.2",
+              "5.7.2"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ],
+        "Garnier Informant Flag Race": [
+          "23.0.1.0",
+          2716336548,
+          "MissionItemInformerFlag 1 (0xA1E801A4)",
+          "Garnier Informant Flag Race",
+          "5.3.3",
+          "Splits after finishing the Acre informant flag race mission. Required for 100%.",
+          "5.3.0",
+          true,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.3.3",
+              "5.7.3"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ],
+        "Garnier Informant Assassination": [
+          "23.0.1.6",
+          2716336547,
+          "MissionItemInformerAssassination 1 (0xA1E801A3)",
+          "Garnier Informant Assassination",
+          "5.3.4",
+          "Splits after finishing the Acre informant assassination mission. Required for 100%.",
+          "5.3.0",
+          true,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.3.4",
+              "5.7.4"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ],
+        "Garnier Interrogation": [
+          "23.0.1.1",
+          2067992634,
+          "Interrogation_M2_INT1",
+          "Garnier Interrogation",
+          "5.3.5",
+          "Splits after finishing the Acre interrogation mission. Required for 100%.",
+          "5.3.0",
+          true,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.3.5",
+              "5.7.5"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ]
+      },
+      "Garnier Assassination": {
+        "Talk to Bureau Acre": [
+          "23.0.0.0",
+          785552757,
+          "Bureau_PreMM 3",
+          "Talk to Bureau Acre",
+          "5.4.0",
+          "Splits after talking to the Bureau leader in Acre.",
+          null,
+          false,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.4.0",
+              "5.8.0"
+            ]
+          }
+        ],
+        "Garnier Assassination": [
+          "23.0.0.1.1",
+          874127772,
+          "MM_Garnier",
+          "Garnier Assassination",
+          "5.4.1",
+          "Splits after finishing the Acre assassination mission.",
+          null,
+          false,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.4.1",
+              "5.8.1"
+            ]
+          }
+        ],
+        "Return to Bureau": [
+          "23.0.0.1.0",
+          785552759,
+          "Bureau_PostMM 3",
+          "Return to Bureau",
+          "5.4.2",
+          "Splits after letting the Bureau know about the assassination.",
+          null,
+          false,
+          {
+            "order": "MB3",
+            "target": "garnier",
+            "slots": [
+              "5.4.2",
+              "5.8.2"
+            ]
+          }
+        ]
+      }
+    },
+    "Debrief First Target (Garnier)": [
+      "23.6",
+      2590315480,
+      "Al Mualim - Garnier Debrief",
+      "Debrief First Target (Garnier)",
+      "5.5.0",
+      "Splits after finishing the debrief with Al-Mualim for the first target (when it's Garnier). Turning this on keeps the normal order: Garnier first, Talal second. Do not turn it on together with the Talal debrief, nothing is read while both are on.",
+      null,
+      false,
+      {
+        "order": "MB3",
+        "target": "garnier",
+        "marker": 1
+      }
+    ],
+    "Debrief First Target (Talal)": [
+      "23.7",
+      2590315479,
+      "Al-Mualim - Talal Debrief",
+      "Debrief First Target (Talal)",
+      "5.5.0",
+      "Splits after finishing the debrief with Al-Mualim for the first target (when it's Talal). Turning this on swaps the order: Talal first, Garnier second. Do not turn it on together with the Garnier debrief, nothing is read while both are on.",
+      null,
+      false,
+      {
+        "order": "MB3",
+        "target": "talal",
+        "marker": 1
+      }
+    ],
+    "Talal Splits": {
+      "Jerusalem Intro": [
+        "23.3.3",
+        1330022148,
+        "Jerusalem Intro Mastershot",
+        "Jerusalem Intro",
+        "5.6.0",
+        "Splits after finishing the Jerusalem intro cutscene.",
+        null,
+        false,
+        {
+          "order": "MB3",
+          "target": "talal",
+          "slots": [
+            "5.2.0",
+            "5.6.0"
+          ]
+        }
+      ],
+      "Talal Any% Investigation": {
+        "Talal Informer Escort": [
+          "23.3.0.8",
+          2907566297,
+          "MissionInformerEscort 1",
+          "Talal Informer Escort",
+          "5.7.0",
+          "Splits after finishing the Jerusalem informant escort mission. Required for any%.",
+          "5.7.0",
+          false,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.3.0",
+              "5.7.0"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ],
+        "Talal Informer Assassination": [
+          "23.3.0.1",
+          3051245772,
+          "MissionItemInformerAssassination 1 (0xB5DE50CC)",
+          "Talal Informer Assassination",
+          "5.7.1",
+          "Splits after finishing the Jerusalem informant assassination mission. Required for any%.",
+          "5.7.0",
+          false,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.3.1",
+              "5.7.1"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ]
+      },
+      "Talal 100% Investigation": {
+        "Talal Interrogation": [
+          "23.3.0.2",
+          2687824818,
+          "Mandatory_Interrogation_IN1 (0xA034F3B2)",
+          "Talal Interrogation",
+          "5.7.2",
+          "Splits after finishing the Jerusalem interrogation mission. Required for 100%.",
+          "5.7.0",
+          true,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.3.2",
+              "5.7.2"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ],
+        "Talal Informer Flag Race": [
+          "23.3.0.5",
+          3051245771,
+          "MissionItemInformerFlag 1 (0xB5DE50CB)",
+          "Talal Informer Flag Race",
+          "5.7.3",
+          "Splits after finishing the Jerusalem informant flag race mission. Required for 100%.",
+          "5.7.0",
+          true,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.3.3",
+              "5.7.3"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ],
+        "Talal Pickpocket": [
+          "23.3.0.3",
+          627692326,
+          "Mandatory_Pickpocket_P1",
+          "Talal Pickpocket",
+          "5.7.4",
+          "Splits after finishing the Jerusalem pickpocket mission. Required for 100%.",
+          "5.7.0",
+          true,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.3.4",
+              "5.7.4"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ],
+        "Talal Eavesdrop": [
+          "23.3.0.6",
+          821141044,
+          "Optional_Eavesdropping_ED4",
+          "Talal Eavesdrop",
+          "5.7.5",
+          "Splits after finishing the Jerusalem eavesdrop mission. Required for 100%.",
+          "5.7.0",
+          true,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.3.5",
+              "5.7.5"
+            ],
+            "slotMerge": [
+              "5.3.0",
+              "5.7.0"
+            ]
+          }
+        ]
+      },
+      "Talal Assassination": {
+        "Talk to Bureau Jerusalem": [
+          "23.3.1.1",
+          631612106,
+          "Bureau_PreMM 1",
+          "Talk to Bureau Jerusalem",
+          "5.8.0",
+          "Splits after talking to the Bureau leader in Jerusalem.",
+          null,
+          false,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.4.0",
+              "5.8.0"
+            ]
+          }
+        ],
+        "Talal Assassination": [
+          "23.3.1.0.2",
+          812061837,
+          "MM_Talal",
+          "Talal Assassination",
+          "5.8.1",
+          "Splits after finishing the Jerusalem assassination mission.",
+          null,
+          false,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.4.1",
+              "5.8.1"
+            ]
+          }
+        ],
+        "Return to Bureau": [
+          "23.3.1.0.1",
+          631612105,
+          "Bureau_PostMM 1",
+          "Return to Bureau",
+          "5.8.2",
+          "Splits after letting the Bureau know about the assassination.",
+          null,
+          false,
+          {
+            "order": "MB3",
+            "target": "talal",
+            "slots": [
+              "5.4.2",
+              "5.8.2"
+            ]
+          }
+        ]
+      }
+    },
+    "(list completed)": [
+      "23",
+      2308058638,
+      "Memory Block 3",
+      "Memory Block 3 Completed",
+      "5.9.0",
+      "Splits after finishing memory block 3."
+    ]
+  },
+  "Modern Day 3": {
+    "No Credit": [
+      "25.2.2",
+      2927440070,
+      "M28_S03_MorningSpeech",
+      "No Credit",
+      "6.1.0",
+      "Splits after Vidic's 'We take no credit' speech."
+    ],
+    "(list completed)": [
+      "25",
+      2202146831,
+      "M28_Day3",
+      "Modern Day 3",
+      "6.2.0",
+      "Splits after finishing modern day 3."
+    ]
+  },
+  "Memory Block 4": {
+    "Memory Block 4 Briefing": [
+      "3.6",
+      2927099584,
+      "Al Mualim - MB04 Briefing",
+      "Memory Block 4 Briefing",
+      "7.1.0",
+      "Splits after finishing the briefing with Al-Mualim."
+    ],
+    "Abu'l Nuqoud Splits": {
+      "Abu'l Any% Investigation": {
+        "Abu'l Eavesdrop": [
+          "3.2.1.2",
+          657650703,
+          "Mandatory 2: Eavesdropping 1 - (M2_Ed1)",
+          "Abu'l Eavesdrop",
+          "7.2.0",
+          "Splits after finishing the Abu'l Nuqoud eavesdrop mission. Required for any%.",
+          "7.2.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "Abu'l Informant Stalls": [
+          "3.2.1.7",
+          2858065936,
+          "MB04_M33_Vizier_Kiosks_BK1",
+          "Abu'l Informant Stalls",
+          "7.2.1",
+          "Splits after finishing the Abu'l Nuqoud informant stalls mission. Required for any%.",
+          "7.2.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.2.1",
+              "7.5.1",
+              "7.8.1"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "Abu'l Pickpocket": [
+          "3.2.1.3",
+          657650702,
+          "Mandatory 3: Pickpocket 1 - (M3_Pp1)",
+          "Abu'l Pickpocket",
+          "7.2.2",
+          "Splits after finishing the Abu'l Nuqoud pickpocket mission. Required for any%.",
+          "7.2.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.2.2",
+              "7.5.2",
+              "7.8.2"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ]
+      },
+      "Abu'l 100% Investigation": {
+        "Abu'l Informant Assassination": [
+          "3.2.1.5",
+          3051245432,
+          "MissionItemInformerAssassination 1 (0xB5DE4F78)",
+          "Abu'l Informant Assassination",
+          "7.2.3",
+          "Splits after finishing the Abu'l Nuqoud informant assassination mission. Required for 100%.",
+          "7.2.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.2.3",
+              "7.5.3",
+              "7.8.3"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "Abu'l Interrogation": [
+          "3.2.1.1",
+          3417216553,
+          "Mandatory 1: Interrogation 1 - (M1_Int1)",
+          "Abu'l Interrogation",
+          "7.2.4",
+          "Splits after finishing the Abu'l Nuqoud interrogation mission. Required for 100%.",
+          "7.2.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.2.4",
+              "7.5.4",
+              "7.8.4"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "Abu'l Informant Flag Race": [
+          "3.2.1.4",
+          3051245431,
+          "MissionItemInformerFlag 1 (0xB5DE4F77)",
+          "Abu'l Informant Flag Race",
+          "7.2.5",
+          "Splits after finishing the Abu'l Nuqoud informant flag race mission. Required for 100%.",
+          "7.2.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.2.5",
+              "7.5.5",
+              "7.8.5"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ]
+      },
+      "Abu'l Assassination": {
+        "Talk to Bureau Abu'l Nuqoud": [
+          "3.2.0.1",
+          642457616,
+          "Bureau_PreMM 2",
+          "Talk to Bureau Abu'l Nuqoud",
+          "7.3.0",
+          "Splits after talking to the Bureau leader in Abu'l Nuqoud.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.3.0",
+              "7.6.0",
+              "7.9.0"
+            ]
+          }
+        ],
+        "Abu'l Assassination": [
+          "3.2.0.0.2",
+          872515335,
+          "MM_Vizier",
+          "Abu'l Assassination",
+          "7.3.1",
+          "Splits after finishing the Abu'l Nuqoud assassination mission.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.3.1",
+              "7.6.1",
+              "7.9.1"
+            ]
+          }
+        ],
+        "Return to Bureau": [
+          "3.2.0.0.1",
+          642457615,
+          "Bureau_PostMM 2",
+          "Return to Bureau",
+          "7.3.2",
+          "Splits after letting the Bureau know about the assassination.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "vizier",
+            "slots": [
+              "7.3.2",
+              "7.6.2",
+              "7.9.2"
+            ]
+          }
+        ]
+      }
+    },
+    "William of Montferrat Splits": {
+      "William Any% Investigation": {
+        "William Informant Assassination": [
+          "3.0.1.5",
+          2716336612,
+          "MissionItemInformerAssassination 1 (0xA1E801E4)",
+          "William Informant Assassination",
+          "7.5.0",
+          "Splits after finishing the William of Montferrat informant assassination mission. Required for any%.",
+          "7.5.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "William Informant Stalls": [
+          "3.0.1.7",
+          2861389450,
+          "MB04_M45_Montferrat_Kiosks_BK1",
+          "William Informant Stalls",
+          "7.5.1",
+          "Splits after finishing the William of Montferrat informant stalls mission. Required for any%.",
+          "7.5.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.2.1",
+              "7.5.1",
+              "7.8.1"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "William Informant Flag Race": [
+          "3.0.1.1",
+          2716336613,
+          "MissionItemInformerFlag 1 (0xA1E801E5)",
+          "William Informant Flag Race",
+          "7.5.2",
+          "Splits after finishing the William of Montferrat informant flag race mission. Required for any%.",
+          "7.5.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.2.2",
+              "7.5.2",
+              "7.8.2"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ]
+      },
+      "William 100% Investigation": {
+        "William Pickpocket": [
+          "3.0.1.4",
+          742071941,
+          "Pickpocket_OP3_PP3 (0x2C3B1E85)",
+          "William Pickpocket",
+          "7.5.3",
+          "Splits after finishing the William of Montferrat pickpocket mission. Required for 100%.",
+          "7.5.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.2.3",
+              "7.5.3",
+              "7.8.3"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "William Interrogation": [
+          "3.0.1.2",
+          3354637636,
+          "Interrogation_M3_IN1 (0xC7F3B544)",
+          "William Interrogation",
+          "7.5.4",
+          "Splits after finishing the William of Montferrat interrogation mission. Required for 100%.",
+          "7.5.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.2.4",
+              "7.5.4",
+              "7.8.4"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "William Informant Archers": [
+          "3.0.1.6",
+          2851031757,
+          "MB04_M45_Montferrat_Archers_ASK1",
+          "William Informant Archers",
+          "7.5.5",
+          "Splits after finishing the William of Montferrat informant archers mission. Required for 100%.",
+          "7.5.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.2.5",
+              "7.5.5",
+              "7.8.5"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ]
+      },
+      "William Assassination": {
+        "Talk to Bureau William of Montferrat": [
+          "3.0.0.1",
+          882332869,
+          "Bureau_PreMM 8",
+          "Talk to Bureau William of Montferrat",
+          "7.6.0",
+          "Splits after talking to the Bureau leader in William of Montferrat.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.3.0",
+              "7.6.0",
+              "7.9.0"
+            ]
+          }
+        ],
+        "William of Montferrat Assassination": [
+          "3.0.0.0.2",
+          882332867,
+          "MM_Montferrat",
+          "William of Montferrat Assassination",
+          "7.6.1",
+          "Splits after finishing the William of Montferrat assassination mission.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.3.1",
+              "7.6.1",
+              "7.9.1"
+            ]
+          }
+        ],
+        "Return to Bureau": [
+          "3.0.0.0.1",
+          882332870,
+          "Bureau_PostMM 8",
+          "Return to Bureau",
+          "7.6.2",
+          "Splits after letting the Bureau know about the assassination.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "montferrat",
+            "slots": [
+              "7.3.2",
+              "7.6.2",
+              "7.9.2"
+            ]
+          }
+        ]
+      }
+    },
+    "Majd Addin Splits": {
+      "Majd Addin Any% Investigation": {
+        "Majd Addin Informant Assassination": [
+          "3.1.0.2",
+          3051245833,
+          "MissionItemInformerAssassination 1 (0xB5DE5109)",
+          "Majd Addin Informant Assassination",
+          "7.8.0",
+          "Splits after finishing the Majd Addin informant assassination mission. Required for any%.",
+          "7.8.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "Majd Addin Pickpocket": [
+          "3.1.0.3",
+          854073368,
+          "Mandatory_Pickpocket_PP1 (0x32E82018)",
+          "Majd Addin Pickpocket",
+          "7.8.1",
+          "Splits after finishing the Majd Addin pickpocket mission. Required for any%.",
+          "7.8.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.2.1",
+              "7.5.1",
+              "7.8.1"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "Majd Addin Eavesdrop": [
+          "3.1.0.5",
+          854073371,
+          "Eavesdropping_ED1",
+          "Majd Addin Eavesdrop",
+          "7.8.2",
+          "Splits after finishing the Majd Addin eavesdrop mission. Required for any%.",
+          "7.8.0",
+          false,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.2.2",
+              "7.5.2",
+              "7.8.2"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ]
+      },
+      "Majd Addin 100% Investigation": {
+        "Majd Addin Informant Escort": [
+          "3.1.0.7",
+          2907567261,
+          "MissionItemInformerEscort 1 (0xAD4DF49D)",
+          "Majd Addin Informant Escort",
+          "7.8.3",
+          "Splits after finishing the Majd Addin informant escort mission. Required for 100%.",
+          "7.8.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.2.3",
+              "7.5.3",
+              "7.8.3"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "Majd Addin Informant Archers": [
+          "3.1.0.6",
+          2778624178,
+          "MissionInformerAssassinationArcher",
+          "Majd Addin Informant Archers",
+          "7.8.4",
+          "Splits after finishing the Majd Addin informant archers mission. Required for 100%.",
+          "7.8.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.2.4",
+              "7.5.4",
+              "7.8.4"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ],
+        "Majd Addin Interrogation": [
+          "3.1.0.1",
+          3306076327,
+          "Mandatory_Interrogation_IN1 (0xC50EB8A7)",
+          "Majd Addin Interrogation",
+          "7.8.5",
+          "Splits after finishing the Majd Addin interrogation mission. Required for 100%.",
+          "7.8.0",
+          true,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.2.5",
+              "7.5.5",
+              "7.8.5"
+            ],
+            "slotMerge": [
+              "7.2.0",
+              "7.5.0",
+              "7.8.0"
+            ]
+          }
+        ]
+      },
+      "Majd Addin Assassination": {
+        "Talk to Bureau Majd Addin": [
+          "3.1.1.1",
+          854073363,
+          "Bureau_PreMM 7",
+          "Talk to Bureau Majd Addin",
+          "7.9.0",
+          "Splits after talking to the Bureau leader in Majd Addin.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.3.0",
+              "7.6.0",
+              "7.9.0"
+            ]
+          }
+        ],
+        "Majd Addin Assassination": [
+          "3.1.1.0.3",
+          1857452235,
+          "MM_Emir",
+          "Majd Addin Assassination",
+          "7.9.1",
+          "Splits after finishing the Majd Addin assassination mission.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.3.1",
+              "7.6.1",
+              "7.9.1"
+            ]
+          }
+        ],
+        "Return to Bureau": [
+          "3.1.1.0.1",
+          854073362,
+          "Bureau_PostMM 7",
+          "Return to Bureau",
+          "7.9.2",
+          "Splits after letting the Bureau know about the assassination.",
+          null,
+          false,
+          {
+            "order": "MB4",
+            "target": "emir",
+            "slots": [
+              "7.3.2",
+              "7.6.2",
+              "7.9.2"
+            ]
+          }
+        ]
+      }
+    },
+    "Memory Block 4 First Target Debrief": {
+      "First Target (Any)": [
+        "3.29",
+        609714088,
+        "CountOr Mission 1 (0x24577FA8)",
+        "First Target (Any)",
+        "7.4.0",
+        "Splits after finishing the debrief with Al-Mualim for the first target. Works for any target and keeps the default order: Abu'l Nuqoud, William of Montferrat, Majd Addin. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB4",
+          "target": "*",
+          "marker": 1
+        }
+      ],
+      "First Target (Abu'l Nuqoud)": [
+        "3.5",
+        2927099593,
+        "Al-Mualim - Vizier Debrief A",
+        "First Target (Abu'l Nuqoud)",
+        "7.4.0",
+        "Splits after finishing the debrief with Al-Mualim when Abu'l Nuqoud was the first target. Tells the splitter he is the first target. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB4",
+          "target": "vizier",
+          "marker": 1
+        }
+      ],
+      "First Target (William of Montferrat)": [
+        "3.9",
+        2927099587,
+        "Al Mualim - Montferrat Debrief A",
+        "First Target (William of Montferrat)",
+        "7.4.0",
+        "Splits after finishing the debrief with Al-Mualim when William of Montferrat was the first target. Tells the splitter he is the first target. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB4",
+          "target": "montferrat",
+          "marker": 1
+        }
+      ],
+      "First Target (Majd Addin)": [
+        "3.12",
+        2927099590,
+        "Al-Mualim - Emir Debrief A",
+        "First Target (Majd Addin)",
+        "7.4.0",
+        "Splits after finishing the debrief with Al-Mualim when Majd Addin was the first target. Tells the splitter he is the first target. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB4",
+          "target": "emir",
+          "marker": 1
+        }
+      ]
+    },
+    "Memory Block 4 Second Target Debrief": {
+      "Second Target (Any)": [
+        "3.33",
+        2981681772,
+        "CountOr Mission 2",
+        "Second Target (Any)",
+        "7.7.0",
+        "Splits after finishing the debrief with Al-Mualim for the second target. Works for any target and keeps the default order: Abu'l Nuqoud, William of Montferrat, Majd Addin. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB4",
+          "target": "*",
+          "marker": 2
+        }
+      ],
+      "Second Target (Abu'l Nuqoud)": [
+        "3.14",
+        3119386433,
+        "Al-Mualim - Vizier Debrief B",
+        "Second Target (Abu'l Nuqoud)",
+        "7.7.0",
+        "Splits after finishing the debrief with Al-Mualim when Abu'l Nuqoud was the second target. Tells the splitter he is the second target. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB4",
+          "target": "vizier",
+          "marker": 2
+        }
+      ],
+      "Second Target (William of Montferrat)": [
+        "3.19",
+        3119386427,
+        "Al Mualim - Montferrat Debrief B",
+        "Second Target (William of Montferrat)",
+        "7.7.0",
+        "Splits after finishing the debrief with Al-Mualim when William of Montferrat was the second target. Tells the splitter he is the second target. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB4",
+          "target": "montferrat",
+          "marker": 2
+        }
+      ],
+      "Second Target (Majd Addin)": [
+        "3.22",
+        3119386430,
+        "Al-Mualim - Emir Debrief B",
+        "Second Target (Majd Addin)",
+        "7.7.0",
+        "Splits after finishing the debrief with Al-Mualim when Majd Addin was the second target. Tells the splitter he is the second target. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB4",
+          "target": "emir",
+          "marker": 2
+        }
+      ]
+    },
+    "(list completed)": [
+      "3",
+      2308058656,
+      "Memory Block 4",
+      "Memory Block 4 Completed",
+      "7.10.0",
+      "Splits after finishing memory block 4."
+    ]
+  },
+  "Modern Day 4": {
+    "Modern Day 4 Evening": [
+      "10.3",
+      3695189471,
+      "M47_Evening",
+      "Modern Day 4 Evening",
+      "8.1.0",
+      "Splits after finishing the evening of day 4."
+    ],
+    "Modern Day 4 Night": [
+      "10.2",
+      3695189472,
+      "M47_Night",
+      "Modern Day 4 Night",
+      "8.2.0",
+      "Splits after waking up from the night of day 4."
+    ],
+    "(list completed)": [
+      "10",
+      2266061525,
+      "M47_Day4",
+      "Modern Day 4",
+      "8.3.0",
+      "Splits after finishing modern day 4."
+    ]
+  },
+  "Memory Block 5": {
+    "Memory Block 5 Briefing": [
+      "4.4",
+      2927099675,
+      "Al-Mu- MB05 Briefing",
+      "Memory Block 5 Briefing",
+      "9.1.0",
+      "Splits after finishing the briefing with Al-Mualim."
+    ],
+    "Jubair Splits": {
+      "Jubair Any% Investigation": {
+        "Jubair Informant Freerun": [
+          "4.1.0.6",
+          2858907720,
+          "MB05_M58_Jubair_Freerun_FR1",
+          "Jubair Informant Freerun",
+          "9.2.0",
+          "Splits after finishing the Jubair informant freerun mission. Required for any%.",
+          "9.2.0",
+          false,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.2.0",
+              "9.5.0"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ],
+        "Jubair Pickpocket": [
+          "4.1.0.4",
+          3859876984,
+          "Optional 3: Pickpocket 3 - (Op3_Pp3)",
+          "Jubair Pickpocket",
+          "9.2.1",
+          "Splits after finishing the Jubair pickpocket mission. Required for any%.",
+          "9.2.0",
+          false,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.2.1",
+              "9.5.1"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ],
+        "Jubair Eavesdrop": [
+          "4.1.0.2",
+          3807191505,
+          "Mandatory 2; Eavesdropping - (M2_Ed1)",
+          "Jubair Eavesdrop",
+          "9.2.2",
+          "Splits after finishing the Jubair eavesdrop mission. Required for any%.",
+          "9.2.0",
+          false,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.2.2",
+              "9.5.2"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ]
+      },
+      "Jubair 100% Investigation": {
+        "Jubair Interrogation": [
+          "4.1.0.3",
+          3807191506,
+          "Mandatory 3L Interrogation 1 - (M3_Int1)",
+          "Jubair Interrogation",
+          "9.2.3",
+          "Splits after finishing the Jubair interrogation mission. Required for 100%.",
+          "9.2.0",
+          true,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.2.3",
+              "9.5.3"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ],
+        "Jubair Informant Assassination": [
+          "4.1.0.5",
+          3051245439,
+          "MissionItemInformerAssassination 2",
+          "Jubair Informant Assassination",
+          "9.2.4",
+          "Splits after finishing the Jubair informant assassination mission. Required for 100%.",
+          "9.2.0",
+          true,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.2.4",
+              "9.5.4"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ],
+        "Jubair Informant Stalls": [
+          "4.1.0.7",
+          2906314750,
+          "M58_Jubair_Kiosks_BK1",
+          "Jubair Informant Stalls",
+          "9.2.5",
+          "Splits after finishing the Jubair informant stalls mission. Required for 100%.",
+          "9.2.0",
+          true,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.2.5",
+              "9.5.5"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ]
+      },
+      "Jubair Assassination": {
+        "Talk to Bureau Jubair": [
+          "4.1.1.0",
+          817888060,
+          "Bureau_PreMM  4",
+          "Talk to Bureau Jubair",
+          "9.3.0",
+          "Splits after talking to the Bureau leader in Jubair.",
+          null,
+          false,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.3.0",
+              "9.6.0"
+            ]
+          }
+        ],
+        "Jubair Assassination": [
+          "4.1.1.1.0",
+          1657684342,
+          "MM_Jubair",
+          "Jubair Assassination",
+          "9.3.1",
+          "Splits after finishing the Jubair assassination mission.",
+          null,
+          false,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.3.1",
+              "9.6.1"
+            ]
+          }
+        ],
+        "Return to Bureau": [
+          "4.1.1.1.2",
+          817888061,
+          "Bureau_PostMM 4",
+          "Return to Bureau",
+          "9.3.2",
+          "Splits after letting the Bureau know about the assassination.",
+          null,
+          false,
+          {
+            "order": "MB5",
+            "target": "jubair",
+            "slots": [
+              "9.3.2",
+              "9.6.2"
+            ]
+          }
+        ]
+      }
+    },
+    "Sibrand Splits": {
+      "Sibrand Any% Investigation": {
+        "Sibrand Pickpocket": [
+          "4.0.0.4",
+          742072101,
+          "Pickpocket_OP3_PP3 (0x2C3B1F25)",
+          "Sibrand Pickpocket",
+          "9.5.0",
+          "Splits after finishing the Sibrand pickpocket mission. Required for any%. It has the same tier as the Sibrand informant freerun, so they can be done in either order.",
+          "9.5.0",
+          false,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.2.0",
+              "9.5.0"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ],
+        "Sibrand Informant Freerun": [
+          "4.0.0.6",
+          2855994236,
+          "Informer Race 1 (0xAA3B037C)",
+          "Sibrand Informant Freerun",
+          "9.5.0",
+          "Splits after finishing the Sibrand informant freerun mission. Required for any%. It has the same tier as the Sibrand pickpocket, so they can be done in either order.",
+          "9.5.0",
+          false,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.2.0",
+              "9.5.0"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ],
+        "Sibrand Informant Assassination": [
+          "4.0.0.5",
+          2716336679,
+          "MissionInformerAssassination 1",
+          "Sibrand Informant Assassination",
+          "9.5.1",
+          "Splits after finishing the Sibrand informant assassination mission. Required for any%.",
+          "9.5.0",
+          false,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.2.1",
+              "9.5.1"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ]
+      },
+      "Sibrand 100% Investigation": {
+        "Sibrand Eavesdrop": [
+          "4.0.0.1",
+          742072096,
+          "Eavesdropping_M1_ED1",
+          "Sibrand Eavesdrop",
+          "9.5.2",
+          "Splits after finishing the Sibrand eavesdrop mission. Required for 100%.",
+          "9.5.0",
+          true,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.2.2",
+              "9.5.2"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ],
+        "Sibrand Informant Escort": [
+          "4.0.0.7",
+          2913486109,
+          "MissionItemInformerEscort 1 (0xADA8451D)",
+          "Sibrand Informant Escort",
+          "9.5.3",
+          "Splits after finishing the Sibrand informant escort mission. Required for 100%.",
+          "9.5.0",
+          true,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.2.3",
+              "9.5.3"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ],
+        "Sibrand Interrogation": [
+          "4.0.0.2",
+          241103822,
+          "Interrogation_M3_IN1 (0x0E5EF3CE)",
+          "Sibrand Interrogation",
+          "9.5.4",
+          "Splits after finishing the Sibrand interrogation mission. Required for 100%.",
+          "9.5.0",
+          true,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.2.4",
+              "9.5.4"
+            ],
+            "slotMerge": [
+              "9.2.0",
+              "9.5.0"
+            ]
+          }
+        ]
+      },
+      "Sibrand Assassination": {
+        "Talk to Bureau Sibrand": [
+          "4.0.1.1",
+          882333071,
+          "Bureau_PreMM 9",
+          "Talk to Bureau Sibrand",
+          "9.6.0",
+          "Splits after talking to the Bureau leader in Sibrand.",
+          null,
+          false,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.3.0",
+              "9.6.0"
+            ]
+          }
+        ],
+        "Sibrand Assassination": [
+          "4.0.1.0.0",
+          882333072,
+          "MM_Sibrand",
+          "Sibrand Assassination",
+          "9.6.1",
+          "Splits after finishing the Sibrand assassination mission.",
+          null,
+          false,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.3.1",
+              "9.6.1"
+            ]
+          }
+        ],
+        "Return to Bureau": [
+          "4.0.1.0.2",
+          882333074,
+          "Bureau_PostMM 9",
+          "Return to Bureau",
+          "9.6.2",
+          "Splits after letting the Bureau know about the assassination.",
+          null,
+          false,
+          {
+            "order": "MB5",
+            "target": "sibrand",
+            "slots": [
+              "9.3.2",
+              "9.6.2"
+            ]
+          }
+        ]
+      }
+    },
+    "Memory Block 5 Debrief": {
+      "First Target (Any)": [
+        "4.14",
+        2981681824,
+        "CountOr Mission 1 (0xB1B8DAA0)",
+        "First Target (Any)",
+        "9.4.0",
+        "Splits after finishing the debrief with Al-Mualim for the first target. Works for any target and keeps the default order: Jubair, then Sibrand. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB5",
+          "target": "*",
+          "marker": 1
+        }
+      ],
+      "First Target (Jubair)": [
+        "4.3",
+        2927099681,
+        "Al-Mualim- Jubair Debrief",
+        "First Target (Jubair)",
+        "9.4.0",
+        "Splits after finishing the debrief with Al-Mualim when Jubair was the first target. Tells the splitter he is the first target. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB5",
+          "target": "jubair",
+          "marker": 1
+        }
+      ],
+      "First Target (Sibrand)": [
+        "4.6",
+        2927099678,
+        "Al-Mualim - Sibrand Debrief",
+        "First Target (Sibrand)",
+        "9.4.0",
+        "Splits after finishing the debrief with Al-Mualim when Sibrand was the first target. Tells the splitter he is the first target. Turn on only one option of this group; two options at once is an error and nothing is read.",
+        null,
+        false,
+        {
+          "order": "MB5",
+          "target": "sibrand",
+          "marker": 1
+        }
+      ]
+    },
+    "(list completed)": [
+      "4",
+      2308058680,
+      "Memory Block 5",
+      "Memory Block 5 Completed",
+      "9.7.0",
+      "Splits after finishing memory block 5."
+    ]
+  },
+  "Modern Day 5": {
+    "Modern Day 5 Evening": [
+      "11.2",
+      535323022,
+      "M60_Evening",
+      "Modern Day 5 Evening",
+      "10.1.0",
+      "Splits after finishing the evening of day 5."
+    ],
+    "Modern Day 5 Night": [
+      "11.1",
+      535323023,
+      "M60_Night",
+      "Modern Day 5 Night",
+      "10.2.0",
+      "Splits after waking up from the night of day 5."
+    ],
+    "(list completed)": [
+      "11",
+      2379333997,
+      "M60_Day5",
+      "Modern Day 5",
+      "10.3.0",
+      "Splits after finishing modern day 5."
+    ]
+  },
+  "Memory Block 6": {
+    "Memory Block 6 Briefing": [
+      "8.2",
+      2927099735,
+      "Al-Mualim - MB06 Briefing",
+      "Memory Block 6 Briefing",
+      "11.1.0",
+      "Splits after finishing the briefing with Al-Mualim."
+    ],
+    "Maria Splits": {
+      "Maria Any% Investigation": {
+        "Maria Informant Race": [
+          "8.0.0.7",
+          2855900913,
+          "Informer Race 1 (0xAA3996F1)",
+          "Maria Informant Race",
+          "11.2.0",
+          "Splits after finishing the Maria informant race mission. Required for any%.",
+          "11.2.0",
+          false
+        ],
+        "Maria Pickpocket": [
+          "8.0.0.3",
+          854073140,
+          "Mandatory_Pickpocket_PP1 (0x32E81F34)",
+          "Maria Pickpocket",
+          "11.2.1",
+          "Splits after finishing the Maria pickpocket mission. Required for any%.",
+          "11.2.0",
+          false
+        ],
+        "Maria Eavesdrop": [
+          "8.0.0.2",
+          854073148,
+          "Mandatory_Eavesdropping_ED1",
+          "Maria Eavesdrop",
+          "11.2.2",
+          "Splits after finishing the Maria eavesdrop mission. Required for any%.",
+          "11.2.0",
+          false
+        ]
+      },
+      "Maria 100% Investigation": {
+        "Maria Informant Archers": [
+          "8.0.0.6",
+          2840534711,
+          "MissionItemInformerAssassinationArcher 1",
+          "Maria Informant Archers",
+          "11.2.3",
+          "Splits after finishing the Maria informant archers mission. Required for 100%.",
+          "11.2.0",
+          true
+        ],
+        "Maria Interrogation": [
+          "8.0.0.1",
+          3816732872,
+          "Interrogation_Mission_IN1",
+          "Maria Interrogation",
+          "11.2.4",
+          "Splits after finishing the Maria interrogation mission. Required for 100%.",
+          "11.2.0",
+          true
+        ],
+        "Maria Informant Assassination": [
+          "8.0.0.4",
+          3051245889,
+          "MissionItemInformerAssassination 1 (0xB5DE5141)",
+          "Maria Informant Assassination",
+          "11.2.5",
+          "Splits after finishing the Maria informant assassination mission. Required for 100%.",
+          "11.2.0",
+          true
+        ]
+      },
+      "Maria Assassination": {
+        "Talk to Bureau Maria": [
+          "8.0.1.1",
+          854073145,
+          "Bureau_PreMM 6",
+          "Talk to Bureau Maria",
+          "11.3.0",
+          "Splits after talking to the Bureau leader in Maria."
+        ],
+        "Maria Assassination": [
+          "8.0.1.0.2",
+          1418489382,
+          "MM_Maria",
+          "Maria Assassination",
+          "11.3.1",
+          "Splits after finishing the Maria assassination mission."
+        ],
+        "Return to Bureau": [
+          "8.0.1.0.1",
+          854073147,
+          "Bureau_PostMM 6",
+          "Return to Bureau",
+          "11.3.2",
+          "Splits after letting the Bureau know about the assassination."
+        ]
+      }
+    },
+    "Robert Splits": {
+      "Arrive in Arsuf": [
+        "8.5.7",
+        3064184129,
+        "Hard Save mission action open",
+        "Arrive in Arsuf",
+        "11.4.0",
+        "Splits after finishing the Arsuf intro cutscene."
+      ],
+      "Save 1": [
+        "8.5.1",
+        1881346978,
+        "Arsuf_Save_point_001",
+        "Save 1",
+        "11.4.1",
+        "Splits after the first save in Arsuf."
+      ],
+      "Save 2": [
+        "8.5.3",
+        102823220,
+        "Arsuf_Save_point_002",
+        "Save 2",
+        "11.4.2",
+        "Splits after the second save in Arsuf."
+      ],
+      "Save 3": [
+        "8.5.2",
+        1881347033,
+        "Arsuf_Save_point_003",
+        "Save 3",
+        "11.4.3",
+        "Splits after the third save in Arsuf."
+      ],
+      "Save 4": [
+        "8.5.4",
+        102823261,
+        "Arsuf_Save_point_004",
+        "Save 4",
+        "11.4.4",
+        "Splits after the fourth save in Arsuf."
+      ],
+      "Robert Skip Fight": [
+        "8.5.5",
+        102823303,
+        "Crusader OOB fight",
+        "Robert Skip Fight",
+        "11.4.5",
+        "Splits when reaching the Robert skip fight point."
+      ]
+    },
+    "(list completed)": [
+      "8",
+      2308058698,
+      "Memory Block 6",
+      "Memory Block 6 Completed",
+      "11.5.0",
+      "Splits after finishing memory block 6."
+    ]
+  },
+  "Modern Day 6": {
+    "Modern Day 6 Evening": [
+      "18.0",
+      880774170,
+      "M70_Evening",
+      "Modern Day 6 Evening",
+      "12.1.0",
+      "Splits after finishing the evening of day 6."
+    ],
+    "Modern Day 6 Night": [
+      "18.1",
+      880774168,
+      "M70_Night",
+      "Modern Day 6 Night",
+      "12.2.0",
+      "Splits after waking up from the night of day 6."
+    ],
+    "(list completed)": [
+      "18",
+      2927098999,
+      "M70_Day6",
+      "Modern Day 6",
+      "12.3.0",
+      "Splits after finishing modern day 6."
+    ]
+  },
+  "Memory Block 7": {
+    "(list completed)": [
+      "19",
+      2927099000,
+      "Memory Block 7",
+      "Memory Block 7 Completed",
+      "13.1.0",
+      "Splits after finishing memory block 7."
+    ]
+  },
+  "100%": {
+    "Kingdom": {
+      "(list completed)": [
+        "7",
+        817218959,
+        "Kingdom",
+        "Kingdom (list completed)",
+        -1
+      ],
+      "Reach High Point 1": [
+        "7.0",
+        941289772,
+        "Reach High Point 1",
+        "Reach High Point 1",
+        -1
+      ],
+      "Reach High Point 2": [
+        "7.1",
+        2794950200,
+        "Reach High Point 2",
+        "Reach High Point 2",
+        -1
+      ],
+      "Reach High Point 3": [
+        "7.2",
+        2794950213,
+        "Reach High Point 3",
+        "Reach High Point 3",
+        -1
+      ],
+      "Reach High Point 4": [
+        "7.3",
+        2794950214,
+        "Reach High Point 4",
+        "Reach High Point 4",
+        -1
+      ],
+      "Reach High Point 5": [
+        "7.4",
+        2794950215,
+        "Reach High Point 5",
+        "Reach High Point 5",
+        -1
+      ],
+      "Reach High Point 6": [
+        "7.5",
+        2794950216,
+        "Reach High Point 6",
+        "Reach High Point 6",
+        -1
+      ],
+      "Reach High Point 7": [
+        "7.6",
+        2794950217,
+        "Reach High Point 7",
+        "Reach High Point 7",
+        -1
+      ],
+      "Reach High Point 8": [
+        "7.7",
+        2794950218,
+        "Reach High Point 8",
+        "Reach High Point 8",
+        -1
+      ],
+      "Reach High Point 9": [
+        "7.8",
+        2794950219,
+        "Reach High Point 9",
+        "Reach High Point 9",
+        -1
+      ],
+      "Reach High Point 10": [
+        "7.9",
+        2794950220,
+        "Reach High Point 10",
+        "Reach High Point 10",
+        -1
+      ],
+      "Reach High Point 11": [
+        "7.10",
+        2794950221,
+        "Reach High Point 11",
+        "Reach High Point 11",
+        -1
+      ]
+    },
+    "MB04 - Side Quest": {
+      "(list completed)": [
+        "9",
+        2964819110,
+        "MB04 - Side Quest",
+        "MB04 - Side Quest (list completed)",
+        -1
+      ],
+      "M45 Acre Side Quest": {
+        "(list completed)": [
+          "9.0",
+          2964819113,
+          "M45 Acre Side Quest",
+          "M45 Acre Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_HP11 (0x72AF5E65)": [
+          "9.0.0",
+          1924095589,
+          "ReachHighPoint_HP11 (0x72AF5E65)",
+          "ReachHighPoint_HP11 (0x72AF5E65)",
+          -1
+        ],
+        "ReachHighPoint_HP10 (0x71ACFC8C)": [
+          "9.0.1",
+          1907162252,
+          "ReachHighPoint_HP10 (0x71ACFC8C)",
+          "ReachHighPoint_HP10 (0x71ACFC8C)",
+          -1
+        ],
+        "ReachHighPoint_HP9 (0x71ACFA13)": [
+          "9.0.2",
+          1907161619,
+          "ReachHighPoint_HP9 (0x71ACFA13)",
+          "ReachHighPoint_HP9 (0x71ACFA13)",
+          -1
+        ],
+        "ReachHighPoint_HP8 (0x71ACF7D7)": [
+          "9.0.3",
+          1907161047,
+          "ReachHighPoint_HP8 (0x71ACF7D7)",
+          "ReachHighPoint_HP8 (0x71ACF7D7)",
+          -1
+        ],
+        "ReachHighPoint_HP7 (0x71ACF149)": [
+          "9.0.4",
+          1907159369,
+          "ReachHighPoint_HP7 (0x71ACF149)",
+          "ReachHighPoint_HP7 (0x71ACF149)",
+          -1
+        ],
+        "ReachHighPoint_HP6 (0x71ACEECA)": [
+          "9.0.5",
+          1907158730,
+          "ReachHighPoint_HP6 (0x71ACEECA)",
+          "ReachHighPoint_HP6 (0x71ACEECA)",
+          -1
+        ],
+        "ReachHighPoint_HP5 (0x71ACEC7E)": [
+          "9.0.6",
+          1907158142,
+          "ReachHighPoint_HP5 (0x71ACEC7E)",
+          "ReachHighPoint_HP5 (0x71ACEC7E)",
+          -1
+        ],
+        "ReachHighPoint_HP4 (0x71ACEA32)": [
+          "9.0.7",
+          1907157554,
+          "ReachHighPoint_HP4 (0x71ACEA32)",
+          "ReachHighPoint_HP4 (0x71ACEA32)",
+          -1
+        ],
+        "FreeMission_FM3 (0x349754C9)": [
+          "9.0.8",
+          882332873,
+          "FreeMission_FM3 (0x349754C9)",
+          "FreeMission_FM3 (0x349754C9)",
+          -1
+        ],
+        "FreeMission_FM1 (0x349754C7)": [
+          "9.0.9",
+          882332871,
+          "FreeMission_FM1 (0x349754C7)",
+          "FreeMission_FM1 (0x349754C7)",
+          -1
+        ],
+        "ReachHighPoint_HP1 (0x349754C0)": [
+          "9.0.15",
+          882332864,
+          "ReachHighPoint_HP1 (0x349754C0)",
+          "ReachHighPoint_HP1 (0x349754C0)",
+          -1
+        ],
+        "Scholars_HelpingTrap_FM2 (0xC6BD49FA)": [
+          "9.0.16",
+          3334294010,
+          "Scholars_HelpingTrap_FM2 (0xC6BD49FA)",
+          "Scholars_HelpingTrap_FM2 (0xC6BD49FA)",
+          -1
+        ],
+        "FreeMission_FM7 (0xCE14A724)": [
+          "9.0.17",
+          3457460004,
+          "FreeMission_FM7 (0xCE14A724)",
+          "FreeMission_FM7 (0xCE14A724)",
+          -1
+        ],
+        "ReachHighPoint_HP2 (0x349754C1)": [
+          "9.0.18",
+          882332865,
+          "ReachHighPoint_HP2 (0x349754C1)",
+          "ReachHighPoint_HP2 (0x349754C1)",
+          -1
+        ],
+        "ReachHighPoint_HP3 (0x349754C2)": [
+          "9.0.19",
+          882332866,
+          "ReachHighPoint_HP3 (0x349754C2)",
+          "ReachHighPoint_HP3 (0x349754C2)",
+          -1
+        ],
+        "FreeMission_FM2 (0xCE14A720)": [
+          "9.0.20",
+          3457460000,
+          "FreeMission_FM2 (0xCE14A720)",
+          "FreeMission_FM2 (0xCE14A720)",
+          -1
+        ],
+        "FreeMission_FM4 (0xCE14A721)": [
+          "9.0.21",
+          3457460001,
+          "FreeMission_FM4 (0xCE14A721)",
+          "FreeMission_FM4 (0xCE14A721)",
+          -1
+        ],
+        "FreeMission_FM5 (0xCE14A722)": [
+          "9.0.22",
+          3457460002,
+          "FreeMission_FM5 (0xCE14A722)",
+          "FreeMission_FM5 (0xCE14A722)",
+          -1
+        ],
+        "FreeMission_FM6 (0xCE14A723)": [
+          "9.0.23",
+          3457460003,
+          "FreeMission_FM6 (0xCE14A723)",
+          "FreeMission_FM6 (0xCE14A723)",
+          -1
+        ],
+        "Scholars_HelpingTrap_FM1": [
+          "9.0.24",
+          3457460060,
+          "Scholars_HelpingTrap_FM1",
+          "Scholars_HelpingTrap_FM1",
+          -1
+        ],
+        "FreeMission_FM8 (0xD1D0CBB0)": [
+          "9.0.25",
+          3520121776,
+          "FreeMission_FM8 (0xD1D0CBB0)",
+          "FreeMission_FM8 (0xD1D0CBB0)",
+          -1
+        ],
+        "FreeMission_FM9 (0x66F9B235)": [
+          "9.0.28",
+          1727640117,
+          "FreeMission_FM9 (0x66F9B235)",
+          "FreeMission_FM9 (0x66F9B235)",
+          -1
+        ]
+      },
+      "M39 Jerusalem Side Quest": {
+        "(list completed)": [
+          "9.1",
+          2964819111,
+          "M39 Jerusalem Side Quest",
+          "M39 Jerusalem Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_HP1 (0x390360A5)": [
+          "9.1.0",
+          956522661,
+          "ReachHighPoint_HP1 (0x390360A5)",
+          "ReachHighPoint_HP1 (0x390360A5)",
+          -1
+        ],
+        "ReachHighPoint_HP3 (0x390360A7)": [
+          "9.1.1",
+          956522663,
+          "ReachHighPoint_HP3 (0x390360A7)",
+          "ReachHighPoint_HP3 (0x390360A7)",
+          -1
+        ],
+        "ReachHighPoint_HP2 (0x390360A6)": [
+          "9.1.2",
+          956522662,
+          "ReachHighPoint_HP2 (0x390360A6)",
+          "ReachHighPoint_HP2 (0x390360A6)",
+          -1
+        ],
+        "ReachHighPoint_HP6 (0x77BFD387)": [
+          "9.1.3",
+          2009060231,
+          "ReachHighPoint_HP6 (0x77BFD387)",
+          "ReachHighPoint_HP6 (0x77BFD387)",
+          -1
+        ],
+        "ReachHighPoint_HP5 (0x77BFD348)": [
+          "9.1.4",
+          2009060168,
+          "ReachHighPoint_HP5 (0x77BFD348)",
+          "ReachHighPoint_HP5 (0x77BFD348)",
+          -1
+        ],
+        "ReachHighPoint_HP4 (0x77BFD1A5)": [
+          "9.1.5",
+          2009059749,
+          "ReachHighPoint_HP4 (0x77BFD1A5)",
+          "ReachHighPoint_HP4 (0x77BFD1A5)",
+          -1
+        ],
+        "Free_Mission_FM1 (0xC2A35CD1)": [
+          "9.1.6",
+          3265486033,
+          "Free_Mission_FM1 (0xC2A35CD1)",
+          "Free_Mission_FM1 (0xC2A35CD1)",
+          -1
+        ],
+        "Free_Mission_FM2 (0xC3098308)": [
+          "9.1.8",
+          3272180488,
+          "Free_Mission_FM2 (0xC3098308)",
+          "Free_Mission_FM2 (0xC3098308)",
+          -1
+        ],
+        "Free_Mission_FM3 (0xC30984DF)": [
+          "9.1.10",
+          3272180959,
+          "Free_Mission_FM3 (0xC30984DF)",
+          "Free_Mission_FM3 (0xC30984DF)",
+          -1
+        ],
+        "Free_Mission_FM4 (0xC30985D0)": [
+          "9.1.13",
+          3272181200,
+          "Free_Mission_FM4 (0xC30985D0)",
+          "Free_Mission_FM4 (0xC30985D0)",
+          -1
+        ],
+        "FreeMission_FM5 (0xC309866E)": [
+          "9.1.15",
+          3272181358,
+          "FreeMission_FM5 (0xC309866E)",
+          "FreeMission_FM5 (0xC309866E)",
+          -1
+        ],
+        "Scholars Helping Trap 2 Emir": [
+          "9.1.17",
+          3354083773,
+          "Scholars Helping Trap 2 Emir",
+          "Scholars Helping Trap 2 Emir",
+          -1
+        ],
+        "Scholars Helping Trap 1 Emir": [
+          "9.1.18",
+          3354083771,
+          "Scholars Helping Trap 1 Emir",
+          "Scholars Helping Trap 1 Emir",
+          -1
+        ],
+        "Free_Mission_FM7": [
+          "9.1.19",
+          3272181787,
+          "Free_Mission_FM7",
+          "Free_Mission_FM7",
+          -1
+        ],
+        "Free_Mission_FM8": [
+          "9.1.21",
+          3272181925,
+          "Free_Mission_FM8",
+          "Free_Mission_FM8",
+          -1
+        ],
+        "Free Mission Scholars Emir_FM6": [
+          "9.1.22",
+          3354083772,
+          "Free Mission Scholars Emir_FM6",
+          "Free Mission Scholars Emir_FM6",
+          -1
+        ]
+      },
+      "M33 Damascus Side Quest": {
+        "(list completed)": [
+          "9.2",
+          2964819112,
+          "M33 Damascus Side Quest",
+          "M33 Damascus Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_RHP10": [
+          "9.2.0",
+          1919348986,
+          "ReachHighPoint_RHP10",
+          "ReachHighPoint_RHP10",
+          -1
+        ],
+        "ReachHighPoint_HP9 (0x7266EF3F)": [
+          "9.2.1",
+          1919348543,
+          "ReachHighPoint_HP9 (0x7266EF3F)",
+          "ReachHighPoint_HP9 (0x7266EF3F)",
+          -1
+        ],
+        "ReachHighPoint_HP8 (0x7266ED61)": [
+          "9.2.2",
+          1919348065,
+          "ReachHighPoint_HP8 (0x7266ED61)",
+          "ReachHighPoint_HP8 (0x7266ED61)",
+          -1
+        ],
+        "ReachHighPoint_HP7 (0x7266EBA5)": [
+          "9.2.3",
+          1919347621,
+          "ReachHighPoint_HP7 (0x7266EBA5)",
+          "ReachHighPoint_HP7 (0x7266EBA5)",
+          -1
+        ],
+        "ReachHighPoint_HP6 (0x7200CFC9)": [
+          "9.2.4",
+          1912655817,
+          "ReachHighPoint_HP6 (0x7200CFC9)",
+          "ReachHighPoint_HP6 (0x7200CFC9)",
+          -1
+        ],
+        "ReachHighPoint_HP5 (0x7200C50C)": [
+          "9.2.5",
+          1912653068,
+          "ReachHighPoint_HP5 (0x7200C50C)",
+          "ReachHighPoint_HP5 (0x7200C50C)",
+          -1
+        ],
+        "ReachHighPoint_HP4 (0x7200C4DA)": [
+          "9.2.6",
+          1912653018,
+          "ReachHighPoint_HP4 (0x7200C4DA)",
+          "ReachHighPoint_HP4 (0x7200C4DA)",
+          -1
+        ],
+        "ReachHighPoint_HP3 (0x378699F5)": [
+          "9.2.7",
+          931568117,
+          "ReachHighPoint_HP3 (0x378699F5)",
+          "ReachHighPoint_HP3 (0x378699F5)",
+          -1
+        ],
+        "ReachHighPoint_HP2 (0x378699F4)": [
+          "9.2.8",
+          931568116,
+          "ReachHighPoint_HP2 (0x378699F4)",
+          "ReachHighPoint_HP2 (0x378699F4)",
+          -1
+        ],
+        "ReachHighPoint_HP1 (0x378699EC)": [
+          "9.2.9",
+          931568108,
+          "ReachHighPoint_HP1 (0x378699EC)",
+          "ReachHighPoint_HP1 (0x378699EC)",
+          -1
+        ],
+        "FreeMission_FM8 (0x336B8554)": [
+          "9.2.11",
+          862684500,
+          "FreeMission_FM8 (0x336B8554)",
+          "FreeMission_FM8 (0x336B8554)",
+          -1
+        ],
+        "FreeMission_FM1 (0x264B2012)": [
+          "9.2.12",
+          642457618,
+          "FreeMission_FM1 (0x264B2012)",
+          "FreeMission_FM1 (0x264B2012)",
+          -1
+        ],
+        "FreeMission_FM7 (0x336B8533)": [
+          "9.2.13",
+          862684467,
+          "FreeMission_FM7 (0x336B8533)",
+          "FreeMission_FM7 (0x336B8533)",
+          -1
+        ],
+        "FreeMission_FM2 (0x28564617)": [
+          "9.2.14",
+          676742679,
+          "FreeMission_FM2 (0x28564617)",
+          "FreeMission_FM2 (0x28564617)",
+          -1
+        ],
+        "FreeMission_FM6 (0x336B84AB)": [
+          "9.2.15",
+          862684331,
+          "FreeMission_FM6 (0x336B84AB)",
+          "FreeMission_FM6 (0x336B84AB)",
+          -1
+        ],
+        "FreeMission_FM3 (0x28564623)": [
+          "9.2.16",
+          676742691,
+          "FreeMission_FM3 (0x28564623)",
+          "FreeMission_FM3 (0x28564623)",
+          -1
+        ],
+        "FreeMission_FM5 (0x336B83B0)": [
+          "9.2.17",
+          862684080,
+          "FreeMission_FM5 (0x336B83B0)",
+          "FreeMission_FM5 (0x336B83B0)",
+          -1
+        ],
+        "FreeMission_FM4 (0x3366535F)": [
+          "9.2.18",
+          862344031,
+          "FreeMission_FM4 (0x3366535F)",
+          "FreeMission_FM4 (0x3366535F)",
+          -1
+        ],
+        "FreeMission_FM9 (0xCE3C1A2A)": [
+          "9.2.26",
+          3460045354,
+          "FreeMission_FM9 (0xCE3C1A2A)",
+          "FreeMission_FM9 (0xCE3C1A2A)",
+          -1
+        ],
+        "FreeMission_10": [
+          "9.2.28",
+          1315020873,
+          "FreeMission_10",
+          "FreeMission_10",
+          -1
+        ]
+      }
+    },
+    "MB02 - Side Quest": {
+      "(list completed)": [
+        "21",
+        2927099749,
+        "MB02 - Side Quest",
+        "MB02 - Side Quest (list completed)",
+        -1
+      ],
+      "M13 Damascus Side Quest": {
+        "(list completed)": [
+          "21.0",
+          3015165868,
+          "M13 Damascus Side Quest",
+          "M13 Damascus Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_HP9 (0x77215305)": [
+          "21.0.0",
+          1998672645,
+          "ReachHighPoint_HP9 (0x77215305)",
+          "ReachHighPoint_HP9 (0x77215305)",
+          -1
+        ],
+        "ReachHighPoint_HP8 (0x7721528B)": [
+          "21.0.1",
+          1998672523,
+          "ReachHighPoint_HP8 (0x7721528B)",
+          "ReachHighPoint_HP8 (0x7721528B)",
+          -1
+        ],
+        "ReachHighPoint_HP1 (0x38585DFF)": [
+          "21.0.2",
+          945315327,
+          "ReachHighPoint_HP1 (0x38585DFF)",
+          "ReachHighPoint_HP1 (0x38585DFF)",
+          -1
+        ],
+        "ReachHighPoint_HP6 (0x7721518A)": [
+          "21.0.3",
+          1998672266,
+          "ReachHighPoint_HP6 (0x7721518A)",
+          "ReachHighPoint_HP6 (0x7721518A)",
+          -1
+        ],
+        "ReachHighPoint_HP5 (0x77215134)": [
+          "21.0.4",
+          1998672180,
+          "ReachHighPoint_HP5 (0x77215134)",
+          "ReachHighPoint_HP5 (0x77215134)",
+          -1
+        ],
+        "ReachHighPoint_HP4 (0x772150BD)": [
+          "21.0.5",
+          1998672061,
+          "ReachHighPoint_HP4 (0x772150BD)",
+          "ReachHighPoint_HP4 (0x772150BD)",
+          -1
+        ],
+        "ReachHighPoint_HP3 (0x38585DFE)": [
+          "21.0.6",
+          945315326,
+          "ReachHighPoint_HP3 (0x38585DFE)",
+          "ReachHighPoint_HP3 (0x38585DFE)",
+          -1
+        ],
+        "ReachHighPoint_HP2 (0x38585DFD)": [
+          "21.0.7",
+          945315325,
+          "ReachHighPoint_HP2 (0x38585DFD)",
+          "ReachHighPoint_HP2 (0x38585DFD)",
+          -1
+        ],
+        "ReachHighPoint_HP7 (0x77215213)": [
+          "21.0.8",
+          1998672403,
+          "ReachHighPoint_HP7 (0x77215213)",
+          "ReachHighPoint_HP7 (0x77215213)",
+          -1
+        ],
+        "FreeMission_FM3 (0x31861CB4)": [
+          "21.0.12",
+          830872756,
+          "FreeMission_FM3 (0x31861CB4)",
+          "FreeMission_FM3 (0x31861CB4)",
+          -1
+        ],
+        "FreeMission_FM2 (0x31861CB3)": [
+          "21.0.13",
+          830872755,
+          "FreeMission_FM2 (0x31861CB3)",
+          "FreeMission_FM2 (0x31861CB3)",
+          -1
+        ],
+        "FreeMission_FM1 (0x31861C98)": [
+          "21.0.14",
+          830872728,
+          "FreeMission_FM1 (0x31861C98)",
+          "FreeMission_FM1 (0x31861C98)",
+          -1
+        ],
+        "FreeMission_FM4 (0xC880E362)": [
+          "21.0.18",
+          3363890018,
+          "FreeMission_FM4 (0xC880E362)",
+          "FreeMission_FM4 (0xC880E362)",
+          -1
+        ],
+        "FreeMission_FM5 (0xC880E363)": [
+          "21.0.19",
+          3363890019,
+          "FreeMission_FM5 (0xC880E363)",
+          "FreeMission_FM5 (0xC880E363)",
+          -1
+        ],
+        "FreeMission_FM6 (0xC880E364)": [
+          "21.0.20",
+          3363890020,
+          "FreeMission_FM6 (0xC880E364)",
+          "FreeMission_FM6 (0xC880E364)",
+          -1
+        ],
+        "FreeMission_FM7 (0xC880E365)": [
+          "21.0.21",
+          3363890021,
+          "FreeMission_FM7 (0xC880E365)",
+          "FreeMission_FM7 (0xC880E365)",
+          -1
+        ],
+        "FreeMission_FM8 (0xC880E366)": [
+          "21.0.22",
+          3363890022,
+          "FreeMission_FM8 (0xC880E366)",
+          "FreeMission_FM8 (0xC880E366)",
+          -1
+        ],
+        "FreeMission_FM9 (0xC880E367)": [
+          "21.0.23",
+          3363890023,
+          "FreeMission_FM9 (0xC880E367)",
+          "FreeMission_FM9 (0xC880E367)",
+          -1
+        ],
+        "FreeMission_FM10 (0xC880E368)": [
+          "21.0.24",
+          3363890024,
+          "FreeMission_FM10 (0xC880E368)",
+          "FreeMission_FM10 (0xC880E368)",
+          -1
+        ],
+        "FreeMission_FM11 (0xC880E369)": [
+          "21.0.25",
+          3363890025,
+          "FreeMission_FM11 (0xC880E369)",
+          "FreeMission_FM11 (0xC880E369)",
+          -1
+        ],
+        "FreeMission_FM12 (0xC880E36A)": [
+          "21.0.26",
+          3363890026,
+          "FreeMission_FM12 (0xC880E36A)",
+          "FreeMission_FM12 (0xC880E36A)",
+          -1
+        ]
+      }
+    },
+    "MB06 - Side Quest": {
+      "(list completed)": [
+        "26",
+        2964819196,
+        "MB06 - Side Quest",
+        "MB06 - Side Quest (list completed)",
+        -1
+      ],
+      "M65 Jerusalem Side Quest": {
+        "(list completed)": [
+          "26.0",
+          2964819197,
+          "M65 Jerusalem Side Quest",
+          "M65 Jerusalem Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_HP7 (0x74C0D7FC)": [
+          "26.0.0",
+          1958795260,
+          "ReachHighPoint_HP7 (0x74C0D7FC)",
+          "ReachHighPoint_HP7 (0x74C0D7FC)",
+          -1
+        ],
+        "ReachHighPoint_HP6 (0x74C0D196)": [
+          "26.0.1",
+          1958793622,
+          "ReachHighPoint_HP6 (0x74C0D196)",
+          "ReachHighPoint_HP6 (0x74C0D196)",
+          -1
+        ],
+        "ReachHighPoint_HP5 (0x7436D178)": [
+          "26.0.2",
+          1949749624,
+          "ReachHighPoint_HP5 (0x7436D178)",
+          "ReachHighPoint_HP5 (0x7436D178)",
+          -1
+        ],
+        "ReachHighPoint_HP3 (0x39036095)": [
+          "26.0.3",
+          956522645,
+          "ReachHighPoint_HP3 (0x39036095)",
+          "ReachHighPoint_HP3 (0x39036095)",
+          -1
+        ],
+        "ReachHighPoint_HP2 (0x39036094)": [
+          "26.0.4",
+          956522644,
+          "ReachHighPoint_HP2 (0x39036094)",
+          "ReachHighPoint_HP2 (0x39036094)",
+          -1
+        ],
+        "ReachHighPoint_HP1 (0x39036093)": [
+          "26.0.5",
+          956522643,
+          "ReachHighPoint_HP1 (0x39036093)",
+          "ReachHighPoint_HP1 (0x39036093)",
+          -1
+        ],
+        "ReachHighPoint_HP4 (0x7436C1F3)": [
+          "26.0.6",
+          1949745651,
+          "ReachHighPoint_HP4 (0x7436C1F3)",
+          "ReachHighPoint_HP4 (0x7436C1F3)",
+          -1
+        ],
+        "Free_Mission_FM1 (0xE17B8F09)": [
+          "26.0.7",
+          3782971145,
+          "Free_Mission_FM1 (0xE17B8F09)",
+          "Free_Mission_FM1 (0xE17B8F09)",
+          -1
+        ],
+        "Free_Mission_FM2 (0xE17B8FDE)": [
+          "26.0.9",
+          3782971358,
+          "Free_Mission_FM2 (0xE17B8FDE)",
+          "Free_Mission_FM2 (0xE17B8FDE)",
+          -1
+        ],
+        "Free_Mission_FM3 (0xE17B90B4)": [
+          "26.0.11",
+          3782971572,
+          "Free_Mission_FM3 (0xE17B90B4)",
+          "Free_Mission_FM3 (0xE17B90B4)",
+          -1
+        ],
+        "Free_Mission_FM4 (0xE17B9170)": [
+          "26.0.13",
+          3782971760,
+          "Free_Mission_FM4 (0xE17B9170)",
+          "Free_Mission_FM4 (0xE17B9170)",
+          -1
+        ],
+        "Scholars_HelpingTrap_FM4": [
+          "26.0.14",
+          3782971761,
+          "Scholars_HelpingTrap_FM4",
+          "Scholars_HelpingTrap_FM4",
+          -1
+        ],
+        "Free_Mission_FM5": [
+          "26.0.15",
+          3789055520,
+          "Free_Mission_FM5",
+          "Free_Mission_FM5",
+          -1
+        ],
+        "Scholars_HelpingTrap_FM5": [
+          "26.0.16",
+          3789055521,
+          "Scholars_HelpingTrap_FM5",
+          "Scholars_HelpingTrap_FM5",
+          -1
+        ],
+        "Free_Mission_FM6": [
+          "26.0.17",
+          1327767258,
+          "Free_Mission_FM6",
+          "Free_Mission_FM6",
+          -1
+        ]
+      }
+    },
+    "MB03 - Side Quest": {
+      "(list completed)": [
+        "27",
+        2964819019,
+        "MB03 - Side Quest",
+        "MB03 - Side Quest (list completed)",
+        -1
+      ],
+      "M20 Acre Side Quest": {
+        "(list completed)": [
+          "27.0",
+          2964819020,
+          "M20 Acre Side Quest",
+          "M20 Acre Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_HP04": [
+          "27.0.0",
+          2003412668,
+          "ReachHighPoint_HP04",
+          "ReachHighPoint_HP04",
+          -1
+        ],
+        "ReachHighPoint_HP05": [
+          "27.0.1",
+          2003412722,
+          "ReachHighPoint_HP05",
+          "ReachHighPoint_HP05",
+          -1
+        ],
+        "ReachHighPoint_HP06": [
+          "27.0.2",
+          2003412744,
+          "ReachHighPoint_HP06",
+          "ReachHighPoint_HP06",
+          -1
+        ],
+        "ReachHighPoint_HP07": [
+          "27.0.3",
+          2003412772,
+          "ReachHighPoint_HP07",
+          "ReachHighPoint_HP07",
+          -1
+        ],
+        "ReachHighPoint_HP08": [
+          "27.0.4",
+          2003412800,
+          "ReachHighPoint_HP08",
+          "ReachHighPoint_HP08",
+          -1
+        ],
+        "ReachHighPoint_HP09": [
+          "27.0.5",
+          2003412828,
+          "ReachHighPoint_HP09",
+          "ReachHighPoint_HP09",
+          -1
+        ],
+        "ReachHighPoint_HP10 (0x7769A993)": [
+          "27.0.6",
+          2003413395,
+          "ReachHighPoint_HP10 (0x7769A993)",
+          "ReachHighPoint_HP10 (0x7769A993)",
+          -1
+        ],
+        "FreeMission_FM10 (0x341A213A)": [
+          "27.0.7",
+          874127674,
+          "FreeMission_FM10 (0x341A213A)",
+          "FreeMission_FM10 (0x341A213A)",
+          -1
+        ],
+        "FreeMission_FM12 (0x8CE6633E)": [
+          "27.0.9",
+          2363908926,
+          "FreeMission_FM12 (0x8CE6633E)",
+          "FreeMission_FM12 (0x8CE6633E)",
+          -1
+        ],
+        "FreeMission_FM11 (0x8CE6633C)": [
+          "27.0.10",
+          2363908924,
+          "FreeMission_FM11 (0x8CE6633C)",
+          "FreeMission_FM11 (0x8CE6633C)",
+          -1
+        ],
+        "ReachHighPoint_HP01": [
+          "27.0.11",
+          874127769,
+          "ReachHighPoint_HP01",
+          "ReachHighPoint_HP01",
+          -1
+        ],
+        "ReachHighPoint_HP02": [
+          "27.0.12",
+          874127770,
+          "ReachHighPoint_HP02",
+          "ReachHighPoint_HP02",
+          -1
+        ],
+        "ReachHighPoint_HP03": [
+          "27.0.13",
+          874127771,
+          "ReachHighPoint_HP03",
+          "ReachHighPoint_HP03",
+          -1
+        ],
+        "EnableEnticer_FM3_Scholars": [
+          "27.0.15",
+          3825390733,
+          "EnableEnticer_FM3_Scholars",
+          "EnableEnticer_FM3_Scholars",
+          -1
+        ],
+        "ReachHighPoint_HP11 (0x7769A9AF)": [
+          "27.0.16",
+          2003413423,
+          "ReachHighPoint_HP11 (0x7769A9AF)",
+          "ReachHighPoint_HP11 (0x7769A9AF)",
+          -1
+        ],
+        "FreeMission_FM9 (0x3097A6B4)": [
+          "27.0.18",
+          815244980,
+          "FreeMission_FM9 (0x3097A6B4)",
+          "FreeMission_FM9 (0x3097A6B4)",
+          -1
+        ],
+        "Outskirts Setup Acre": {
+          "(list completed)": [
+            "27.0.20",
+            2553721648,
+            "Outskirts Setup Acre",
+            "Outskirts Setup Acre (list completed)",
+            -1
+          ],
+          "Scholars Helping Trap 1 (0xB66F5438)": [
+            "27.0.20.0",
+            3060749368,
+            "Scholars Helping Trap 1 (0xB66F5438)",
+            "Scholars Helping Trap 1 (0xB66F5438)",
+            -1
+          ],
+          "Free Mission 2": [
+            "27.0.20.1",
+            2588646576,
+            "Free Mission 2",
+            "Free Mission 2",
+            -1
+          ]
+        },
+        "EnableEnticer_FM2_Scholars": [
+          "27.0.21",
+          3825390495,
+          "EnableEnticer_FM2_Scholars",
+          "EnableEnticer_FM2_Scholars",
+          -1
+        ],
+        "FreeMission_FM1 (0x2F8E8E3E)": [
+          "27.0.22",
+          797871678,
+          "FreeMission_FM1 (0x2F8E8E3E)",
+          "FreeMission_FM1 (0x2F8E8E3E)",
+          -1
+        ],
+        "FreeMission_FM8 (0x3097A62D)": [
+          "27.0.23",
+          815244845,
+          "FreeMission_FM8 (0x3097A62D)",
+          "FreeMission_FM8 (0x3097A62D)",
+          -1
+        ],
+        "FreeMission_FM7 (0x3097A5BB)": [
+          "27.0.25",
+          815244731,
+          "FreeMission_FM7 (0x3097A5BB)",
+          "FreeMission_FM7 (0x3097A5BB)",
+          -1
+        ],
+        "FreeMission_FM6 (0x30907144)": [
+          "27.0.27",
+          814772548,
+          "FreeMission_FM6 (0x30907144)",
+          "FreeMission_FM6 (0x30907144)",
+          -1
+        ],
+        "FreeMission_FM5 (0x3067FDE8)": [
+          "27.0.29",
+          812121576,
+          "FreeMission_FM5 (0x3067FDE8)",
+          "FreeMission_FM5 (0x3067FDE8)",
+          -1
+        ],
+        "FreeMission_FM4 (0x3067FD63)": [
+          "27.0.32",
+          812121443,
+          "FreeMission_FM4 (0x3067FD63)",
+          "FreeMission_FM4 (0x3067FD63)",
+          -1
+        ],
+        "FreeMission_FM3 (0x3067FD62)": [
+          "27.0.33",
+          812121442,
+          "FreeMission_FM3 (0x3067FD62)",
+          "FreeMission_FM3 (0x3067FD62)",
+          -1
+        ],
+        "EnableEnticer_FM1_Scholars": [
+          "27.0.34",
+          3825390494,
+          "EnableEnticer_FM1_Scholars",
+          "EnableEnticer_FM1_Scholars",
+          -1
+        ]
+      },
+      "M26 Jerusalem Side Quest": {
+        "(list completed)": [
+          "27.1",
+          2964819021,
+          "M26 Jerusalem Side Quest",
+          "M26 Jerusalem Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_HP9 (0x78269174)": [
+          "27.1.0",
+          2015793524,
+          "ReachHighPoint_HP9 (0x78269174)",
+          "ReachHighPoint_HP9 (0x78269174)",
+          -1
+        ],
+        "FreeMission_FM10 (0x952BCC84)": [
+          "27.1.2",
+          2502675588,
+          "FreeMission_FM10 (0x952BCC84)",
+          "FreeMission_FM10 (0x952BCC84)",
+          -1
+        ],
+        "ReachHighPoint_HP8 (0x78269133)": [
+          "27.1.3",
+          2015793459,
+          "ReachHighPoint_HP8 (0x78269133)",
+          "ReachHighPoint_HP8 (0x78269133)",
+          -1
+        ],
+        "ReachHighPoint_HP7 (0x78268FD2)": [
+          "27.1.4",
+          2015793106,
+          "ReachHighPoint_HP7 (0x78268FD2)",
+          "ReachHighPoint_HP7 (0x78268FD2)",
+          -1
+        ],
+        "ReachHighPoint_HP6 (0x78268A22)": [
+          "27.1.5",
+          2015791650,
+          "ReachHighPoint_HP6 (0x78268A22)",
+          "ReachHighPoint_HP6 (0x78268A22)",
+          -1
+        ],
+        "ReachHighPoint_HP5 (0x7826880B)": [
+          "27.1.6",
+          2015791115,
+          "ReachHighPoint_HP5 (0x7826880B)",
+          "ReachHighPoint_HP5 (0x7826880B)",
+          -1
+        ],
+        "ReachHighPoint_HP4 (0x7405CF77)": [
+          "27.1.7",
+          1946537847,
+          "ReachHighPoint_HP4 (0x7405CF77)",
+          "ReachHighPoint_HP4 (0x7405CF77)",
+          -1
+        ],
+        "ReachHighPoint_HP3 (0x390360C4)": [
+          "27.1.9",
+          956522692,
+          "ReachHighPoint_HP3 (0x390360C4)",
+          "ReachHighPoint_HP3 (0x390360C4)",
+          -1
+        ],
+        "ReachHighPoint_HP2 (0x390360C3)": [
+          "27.1.10",
+          956522691,
+          "ReachHighPoint_HP2 (0x390360C3)",
+          "ReachHighPoint_HP2 (0x390360C3)",
+          -1
+        ],
+        "ReachHighPoint_HP1 (0x3379F88A)": [
+          "27.1.11",
+          863631498,
+          "ReachHighPoint_HP1 (0x3379F88A)",
+          "ReachHighPoint_HP1 (0x3379F88A)",
+          -1
+        ],
+        "FreeMission_FM9 (0x2B5CD98A)": [
+          "27.1.16",
+          727505290,
+          "FreeMission_FM9 (0x2B5CD98A)",
+          "FreeMission_FM9 (0x2B5CD98A)",
+          -1
+        ],
+        "FreeMission_FM8 (0x2B5CD989)": [
+          "27.1.17",
+          727505289,
+          "FreeMission_FM8 (0x2B5CD989)",
+          "FreeMission_FM8 (0x2B5CD989)",
+          -1
+        ],
+        "FreeMission_FM7 (0x2B5CD988)": [
+          "27.1.18",
+          727505288,
+          "FreeMission_FM7 (0x2B5CD988)",
+          "FreeMission_FM7 (0x2B5CD988)",
+          -1
+        ],
+        "FreeMission_FM6 (0x2B5CD987)": [
+          "27.1.19",
+          727505287,
+          "FreeMission_FM6 (0x2B5CD987)",
+          "FreeMission_FM6 (0x2B5CD987)",
+          -1
+        ],
+        "Outskirts Setup Jerusalem": {
+          "(list completed)": [
+            "27.1.20",
+            2725135542,
+            "Outskirts Setup Jerusalem",
+            "Outskirts Setup Jerusalem (list completed)",
+            -1
+          ],
+          "Free Mission 1": [
+            "27.1.20.0",
+            2553721653,
+            "Free Mission 1",
+            "Free Mission 1",
+            -1
+          ],
+          "Scholars Helping Trap 1 (0xD41A6C07)": [
+            "27.1.20.1",
+            3558501383,
+            "Scholars Helping Trap 1 (0xD41A6C07)",
+            "Scholars Helping Trap 1 (0xD41A6C07)",
+            -1
+          ]
+        },
+        "FreeMission_FM5 (0x2AD2060F)": [
+          "27.1.24",
+          718407183,
+          "FreeMission_FM5 (0x2AD2060F)",
+          "FreeMission_FM5 (0x2AD2060F)",
+          -1
+        ],
+        "FreeMission_FM4 (0x2AD2060E)": [
+          "27.1.25",
+          718407182,
+          "FreeMission_FM4 (0x2AD2060E)",
+          "FreeMission_FM4 (0x2AD2060E)",
+          -1
+        ],
+        "FreeMission_FM3 (0x2AD2060D)": [
+          "27.1.26",
+          718407181,
+          "FreeMission_FM3 (0x2AD2060D)",
+          "FreeMission_FM3 (0x2AD2060D)",
+          -1
+        ],
+        "FreeMission_FM2 (0x2AD2060C)": [
+          "27.1.27",
+          718407180,
+          "FreeMission_FM2 (0x2AD2060C)",
+          "FreeMission_FM2 (0x2AD2060C)",
+          -1
+        ],
+        "FreeMission_FM1 (0x272E6AF0)": [
+          "27.1.28",
+          657353456,
+          "FreeMission_FM1 (0x272E6AF0)",
+          "FreeMission_FM1 (0x272E6AF0)",
+          -1
+        ],
+        "FreeMission_FM11 (0x952BCC95)": [
+          "27.1.29",
+          2502675605,
+          "FreeMission_FM11 (0x952BCC95)",
+          "FreeMission_FM11 (0x952BCC95)",
+          -1
+        ]
+      },
+      "Damascus": {
+        "(list completed)": [
+          "27.2",
+          1767729675,
+          "Damascus",
+          "Damascus (list completed)",
+          -1
+        ],
+        "Scholars Helping Trap 1 (0x695D6A0C)": [
+          "27.2.0",
+          1767729676,
+          "Scholars Helping Trap 1 (0x695D6A0C)",
+          "Scholars Helping Trap 1 (0x695D6A0C)",
+          -1
+        ]
+      }
+    },
+    "MB05 - Side Quest": {
+      "(list completed)": [
+        "29",
+        2964819154,
+        "MB05 - Side Quest",
+        "MB05 - Side Quest (list completed)",
+        -1
+      ],
+      "M52 Acre Side Quest": {
+        "(list completed)": [
+          "29.0",
+          2964819156,
+          "M52 Acre Side Quest",
+          "M52 Acre Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_HP9 (0x7510C684)": [
+          "29.0.0",
+          1964033668,
+          "ReachHighPoint_HP9 (0x7510C684)",
+          "ReachHighPoint_HP9 (0x7510C684)",
+          -1
+        ],
+        "ReachHighPoint_HP8 (0x7510C370)": [
+          "29.0.1",
+          1964032880,
+          "ReachHighPoint_HP8 (0x7510C370)",
+          "ReachHighPoint_HP8 (0x7510C370)",
+          -1
+        ],
+        "ReachHighPoint_HP7 (0x7510C222)": [
+          "29.0.2",
+          1964032546,
+          "ReachHighPoint_HP7 (0x7510C222)",
+          "ReachHighPoint_HP7 (0x7510C222)",
+          -1
+        ],
+        "ReachHighPoint_HP6 (0x7510C0D5)": [
+          "29.0.3",
+          1964032213,
+          "ReachHighPoint_HP6 (0x7510C0D5)",
+          "ReachHighPoint_HP6 (0x7510C0D5)",
+          -1
+        ],
+        "ReachHighPoint_HP5 (0x74EFFFAF)": [
+          "29.0.4",
+          1961885615,
+          "ReachHighPoint_HP5 (0x74EFFFAF)",
+          "ReachHighPoint_HP5 (0x74EFFFAF)",
+          -1
+        ],
+        "ReachHighPoint_HP4 (0x74EFFF79)": [
+          "29.0.5",
+          1961885561,
+          "ReachHighPoint_HP4 (0x74EFFF79)",
+          "ReachHighPoint_HP4 (0x74EFFF79)",
+          -1
+        ],
+        "ReachHighPoint_HP1 (0x3497558B)": [
+          "29.0.6",
+          882333067,
+          "ReachHighPoint_HP1 (0x3497558B)",
+          "ReachHighPoint_HP1 (0x3497558B)",
+          -1
+        ],
+        "ReachHighPoint_HP2 (0x3497558C)": [
+          "29.0.7",
+          882333068,
+          "ReachHighPoint_HP2 (0x3497558C)",
+          "ReachHighPoint_HP2 (0x3497558C)",
+          -1
+        ],
+        "ReachHighPoint_HP3 (0x3497558D)": [
+          "29.0.8",
+          882333069,
+          "ReachHighPoint_HP3 (0x3497558D)",
+          "ReachHighPoint_HP3 (0x3497558D)",
+          -1
+        ],
+        "FreeMission_FM1_Port": [
+          "29.0.9",
+          882333075,
+          "FreeMission_FM1_Port",
+          "FreeMission_FM1_Port",
+          -1
+        ],
+        "FreeMission_FM2 (0x34975594)": [
+          "29.0.10",
+          882333076,
+          "FreeMission_FM2 (0x34975594)",
+          "FreeMission_FM2 (0x34975594)",
+          -1
+        ],
+        "FreeMission_FM3 (0x34975595)": [
+          "29.0.11",
+          882333077,
+          "FreeMission_FM3 (0x34975595)",
+          "FreeMission_FM3 (0x34975595)",
+          -1
+        ],
+        "FreeMission_FM4 (0x34975596)": [
+          "29.0.12",
+          882333078,
+          "FreeMission_FM4 (0x34975596)",
+          "FreeMission_FM4 (0x34975596)",
+          -1
+        ],
+        "FreeMission_FM5 (0x34975597)": [
+          "29.0.13",
+          882333079,
+          "FreeMission_FM5 (0x34975597)",
+          "FreeMission_FM5 (0x34975597)",
+          -1
+        ],
+        "FreeMission_FM6 (0x34975598)": [
+          "29.0.14",
+          882333080,
+          "FreeMission_FM6 (0x34975598)",
+          "FreeMission_FM6 (0x34975598)",
+          -1
+        ],
+        "FreeMission_FM7 (0x34975599)": [
+          "29.0.19",
+          882333081,
+          "FreeMission_FM7 (0x34975599)",
+          "FreeMission_FM7 (0x34975599)",
+          -1
+        ],
+        "Scholars_HelpingTrap_FM2 (0x0C561955)": [
+          "29.0.20",
+          206969173,
+          "Scholars_HelpingTrap_FM2 (0x0C561955)",
+          "Scholars_HelpingTrap_FM2 (0x0C561955)",
+          -1
+        ]
+      },
+      "M58 Damascus Side Quest": {
+        "(list completed)": [
+          "29.1",
+          2964819155,
+          "M58 Damascus Side Quest",
+          "M58 Damascus Side Quest (list completed)",
+          -1
+        ],
+        "ReachHighPoint_HP7 (0x7739F15C)": [
+          "29.1.0",
+          2000286044,
+          "ReachHighPoint_HP7 (0x7739F15C)",
+          "ReachHighPoint_HP7 (0x7739F15C)",
+          -1
+        ],
+        "ReachHighPoint_HP6 (0x7739F108)": [
+          "29.1.1",
+          2000285960,
+          "ReachHighPoint_HP6 (0x7739F108)",
+          "ReachHighPoint_HP6 (0x7739F108)",
+          -1
+        ],
+        "ReachHighPoint_HP5 (0x7739F026)": [
+          "29.1.2",
+          2000285734,
+          "ReachHighPoint_HP5 (0x7739F026)",
+          "ReachHighPoint_HP5 (0x7739F026)",
+          -1
+        ],
+        "ReachHighPoint_HP4 (0x7739EF80)": [
+          "29.1.3",
+          2000285568,
+          "ReachHighPoint_HP4 (0x7739EF80)",
+          "ReachHighPoint_HP4 (0x7739EF80)",
+          -1
+        ],
+        "ReachHighPoint_HP3 (0x3A478954)": [
+          "29.1.4",
+          977766740,
+          "ReachHighPoint_HP3 (0x3A478954)",
+          "ReachHighPoint_HP3 (0x3A478954)",
+          -1
+        ],
+        "ReachHighPoint_HP2 (0x3A478953)": [
+          "29.1.5",
+          977766739,
+          "ReachHighPoint_HP2 (0x3A478953)",
+          "ReachHighPoint_HP2 (0x3A478953)",
+          -1
+        ],
+        "ReachHighPoint_HP1 (0x3A478952)": [
+          "29.1.6",
+          977766738,
+          "ReachHighPoint_HP1 (0x3A478952)",
+          "ReachHighPoint_HP1 (0x3A478952)",
+          -1
+        ],
+        "FreeMission_FM8 (0xE2ED23A6)": [
+          "29.1.8",
+          3807191974,
+          "FreeMission_FM8 (0xE2ED23A6)",
+          "FreeMission_FM8 (0xE2ED23A6)",
+          -1
+        ],
+        "FreeMission_FM1 (0xE45CF800)": [
+          "29.1.9",
+          3831298048,
+          "FreeMission_FM1 (0xE45CF800)",
+          "FreeMission_FM1 (0xE45CF800)",
+          -1
+        ],
+        "FreeMission_FM2 (0xE45CF9C8)": [
+          "29.1.11",
+          3831298504,
+          "FreeMission_FM2 (0xE45CF9C8)",
+          "FreeMission_FM2 (0xE45CF9C8)",
+          -1
+        ],
+        "FreeMission_FM3 (0xE4A43C53)": [
+          "29.1.13",
+          3835968595,
+          "FreeMission_FM3 (0xE4A43C53)",
+          "FreeMission_FM3 (0xE4A43C53)",
+          -1
+        ],
+        "FreeMission_FM4 (0xE4A43CF2)": [
+          "29.1.15",
+          3835968754,
+          "FreeMission_FM4 (0xE4A43CF2)",
+          "FreeMission_FM4 (0xE4A43CF2)",
+          -1
+        ],
+        "FreeMission_FM5 (0xE4A43DC6)": [
+          "29.1.17",
+          3835968966,
+          "FreeMission_FM5 (0xE4A43DC6)",
+          "FreeMission_FM5 (0xE4A43DC6)",
+          -1
+        ],
+        "FreeMission_FM7 (0xE4A43E9D)": [
+          "29.1.19",
+          3835969181,
+          "FreeMission_FM7 (0xE4A43E9D)",
+          "FreeMission_FM7 (0xE4A43E9D)",
+          -1
+        ],
+        "FreeMission_FM6 (0xE4A43F76)": [
+          "29.1.21",
+          3835969398,
+          "FreeMission_FM6 (0xE4A43F76)",
+          "FreeMission_FM6 (0xE4A43F76)",
+          -1
+        ]
+      }
+    },
+    "Present": {
+      "(list completed)": [
+        "33",
+        3506289656,
+        "Present",
+        "Present (list completed)",
+        -1
+      ],
+      "Clue5_Conference_Door_Code": [
+        "33.0",
+        1934704658,
+        "Clue5_Conference_Door_Code",
+        "Clue5_Conference_Door_Code",
+        -1
+      ],
+      "Clue2_Bedroom_Door_Code": [
+        "33.1",
+        3506289662,
+        "Clue2_Bedroom_Door_Code",
+        "Clue2_Bedroom_Door_Code",
+        -1
+      ],
+      "Clue3_Pickpocket_Vidic": [
+        "33.2",
+        3869520215,
+        "Clue3_Pickpocket_Vidic",
+        "Clue3_Pickpocket_Vidic",
+        -1
+      ],
+      "Clue1_Eavesdropping": [
+        "33.3",
+        157498761,
+        "Clue1_Eavesdropping",
+        "Clue1_Eavesdropping",
+        -1
+      ],
+      "M99_S25_Lucy_Computer": [
+        "33.4",
+        4021657352,
+        "M99_S25_Lucy_Computer",
+        "M99_S25_Lucy_Computer",
+        -1
+      ],
+      "M99_S26_Vidic_Computer": [
+        "33.5",
+        4021657383,
+        "M99_S26_Vidic_Computer",
+        "M99_S26_Vidic_Computer",
+        -1
+      ],
+      "M99_S27_Conference_Computer": [
+        "33.6",
+        4021658457,
+        "M99_S27_Conference_Computer",
+        "M99_S27_Conference_Computer",
+        -1
+      ],
+      "Clue4_Pickpocket_Lucy": [
+        "33.7",
+        1770135655,
+        "Clue4_Pickpocket_Lucy",
+        "Clue4_Pickpocket_Lucy",
+        -1
+      ],
+      "M99_S33_Post_Pickpocket_Lucy": [
+        "33.8",
+        2920561702,
+        "M99_S33_Post_Pickpocket_Lucy",
+        "M99_S33_Post_Pickpocket_Lucy",
+        -1
+      ]
+    }
+  }
+}
